@@ -175,6 +175,8 @@
         .profile .draw .ph { color: #c3bcb1; font-family: var(--sans); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .profile .lab { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-top: 16px; }
         .profile .dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 4px; line-height: 1.7; }
+        .dev { margin-top: 6px; }
+        .dev img { width: 100%; height: auto; border-radius: 3px; }
         table.dims { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin-top: 36px; }
         table.dims th, table.dims td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); }
         table.dims th { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
@@ -477,7 +479,7 @@
             num: '01', name: 'Pyramid', anchor: 'pyramid', pages: '12–17', status: 'real',
             desc: 'Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma geométrica. El patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista y contemporánea. Su forma distintiva realza la profundidad visual de la fachada y ofrece una declaración sofisticada y moderna que complementa diseños arquitectónicos innovadores.',
             config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg',  /* p07_1 = la pieza */
+            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg', desarrollo: 'img/desarrollo_pyramid.png',
             types: [
                 { lab: 'Pyramid 33',  ancho: '894 mm', altura: '33 mm',  img: 'img/p09_2.jpeg' },
                 { lab: 'Pyramid 45',  ancho: '952 mm', altura: '15 mm',  img: 'img/p09_3.jpeg' },
@@ -491,7 +493,7 @@
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p10_1.jpeg',  /* pieza, no edificio */
+            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p10_1.jpeg', desarrollo: 'img/desarrollo_symmetric.png',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -504,7 +506,7 @@
         {
             num: '03', name: 'Asymmetric', anchor: 'asymmetric', pages: '24–29', status: 'partial',
             desc: '', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT, heroRender: 'img/p13_1.jpeg',
+            materials: MAT, heroRender: 'img/p13_1.jpeg', desarrollo: 'img/desarrollo_asymmetric.png',
             types: [
                 { lab: 'Asymmetric 35', ancho: '— mm', altura: '35 mm' },
                 { lab: 'Asymmetric 55', ancho: '— mm', altura: '55 mm' },
@@ -578,17 +580,26 @@
         if (!f.materials || !f.materials.length) return '';
         return `<div class="chips">${f.materials.map(m => `<span class="chip">${esc(m)}</span>`).join('')}</div>`;
     }
-    function profilesBlock(f) {
+    function developmentsBlock(f) {
+        if (f.desarrollo) {
+            return `<div class="subhead"><h3>Desarrollos</h3><span class="ln"></span></div>
+                <div class="dev"><img src="${esc(f.desarrollo)}" alt="Desarrollos de ${esc(f.name)} con medidas" loading="lazy"></div>`;
+        }
+        if (f.types && f.types.length && f.types.some(t => t.img)) {
+            const cards = f.types.map(t => `
+                <div class="profile">
+                    <div class="draw"><img src="${esc(t.img)}" alt="${esc(t.lab)}"></div>
+                    <div class="lab">${esc(t.lab)}</div>
+                    <div class="dim">${esc(t.ancho || '')}${t.altura ? ' · ' + esc(t.altura) : ''}${t.angulo ? ' · ' + esc(t.angulo) : ''}</div>
+                </div>`).join('');
+            return `<div class="subhead"><h3>Perfiles</h3><span class="ln"></span></div><div class="profiles">${cards}</div>`;
+        }
+        return '';
+    }
+    function dimsBlock(f) {
         if (!f.types || !f.types.length) return '';
-        const cards = f.types.map(t => `
-            <div class="profile">
-                <div class="draw">${t.img ? `<img src="${esc(t.img)}" alt="${esc(t.lab)}">` : '<span class="ph">Perfil pendiente</span>'}</div>
-                <div class="lab">${esc(t.lab)}</div>
-                <div class="dim">${esc(t.ancho || '')}${t.altura ? ' · ' + esc(t.altura) : ''}${t.angulo ? ' · ' + esc(t.angulo) : ''}</div>
-            </div>`).join('');
         const rows = f.types.map(t => `<tr><td>${esc(t.lab)}</td><td>${esc(t.ancho || '—')}</td><td>${esc(t.altura || '—')}</td><td>${esc(t.angulo || '—')}</td></tr>`).join('');
-        return `<div class="subhead"><h3>Perfiles</h3><span class="ln"></span></div>
-            <div class="profiles">${cards}</div>
+        return `<div class="subhead"><h3>Dimensiones</h3><span class="ln"></span></div>
             <table class="dims"><tr><th>Tipo</th><th>Ancho útil</th><th>Altura</th><th>Ángulo</th></tr>${rows}</table>`;
     }
     function viewerBlock(f) {
@@ -644,9 +655,10 @@
                     </div>
                     ${render}
                 </div>
+                ${developmentsBlock(f)}
                 ${ph ? '' : configBlock(f)}
                 ${ph ? '' : chipsBlock(f)}
-                ${profilesBlock(f)}
+                ${ph ? '' : dimsBlock(f)}
                 ${viewerBlock(f)}
                 ${rendersBlock(f)}
             </div>
