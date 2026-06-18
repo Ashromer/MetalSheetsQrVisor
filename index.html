@@ -239,12 +239,7 @@
 
     <div class="brand-header">
         <img src="Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
-        <select class="family-select" id="familySelect">
-            <option value="Pyramid">Pyramid</option>
-            <option value="Symmetric">Symmetric</option>
-            <option value="Asimmetric">Asimmetric</option>
-            <option value="Eskaler">Eskaler</option>
-        </select>
+        <select class="family-select" id="familySelect"></select>
     </div>
 
     <div class="viewer-container">
@@ -296,11 +291,19 @@
 
         const CATALOG_PAGE = 'catalogo.html';
 
+        // Cada familia: label (lo que se ve), prefix (nombre exacto del .glb),
+        // types (sufijos de archivo), anchor (sección del catálogo).
         const catalog = {
-            Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'], anchor: 'pyramid'    },
-            Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80'],  anchor: 'symmetric'  },
-            Asimmetric: { prefix: 'Asimmetric_', types: ['15', '30', '45', '60'],  anchor: 'asymmetric' },
-            Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75'],  anchor: 'escaler'    }
+            Pyramid:   { label: 'Pyramid',    prefix: 'Pyramid_',  types: ['39', '45', '68', '110'],                    anchor: 'pyramid'    },
+            Symetric:  { label: 'Symmetric',  prefix: 'Symetric_', types: ['23', '25', '29', '40'],                     anchor: 'symmetric'  },
+            Asymetric: { label: 'Asymmetric', prefix: 'Asymetric_',types: ['35', '55', '60', '80'],                     anchor: 'asymmetric' },
+            Escaler:   { label: 'Escaler',    prefix: 'Escaler_',  types: ['22', '48', '55', '70'],                     anchor: 'escaler'    },
+            Kaotiko:   { label: 'Kaotico',    prefix: 'Kaotiko_',  types: ['24', '28', '50', '73'],                     anchor: 'kaotico'    },
+            Origami:   { label: 'Origami',    prefix: 'Origami_',  types: ['11', '25', '45', '50'],                     anchor: 'origami'    },
+            AcerOnda:  { label: 'AcerOnda',   prefix: 'AcerOnda_', types: ['18', '27', '42'],                           anchor: 'onda'       },
+            Kubo:      { label: 'Kubo',       prefix: 'Kubo_',     types: ['171717', '242424', '364141', '505050'],     anchor: 'kubo'       },
+            Nordik:    { label: 'Nordik',     prefix: 'Nordik_',   types: ['24 A', '24 B', '24 C'],                     anchor: 'nordik'     },
+            Ritmiko:   { label: 'Ritmiko',    prefix: 'Ritmiko_',  types: ['24 A', '24 B', '24 C'],                     anchor: 'indice'     }
         };
 
         const colors = [
@@ -321,7 +324,18 @@
             overlay.classList.add('visible');
         }
         function hideStatus() { overlay.classList.remove('visible', 'error'); }
-        function setSource(src) { showStatus('Cargando modelo…', false); visor.src = src; }
+        function setSource(src) { showStatus('Cargando modelo…', false); visor.src = encodeURI(src); }
+
+        function populateFamilies() {
+            familySelect.innerHTML = '';
+            Object.keys(catalog).forEach(key => {
+                const opt = document.createElement('option');
+                opt.value = key;
+                opt.textContent = catalog[key].label;
+                familySelect.appendChild(opt);
+            });
+            familySelect.value = currentFamily;
+        }
 
         function updateCatalogLink() {
             catalogLink.href = `${CATALOG_PAGE}#${catalog[currentFamily].anchor}`;
@@ -392,6 +406,7 @@
         });
 
         // Init
+        populateFamilies();
         renderButtons();
         renderColors();
         updateCatalogLink();
