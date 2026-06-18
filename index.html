@@ -88,7 +88,7 @@
             --poster-color: transparent;
         }
 
-        /* Mensaje de estado (carga / error) superpuesto */
+        /* Mensaje de estado (carga / error) */
         .status-overlay {
             position: absolute;
             inset: 0;
@@ -215,12 +215,17 @@
             src="Pyramid_39.glb"
             alt="Perfil metálico Metalperfil"
             camera-controls
+            disable-pan
             touch-action="pan-y"
             auto-rotate
+            interaction-prompt="none"
+            min-camera-orbit="-60deg 30deg auto"
+            max-camera-orbit="60deg 110deg auto"
+            min-field-of-view="10deg"
+            max-field-of-view="45deg"
             shadow-intensity="1"
             environment-image="neutral"
             exposure="1.2"
-            bounds="tight"
             loading="eager"
             reveal="auto">
         </model-viewer>
@@ -240,13 +245,13 @@
     </div>
 
     <script>
-        const visor = document.getElementById('visorMetal');
+        const visor        = document.getElementById('visorMetal');
         const btnContainer = document.getElementById('btnContainer');
         const familySelect = document.getElementById('familySelect');
-        const overlay = document.getElementById('statusOverlay');
-        const statusLabel = document.getElementById('statusLabel');
+        const overlay      = document.getElementById('statusOverlay');
+        const statusLabel  = document.getElementById('statusLabel');
 
-        // Mapeo de archivos .glb (respeta mayúsculas exactas del repo)
+        // Un .glb por tipo. Respeta mayúsculas exactas del repo.
         const catalog = {
             Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'] },
             Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80']  },
@@ -264,7 +269,6 @@
         function hideStatus() {
             overlay.classList.remove('visible', 'error');
         }
-
         function setSource(src) {
             showStatus('Cargando modelo…', false);
             visor.src = src;
@@ -301,14 +305,27 @@
 
         familySelect.addEventListener('change', (e) => changeFamily(e.target.value));
 
-        // Eventos del visor: feedback real de carga / error
+        // Encuadre correcto al cargar cada modelo (pieza fina y vertical)
         visor.addEventListener('load', () => {
             hideStatus();
-            console.log('GLB cargado OK:', visor.src);
+
+            const center = visor.getBoundingBoxCenter();
+            const dims   = visor.getDimensions();
+            const max    = Math.max(dims.x, dims.y, dims.z) || 1;
+
+            visor.cameraTarget = `${center.x}m ${center.y}m ${center.z}m`;
+            // azimut 35° = ver la cara ancha (no el canto); phi 75° = casi de frente
+            visor.cameraOrbit  = `35deg 75deg ${max * 1.4}m`;
+            visor.fieldOfView  = 'auto';
+
+            if (typeof visor.jumpCameraToGoal === 'function') {
+                visor.jumpCameraToGoal();
+            }
+            console.log('GLB OK | dims:', dims, '| centro:', center);
         });
+
         visor.addEventListener('error', (e) => {
-            const detail = e.detail || {};
-            console.error('Error model-viewer:', detail, visor.src);
+            console.error('Error model-viewer:', e.detail, visor.src);
             showStatus('No se pudo cargar este modelo', true);
         });
 
