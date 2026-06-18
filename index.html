@@ -31,7 +31,6 @@
             min-height: 100dvh;
             display: flex;
             flex-direction: column;
-            /* SIN overflow:hidden -> permite scroll en móvil */
         }
 
         /* --- BANDA 1: SUPERIOR --- */
@@ -80,7 +79,7 @@
         /* --- BANDA 2: CENTRAL (Visor) --- */
         .viewer-container {
             width: 100%;
-            height: 70vh;;
+            height: 55vh;
             background-color: #ffffff;
             display: flex;
             justify-content: center;
@@ -175,11 +174,43 @@
             border-color: var(--brand-red-granate);
         }
 
+        /* --- Muestras de color --- */
+        .color-selector {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .color-swatch {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+            position: relative;
+        }
+        .color-swatch:hover { transform: scale(1.1); }
+        .color-swatch.active {
+            border-color: var(--text-white);
+            transform: scale(1.12);
+        }
+        .color-swatch.active::after {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 1px solid var(--brand-red-granate);
+        }
+
         .cta-button {
             display: block;
             width: 100%;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 4px auto 0 auto;
             padding: 14px;
             border: 1px solid #222222;
             background: #181818;
@@ -201,7 +232,7 @@
         @media (min-width: 768px) {
             .brand-header { padding: 0 40px; }
             .bottom-panel { padding: 32px 40px; }
-            .viewer-container { min-height: 60vh; }
+            .viewer-container { height: 65vh; }
         }
     </style>
 </head>
@@ -246,6 +277,10 @@
     <div class="bottom-panel">
         <div class="selector-label">Perfil / Espesor (mm)</div>
         <div class="type-selector" id="btnContainer"></div>
+
+        <div class="selector-label">Acabado / Color</div>
+        <div class="color-selector" id="colorContainer"></div>
+
         <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank" rel="noopener">
             Acceder a la Página Web
         </a>
@@ -254,11 +289,11 @@
     <script>
         const visor        = document.getElementById('visorMetal');
         const btnContainer = document.getElementById('btnContainer');
+        const colorContainer = document.getElementById('colorContainer');
         const familySelect = document.getElementById('familySelect');
         const overlay      = document.getElementById('statusOverlay');
         const statusLabel  = document.getElementById('statusLabel');
 
-        // Un .glb por tipo. Respeta mayúsculas exactas del repo.
         const catalog = {
             Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'] },
             Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80']  },
@@ -266,40 +301,42 @@
             Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75']  }
         };
 
+        // Paleta RAL / corporativa. name = etiqueta, hex = color visible, rgba = [r,g,b,a] en 0–1
+        const colors = [
+            { name: 'Granate corporativo', hex: '#B61F26' },
+            { name: 'Gris antracita',      hex: '#383E42' },
+            { name: 'Blanco puro',         hex: '#F2F2EE' },
+            { name: 'Negro grafito',       hex: '#1A1A1A' },
+            { name: 'Azul acero',          hex: '#2A5C8A' },
+            { name: 'Verde musgo',         hex: '#4A5D3A' }
+        ];
+
         let currentFamily = 'Pyramid';
+        let currentColor  = colors[0].hex;   // color seleccionado actual
 
         function showStatus(text, isError) {
             statusLabel.textContent = text;
             overlay.classList.toggle('error', !!isError);
             overlay.classList.add('visible');
         }
-        function hideStatus() {
-            overlay.classList.remove('visible', 'error');
-        }
-        function setSource(src) {
-            showStatus('Cargando modelo…', false);
-            visor.src = src;
-        }
+        function hideStatus() { overlay.classList.remove('visible', 'error'); }
+        function setSource(src) { showStatus('Cargando modelo…', false); visor.src = src; }
 
+        // --- Botones de tipo ---
         function renderButtons() {
             btnContainer.innerHTML = '';
             catalog[currentFamily].types.forEach((type, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'type-btn' + (index === 0 ? ' active' : '');
                 btn.textContent = type;
-                btn.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
                 btn.addEventListener('click', () => loadModel(type, btn));
                 btnContainer.appendChild(btn);
             });
         }
 
         function loadModel(type, btnElement) {
-            document.querySelectorAll('.type-btn').forEach(b => {
-                b.classList.remove('active');
-                b.setAttribute('aria-pressed', 'false');
-            });
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
-            btnElement.setAttribute('aria-pressed', 'true');
             setSource(`${catalog[currentFamily].prefix}${type}.glb`);
         }
 
@@ -309,12 +346,49 @@
             const firstType = catalog[currentFamily].types[0];
             setSource(`${catalog[currentFamily].prefix}${firstType}.glb`);
         }
-
         familySelect.addEventListener('change', (e) => changeFamily(e.target.value));
 
-        // Solo ocultamos el spinner. El ángulo lo fija camera-orbit en el HTML.
+        // --- Muestras de color ---
+        function hexToRgba(hex) {
+            const h = hex.replace('#', '');
+            const r = parseInt(h.substring(0, 2), 16) / 255;
+            const g = parseInt(h.substring(2, 4), 16) / 255;
+            const b = parseInt(h.substring(4, 6), 16) / 255;
+            return [r, g, b, 1];
+        }
+
+        function applyColor(hex) {
+            currentColor = hex;
+            if (!visor.model) return;
+            // Pinta TODOS los materiales del modelo con el color elegido
+            visor.model.materials.forEach(mat => {
+                if (mat.pbrMetallicRoughness) {
+                    mat.pbrMetallicRoughness.setBaseColorFactor(hexToRgba(hex));
+                }
+            });
+        }
+
+        function renderColors() {
+            colorContainer.innerHTML = '';
+            colors.forEach((c, index) => {
+                const sw = document.createElement('button');
+                sw.className = 'color-swatch' + (index === 0 ? ' active' : '');
+                sw.style.backgroundColor = c.hex;
+                sw.title = c.name;
+                sw.setAttribute('aria-label', c.name);
+                sw.addEventListener('click', () => {
+                    document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('active'));
+                    sw.classList.add('active');
+                    applyColor(c.hex);
+                });
+                colorContainer.appendChild(sw);
+            });
+        }
+
+        // --- Eventos del visor ---
         visor.addEventListener('load', () => {
             hideStatus();
+            applyColor(currentColor);   // re-aplica el color al cambiar de modelo
             console.log('GLB OK:', visor.src);
         });
 
@@ -325,6 +399,7 @@
 
         // Init
         renderButtons();
+        renderColors();
         showStatus('Cargando modelo…', false);
     </script>
 </body>
