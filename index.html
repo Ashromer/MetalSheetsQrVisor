@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --brand-red-granate: rgb(140, 20, 26); /* Rojo modificado a un tono más granate */
+            --brand-red-granate: rgb(182, 31, 38); /* Tu color granate corporativo exacto */
             --text-black: #1a1a1a;
             --text-white: #ffffff;
             --panel-black: #111111;
@@ -35,7 +35,7 @@
             overflow: hidden;
         }
 
-        /* --- BANDA 1: SUPERIOR (Fondo Blanco, Letras en Rojo Granate) --- */
+        /* --- BANDA 1: SUPERIOR (Fondo Blanco) --- */
         .brand-header {
             width: 100%;
             height: 80px;
@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff; /* Fondo superior blanco */
+            background-color: #ffffff;
             border-bottom: 1px solid #ededed;
             z-index: 10;
         }
@@ -53,7 +53,7 @@
             font-size: 26px;
             letter-spacing: -0.5px;
             font-weight: 700;
-            color: var(--brand-red-granate); /* Metalperfil en rojo granate */
+            color: var(--brand-red-granate); /* Nombre en granate */
         }
 
         .brand-name::after {
@@ -69,22 +69,22 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             padding: 8px 32px 8px 12px;
-            border: 1px solid var(--brand-red-granate); /* Borde granate */
+            border: 1px solid var(--brand-red-granate);
             background-color: transparent;
-            color: var(--brand-red-granate); /* Texto granate */
+            color: var(--brand-red-granate);
             cursor: pointer;
             outline: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%238C141A'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23B61F26'/></svg>");
             background-repeat: no-repeat;
             background-position: right 12px center;
         }
 
-        /* --- BANDA 2: CENTRAL (Visor de lado a lado, fondo blanco) --- */
+        /* --- BANDA 2: CENTRAL (Visor Blanco de lado a lado) --- */
         .viewer-container {
             flex: 1;
             width: 100%;
-            background-color: #ffffff; /* Visor fondo blanco sin márgenes */
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,7 +99,7 @@
         /* --- BANDA 3: INFERIOR (Fondo Negro) --- */
         .bottom-panel {
             width: 100%;
-            background-color: var(--panel-black); /* Fondo negro absoluto */
+            background-color: var(--panel-black);
             padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
             display: flex;
@@ -141,7 +141,7 @@
             border-left: none;
         }
 
-        /* Seleccionado en Rojo Granate corporativo */
+        /* Botón de tipo activo: Fondo rojo granate corporativo */
         .type-btn.active {
             background: var(--brand-red-granate); 
             color: var(--text-white);
@@ -170,6 +170,7 @@
         .cta-button:hover {
             background: var(--brand-red-granate);
             border-color: var(--brand-red-granate);
+            color: var(--text-white);
         }
 
         @media (min-width: 768px) {
@@ -180,7 +181,6 @@
 </head>
 <body>
 
-    <!-- Banda Superior -->
     <div class="brand-header">
         <div class="brand-name">metalperfil</div>
         
@@ -192,7 +192,6 @@
         </select>
     </div>
 
-    <!-- Banda Central: Visor 3D de lado a lado -->
     <div class="viewer-container">
         <model-viewer 
             id="visorMetal" 
@@ -206,7 +205,6 @@
         </model-viewer>
     </div>
 
-    <!-- Banda Inferior -->
     <div class="bottom-panel">
         <div class="selector-label">Perfil / Espesor (mm)</div>
         <div class="type-selector" id="btnContainer"></div>
@@ -220,7 +218,7 @@
         const visor = document.getElementById('visorMetal');
         const btnContainer = document.getElementById('btnContainer');
 
-        // Base de datos de productos con nombres que coinciden con las MAYÚSCULAS en GitHub
+        // Mapeo exacto de tus archivos .glb en GitHub (respetando mayúsculas)
         const catalog = {
             Pyramid: {
                 prefix: 'Pyramid_',
@@ -257,9 +255,10 @@
 
         function loadModel(type, btnElement) {
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-            btnElement.add('active');
+            btnElement.classList.add('active');
 
             const familyData = catalog[currentFamily];
+            // Asegura la extensión exacta .glb en minúsculas
             visor.src = `${familyData.prefix}${type}.glb`; 
         }
 
@@ -271,6 +270,7 @@
             visor.src = `${catalog[currentFamily].prefix}${firstType}.glb`;
         }
 
+        // Inicializar el visor
         renderButtons();
     </script>
 </body>
