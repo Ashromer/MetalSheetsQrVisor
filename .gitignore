@@ -1,5 +1,6 @@
 # Temporales de revisión (contact sheets, renders de inspección)
 img/_review/
 
-# Fuente pesada que no se usa en la web (26 MB) — se mantiene local, no en git
+# Fuente pesada que no se usa en la web — se mantiene local, no en git
 source/MIGUEL-1.pdf
+source/paginas/    # 46 PNGs de paginas del catalogo (~68 MB), referencia local

@@ -89,17 +89,32 @@
         .warn { font-family: var(--sans); font-size: 12px; color: #8a6d00; background: #fff8e1;
             border: 1px solid #efe1a6; padding: 9px 13px; border-radius: 3px; margin-top: 18px; }
 
-        /* ---- índice: banda de perfiles + nombres ---- */
-        .perfil-band { margin: clamp(30px, 5vw, 56px) 0 clamp(28px, 4vw, 48px); }
-        .perfil-band img { width: 100%; height: auto; display: block; }
-        .chapas { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2px 0; }
-        .chapa { display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-            text-align: center; padding: 16px 6px; border-top: 1px solid var(--line);
-            transition: color .18s, transform .18s; }
-        .chapa:hover { color: var(--red); transform: translateY(-3px); }
-        .chapa .cn { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--red); }
-        .chapa .cnm { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 30px); font-weight: 600;
-            color: inherit; margin-top: 4px; line-height: 1; }
+        /* ---- índice: línea de tiempo de perfiles (vista / oculta) ---- */
+        .tl-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--grey); margin: clamp(34px, 5vw, 60px) 0 6px; }
+        .timeline { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
+        .tl-fam { display: grid; grid-template-rows: 1fr 30px 1fr; text-decoration: none;
+            color: var(--grey); transition: color .18s ease; }
+        .tl-fam .entry { text-align: center; padding: 6px 4px; }
+        .tl-fam .num { display: block; font-family: var(--serif); font-size: clamp(24px, 3vw, 46px); font-weight: 600; line-height: .95; color: inherit; }
+        .tl-fam .nm { display: block; font-family: var(--serif); font-size: clamp(13px, 1.35vw, 19px); font-weight: 500; color: inherit; margin-top: 2px; }
+        .tl-fam .pg { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; color: var(--grey); margin-top: 2px; }
+        .tl-fam.up .entry  { grid-row: 1; align-self: end; }
+        .tl-fam.up .seg    { grid-row: 2; }
+        .tl-fam.down .entry{ grid-row: 3; align-self: start; }
+        .tl-fam.down .seg  { grid-row: 2; }
+        .tl-fam .seg { width: 100%; height: 30px; display: block; }
+        .tl-fam .seg path { fill: none; stroke: #c3bdb2; stroke-width: 1.4; transition: stroke .18s ease; }
+        .tl-fam:hover { color: var(--red); }
+        .tl-fam:hover .pg { color: var(--red); }
+        .tl-fam:hover .seg path { stroke: var(--red); stroke-width: 1.8; }
+        @media (max-width: 760px) {
+            .timeline { display: block; }
+            .tl-fam { display: block; border-top: 1px solid var(--line); padding: 12px 2px; }
+            .tl-fam .entry { display: flex; align-items: baseline; gap: 14px; text-align: left; padding: 0; }
+            .tl-fam .num { font-size: 26px; min-width: 48px; }
+            .tl-fam .seg { display: none; }
+        }
 
         /* ---- trajes a medida: salteado imagen/texto ---- */
         .alt-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px);
@@ -248,8 +263,10 @@
         <div class="wrap">
             <span class="eyebrow">Índice</span>
             <h2 class="section-title">Las familias</h2>
-            <div class="perfil-band"><img src="img/indice_perfiles.png" alt="Perfiles de la colección Metalperfil"></div>
-            <div class="chapas" id="chapas"></div>
+            <div class="tl-label">01 · Sistemas de fijación vista</div>
+            <div class="timeline" id="tlVista"></div>
+            <div class="tl-label" style="margin-top:clamp(48px,7vw,90px)">02 · Sistemas de fijación oculta</div>
+            <div class="timeline" id="tlOculta"></div>
         </div>
     </section>
 
@@ -465,12 +482,41 @@
     const norm = t => (typeof t === 'string') ? { label: t, file: t } : t;
     const hexRgba = hex => { const h = hex.replace('#',''); return [parseInt(h.substr(0,2),16)/255, parseInt(h.substr(2,2),16)/255, parseInt(h.substr(4,2),16)/255, 1]; };
 
-    /* ---- índice: nombres clicables (la banda de perfiles va arriba) ---- */
-    document.getElementById('chapas').innerHTML = FAMILIES.map(f => `
-        <a class="chapa" href="#${f.anchor}">
-            <span class="cn">${f.num}</span>
-            <span class="cnm">${esc(f.name)}</span>
-        </a>`).join('');
+    /* ---- índice: dos líneas de tiempo (fijación vista / oculta) ---- */
+    const VISTA = [
+        { num: 'A',  name: 'Origen',          anchor: 'origen',    pages: '8–9'   },
+        { num: 'B',  name: 'Trajes a medida', anchor: 'trajes',    pages: '10–11' },
+        { num: '01', name: 'Pyramid',         anchor: 'pyramid',   pages: '12–17' },
+        { num: '02', name: 'Symmetric',       anchor: 'symmetric', pages: '18–23' },
+        { num: '03', name: 'Asymmetric',      anchor: 'asymmetric',pages: '24–29' },
+        { num: '04', name: 'Escaler',         anchor: 'escaler',   pages: '30–35' },
+        { num: '05', name: 'Kaotico',         anchor: 'kaotico',   pages: '36–39' },
+        { num: '06', name: 'Origami',         anchor: 'origami',   pages: '40–47' }
+    ];
+    const OCULTA = [
+        { num: '07', name: 'Onda',         anchor: 'onda',         pages: '48–53' },
+        { num: '08', name: 'Kubo',         anchor: 'kubo',         pages: '54–59' },
+        { num: '09', name: 'Nordik',       anchor: 'nordik',       pages: '60–65' },
+        { num: '10', name: 'Alterno',      anchor: 'alterno',      pages: '66–71' },
+        { num: '11', name: 'Skala',        anchor: 'skala',        pages: '72–77' },
+        { num: 'D',  name: 'Materialidad', anchor: 'materialidad', pages: '84–85' },
+        { num: '·',  name: 'BIM',          anchor: 'bim',          pages: '86–87' }
+    ];
+    const SEG_ZIG  = 'M0,15 L10,4 L20,26 L30,4 L40,26 L50,4 L60,26 L70,4 L80,26 L90,4 L100,15';
+    const SEG_WAVE = 'M0,15 Q8,3 16,15 T32,15 T48,15 T64,15 T80,15 T96,15 L100,15';
+    function buildTimeline(elId, items, seg) {
+        document.getElementById(elId).innerHTML = items.map((it, i) => `
+            <a class="tl-fam ${i % 2 ? 'down' : 'up'}" href="#${it.anchor}">
+                <div class="entry">
+                    <span class="num">${esc(it.num)}${it.num === '·' ? '' : '.'}</span>
+                    <span class="nm">${esc(it.name)}</span>
+                    <span class="pg">${esc(it.pages)}</span>
+                </div>
+                <svg class="seg" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="${seg}" vector-effect="non-scaling-stroke"/></svg>
+            </a>`).join('');
+    }
+    buildTimeline('tlVista', VISTA, SEG_ZIG);
+    buildTimeline('tlOculta', OCULTA, SEG_WAVE);
 
     /* ---- familia ---- */
     function configBlock(f) {

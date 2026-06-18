@@ -10,7 +10,10 @@ empresa de revestimientos metálicos. Tiene dos partes:
    contenido se edita en el array `FAMILIES` del `<script>` al final del archivo. Cada
    sección es `.screen` (mín. alto del monitor). Portada roja = `img/p01_1.jpeg` a pantalla
    completa con titular abajo-izquierda. Títulos de sección grandes en Garamond
-   (`.section-title`). Índice = "chapas" con el dibujo de línea del perfil (`thumb`) + nombre.
+   (`.section-title`). Índice = dos líneas de tiempo (fijación vista / oculta, arrays
+   `VISTA`/`OCULTA`) calcadas al catálogo: línea de perfil SVG (`SEG_ZIG`/`SEG_WAVE`) con
+   entradas alternando arriba/abajo (número Garamond + nombre + páginas), clicables, gris→rojo
+   al hover (`buildTimeline()`). Referencia: las 46 páginas en `source/paginas/` (fuera de git, ~68 MB).
    Por familia: cabecera "NN. Nombre" en rojo + descripción justificada + render a la derecha;
    sección "Perfiles" (`types[].img`); **Visor 3D con selector de tipo + paleta RAL**
    (`model:{prefix,types}`, array `RAL`, función `initViewers()`); y renders editoriales
