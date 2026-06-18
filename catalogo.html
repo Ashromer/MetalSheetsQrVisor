@@ -89,6 +89,16 @@
         .warn { font-family: var(--sans); font-size: 12px; color: #8a6d00; background: #fff8e1;
             border: 1px solid #efe1a6; padding: 9px 13px; border-radius: 3px; margin-top: 18px; }
 
+        /* ---- gama / sistemas (pág. 2 del catálogo) ---- */
+        .sysrow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); margin-top: clamp(34px, 5vw, 60px); }
+        .sys .syn { font-family: var(--serif); font-size: clamp(44px, 6vw, 88px); color: var(--line); font-weight: 400; line-height: .8; }
+        .sys h3 { font-family: var(--serif); font-size: clamp(24px, 3.4vw, 38px); font-weight: 500; margin: 8px 0 12px; }
+        .gama-prod { margin-top: clamp(44px, 6vw, 80px); border-top: 1px solid var(--line); padding-top: clamp(28px, 4vw, 44px); }
+        .gama-prod .lbl { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--grey); }
+        .gama-prod .widths { font-family: var(--serif); font-size: clamp(20px, 2.6vw, 30px); color: var(--ink); margin: 8px 0 22px; }
+        @media (max-width: 860px) { .sysrow { grid-template-columns: 1fr; } }
+
         /* ---- índice: línea de tiempo de perfiles (vista / oculta) ---- */
         .tl-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
             text-transform: uppercase; color: var(--grey); margin: clamp(34px, 5vw, 60px) 0 6px; }
@@ -99,6 +109,14 @@
         .tl-fam .num { display: block; font-family: var(--serif); font-size: clamp(24px, 3vw, 46px); font-weight: 600; line-height: .95; color: inherit; }
         .tl-fam .nm { display: block; font-family: var(--serif); font-size: clamp(13px, 1.35vw, 19px); font-weight: 500; color: inherit; margin-top: 2px; }
         .tl-fam .pg { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; color: var(--grey); margin-top: 2px; }
+        .tl-fam .mini { width: clamp(78px, 9vw, 128px); aspect-ratio: 4/3; margin: 0 auto 10px;
+            overflow: hidden; border-radius: 2px; background: #eee; }
+        .tl-fam .mini img { width: 100%; height: 100%; object-fit: cover;
+            filter: grayscale(1) contrast(1.03); transition: filter .25s ease; }
+        .tl-fam:hover .mini img { filter: none; }
+        .tl-fam .mini .miniph { width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, #ecebe7, #ecebe7 8px, #e3ded6 8px, #e3ded6 16px); }
+        .tl-fam.gen .seg path { stroke-dasharray: 4 4; }
         .tl-fam.up .entry  { grid-row: 1; align-self: end; }
         .tl-fam.up .seg    { grid-row: 2; }
         .tl-fam.down .entry{ grid-row: 3; align-self: start; }
@@ -241,6 +259,44 @@
             <span class="eyebrow">Catálogo 2026</span>
             <h1>Revestimientos<br>metálicos de alta gama</h1>
             <p class="lead">Precisión técnica y libertad creativa para la fachada contemporánea.</p>
+        </div>
+    </section>
+
+    <!-- GAMA / SISTEMAS (pág. 2) -->
+    <section class="screen" id="gama">
+        <div class="wrap">
+            <span class="eyebrow">La gama</span>
+            <h2 class="section-title">Sistemas y productos</h2>
+            <p class="lead-serif" style="margin-top:24px;max-width:30ch">Soluciones abiertas y personalizadas para arquitectura contemporánea de alta exigencia.</p>
+            <div class="sysrow">
+                <div class="sys">
+                    <div class="syn">01</div>
+                    <h3>Sistemas de fijación vista</h3>
+                    <p class="body-serif">El elemento de anclaje forma parte del lenguaje de la fachada: marca un ritmo visible y honesto, con montaje accesible y registrable.</p>
+                </div>
+                <div class="sys">
+                    <div class="syn">02</div>
+                    <h3>Sistemas de fijación oculta</h3>
+                    <p class="body-serif">La superficie se lee continua y limpia, sin anclajes a la vista, para una piel tersa y monolítica de gran nivel de acabado.</p>
+                </div>
+            </div>
+            <div class="gama-prod">
+                <span class="note">Contenido en revisión</span>
+                <div class="lbl">Gama completa de productos de Metalperfil</div>
+                <div class="widths">Anchos 1100–600 · 250–800 · 100–500 mm</div>
+                <div class="chips">
+                    <span class="chip">Rollforming</span>
+                    <span class="chip">Custom</span>
+                    <span class="chip">Screenpanel</span>
+                    <span class="chip">Lamas</span>
+                    <span class="chip">Panel Sándwich</span>
+                    <span class="chip">Panel Perforado</span>
+                    <span class="chip">Panel Deployé</span>
+                    <span class="chip">Panel 3D</span>
+                    <span class="chip">Casette</span>
+                    <span class="chip">Louver</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -482,41 +538,35 @@
     const norm = t => (typeof t === 'string') ? { label: t, file: t } : t;
     const hexRgba = hex => { const h = hex.replace('#',''); return [parseInt(h.substr(0,2),16)/255, parseInt(h.substr(2,2),16)/255, parseInt(h.substr(4,2),16)/255, 1]; };
 
-    /* ---- índice: dos líneas de tiempo (fijación vista / oculta) ---- */
-    const VISTA = [
-        { num: 'A',  name: 'Origen',          anchor: 'origen',    pages: '8–9'   },
-        { num: 'B',  name: 'Trajes a medida', anchor: 'trajes',    pages: '10–11' },
-        { num: '01', name: 'Pyramid',         anchor: 'pyramid',   pages: '12–17' },
-        { num: '02', name: 'Symmetric',       anchor: 'symmetric', pages: '18–23' },
-        { num: '03', name: 'Asymmetric',      anchor: 'asymmetric',pages: '24–29' },
-        { num: '04', name: 'Escaler',         anchor: 'escaler',   pages: '30–35' },
-        { num: '05', name: 'Kaotico',         anchor: 'kaotico',   pages: '36–39' },
-        { num: '06', name: 'Origami',         anchor: 'origami',   pages: '40–47' }
-    ];
-    const OCULTA = [
-        { num: '07', name: 'Onda',         anchor: 'onda',         pages: '48–53' },
-        { num: '08', name: 'Kubo',         anchor: 'kubo',         pages: '54–59' },
-        { num: '09', name: 'Nordik',       anchor: 'nordik',       pages: '60–65' },
-        { num: '10', name: 'Alterno',      anchor: 'alterno',      pages: '66–71' },
-        { num: '11', name: 'Skala',        anchor: 'skala',        pages: '72–77' },
-        { num: 'D',  name: 'Materialidad', anchor: 'materialidad', pages: '84–85' },
-        { num: '·',  name: 'BIM',          anchor: 'bim',          pages: '86–87' }
-    ];
-    const SEG_ZIG  = 'M0,15 L10,4 L20,26 L30,4 L40,26 L50,4 L60,26 L70,4 L80,26 L90,4 L100,15';
-    const SEG_WAVE = 'M0,15 Q8,3 16,15 T32,15 T48,15 T64,15 T80,15 T96,15 L100,15';
-    function buildTimeline(elId, items, seg) {
-        document.getElementById(elId).innerHTML = items.map((it, i) => `
-            <a class="tl-fam ${i % 2 ? 'down' : 'up'}" href="#${it.anchor}">
+    /* ---- índice: dos líneas de tiempo (fijación vista / oculta) ----
+       Cada entrada: mini-render (B/N → color al hover) + número + nombre +
+       tramo de perfil con la forma real de la familia (SVG). Las placeholder
+       usan el perfil genérico (SEG_GEN, marcado con .gen). */
+    const PROFILES = {
+        pyramid:    'M2,26 L14,5 L26,26 L38,5 L50,26 L62,5 L74,26 L86,5 L98,26',
+        symmetric:  'M2,26 L10,6 L24,6 L32,26 L44,26 L52,6 L66,6 L74,26 L86,26 L94,6 L99,6',
+        asymmetric: 'M2,26 L8,6 L26,6 L31,26 L41,26 L47,6 L65,6 L70,26 L80,26 L86,6 L99,13'
+    };
+    const SEG_GEN = 'M2,17 Q14,10 26,17 T50,17 T74,17 T98,17';
+    function buildTimeline(elId, fams) {
+        document.getElementById(elId).innerHTML = fams.map((f, i) => {
+            const generic = !PROFILES[f.anchor];
+            const mini = f.heroRender
+                ? `<img src="${esc(f.heroRender)}" alt="${esc(f.name)}" loading="lazy">`
+                : '<div class="miniph"></div>';
+            return `
+            <a class="tl-fam ${i % 2 ? 'down' : 'up'}${generic ? ' gen' : ''}" href="#${f.anchor}">
                 <div class="entry">
-                    <span class="num">${esc(it.num)}${it.num === '·' ? '' : '.'}</span>
-                    <span class="nm">${esc(it.name)}</span>
-                    <span class="pg">${esc(it.pages)}</span>
+                    <div class="mini">${mini}</div>
+                    <span class="num">${esc(f.num)}.</span>
+                    <span class="nm">${esc(f.name)}</span>
                 </div>
-                <svg class="seg" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="${seg}" vector-effect="non-scaling-stroke"/></svg>
-            </a>`).join('');
+                <svg class="seg" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="${generic ? SEG_GEN : PROFILES[f.anchor]}" vector-effect="non-scaling-stroke"/></svg>
+            </a>`;
+        }).join('');
     }
-    buildTimeline('tlVista', VISTA, SEG_ZIG);
-    buildTimeline('tlOculta', OCULTA, SEG_WAVE);
+    buildTimeline('tlVista', FAMILIES.slice(0, 6));
+    buildTimeline('tlOculta', FAMILIES.slice(6));
 
     /* ---- familia ---- */
     function configBlock(f) {
