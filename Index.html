@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Chapas Metálicas</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <style>
+        body { margin: 0; font-family: sans-serif; }
+        model-viewer { width: 100vw; height: 80vh; background-color: #f5f5f5; }
+        .ui-container { position: absolute; bottom: 20px; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        button { padding: 12px 24px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-iterar { background-color: #007bff; color: white; }
+        .btn-web { background-color: #28a745; color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <model-viewer id="visorChapa" src="familia_chapas.glb" camera-controls touch-action="none" shadow-intensity="1">
+        
+        <div class="ui-container">
+            <button class="btn-iterar" onclick="iterarTipo()">Siguiente Tipo (<span id="tipoActual">A</span>)</button>
+            <a class="btn-web" href="https://tuweb.com/catalogo-planchas" target="_blank">Ver en la Web Comercial</a>
+        </div>
+
+    </model-viewer>
+
+    <script>
+        const visor = document.getElementById('visorChapa');
+        const txtTipo = document.getElementById('tipoActual');
+        
+        // El orden de la iteración
+        const tipos = ['A', 'B', 'C', 'D'];
+        let indiceActual = 0;
+
+        // Esperamos a que el modelo 3D esté completamente cargado para inicializarlo
+        visor.addEventListener('load', () => {
+            actualizarVisualizacion();
+        });
+
+        function iterarTipo() {
+            // Avanza en el array y vuelve a 0 al pasar del último (A->B->C->D->A)
+            indiceActual = (indiceActual + 1) % tipos.length;
+            txtTipo.innerText = tipos[indiceActual];
+            actualizarVisualizacion();
+        }
+
+        function actualizarVisualizacion() {
+            // Accedemos de forma nativa a la escena 3D del visor
+            const escena = visor.model.scene;
+            
+            // Recorremos los tipos y activamos solo el que coincide con el índice actual
+            tipos.forEach((tipo, index) => {
+                const objeto3D = escena.find(obj => obj.name === `tipo_${tipo}`);
+                if (objeto3D) {
+                    objeto3D.visible = (index === indiceActual);
+                }
+            });
+            
+            // Forzamos al visor a renderizar los cambios de visibilidad
+            visor.queueRender();
+        }
+    </script>
+</body>
+</html>
