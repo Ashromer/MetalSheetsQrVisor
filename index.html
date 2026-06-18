@@ -51,7 +51,7 @@
 
         /* Logo en lugar del texto */
         .brand-logo {
-            height: clamp(42px, 9vw, 56px);
+            height: clamp(40px, 10vw, 54px);
             width: auto;
             display: block;
         }
@@ -238,7 +238,7 @@
 <body>
 
     <div class="brand-header">
-        <img src="Metalperfil_white.png" alt="Metalperfil" class="brand-logo">
+        <img src="Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
         <select class="family-select" id="familySelect">
             <option value="Pyramid">Pyramid</option>
             <option value="Symmetric">Symmetric</option>
@@ -294,13 +294,13 @@
         const statusLabel    = document.getElementById('statusLabel');
         const catalogLink    = document.getElementById('catalogLink');
 
-        const PDF = 'Catalogo_Metalperfil.pdf';
+        const CATALOG_PAGE = 'catalogo.html';
 
         const catalog = {
-            Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'], page: 7  },
-            Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80'],  page: 12 },
-            Asimmetric: { prefix: 'Asimmetric_', types: ['15', '30', '45', '60'],  page: 17 },
-            Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75'],  page: 22 }
+            Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'], anchor: 'pyramid'    },
+            Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80'],  anchor: 'symmetric'  },
+            Asimmetric: { prefix: 'Asimmetric_', types: ['15', '30', '45', '60'],  anchor: 'asymmetric' },
+            Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75'],  anchor: 'escaler'    }
         };
 
         const colors = [
@@ -324,7 +324,7 @@
         function setSource(src) { showStatus('Cargando modelo…', false); visor.src = src; }
 
         function updateCatalogLink() {
-            catalogLink.href = `${PDF}#page=${catalog[currentFamily].page}`;
+            catalogLink.href = `${CATALOG_PAGE}#${catalog[currentFamily].anchor}`;
         }
 
         function renderButtons() {

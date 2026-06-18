@@ -7,7 +7,8 @@ empresa de revestimientos metálicos. Tiene dos partes:
 1. **`index.html`** — Visor 3D interactivo. Muestra perfiles metálicos en 3D con
    `<model-viewer>`, permite elegir familia, espesor y color, y enlaza al catálogo.
 2. **`catalogo.html`** — Catálogo web con todas las familias de producto (descripción,
-   dimensiones, materiales, galería de imágenes).
+   dimensiones, materiales, galería de imágenes). **Data-driven**: el contenido se edita
+   en el array `FAMILIES` del `<script>` al final del archivo.
 
 URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
 
@@ -15,61 +16,93 @@ URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
 - HTML/CSS/JS plano, sin framework ni build. Todo en archivos sueltos.
 - `<model-viewer>` vía CDN jsDelivr (`@google/model-viewer`).
 - Tipografías Google Fonts: Playfair Display (serif) + Inter (sans).
-- Color corporativo granate: `rgb(182, 31, 38)` / `#B61F26`.
+- Color corporativo granate: **`rgb(150, 24, 30)`** (oscurecido a petición del cliente;
+  antes era `#B61F26`). Definido como `--brand-red-granate` en ambos HTML.
 
 ## Archivos en el repo
 - `index.html` — visor 3D (funcional, no romper la lógica de cámara/carga).
-- `catalogo.html` — catálogo (recién creado, contenido a completar).
-- `Metalperfil_white.png` — logo blanco (se usa sobre fondo granate).
-- `Catalogo_Metalperfil.pdf` — catálogo original en PDF (fuente de contenido e imágenes).
+- `catalogo.html` — catálogo (esqueleto montado; familias por rellenar salvo Pyramid).
+- `Metalperfil_white.png` — logo original (3508x2479, con MUCHO margen transparente).
+- `Metalperfil_white_trim.png` — logo recortado a su contenido (825x439). **Es el que
+  usan los HTML.** El original se veía minúsculo porque la marca ocupaba ~23% del lienzo.
+- `Catalogo_Metalperfil.pdf` — catálogo original en PDF (fuente de imágenes; ver abajo).
+- `img/` — renders extraídos del PDF (`pNN_i.jpeg/png`) + `_manifest.json` + `_texto.txt`.
 - `Pyramid_39.glb`, `Pyramid_45.glb`, `Pyramid_68.glb`, `Pyramid_110.glb` — modelos 3D.
+- `tools/extract_pdf.py` — re-extrae imágenes y texto del PDF (reproducible).
+- `tools/trim_logo.py` — regenera el logo recortado.
 - `familia_chapas.glb` — archivo antiguo, NO se usa. Se puede borrar.
 - `test.html` — archivo de prueba. Se puede borrar.
 
 ## ⚠️ No tocar sin cuidado (en index.html)
 El visor costó hacerlo funcionar. Claves que NO hay que cambiar:
 - El CDN debe ser jsDelivr (`@google/model-viewer`), no el de googleapis.
-- El evento `load` del model-viewer SOLO debe ocultar el spinner. NO añadir
+- El evento `load` del model-viewer SOLO debe ocultar el spinner (+ aplicar color). NO añadir
   manipulación de cámara (`cameraOrbit`, `jumpCameraToGoal`, `getBoundingBoxCenter`)
-  dentro del `load`: eso provoca un cuelgue ("rAF timed out") y el modelo no se ve.
-- El ángulo de cámara se fija con el atributo `camera-orbit="35deg 75deg auto"` en el
-  HTML, no por JS.
-- `.viewer-container` necesita una `height` fija (vh), no `flex`. Si se pone flex sin
-  altura, el visor queda a 0px de alto y no se ve nada aunque cargue bien.
-- `disable-pan` debe quedarse: sin él, al arrastrar se pierde el modelo de cuadro.
+  dentro del `load`: provoca un cuelgue ("rAF timed out") y el modelo no se ve.
+- El ángulo de cámara se fija con el atributo `camera-orbit="35deg 75deg auto"` en el HTML.
+- `.viewer-container` necesita una `height` fija (vh), no `flex`.
+- `disable-pan` debe quedarse.
 
-## Estado del contenido del catálogo (catalogo.html)
-El PDF original está a medio maquetar, así que el catálogo arrastra esos problemas:
+## ⚠️ El PDF es en su mayoría una MAQUETA provisional
+El `Catalogo_Metalperfil.pdf` (46 hojas = pliegos de 2 págs) está a medio maquetar:
+- **Solo Pyramid tiene contenido REAL** (descripción propia + dimensiones P33/P45/P68/P110).
+- **El resto de familias** (Symmetric, Asymmetric, Escaler, Kaotico, Origami, Onda, Kubo,
+  Nordik, Alterno, Skala) y las secciones Origen / Trajes a medida / Materialidad / BIM
+  llevan **lorem ipsum** (de hecho todas repiten la misma descripción de "Symmetric" y las
+  mismas dimensiones dummy `S15 978mm`). NO son datos reales.
+- Contacto (pág 46) también de ejemplo: "C/ Poner una calle 1, Albacete, +34 900 000 000".
+- **Lo bueno**: los renders SÍ son reales y de alta resolución (36 imágenes únicas ≥400px,
+  varias 2000–3500px). Extraídos a `img/`.
 
-- **Pyramid** es la ÚNICA familia con datos reales y correctos (descripción propia +
-  dimensiones P33/P45/P68/P110). No tocar salvo para mejorar.
-- **Todas las demás familias** (Symmetric, Asymmetric, Onda, Origami, Escaler, Nordik,
-  Kubo, Alterno, Skala, Kaotico) llevan **texto de relleno / lorem ipsum** o descripciones
-  copiadas de Symmetric. Están marcadas con un aviso rojo `placeholder-note` que dice
-  "TEXTO PROVISIONAL".
-- Las dimensiones que ponen "— rellenar —" no son datos reales, hay que sustituirlas.
-- Las dimensiones de Symmetric 20/23 fueron inferidas, conviene verificarlas.
+→ Los textos y dimensiones reales de las 10 familias que faltan **deben venir de los
+documentos sueltos del cliente**, no del PDF.
 
-## Tareas pendientes (lo que falta por hacer)
-1. **Imágenes**: extraer los renders del PDF (`Catalogo_Metalperfil.pdf`), guardarlos como
-   `.jpg`/`.png` en el repo (sugerencia: carpeta `img/`), y sustituir cada
-   `<div class="img-slot">FAMILIA · IMG N</div>` por `<img src="img/...">`.
-2. **Textos reales**: reemplazar todos los bloques marcados "TEXTO PROVISIONAL" con las
-   descripciones definitivas de cada familia.
-3. **Dimensiones reales**: rellenar las tablas que tienen "— rellenar —".
-4. **Datos de contacto**: el pie pone dirección y teléfono de ejemplo
-   ("C/ Poner una calle 1", "+34 900 000 000"). Sustituir por los reales.
-5. **Modelos 3D faltantes**: por ahora solo existen los `.glb` de Pyramid. Cuando haya
-   `.glb` de las otras familias, subirlos con el nombre exacto que espera el `catalog`
-   de `index.html` (respetando mayúsculas: `Symmetric_20.glb`, etc.).
-6. (Opcional) Conectar el botón del visor al `catalogo.html` por ancla
-   (`catalogo.html#pyramid`) en vez de al PDF, que es más fiable en móvil.
+### Dimensiones reales de Pyramid (lo único real del PDF)
+| Tipo | Ancho útil | Altura |
+|---|---|---|
+| Pyramid 33 (P33) | 894 mm | 33 mm |
+| Pyramid 45 (P45) | 952 mm | 15 mm  ⚠ |
+| Pyramid 68 (P68) | 893 mm | 68 mm  ⚠ (el PDF también pone 793) |
+| Pyramid 110 (P110) | 780 mm | 110 mm |
+Materiales: acero / galvanizado / prelacado / inoxidable, todos 0,6–1,00 mm.
+⚠ La fuente se contradice en altura de P45 y ancho de P68 → verificar con el cliente.
+(Nota: el visor usa los nombres de archivo `Pyramid_39/45/68/110.glb`; "39" vs "33" es
+otra inconsistencia del material de origen.)
+
+## Cómo completar el catálogo (catalogo.html)
+Todo el contenido vive en el array `FAMILIES` y los nodos del `<script>` final:
+- Para rellenar una familia: poner `placeholder: false` y añadir `desc`, `materials`,
+  `dims: [{tipo, ancho, altura}]`, `images: ['img/...']` y opcional `glb: 'Archivo.glb'`.
+- Las familias con `placeholder: true` se renderizan con aviso rojo "TEXTO PROVISIONAL" y
+  huecos `img-slot`.
+- Las secciones Origen / Trajes a medida / Materialidad / BIM tienen su texto provisional
+  marcado con `<span class="placeholder-note">` directamente en el HTML.
+- Anclas (para enlazar desde el visor): `#pyramid`, `#symmetric`, `#asymmetric`,
+  `#escaler`, `#kaotico`, `#origami`, `#onda`, `#kubo`, `#nordik`, `#alterno`, `#skala`.
+
+## Inconsistencias de nomenclatura (cuidado al enlazar)
+- Catálogo usa **Asymmetric** y **Escaler**; el visor/los .glb usan **Asimmetric** y
+  **Eskaler**. El botón del visor ya mapea cada familia a su ancla correcta del catálogo
+  (`catalog[familia].anchor` en index.html → `catalogo.html#asymmetric`, etc.).
+
+## Tareas pendientes
+1. **Textos y dimensiones reales** de las 10 familias (de los documentos sueltos del
+   cliente) → rellenar `FAMILIES` en catalogo.html.
+2. **Textos reales** de Origen, Trajes a medida, Materialidad y BIM.
+3. **Datos de contacto** reales (footer de catalogo.html e index si procede).
+4. **Modelos 3D faltantes**: solo existen los `.glb` de Pyramid. Al añadir otras familias,
+   subir los `.glb` con el nombre que espera el `catalog` de index.html
+   (`Symmetric_20.glb`, etc.) y referenciarlos en `FAMILIES[].glb`.
+5. **Imágenes por familia**: ahora solo Pyramid tiene renders asignados; el resto usa
+   `img-slot`. Asignar imágenes de `img/` (ver `img/_manifest.json`) a cada familia.
+6. Verificar dimensiones de Pyramid (P45 altura, P68 ancho).
 7. Borrar `familia_chapas.glb` y `test.html` si ya no se necesitan.
 
 ## Convenciones de estilo
-- Mantener el granate corporativo `#B61F26` como color de marca.
-- Logo blanco siempre sobre fondo granate (nunca sobre blanco, no se vería).
-- Tono visual: minimalista, editorial, mucho blanco, serif para títulos.
-- El nombre de familia que la empresa usa con "y griega" es **Asymmetric** en el catálogo,
-  pero el archivo .glb y el código del visor usan **Asimmetric** (sin la y). Cuidado con
-  esa inconsistencia al enlazar: el ancla del catálogo es `#asymmetric`.
+- Granate corporativo `rgb(150, 24, 30)` como color de marca.
+- Logo blanco (`Metalperfil_white_trim.png`) siempre sobre fondo granate.
+- Tono visual: minimalista, editorial, mucho blanco, serif (Playfair) para títulos.
+
+## Reproducir la extracción
+Requiere Python 3 + `pip install PyMuPDF Pillow`. Desde la raíz del repo:
+`python tools/extract_pdf.py` (imágenes + texto) y `python tools/trim_logo.py` (logo).
