@@ -22,6 +22,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html, body { width: 100%; }
+        html { background-color: var(--panel-black); }
 
         body {
             background-color: #ffffff;
@@ -93,7 +94,6 @@
             --poster-color: transparent;
         }
 
-        /* Mensaje de estado (carga / error) */
         .status-overlay {
             position: absolute;
             inset: 0;
@@ -129,7 +129,7 @@
         /* --- BANDA 3: INFERIOR --- */
         .bottom-panel {
             width: 100%;
-            flex-shrink: 0;
+            flex: 1 0 auto;
             background-color: var(--panel-black);
             padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
@@ -174,7 +174,6 @@
             border-color: var(--brand-red-granate);
         }
 
-        /* --- Muestras de color --- */
         .color-selector {
             display: flex;
             justify-content: center;
@@ -281,27 +280,30 @@
         <div class="selector-label">Acabado / Color</div>
         <div class="color-selector" id="colorContainer"></div>
 
-        <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank" rel="noopener">
-            Acceder a la Página Web
+        <a href="#" class="cta-button" id="catalogLink" target="_blank" rel="noopener">
+            Acceder al Catálogo
         </a>
     </div>
 
     <script>
-        const visor        = document.getElementById('visorMetal');
-        const btnContainer = document.getElementById('btnContainer');
+        const visor          = document.getElementById('visorMetal');
+        const btnContainer   = document.getElementById('btnContainer');
         const colorContainer = document.getElementById('colorContainer');
-        const familySelect = document.getElementById('familySelect');
-        const overlay      = document.getElementById('statusOverlay');
-        const statusLabel  = document.getElementById('statusLabel');
+        const familySelect   = document.getElementById('familySelect');
+        const overlay        = document.getElementById('statusOverlay');
+        const statusLabel    = document.getElementById('statusLabel');
+        const catalogLink    = document.getElementById('catalogLink');
 
+        const PDF = 'Catalogo_Metalperfil.pdf';
+
+        // page = página del PDF a la que salta cada familia. CAMBIA estos números por los reales.
         const catalog = {
-            Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'] },
-            Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80']  },
-            Asimmetric: { prefix: 'Asimmetric_', types: ['15', '30', '45', '60']  },
-            Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75']  }
+            Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'], page: 7  },
+            Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80'],  page: 12 },
+            Asimmetric: { prefix: 'Asimmetric_', types: ['15', '30', '45', '60'],  page: 17 },
+            Eskaler:    { prefix: 'Eskaler_',    types: ['10', '25', '50', '75'],  page: 22 }
         };
 
-        // Paleta RAL / corporativa. name = etiqueta, hex = color visible, rgba = [r,g,b,a] en 0–1
         const colors = [
             { name: 'Granate corporativo', hex: '#B61F26' },
             { name: 'Gris antracita',      hex: '#383E42' },
@@ -312,7 +314,7 @@
         ];
 
         let currentFamily = 'Pyramid';
-        let currentColor  = colors[0].hex;   // color seleccionado actual
+        let currentColor  = colors[0].hex;
 
         function showStatus(text, isError) {
             statusLabel.textContent = text;
@@ -322,7 +324,10 @@
         function hideStatus() { overlay.classList.remove('visible', 'error'); }
         function setSource(src) { showStatus('Cargando modelo…', false); visor.src = src; }
 
-        // --- Botones de tipo ---
+        function updateCatalogLink() {
+            catalogLink.href = `${PDF}#page=${catalog[currentFamily].page}`;
+        }
+
         function renderButtons() {
             btnContainer.innerHTML = '';
             catalog[currentFamily].types.forEach((type, index) => {
@@ -343,31 +348,23 @@
         function changeFamily(family) {
             currentFamily = family;
             renderButtons();
+            updateCatalogLink();
             const firstType = catalog[currentFamily].types[0];
             setSource(`${catalog[currentFamily].prefix}${firstType}.glb`);
         }
         familySelect.addEventListener('change', (e) => changeFamily(e.target.value));
 
-        // --- Muestras de color ---
         function hexToRgba(hex) {
             const h = hex.replace('#', '');
-            const r = parseInt(h.substring(0, 2), 16) / 255;
-            const g = parseInt(h.substring(2, 4), 16) / 255;
-            const b = parseInt(h.substring(4, 6), 16) / 255;
-            return [r, g, b, 1];
+            return [parseInt(h.substring(0,2),16)/255, parseInt(h.substring(2,4),16)/255, parseInt(h.substring(4,6),16)/255, 1];
         }
-
         function applyColor(hex) {
             currentColor = hex;
             if (!visor.model) return;
-            // Pinta TODOS los materiales del modelo con el color elegido
             visor.model.materials.forEach(mat => {
-                if (mat.pbrMetallicRoughness) {
-                    mat.pbrMetallicRoughness.setBaseColorFactor(hexToRgba(hex));
-                }
+                if (mat.pbrMetallicRoughness) mat.pbrMetallicRoughness.setBaseColorFactor(hexToRgba(hex));
             });
         }
-
         function renderColors() {
             colorContainer.innerHTML = '';
             colors.forEach((c, index) => {
@@ -385,13 +382,11 @@
             });
         }
 
-        // --- Eventos del visor ---
         visor.addEventListener('load', () => {
             hideStatus();
-            applyColor(currentColor);   // re-aplica el color al cambiar de modelo
+            applyColor(currentColor);
             console.log('GLB OK:', visor.src);
         });
-
         visor.addEventListener('error', (e) => {
             console.error('Error model-viewer:', e.detail, visor.src);
             showStatus('No se pudo cargar este modelo', true);
@@ -400,6 +395,7 @@
         // Init
         renderButtons();
         renderColors();
+        updateCatalogLink();
         showStatus('Cargando modelo…', false);
     </script>
 </body>
