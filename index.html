@@ -11,12 +11,10 @@
     
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #787878;
-            --brand-red: #e30613; /* El rojo corporativo */
-            --soft-gray: #f8f8f8;
-            --border-color: #e5e5e5;
+            --brand-red: #e30613; /* El rojo corporativo de fondo */
+            --text-black: #1a1a1a;
+            --text-white: #ffffff;
+            --border-color: rgba(26, 26, 26, 0.15);
             --serif-font: 'Playfair Display', serif;
             --sans-font: 'Inter', sans-serif;
         }
@@ -27,128 +25,110 @@
             padding: 0; 
         }
 
-        /* Corregimos la estructura para evitar bloqueos y permitir adaptabilidad total */
         body {
-            background-color: var(--bg-color);
+            background-color: var(--brand-red); /* Fondo general en rojo */
             font-family: var(--sans-font);
-            color: var(--text-color);
+            color: var(--text-black);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* Evita scrolls extraños en la interfaz */
         }
 
-        /* Encabezado adaptativo */
+        /* Encabezado Superior */
         .brand-header {
             width: 100%;
-            padding: 20px;
+            padding: 24px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            background: var(--bg-color);
             z-index: 10;
+        }
+
+        .brand-logo-zone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .brand-name {
             font-family: var(--serif-font);
-            font-size: 26px;
+            font-size: 28px;
             letter-spacing: -0.5px;
             font-weight: 700;
             line-height: 1;
+            color: var(--text-black); /* Logo en negro */
         }
 
-        /* DETALLE EN ROJO: El punto o sutil indicador de marca */
+        /* El punto del logo en blanco para contrastar sobre el fondo rojo */
         .brand-name::after {
             content: ".";
-            color: var(--brand-red);
+            color: var(--text-white);
         }
 
-        /* Desplegable elegante para cambiar de familia (MetalSheets) */
-        .family-select {
+        .product-type-label {
             font-family: var(--sans-font);
             font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 8px 32px 8px 12px;
-            border: 1px solid var(--text-color);
-            background-color: transparent;
-            cursor: pointer;
-            outline: none;
-            appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%231a1a1a'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
+            letter-spacing: 2px;
+            color: var(--text-black); /* Tipo de plancha a la derecha en negro */
         }
 
-        .family-select:focus {
-            border-color: var(--brand-red);
-        }
-
-        /* Contenedor principal: En Desktop va en paralelo, en Móvil en columna */
-        .main-content {
+        /* Contenedor del Visor Central */
+        .viewer-container {
             flex: 1;
+            width: 100%;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             position: relative;
+            padding: 0 20px;
         }
 
-        /* El área del visor 3D se adapta al espacio disponible */
         model-viewer {
             width: 100%;
-            flex: 1;
-            min-height: 50vh; /* Asegura buen tamaño en móviles sin romper el layout */
-            background-color: var(--soft-gray);
+            height: 100%;
+            max-height: 55vh; /* Ajuste para dejar aire arriba y abajo en móviles */
+            /* Mantenemos un fondo de iluminación neutro y limpio para el objeto 3D */
+            --poster-color: transparent; 
+            background-color: transparent;
         }
 
-        .viewer-hint {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: var(--serif-font);
-            font-style: italic;
-            font-size: 13px;
-            color: var(--accent-color);
-            pointer-events: none;
-            z-index: 5;
-        }
-
-        /* Panel de control inferior/lateral */
-        .controls-panel {
-            background: var(--bg-color);
-            border-top: 1px solid var(--border-color);
-            padding: 24px 20px;
+        /* Panel de Control Inferior (Botonera + Web) */
+        .bottom-panel {
+            width: 100%;
+            padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .selector-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin-bottom: 12px;
+            color: var(--text-black);
             font-weight: 600;
+            text-align: center;
         }
 
-        .actions-row {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        /* Botones de variantes adaptados (33, 45, 68, 110) */
+        /* Botones de tipos de perfil */
         .type-selector {
             display: flex;
             width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         .type-btn {
             flex: 1;
-            height: 48px;
-            border: 1px solid var(--text-color);
-            background: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--sans-font); /* Cambiado a sans para códigos numéricos técnicos */
+            height: 50px;
+            border: 1px solid var(--text-black);
+            background: transparent;
+            color: var(--text-black);
+            font-family: var(--sans-font);
             font-size: 15px;
             font-weight: 600;
             text-align: center;
@@ -160,21 +140,22 @@
             border-left: none;
         }
 
-        /* DETALLE EN ROJO: El botón activo ahora destaca con el marco o fondo sutil de marca */
+        /* Estado activo: se vuelve negro con texto blanco */
         .type-btn.active {
-            background: var(--text-color);
-            color: var(--bg-color);
-            border-color: var(--text-color);
+            background: var(--text-black);
+            color: var(--text-white);
         }
 
-        /* Botón de redirección a la web */
+        /* Botón de acceso a la página web */
         .cta-button {
             display: block;
             width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
             padding: 16px;
-            border: 1px solid var(--text-color);
-            background: transparent;
-            color: var(--text-color);
+            border: 1px solid var(--text-black);
+            background: var(--text-black);
+            color: var(--text-white);
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -185,61 +166,43 @@
         }
 
         .cta-button:hover {
-            background: var(--brand-red); /* DETALLE EN ROJO: Feedback visual al pasar el ratón */
-            color: white;
-            border-color: var(--brand-red);
+            background: transparent;
+            color: var(--text-black);
         }
 
-        /* --- MEDIA QUERIES PARA ESCRITORIO (DESKTOP) --- */
+        /* Ajustes de optimización para pantallas Desktop grandes */
         @media (min-width: 768px) {
-            body {
-                overflow: hidden; /* En desktop fijamos para evitar scroll global */
+            .brand-header {
+                padding: 40px 60px;
             }
-            .main-content {
-                flex-direction: row; /* Ponemos el visor al lado de los controles */
+            .brand-name {
+                font-size: 32px;
+            }
+            .bottom-panel {
+                padding: 40px 60px;
+                gap: 20px;
             }
             model-viewer {
-                min-height: auto;
-                height: calc(100vh - 77px);
-            }
-            .controls-panel {
-                width: 380px;
-                border-top: none;
-                border-left: 1px solid var(--border-color);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 40px;
-            }
-            .actions-row {
-                gap: 24px;
-            }
-            .type-selector {
-                display: grid;
-                grid-template-columns: 1fr 1fr; /* Formato matriz 2x2 en desktop */
-                gap: 10px;
-            }
-            .type-btn:not(:first-child) {
-                border-left: 1px solid var(--text-color);
+                max-height: 60vh;
+                width: 80%;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Encabezado Superior -->
     <div class="brand-header">
-        <div class="brand-name">metalperfil</div>
-        
-        <select class="family-select" onchange="changeFamily(this.value)">
-            <option value="pyramid">Pyramid</option>
-            <option value="wave">Wave</option>
-            <option value="trapezoidal">Trapezoidal</option>
-        </select>
+        <div class="brand-logo-zone">
+            <!-- Texto corporativo en Negro -->
+            <div class="brand-name">metalperfil</div>
+        </div>
+        <!-- Tipo de plancha actual a la derecha en Negro -->
+        <div class="product-type-label">Pyramid</div>
     </div>
 
-    <div class="main-content">
-        <div class="viewer-hint">Vista interactiva 3D</div>
-
+    <!-- Visor 3D Central -->
+    <div class="viewer-container">
         <model-viewer 
             id="visorMetal" 
             src="Pyramid_39.glb" 
@@ -248,30 +211,30 @@
             auto-rotate 
             shadow-intensity="1" 
             environment-image="neutral"
-            exposure="1.15">
+            exposure="1.2">
         </model-viewer>
+    </div>
 
-        <div class="controls-panel">
-            <div class="selector-label">Canto / Espesor Perfil (mm)</div>
-            
-            <div class="actions-row">
-                <div class="type-selector">
-                    <button class="type-btn active" onclick="updateType('33', this)">33</button>
-                    <button class="type-btn" onclick="updateType('45', this)">45</button>
-                    <button class="type-btn" onclick="updateType('68', this)">68</button>
-                    <button class="type-btn" onclick="updateType('110', this)">110</button>
-                </div>
-                
-                <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank">
-                    Ver en Catálogo Web
-                </a>
-            </div>
+    <!-- Panel de Control Inferior -->
+    <div class="bottom-panel">
+        <div class="selector-label">Perfil / Espesor (mm)</div>
+        
+        <!-- Selectores de Tipos -->
+        <div class="type-selector">
+            <button class="type-btn active" onclick="updateType('33', this)">33</button>
+            <button class="type-btn" onclick="updateType('45', this)">45</button>
+            <button class="type-btn" onclick="updateType('68', this)">68</button>
+            <button class="type-btn" onclick="updateType('110', this)">110</button>
         </div>
+        
+        <!-- Enlace de salida hacia el catálogo web -->
+        <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank">
+            Acceder a la Página Web
+        </a>
     </div>
 
     <script>
         const visor = document.getElementById('visorMetal');
-        // Mapeamos los nuevos nombres de tus tipos reales
         const tipos = ['33', '45', '68', '110'];
 
         function updateType(tipo, btn) {
@@ -281,7 +244,6 @@
             if (visor.model) {
                 const escena = visor.model.scene;
                 tipos.forEach(t => {
-                    // El código buscará objetos llamados 'tipo_33', 'tipo_45', etc.
                     const obj = escena.find(o => o.name === `tipo_${t}`);
                     if (obj) {
                         obj.visible = (t === tipo);
@@ -291,23 +253,21 @@
             }
         }
 
-        // Al cambiar el desplegable de familia de chapas
-        function changeFamily(familyName) {
-            // Ejemplo de cómo redirigirías a las otras subcarpetas que crees en GitHub
-            if(familyName !== 'pyramid') {
-                window.location.href = `https://ashromer.github.io/MetalSheetsQrVisor/${familyName}/`;
-            }
-        }
-
+        // Dejamos limpia la carga inicial para evitar errores de visualización con el GLB temporal
         visor.addEventListener('load', () => {
-            const escena = visor.model.scene;
-            tipos.forEach((t, i) => {
-                const obj = escena.find(o => o.name === `tipo_${t}`);
-                if (obj) {
-                    obj.visible = (i === 0); // Inicializa mostrando el tipo 33
+            if (visor.model) {
+                const escena = visor.model.scene;
+                // Si ya existen las capas tipo_33, tipo_45... inicializa con la primera
+                const tieneCapas = tipos.some(t => escena.find(o => o.name === `tipo_${t}`));
+                
+                if (tieneCapas) {
+                    tipos.forEach((t, i) => {
+                        const obj = escena.find(o => o.name === `tipo_${t}`);
+                        if (obj) obj.visible = (i === 0);
+                    });
+                    visor.queueRender();
                 }
-            });
-            visor.queueRender();
+            }
         });
     </script>
 </body>
