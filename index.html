@@ -201,7 +201,10 @@
             auto-rotate 
             shadow-intensity="1" 
             environment-image="neutral"
-            exposure="1.2">
+            exposure="1.2"
+            bounds="tight"
+            camera-orbit="0deg 75deg auto"
+            camera-target="0m 0m 0m">
         </model-viewer>
     </div>
 
@@ -258,7 +261,7 @@
             btnElement.classList.add('active');
 
             const familyData = catalog[currentFamily];
-            // Asegura la extensión exacta .glb en minúsculas
+            // Asegura la extensión exacta .glb en minúsculas y cambia de archivo
             visor.src = `${familyData.prefix}${type}.glb`; 
         }
 
