@@ -8,9 +8,11 @@
     src="Pyramid_39.glb"
     camera-controls
     auto-rotate
-    style="width:100vw;height:100vh;background:#eee"
-    onload="console.log('CARGADO OK')"
-    onerror="console.log('ERROR', event.detail)">
+    camera-orbit="35deg 75deg auto"
+    min-camera-orbit="-60deg 30deg auto"
+    max-camera-orbit="60deg 110deg auto"
+    disable-pan
+    style="width:100vw;height:100vh;background:#eee">
 </model-viewer>
 </body>
 </html>
