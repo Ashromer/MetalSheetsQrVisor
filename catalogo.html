@@ -68,7 +68,7 @@
         /* ---- HERO / PORTADA roja ---- */
         .hero { position: relative; min-height: calc(100vh - 70px); background: var(--red); overflow: hidden; }
         .hero img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-        .hero .hero-copy { position: absolute; left: 0; bottom: 0; padding: clamp(36px, 7vw, 90px) clamp(28px, 6vw, 96px);
+        .hero .hero-copy { position: absolute; left: 0; top: 0; padding: clamp(34px, 6vw, 80px) clamp(28px, 6vw, 96px);
             max-width: 760px; }
         .hero .eyebrow { color: rgba(255,255,255,.85); }
         .hero h1 { font-family: var(--serif); font-weight: 500; color: #fff;
@@ -109,6 +109,14 @@
         .ral-grid { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
         .ral-sw { width: 44px; height: 44px; border-radius: 5px; border: 1px solid rgba(0,0,0,.14); cursor: default; }
         .ral-more { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--grey); margin-left: 8px; }
+        .mat-bubble { width: 50px; height: 50px; border-radius: 50%; margin-bottom: 16px;
+            border: 1px solid rgba(0,0,0,.12); box-shadow: inset 0 2px 7px rgba(0,0,0,.18); }
+        .wall-strip img { width: 100%; height: clamp(190px, 32vh, 340px); object-fit: cover; border-radius: 3px; }
+        .wall-dots { display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; margin-top: 18px; }
+        .wall-dot { display: flex; align-items: center; gap: 10px; }
+        .wall-dot .b { width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,.12); box-shadow: inset 0 1px 4px rgba(0,0,0,.2); }
+        .wall-dot span { font-family: var(--sans); font-size: 12px; color: #4a443e; }
 
         /* ---- índice: línea de tiempo de perfiles (vista / oculta) ---- */
         .tl-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
@@ -293,6 +301,12 @@
                     <p class="body-serif">La superficie se lee continua y limpia, sin anclajes a la vista, para una piel tersa y monolítica de gran nivel de acabado.</p>
                 </div>
             </div>
+            <div class="split" style="margin-top:clamp(36px,5vw,60px)">
+                <div style="background:#fff;border:1px solid var(--line);border-radius:3px;padding:16px">
+                    <img src="img/p02_1.png" alt="Gama de productos Metalperfil: fijación vista y oculta" style="width:100%;height:auto;display:block">
+                </div>
+                <div class="media-frame"><img src="img/p02_3.jpeg" alt="Fachada de revestimiento metálico" style="aspect-ratio:3/4;border-radius:3px"></div>
+            </div>
             <div class="gama-prod">
                 <span class="note">Contenido en revisión</span>
                 <div class="lbl">Gama completa de productos de Metalperfil</div>
@@ -330,12 +344,9 @@
     <!-- ÍNDICE -->
     <section class="screen cream" id="indice">
         <div class="wrap">
-            <span class="eyebrow">Índice</span>
-            <h2 class="section-title">Las familias</h2>
-            <div class="tl-label">01 · Sistemas de fijación vista</div>
-            <div class="timeline" id="tlVista"></div>
-            <div class="tl-label" style="margin-top:clamp(48px,7vw,90px)">02 · Sistemas de fijación oculta</div>
-            <div class="timeline" id="tlOculta"></div>
+            <h2 class="section-title">Índice</h2>
+            <div class="timeline" id="tlVista" style="margin-top:clamp(44px,6vw,80px)"></div>
+            <div class="timeline" id="tlOculta" style="margin-top:clamp(48px,7vw,90px)"></div>
         </div>
     </section>
 
@@ -397,11 +408,11 @@
 
             <div class="mat-sub">Soportes metálicos</div>
             <div class="mat-grid">
-                <div class="mat-card"><h4>Galvanizado / Aluzinc</h4><p>Base de acero con recubrimiento de zinc o aleación aluminio-zinc (Aluzinc): protección anticorrosión de altas prestaciones y aspecto técnico.</p></div>
-                <div class="mat-card"><h4>Acero prelacado</h4><p>Galvanizado + imprimación + pintura de poliéster horneada. Disponible en toda la carta RAL y en acabados de alta durabilidad (PVDF).</p></div>
-                <div class="mat-card"><h4>Acero inoxidable</h4><p>Máxima resistencia y durabilidad, con acabados del pulido espejo al satinado y al arenado mate.</p></div>
-                <div class="mat-card"><h4>Acero corten</h4><p>Acero patinable que desarrolla una pátina oxidada estable: estética cálida e industrial y protección natural que evoluciona con el tiempo.</p></div>
-                <div class="mat-card"><h4>Aluminio · Zinc · Cobre</h4><p>Soportes ligeros y nobles para proyectos de alta exigencia, con su envejecimiento y color característicos.</p></div>
+                <div class="mat-card"><div class="mat-bubble" style="background:linear-gradient(135deg,#cfd3d6,#9aa1a6 38%,#eef0f1 55%,#a7adb1)"></div><h4>Galvanizado / Aluzinc</h4><p>Base de acero con recubrimiento de zinc o aleación aluminio-zinc (Aluzinc): protección anticorrosión de altas prestaciones y aspecto técnico.</p></div>
+                <div class="mat-card"><div class="mat-bubble" style="background:linear-gradient(135deg,#b6443c,#7c241e)"></div><h4>Acero prelacado</h4><p>Galvanizado + imprimación + pintura de poliéster horneada. Disponible en toda la carta RAL y en acabados de alta durabilidad (PVDF).</p></div>
+                <div class="mat-card"><div class="mat-bubble" style="background:linear-gradient(135deg,#edf0f1,#aab0b4 45%,#f6f8f8 55%,#9aa0a4)"></div><h4>Acero inoxidable</h4><p>Máxima resistencia y durabilidad, con acabados del pulido espejo al satinado y al arenado mate.</p></div>
+                <div class="mat-card"><div class="mat-bubble" style="background:linear-gradient(135deg,#a45f3c,#6e3a23 55%,#bd7a52)"></div><h4>Acero corten</h4><p>Acero patinable que desarrolla una pátina oxidada estable: estética cálida e industrial y protección natural que evoluciona con el tiempo.</p></div>
+                <div class="mat-card"><div class="mat-bubble" style="background:linear-gradient(135deg,#c98f5e,#8a6b4a 40%,#cfd2d4 72%,#9aa0a4)"></div><h4>Aluminio · Zinc · Cobre</h4><p>Soportes ligeros y nobles para proyectos de alta exigencia, con su envejecimiento y color característicos.</p></div>
             </div>
 
             <div class="mat-sub">Color · Carta RAL</div>
@@ -423,6 +434,18 @@
                     <img src="img/p43_2.jpeg" alt="Acabado metálico">
                 </div>
             </div>
+
+            <div class="mat-sub">Una fachada, muchos materiales</div>
+            <div class="wall-strip">
+                <img src="img/p08_2.jpeg" alt="Fachada de planchas metálicas">
+                <div class="wall-dots">
+                    <div class="wall-dot"><span class="b" style="background:linear-gradient(135deg,#cfd3d6,#9aa1a6 40%,#eef0f1 60%,#a7adb1)"></span><span>Galvanizado</span></div>
+                    <div class="wall-dot"><span class="b" style="background:linear-gradient(135deg,#b6443c,#7c241e)"></span><span>Prelacado RAL</span></div>
+                    <div class="wall-dot"><span class="b" style="background:linear-gradient(135deg,#edf0f1,#aab0b4 45%,#f6f8f8 55%,#9aa0a4)"></span><span>Inoxidable</span></div>
+                    <div class="wall-dot"><span class="b" style="background:linear-gradient(135deg,#a45f3c,#6e3a23 55%,#bd7a52)"></span><span>Corten</span></div>
+                    <div class="wall-dot"><span class="b" style="background:linear-gradient(135deg,#c98f5e,#8a6b4a 40%,#cfd2d4 72%,#9aa0a4)"></span><span>Aluminio · Zinc · Cobre</span></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -432,24 +455,26 @@
             <span class="eyebrow">Biblioteca BIM</span>
             <h2 class="section-title">Método BIM</h2>
             <span class="note" style="margin-top:18px">Propuesta — ampliar con datos reales</span>
-            <div class="split" style="margin-top:18px;align-items:start">
+            <div class="alt-row" style="margin-top:clamp(26px,4vw,44px)">
+                <div class="alt-media"><img src="img/p44_3.jpeg" alt="Modelo BIM de fachada"></div>
                 <div>
-                    <p class="lead-serif" style="max-width:28ch">Cada sistema, listo para tu proyecto BIM.</p>
-                    <p class="body-serif" style="margin-top:14px">Los perfiles Metalperfil se entregan como objetos BIM con la geometría real del perfil, sus materiales y sus datos técnicos, para documentar, medir y coordinar la fachada desde las fases iniciales del proyecto.</p>
+                    <p class="lead-serif" style="max-width:26ch">Cada sistema, listo para tu proyecto BIM.</p>
+                    <p class="body-serif" style="margin-top:12px">Los perfiles Metalperfil se entregan como objetos BIM con la geometría real del perfil, sus materiales y sus datos técnicos, para documentar, medir y coordinar la fachada desde las fases iniciales del proyecto.</p>
                 </div>
-                <div class="media-frame"><img src="img/p44_3.jpeg" alt="Modelo BIM de fachada" style="aspect-ratio:4/3"></div>
             </div>
-            <div class="mat-grid">
-                <div class="mat-card"><h4>Familias paramétricas</h4><p>Objetos Revit (.rfa) con los tipos y dimensiones reales de cada familia, ajustables por parámetros.</p></div>
-                <div class="mat-card"><h4>Formatos abiertos</h4><p>Exportación IFC para integrarse en cualquier software BIM (Revit, ArchiCAD, Allplan…).</p></div>
-                <div class="mat-card"><h4>Datos integrados</h4><p>Material, espesor, acabado, ancho útil y peso embebidos para medición y especificación.</p></div>
-                <div class="mat-card"><h4>Niveles de detalle</h4><p>Geometría preparada por nivel de desarrollo (LOD 200–350) según la fase del proyecto.</p></div>
-                <div class="mat-card"><h4>Descarga directa</h4><p>Biblioteca descargable desde la web por familia y tipo <em>(próximamente)</em>.</p></div>
-                <div class="mat-card"><h4>Coordinación</h4><p>Geometría ligera y limpia, pensada para no penalizar el modelo de coordinación.</p></div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p44_1.jpeg" alt="Fachada Metalperfil"></div>
+                <div>
+                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Familias paramétricas y formatos abiertos</h3>
+                    <p class="body-serif">Objetos Revit (.rfa) con los tipos y dimensiones reales de cada familia, ajustables por parámetros, y exportación <strong>IFC</strong> para integrarse en cualquier software BIM (Revit, ArchiCAD, Allplan…).</p>
+                </div>
             </div>
-            <div class="img-grid g2" style="margin-top:clamp(36px,5vw,56px)">
-                <img src="img/p44_1.jpeg" alt="Fachada Metalperfil">
-                <img src="img/p44_2.jpeg" alt="Detalle BIM">
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p44_2.jpeg" alt="Detalle BIM"></div>
+                <div>
+                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Datos y niveles de detalle</h3>
+                    <p class="body-serif">Material, espesor, acabado, ancho útil y peso embebidos para medición y especificación; geometría por nivel de desarrollo (<strong>LOD 200–350</strong>) según fase y pensada para no penalizar el modelo de coordinación. Descarga directa por familia y tipo <em>(próximamente)</em>.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -540,7 +565,7 @@
             ],
             warn: 'Dimensiones a verificar (altura P45, ancho P68) y asignación perfil↔tipo provisional.',
             model: { prefix: 'models/Pyramid_', types: ['39', '45', '68', '110'] },
-            renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p07_2.jpeg']
+            renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p09_1.jpeg']
         },
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
@@ -598,8 +623,8 @@
        usan el perfil genérico (SEG_GEN, marcado con .gen). */
     const PROFILES = {
         pyramid:    'M2,26 L14,5 L26,26 L38,5 L50,26 L62,5 L74,26 L86,5 L98,26',
-        symmetric:  'M2,26 L10,6 L24,6 L32,26 L44,26 L52,6 L66,6 L74,26 L86,26 L94,6 L99,6',
-        asymmetric: 'M2,26 L8,6 L26,6 L31,26 L41,26 L47,6 L65,6 L70,26 L80,26 L86,6 L99,13'
+        symmetric:  'M2,26 L10,6 L24,6 L32,26 L44,26 L52,6 L66,6 L74,26 L86,26 L94,6 L99,6'
+        // asymmetric y resto: perfil genérico hasta tener el PNG/trazo real
     };
     const SEG_GEN = 'M2,17 Q14,10 26,17 T50,17 T74,17 T98,17';
     function buildTimeline(elId, fams) {
@@ -634,8 +659,8 @@
     }
     function developmentsBlock(f) {
         if (f.desarrollo) {
-            return `<div class="subhead"><h3>Desarrollos</h3><span class="ln"></span></div>
-                <div class="dev"><img src="${esc(f.desarrollo)}" alt="Desarrollos de ${esc(f.name)} con medidas" loading="lazy"></div>`;
+            return `<div class="subhead"><h3>Tipos</h3><span class="ln"></span></div>
+                <div class="dev"><img src="${esc(f.desarrollo)}" alt="Tipos de ${esc(f.name)} con medidas" loading="lazy"></div>`;
         }
         if (f.types && f.types.length && f.types.some(t => t.img)) {
             const cards = f.types.map(t => `
@@ -685,7 +710,7 @@
                 <div class="inspo"><span class="e">Inspiración</span>${esc(INSPO[n % INSPO.length])}</div>
             </div>`));
         }
-        return `<div class="subhead"><h3>Acabados</h3><span class="ln"></span></div>${rows.join('')}`;
+        return `<div class="subhead"><h3>Proyectos de referencia</h3><span class="ln"></span></div>${rows.join('')}`;
     }
     function familySection(f, idx) {
         const ph = f.status === 'placeholder';
