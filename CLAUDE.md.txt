@@ -1,0 +1,75 @@
+# Proyecto: Visor 3D + Catálogo Web — Metalperfil
+
+## Qué es esto
+Web alojada en GitHub Pages (repo `MetalSheetsQrVisor`, usuario `Ashromer`) para una
+empresa de revestimientos metálicos. Tiene dos partes:
+
+1. **`index.html`** — Visor 3D interactivo. Muestra perfiles metálicos en 3D con
+   `<model-viewer>`, permite elegir familia, espesor y color, y enlaza al catálogo.
+2. **`catalogo.html`** — Catálogo web con todas las familias de producto (descripción,
+   dimensiones, materiales, galería de imágenes).
+
+URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
+
+## Stack
+- HTML/CSS/JS plano, sin framework ni build. Todo en archivos sueltos.
+- `<model-viewer>` vía CDN jsDelivr (`@google/model-viewer`).
+- Tipografías Google Fonts: Playfair Display (serif) + Inter (sans).
+- Color corporativo granate: `rgb(182, 31, 38)` / `#B61F26`.
+
+## Archivos en el repo
+- `index.html` — visor 3D (funcional, no romper la lógica de cámara/carga).
+- `catalogo.html` — catálogo (recién creado, contenido a completar).
+- `Metalperfil_white.png` — logo blanco (se usa sobre fondo granate).
+- `Catalogo_Metalperfil.pdf` — catálogo original en PDF (fuente de contenido e imágenes).
+- `Pyramid_39.glb`, `Pyramid_45.glb`, `Pyramid_68.glb`, `Pyramid_110.glb` — modelos 3D.
+- `familia_chapas.glb` — archivo antiguo, NO se usa. Se puede borrar.
+- `test.html` — archivo de prueba. Se puede borrar.
+
+## ⚠️ No tocar sin cuidado (en index.html)
+El visor costó hacerlo funcionar. Claves que NO hay que cambiar:
+- El CDN debe ser jsDelivr (`@google/model-viewer`), no el de googleapis.
+- El evento `load` del model-viewer SOLO debe ocultar el spinner. NO añadir
+  manipulación de cámara (`cameraOrbit`, `jumpCameraToGoal`, `getBoundingBoxCenter`)
+  dentro del `load`: eso provoca un cuelgue ("rAF timed out") y el modelo no se ve.
+- El ángulo de cámara se fija con el atributo `camera-orbit="35deg 75deg auto"` en el
+  HTML, no por JS.
+- `.viewer-container` necesita una `height` fija (vh), no `flex`. Si se pone flex sin
+  altura, el visor queda a 0px de alto y no se ve nada aunque cargue bien.
+- `disable-pan` debe quedarse: sin él, al arrastrar se pierde el modelo de cuadro.
+
+## Estado del contenido del catálogo (catalogo.html)
+El PDF original está a medio maquetar, así que el catálogo arrastra esos problemas:
+
+- **Pyramid** es la ÚNICA familia con datos reales y correctos (descripción propia +
+  dimensiones P33/P45/P68/P110). No tocar salvo para mejorar.
+- **Todas las demás familias** (Symmetric, Asymmetric, Onda, Origami, Escaler, Nordik,
+  Kubo, Alterno, Skala, Kaotico) llevan **texto de relleno / lorem ipsum** o descripciones
+  copiadas de Symmetric. Están marcadas con un aviso rojo `placeholder-note` que dice
+  "TEXTO PROVISIONAL".
+- Las dimensiones que ponen "— rellenar —" no son datos reales, hay que sustituirlas.
+- Las dimensiones de Symmetric 20/23 fueron inferidas, conviene verificarlas.
+
+## Tareas pendientes (lo que falta por hacer)
+1. **Imágenes**: extraer los renders del PDF (`Catalogo_Metalperfil.pdf`), guardarlos como
+   `.jpg`/`.png` en el repo (sugerencia: carpeta `img/`), y sustituir cada
+   `<div class="img-slot">FAMILIA · IMG N</div>` por `<img src="img/...">`.
+2. **Textos reales**: reemplazar todos los bloques marcados "TEXTO PROVISIONAL" con las
+   descripciones definitivas de cada familia.
+3. **Dimensiones reales**: rellenar las tablas que tienen "— rellenar —".
+4. **Datos de contacto**: el pie pone dirección y teléfono de ejemplo
+   ("C/ Poner una calle 1", "+34 900 000 000"). Sustituir por los reales.
+5. **Modelos 3D faltantes**: por ahora solo existen los `.glb` de Pyramid. Cuando haya
+   `.glb` de las otras familias, subirlos con el nombre exacto que espera el `catalog`
+   de `index.html` (respetando mayúsculas: `Symmetric_20.glb`, etc.).
+6. (Opcional) Conectar el botón del visor al `catalogo.html` por ancla
+   (`catalogo.html#pyramid`) en vez de al PDF, que es más fiable en móvil.
+7. Borrar `familia_chapas.glb` y `test.html` si ya no se necesitan.
+
+## Convenciones de estilo
+- Mantener el granate corporativo `#B61F26` como color de marca.
+- Logo blanco siempre sobre fondo granate (nunca sobre blanco, no se vería).
+- Tono visual: minimalista, editorial, mucho blanco, serif para títulos.
+- El nombre de familia que la empresa usa con "y griega" es **Asymmetric** en el catálogo,
+  pero el archivo .glb y el código del visor usan **Asimmetric** (sin la y). Cuidado con
+  esa inconsistencia al enlazar: el ancla del catálogo es `#asymmetric`.

@@ -11,7 +11,7 @@
 
     <style>
         :root {
-            --brand-red-granate: rgb(182, 31, 38);
+            --brand-red-granate: rgb(150, 24, 30);
             --text-black: #1a1a1a;
             --text-white: #ffffff;
             --panel-black: #111111;
@@ -51,7 +51,7 @@
 
         /* Logo en lugar del texto */
         .brand-logo {
-            height: 34px;
+            height: clamp(42px, 9vw, 56px);
             width: auto;
             display: block;
         }
@@ -64,8 +64,8 @@
             letter-spacing: 1.5px;
             padding: 8px 36px 8px 16px;
             min-width: 160px;          /* más ancho para que quepa el nombre */
-            border: 1px solid var(--text-white);
-            background-color: transparent;
+            border: 1px solid var(--panel-black);
+            background-color: var(--panel-black);
             color: var(--text-white);
             cursor: pointer;
             outline: none;
@@ -228,8 +228,8 @@
         }
 
         @media (min-width: 768px) {
-            .brand-header { padding: 0 40px; height: 80px; }
-            .brand-logo { height: 38px; }
+            .brand-header { padding: 0 40px; height: 88px; }
+            .brand-logo { height: 60px; }
             .bottom-panel { padding: 20px 40px; }
             .viewer-container { height: 64vh; }
         }
