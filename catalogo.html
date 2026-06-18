@@ -89,20 +89,17 @@
         .warn { font-family: var(--sans); font-size: 12px; color: #8a6d00; background: #fff8e1;
             border: 1px solid #efe1a6; padding: 9px 13px; border-radius: 3px; margin-top: 18px; }
 
-        /* ---- índice de chapas ---- */
-        .chapas { margin-top: clamp(36px, 6vw, 72px); display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: clamp(16px, 2.4vw, 34px); }
-        .chapa { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px; }
-        .chapa .draw { height: 150px; width: 100%; display: flex; align-items: flex-end; justify-content: center;
-            border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 18px; }
-        .chapa .draw img { max-height: 150px; width: auto; object-fit: contain;
-            filter: grayscale(1) contrast(1.05); transition: filter .2s, transform .2s; }
-        .chapa:hover .draw img { filter: none; transform: translateY(-4px); }
-        .chapa .draw .ph { width: 60px; height: 120px;
-            background: repeating-linear-gradient(135deg, #ece8e2, #ece8e2 6px, #e2ddd5 6px, #e2ddd5 12px); }
-        .chapa .nm { font-family: var(--serif); font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; color: var(--ink); }
-        .chapa .nm small { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600;
-            letter-spacing: 2px; color: var(--red); margin-top: 2px; }
+        /* ---- índice: banda de perfiles + nombres ---- */
+        .perfil-band { margin: clamp(30px, 5vw, 56px) 0 clamp(28px, 4vw, 48px); }
+        .perfil-band img { width: 100%; height: auto; display: block; }
+        .chapas { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 2px 0; }
+        .chapa { display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+            text-align: center; padding: 16px 6px; border-top: 1px solid var(--line);
+            transition: color .18s, transform .18s; }
+        .chapa:hover { color: var(--red); transform: translateY(-3px); }
+        .chapa .cn { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; color: var(--red); }
+        .chapa .cnm { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 30px); font-weight: 600;
+            color: inherit; margin-top: 4px; line-height: 1; }
 
         /* ---- trajes a medida: salteado imagen/texto ---- */
         .alt-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px);
@@ -251,6 +248,7 @@
         <div class="wrap">
             <span class="eyebrow">Índice</span>
             <h2 class="section-title">Las familias</h2>
+            <div class="perfil-band"><img src="img/indice_perfiles.png" alt="Perfiles de la colección Metalperfil"></div>
             <div class="chapas" id="chapas"></div>
         </div>
     </section>
@@ -467,11 +465,11 @@
     const norm = t => (typeof t === 'string') ? { label: t, file: t } : t;
     const hexRgba = hex => { const h = hex.replace('#',''); return [parseInt(h.substr(0,2),16)/255, parseInt(h.substr(2,2),16)/255, parseInt(h.substr(4,2),16)/255, 1]; };
 
-    /* ---- índice de chapas (dibujo de línea + nombre) ---- */
+    /* ---- índice: nombres clicables (la banda de perfiles va arriba) ---- */
     document.getElementById('chapas').innerHTML = FAMILIES.map(f => `
         <a class="chapa" href="#${f.anchor}">
-            <div class="draw">${f.thumb ? `<img src="${esc(f.thumb)}" alt="${esc(f.name)}">` : '<div class="ph"></div>'}</div>
-            <div class="nm">${esc(f.name)}<small>${f.num}</small></div>
+            <span class="cn">${f.num}</span>
+            <span class="cnm">${esc(f.name)}</span>
         </a>`).join('');
 
     /* ---- familia ---- */
