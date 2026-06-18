@@ -8,9 +8,14 @@ empresa de revestimientos metálicos. Tiene dos partes:
    `<model-viewer>`, permite elegir familia, espesor y color, y enlaza al catálogo.
 2. **`catalogo.html`** — Catálogo web (una sola página, scroll largo). **Data-driven**: el
    contenido se edita en el array `FAMILIES` del `<script>` al final del archivo. Cada
-   familia replica el PDF: ficha técnica + sección "Perfiles" (secciones 2D por tipo,
-   `types[].img`) + sección "Acabados & renders" (`renders[]`). Índice = fila de "chapas"
-   clicables (`thumb`). Cabecera con nav y footer de empresa.
+   sección es `.screen` (mín. alto del monitor). Portada roja = `img/p01_1.jpeg` a pantalla
+   completa con titular abajo-izquierda. Títulos de sección grandes en Garamond
+   (`.section-title`). Índice = "chapas" con el dibujo de línea del perfil (`thumb`) + nombre.
+   Por familia: cabecera "NN. Nombre" en rojo + descripción justificada + render a la derecha;
+   sección "Perfiles" (`types[].img`); **Visor 3D con selector de tipo + paleta RAL**
+   (`model:{prefix,types}`, array `RAL`, función `initViewers()`); y renders editoriales
+   salteados con texto inspiracional (`renders[]`, array `INSPO`). Trajes a medida =
+   imagen/texto alternos. Cabecera con nav y footer de empresa.
 
 URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
 

@@ -7,12 +7,12 @@
     <meta name="description" content="Sistemas de revestimiento metálico de alta gama. Perfiles para fachada: Pyramid, Symmetric, Asymmetric y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <style>
         :root {
-            --red: rgb(158, 39, 44);          /* rojo corporativo (igual que la portada del PDF) */
+            --red: rgb(158, 39, 44);
             --red-soft: rgba(158, 39, 44, .08);
             --ink: #1c1b1a;
             --grey: #6f6a64;
@@ -22,183 +22,174 @@
             --cream: #f7f5f1;
             --serif: 'Cormorant Garamond', serif;
             --sans: 'Montserrat', sans-serif;
-            --maxw: 1240px;
+            --maxw: 1260px;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body {
-            background: var(--white); color: var(--ink);
-            font-family: var(--sans); font-weight: 300; line-height: 1.75;
-            font-size: 16px; -webkit-font-smoothing: antialiased;
-        }
+        body { background: var(--white); color: var(--ink); font-family: var(--sans);
+            font-weight: 300; line-height: 1.75; font-size: 16px; -webkit-font-smoothing: antialiased; }
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
 
-        /* ---- tipografía ---- */
-        h1, h2, h3, .display { font-family: var(--serif); font-weight: 500; line-height: 1.08; letter-spacing: .2px; }
-        .eyebrow {
-            font-family: var(--sans); font-size: 11px; font-weight: 600;
-            letter-spacing: 3.5px; text-transform: uppercase; color: var(--red);
-        }
-        .tech { font-family: var(--sans); }
+        h1, h2, h3, .display { font-family: var(--serif); font-weight: 500; line-height: 1.05; }
+        .eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 3.5px;
+            text-transform: uppercase; color: var(--red); }
+        /* títulos de sección GRANDES en Garamond */
+        .section-title { font-family: var(--serif); font-weight: 500; font-size: clamp(46px, 8vw, 104px); line-height: .98; }
 
-        /* ---- header / nav ---- */
-        .site-header {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--red);
-            display: flex; align-items: center; justify-content: space-between;
-            height: 72px; padding: 0 22px;
-        }
-        .site-header .logo img { height: clamp(40px, 10vw, 52px); width: auto; }
-        nav.main { display: flex; align-items: center; gap: 4px; }
-        nav.main a {
-            font-family: var(--sans); font-size: 12px; font-weight: 500;
-            letter-spacing: 1.5px; text-transform: uppercase; color: #fff;
-            padding: 9px 14px; border-radius: 2px; transition: background .2s, color .2s;
-            white-space: nowrap;
-        }
+        /* ---- header ---- */
+        .site-header { position: sticky; top: 0; z-index: 100; background: var(--red);
+            display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 22px; }
+        .site-header .logo img { height: clamp(38px, 9vw, 48px); width: auto; }
+        nav.main { display: flex; align-items: center; gap: 2px; }
+        nav.main a { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+            text-transform: uppercase; color: #fff; padding: 9px 13px; border-radius: 2px;
+            transition: background .2s, color .2s; white-space: nowrap; }
         nav.main a:hover { background: #fff; color: var(--red); }
         nav.main a.ghost { border: 1px solid rgba(255,255,255,.55); }
         .nav-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.6); color: #fff;
             width: 42px; height: 38px; border-radius: 2px; cursor: pointer; font-size: 18px; }
-
-        @media (max-width: 920px) {
+        @media (max-width: 980px) {
             .nav-toggle { display: block; }
-            nav.main {
-                position: absolute; top: 72px; right: 0; left: 0;
-                background: var(--red); flex-direction: column; align-items: stretch;
-                gap: 0; padding: 8px 14px 18px; display: none;
-            }
+            nav.main { position: absolute; top: 70px; right: 0; left: 0; background: var(--red);
+                flex-direction: column; align-items: stretch; gap: 0; padding: 8px 14px 18px; display: none; }
             nav.main.open { display: flex; }
             nav.main a { padding: 13px 8px; border-bottom: 1px solid rgba(255,255,255,.15); }
             nav.main a.ghost { border: 1px solid rgba(255,255,255,.4); margin-top: 10px; text-align: center; }
         }
 
-        /* ---- layout ---- */
-        .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-        section { scroll-margin-top: 88px; }
-        .pad { padding: clamp(64px, 11vw, 140px) 0; }
-        .pad-s { padding: clamp(48px, 8vw, 96px) 0; }
+        /* ---- layout: cada sección llena como mínimo el alto del monitor ---- */
+        .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; width: 100%; }
+        .screen { min-height: calc(100vh - 70px); display: flex; flex-direction: column; justify-content: center;
+            padding: clamp(56px, 9vw, 120px) 0; scroll-margin-top: 78px; }
         .cream { background: var(--cream); }
+        .panel-dark { background: var(--panel); color: #d8d3cc; }
 
-        /* ---- hero ---- */
-        .hero { background: var(--panel); color: #fff; }
-        .hero-inner { display: grid; }
-        .hero-copy { padding: clamp(48px, 9vw, 110px) 28px clamp(40px, 7vw, 80px); max-width: var(--maxw); margin: 0 auto; width: 100%; }
-        .hero .eyebrow { color: #e9a6a9; }
-        .hero h1 { font-size: clamp(40px, 8.5vw, 104px); font-weight: 500; margin: 20px 0 0; max-width: 16ch; }
-        .hero .lead {
-            font-family: var(--serif); font-size: clamp(19px, 2.6vw, 27px); font-weight: 400;
-            font-style: italic; color: rgba(255,255,255,.82); max-width: 46ch; margin-top: 26px; line-height: 1.5;
-        }
-        .hero-img img { width: 100%; height: auto; display: block; }   /* la "puerta" sin recortar */
+        /* ---- HERO / PORTADA roja ---- */
+        .hero { position: relative; min-height: calc(100vh - 70px); background: var(--red); overflow: hidden; }
+        .hero img.cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+        .hero .hero-copy { position: absolute; left: 0; bottom: 0; padding: clamp(36px, 7vw, 90px) clamp(28px, 6vw, 96px);
+            max-width: 760px; }
+        .hero .eyebrow { color: rgba(255,255,255,.85); }
+        .hero h1 { font-family: var(--serif); font-weight: 500; color: #fff;
+            font-size: clamp(40px, 7.5vw, 92px); line-height: 1.02; margin-top: 16px; }
+        .hero .lead { font-family: var(--serif); font-style: italic; font-weight: 400;
+            font-size: clamp(18px, 2.4vw, 26px); color: rgba(255,255,255,.9); margin-top: 22px; max-width: 40ch; }
 
-        /* ---- intro tagline ---- */
-        .intro p { font-family: var(--serif); font-size: clamp(22px, 3.4vw, 38px); font-weight: 400;
-            line-height: 1.4; max-width: 24ch; }
-        .intro .lede-sans { font-family: var(--sans); font-size: 16px; font-weight: 300; color: var(--grey);
-            max-width: 56ch; margin-top: 26px; line-height: 1.8; }
-
-        /* ---- índice de chapas ---- */
-        .index-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
-        .index-head h2 { font-size: clamp(30px, 5vw, 52px); }
-        .chapas {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: clamp(14px, 2vw, 26px);
-        }
-        .chapa { display: flex; flex-direction: column; align-items: center; text-align: center;
-            padding: 22px 12px 18px; border: 1px solid var(--line); background: #fff; border-radius: 3px;
-            transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
-        .chapa:hover { transform: translateY(-4px); border-color: var(--red); box-shadow: 0 14px 30px rgba(0,0,0,.06); }
-        .chapa .thumb { height: 118px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-        .chapa .thumb img { max-height: 118px; width: auto; object-fit: contain; }
-        .chapa .thumb .ph { width: 54px; height: 110px; background:
-            repeating-linear-gradient(135deg, #ece8e2, #ece8e2 6px, #e2ddd5 6px, #e2ddd5 12px); border-radius: 2px; }
-        .chapa .nm { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--ink); }
-        .chapa .nmsub { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px;
-            text-transform: uppercase; color: var(--red); margin-top: 4px; }
-
-        /* ---- editorial bands ---- */
-        .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
-        .split.wide-r { grid-template-columns: 5fr 6fr; }
-        h2.title { font-size: clamp(28px, 4.6vw, 50px); margin: 16px 0 26px; }
-        .body p { color: #34302c; max-width: 60ch; }
-        .body p + p { margin-top: 18px; }
+        /* ---- bloque editorial genérico ---- */
+        .lead-serif { font-family: var(--serif); font-weight: 400; font-size: clamp(20px, 2.6vw, 30px);
+            line-height: 1.5; color: #2c2825; }
+        .body-serif { font-family: var(--serif); font-weight: 400; font-size: clamp(17px, 1.7vw, 21px);
+            line-height: 1.62; color: #34302c; }
+        .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 84px); align-items: center; }
         .media-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 3px; }
-        .img-grid { display: grid; gap: 14px; }
-        .img-grid.g2 { grid-template-columns: 1fr 1fr; }
-        .img-grid.g3 { grid-template-columns: repeat(3, 1fr); }
-        .img-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 3px; background: #eee; }
-
-        /* ---- familia ---- */
-        .family { border-top: 1px solid var(--line); }
-        .family-hero { display: flex; align-items: flex-end; gap: 22px; }
-        .family-hero .n { font-family: var(--serif); font-size: clamp(56px, 13vw, 150px); font-weight: 400; color: var(--line); line-height: .74; }
-        .family-hero .t .eyebrow { display: block; margin-bottom: 8px; }
-        .family-hero .t h2 { font-size: clamp(34px, 7vw, 78px); font-weight: 500; }
-        .family-desc { font-family: var(--serif); font-size: clamp(18px, 2.4vw, 24px); font-weight: 400;
-            line-height: 1.6; color: #2c2825; max-width: 60ch; margin-top: 34px; }
-
-        .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px;
-            background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
-        .specs .cell { background: #fff; padding: 18px 20px; }
-        .specs .k { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
-            text-transform: uppercase; color: var(--grey); }
-        .specs .v { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-top: 4px; }
-        .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
-        .chip { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: .5px;
-            padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; color: #4a443e; }
-
-        .subhead { display: flex; align-items: baseline; gap: 16px; margin: clamp(56px,8vw,96px) 0 36px; }
-        .subhead h3 { font-size: clamp(24px, 3.6vw, 38px); font-weight: 500; }
-        .subhead .ln { flex: 1; height: 1px; background: var(--line); }
-
-        /* perfiles 2D */
-        .profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: clamp(18px, 3vw, 40px); }
-        .profile { text-align: center; }
-        .profile .draw { background: #fff; border: 1px solid var(--line); border-radius: 3px;
-            height: 260px; display: flex; align-items: center; justify-content: center; padding: 22px; }
-        .profile .draw img { max-height: 216px; width: auto; object-fit: contain; }
-        .profile .draw .ph { color: #c3bcb1; font-family: var(--sans); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-        .profile .lab { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-top: 16px; }
-        .profile .dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 4px; line-height: 1.7; }
-
-        /* tabla dimensiones */
-        table.dims { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin-top: 36px; }
-        table.dims th, table.dims td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); }
-        table.dims th { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
-        table.dims td:first-child { font-weight: 600; }
-
-        /* renders */
-        .renders { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
-        .renders img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 3px; background: #eee; }
-        .renders .span2 { grid-column: 1 / -1; aspect-ratio: 16/8; }
-        model-viewer.fam3d { width: 100%; height: 380px; background: var(--cream); border-radius: 3px; grid-column: 1 / -1; }
-
-        .slot { display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;
-            background: repeating-linear-gradient(45deg, #f1eee9, #f1eee9 11px, #eae6df 11px, #eae6df 22px);
-            color: #b6afa4; font-family: var(--sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-            font-weight: 600; aspect-ratio: 4/3; border-radius: 3px; }
-        .slot.span2 { grid-column: 1 / -1; aspect-ratio: 16/8; }
-
         .note { display: inline-block; margin-bottom: 14px; padding: 6px 13px; background: var(--red-soft);
             border-left: 3px solid var(--red); color: var(--red); font-family: var(--sans);
             font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
         .warn { font-family: var(--sans); font-size: 12px; color: #8a6d00; background: #fff8e1;
             border: 1px solid #efe1a6; padding: 9px 13px; border-radius: 3px; margin-top: 18px; }
 
-        /* ---- contacto ---- */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
-        .contact-grid h2 { font-size: clamp(30px, 5vw, 54px); }
-        .cinfo { font-family: var(--sans); font-size: 15px; line-height: 2.1; }
-        .cinfo .k { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); display: block; margin-top: 18px; }
+        /* ---- índice de chapas ---- */
+        .chapas { margin-top: clamp(36px, 6vw, 72px); display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: clamp(16px, 2.4vw, 34px); }
+        .chapa { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 10px; }
+        .chapa .draw { height: 150px; width: 100%; display: flex; align-items: flex-end; justify-content: center;
+            border-bottom: 1px solid var(--line); padding-bottom: 18px; margin-bottom: 18px; }
+        .chapa .draw img { max-height: 150px; width: auto; object-fit: contain;
+            filter: grayscale(1) contrast(1.05); transition: filter .2s, transform .2s; }
+        .chapa:hover .draw img { filter: none; transform: translateY(-4px); }
+        .chapa .draw .ph { width: 60px; height: 120px;
+            background: repeating-linear-gradient(135deg, #ece8e2, #ece8e2 6px, #e2ddd5 6px, #e2ddd5 12px); }
+        .chapa .nm { font-family: var(--serif); font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; color: var(--ink); }
+        .chapa .nm small { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600;
+            letter-spacing: 2px; color: var(--red); margin-top: 2px; }
 
-        /* ---- footer ---- */
+        /* ---- trajes a medida: salteado imagen/texto ---- */
+        .alt-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px);
+            align-items: center; margin-top: clamp(40px, 6vw, 80px); }
+        .alt-row:nth-child(even) .alt-media { order: 2; }
+        .alt-row img { width: 100%; border-radius: 3px; object-fit: cover; }
+        .alt-sub { font-family: var(--serif); font-style: italic; font-size: clamp(20px, 2.6vw, 30px);
+            color: var(--red); font-weight: 500; }
+
+        /* ---- FAMILIA ---- */
+        .fam-name { font-family: var(--serif); font-weight: 600; color: var(--red);
+            font-size: clamp(34px, 5.5vw, 64px); line-height: 1; }
+        .fam-name .fnum { font-weight: 600; }
+        .fam-intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+        .fam-desc { font-family: var(--serif); font-weight: 400; font-size: clamp(17px, 1.8vw, 22px);
+            line-height: 1.6; color: #2c2825; text-align: justify; margin-top: 24px; }
+        .fam-render img { width: 100%; border-radius: 3px; object-fit: cover; aspect-ratio: 4/3; }
+
+        .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px;
+            background: var(--line); border: 1px solid var(--line); margin-top: 44px; }
+        .specs .cell { background: #fff; padding: 16px 18px; }
+        .specs .k { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--grey); }
+        .specs .v { font-family: var(--serif); font-size: 23px; font-weight: 600; margin-top: 4px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+        .chip { font-family: var(--sans); font-size: 11px; font-weight: 500; padding: 7px 14px;
+            border: 1px solid var(--line); border-radius: 999px; color: #4a443e; }
+
+        .subhead { display: flex; align-items: baseline; gap: 16px; margin: clamp(56px,8vw,100px) 0 38px; }
+        .subhead h3 { font-family: var(--serif); font-size: clamp(28px, 4vw, 46px); font-weight: 500; }
+        .subhead .ln { flex: 1; height: 1px; background: var(--line); }
+
+        /* perfiles */
+        .profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: clamp(18px, 3vw, 40px); }
+        .profile { text-align: center; }
+        .profile .draw { background: #fff; border: 1px solid var(--line); border-radius: 3px; height: 260px;
+            display: flex; align-items: center; justify-content: center; padding: 22px; }
+        .profile .draw img { max-height: 216px; width: auto; object-fit: contain; }
+        .profile .draw .ph { color: #c3bcb1; font-family: var(--sans); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+        .profile .lab { font-family: var(--serif); font-size: 22px; font-weight: 600; margin-top: 16px; }
+        .profile .dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 4px; line-height: 1.7; }
+        table.dims { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin-top: 36px; }
+        table.dims th, table.dims td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); }
+        table.dims th { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
+        table.dims td:first-child { font-weight: 600; }
+
+        /* visor 3D + RAL */
+        .fam-viewer { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center;
+            background: var(--cream); border-radius: 4px; padding: clamp(20px, 3vw, 40px); }
+        .fam-viewer model-viewer { width: 100%; height: clamp(320px, 46vh, 460px); background: #fff; border-radius: 3px; }
+        .fam-viewer .vlabel { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--grey); margin-bottom: 12px; }
+        .vtypes { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+        .vtype { font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 9px 15px; cursor: pointer;
+            background: #fff; border: 1px solid var(--line); border-radius: 2px; color: #4a443e; transition: all .15s; }
+        .vtype.on { background: var(--red); color: #fff; border-color: var(--red); }
+        .vcolors { display: flex; flex-wrap: wrap; gap: 10px; }
+        .vsw { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ddd6cc; cursor: pointer; padding: 0;
+            transition: transform .15s; }
+        .vsw:hover { transform: scale(1.12); }
+        .vsw.on { border-color: var(--ink); transform: scale(1.14); }
+
+        /* renders editoriales salteados */
+        .render-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 70px); align-items: center;
+            margin-top: clamp(44px, 7vw, 88px); }
+        .render-row:nth-child(even) .render-media { order: 2; }
+        .render-row.big { grid-template-columns: 7fr 5fr; }
+        .render-row img { width: 100%; border-radius: 3px; object-fit: cover; }
+        .render-row .inspo { font-family: var(--serif); font-style: italic; font-weight: 400;
+            font-size: clamp(22px, 3vw, 34px); line-height: 1.4; color: #2c2825; }
+        .render-row .inspo .e { display: block; font-family: var(--sans); font-style: normal; font-size: 11px;
+            font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+        .slot { display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;
+            background: repeating-linear-gradient(45deg, #f1eee9, #f1eee9 11px, #eae6df 11px, #eae6df 22px);
+            color: #b6afa4; font-family: var(--sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+            font-weight: 600; aspect-ratio: 4/3; border-radius: 3px; }
+
+        /* contacto + footer */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+        .cinfo { font-family: var(--sans); font-size: 15px; line-height: 2.1; }
+        .cinfo .k { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--red); display: block; margin-top: 18px; }
         footer { background: var(--panel); color: #b9b4ad; }
         footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 44px; padding-top: 72px; padding-bottom: 28px; }
         footer h4 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2px;
             text-transform: uppercase; color: #fff; margin-bottom: 16px; }
-        footer .brand h3 { font-family: var(--serif); font-size: 30px; color: #fff; margin-bottom: 12px; }
+        footer .brand h3 { font-family: var(--serif); font-size: 32px; color: #fff; margin-bottom: 12px; }
         footer a { display: block; padding: 4px 0; color: #b9b4ad; font-size: 14px; }
         footer a:hover { color: #fff; }
         footer .meta { font-size: 14px; line-height: 1.95; }
@@ -207,12 +198,12 @@
             padding: 22px 28px; font-family: var(--sans); font-size: 12px; color: #8a857e; }
 
         @media (max-width: 860px) {
-            .split, .split.wide-r, .contact-grid { grid-template-columns: 1fr; }
-            .renders { grid-template-columns: 1fr; }
+            .split, .fam-intro, .alt-row, .render-row, .render-row.big, .fam-viewer, .contact-grid { grid-template-columns: 1fr; }
+            .alt-row:nth-child(even) .alt-media, .render-row:nth-child(even) .render-media { order: 0; }
             footer .wrap { grid-template-columns: 1fr 1fr; }
         }
-        @media (max-width: 560px) { footer .wrap { grid-template-columns: 1fr; } .img-grid.g3 { grid-template-columns: 1fr 1fr; } }
-        @media (min-width: 768px) { .site-header { height: 88px; padding: 0 40px; } .site-header .logo img { height: 58px; } }
+        @media (max-width: 560px) { footer .wrap { grid-template-columns: 1fr; } }
+        @media (min-width: 768px) { .site-header { height: 84px; padding: 0 40px; } .site-header .logo img { height: 54px; } .screen { min-height: calc(100vh - 84px); } .hero, .hero img.cover { min-height: calc(100vh - 84px); } }
     </style>
 </head>
 <body>
@@ -230,71 +221,79 @@
         </nav>
     </header>
 
-    <!-- HERO / PORTADA -->
-    <div class="hero">
+    <!-- PORTADA ROJA -->
+    <section class="hero" id="inicio">
+        <img class="cover" src="img/p01_1.jpeg" alt="Metalperfil — Sistemas de envolvente">
         <div class="hero-copy">
             <span class="eyebrow">Catálogo 2026</span>
-            <h1>Revestimientos metálicos de alta gama</h1>
-            <p class="lead">Precisión técnica y libertad creativa: soluciones de fachada que transforman cada proyecto en un hito de diseño contemporáneo.</p>
+            <h1>Revestimientos<br>metálicos de alta gama</h1>
+            <p class="lead">Precisión técnica y libertad creativa para la fachada contemporánea.</p>
         </div>
-        <div class="hero-img"><img src="img/p01_1.jpeg" alt="Fachada de revestimiento metálico Metalperfil"></div>
-    </div>
+    </section>
 
-    <!-- INTRO -->
-    <section class="pad intro">
-        <div class="wrap split wide-r">
-            <p>Especialistas en sistemas de revestimiento metálico.</p>
+    <!-- LA COLECCIÓN -->
+    <section class="screen" id="coleccion">
+        <div class="wrap split">
             <div>
-                <span class="eyebrow">La colección</span>
-                <p class="lede-sans">Nuestra nueva colección fusiona precisión técnica y libertad creativa, ofreciendo soluciones de fachada para arquitectura contemporánea de alta exigencia. Sistemas de fijación vista y oculta, fabricados a medida en acero, galvanizado, prelacado e inoxidable.</p>
+                <h2 class="section-title">La colección</h2>
+                <p class="lead-serif" style="margin-top:28px">Especialistas en sistemas de revestimiento metálico de alta gama. Nuestra nueva colección fusiona precisión técnica y libertad creativa, ofreciendo soluciones de fachada que transforman cada proyecto en un hito de diseño contemporáneo.</p>
+                <p class="body-serif" style="margin-top:18px">Sistemas de fijación vista y oculta, fabricados a medida en acero, galvanizado, prelacado e inoxidable.</p>
+            </div>
+            <div class="media-frame">
+                <img src="img/p05_1.png" alt="Personas trabajando las planchas metálicas" style="aspect-ratio:4/3">
             </div>
         </div>
     </section>
 
-    <!-- ÍNDICE DE CHAPAS -->
-    <section id="indice" class="pad cream">
+    <!-- ÍNDICE -->
+    <section class="screen cream" id="indice">
         <div class="wrap">
-            <div class="index-head">
-                <div>
-                    <span class="eyebrow">Índice</span>
-                    <h2 class="display">Las familias</h2>
-                </div>
-            </div>
+            <span class="eyebrow">Índice</span>
+            <h2 class="section-title">Las familias</h2>
             <div class="chapas" id="chapas"></div>
         </div>
     </section>
 
-    <!-- A. ORIGEN / QUIÉNES SOMOS -->
-    <section id="origen" class="pad">
+    <!-- ORIGEN / QUIÉNES SOMOS -->
+    <section class="screen" id="origen">
         <div class="wrap split">
-            <div class="body">
+            <div>
                 <span class="eyebrow">A · Quiénes somos</span>
-                <h2 class="title">Origen</h2>
-                <span class="note">Texto provisional</span>
-                <p>Aquí irá el relato de la empresa: trayectoria, valores y el proceso artesanal-industrial con el que se fabrican las planchas metálicas. Sustituir con el texto definitivo de «Origen» (catálogo, páginas 8–9).</p>
-                <p>Especialistas en sistemas de revestimiento metálico de alta gama para arquitectura contemporánea de alta exigencia.</p>
+                <h2 class="section-title">Origen</h2>
+                <span class="note" style="margin-top:18px">Texto provisional</span>
+                <p class="body-serif">Aquí irá el relato de la empresa: trayectoria, valores y el proceso con el que se fabrican las planchas metálicas. Sustituir con el texto definitivo de «Origen» (catálogo, páginas 8–9).</p>
             </div>
-            <div class="media-frame"><img src="img/p05_1.png" alt="Proceso de fabricación de las planchas"></div>
+            <div class="media-frame"><img src="img/p05_2.png" alt="Origen" style="aspect-ratio:1/1"></div>
         </div>
     </section>
 
-    <!-- B. TRAJES A MEDIDA -->
-    <section id="trajes" class="pad cream">
+    <!-- TRAJES A MEDIDA -->
+    <section class="screen cream" id="trajes">
         <div class="wrap">
-            <span class="eyebrow">B · Trajes a medida</span>
-            <h2 class="title">Misma idea, diferentes reglas</h2>
-            <div class="split" style="margin-top:18px;align-items:start">
-                <div class="body">
+            <h2 class="section-title">Trajes a medida</h2>
+            <p class="alt-sub" style="margin-top:10px">Misma idea, diferentes reglas</p>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p06_1.jpeg" alt="Sistema de fijación"></div>
+                <div>
                     <span class="note">Texto provisional</span>
-                    <p>Cada proyecto exige su propio traje. Metalperfil ofrece <strong>sistemas de fijación vista</strong> y <strong>sistemas de fijación oculta</strong>: soluciones abiertas y personalizadas que se adaptan a la geometría, el despiece y la intención de cada fachada.</p>
-                    <p><strong>Infinitas posibilidades</strong> — texto pendiente de redacción definitiva (catálogo, páginas 10–11). Ampliar con el detalle de cada sistema de fijación y sus reglas de montaje.</p>
+                    <p class="body-serif">Cada proyecto exige su propio traje. Metalperfil ofrece <strong>sistemas de fijación vista</strong> y <strong>sistemas de fijación oculta</strong>: soluciones abiertas y personalizadas que se adaptan a la geometría, el despiece y la intención de cada fachada.</p>
                 </div>
-                <div class="img-grid g2">
-                    <img src="img/p06_1.jpeg" alt="Sistema de fijación">
-                    <img src="img/p06_2.jpeg" alt="Detalle de montaje">
-                    <img src="img/p06_8.jpeg" alt="Detalle de montaje">
-                    <img src="img/p06_4.png" alt="Esquema de fijación">
-                </div>
+            </div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p06_2.jpeg" alt="Detalle de montaje"></div>
+                <div><p class="body-serif"><strong>Infinitas posibilidades.</strong> Texto pendiente de redacción definitiva (catálogo, páginas 10–11). Ampliar con el detalle de cada sistema de fijación y sus reglas de montaje.</p></div>
+            </div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p06_8.jpeg" alt="Detalle de fijación"></div>
+                <div><p class="body-serif">Fijación vista: el elemento de anclaje forma parte del lenguaje de la fachada, marcando un ritmo visible y honesto.</p></div>
+            </div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p06_4.png" alt="Esquema de fijación oculta"></div>
+                <div><p class="body-serif">Fijación oculta: la superficie se lee continua y limpia, sin anclajes a la vista, para una piel tersa y monolítica.</p></div>
+            </div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/p06_5.png" alt="Esquema de montaje"></div>
+                <div><p class="body-serif">Cada sistema sigue sus propias reglas de despiece, junta y solape — pero parten de la misma idea: una envolvente hecha a medida.</p></div>
             </div>
         </div>
     </section>
@@ -302,53 +301,46 @@
     <!-- FAMILIAS -->
     <div id="families"></div>
 
-    <!-- D. MATERIALIDAD -->
-    <section id="materialidad" class="pad">
+    <!-- MATERIALIDAD -->
+    <section class="screen" id="materialidad">
         <div class="wrap">
             <span class="eyebrow">D · Materialidad</span>
-            <h2 class="title">Acabados y materiales</h2>
-            <span class="note">Texto provisional</span>
-            <p class="body" style="max-width:62ch">Gama de materiales base —acero, galvanizado, prelacado e inoxidable (0,6–1,00 mm)— y catálogo de acabados y colores. Pendiente de contenido definitivo (catálogo, páginas 84–85).</p>
-            <div class="img-grid g3" style="margin-top:36px">
-                <img src="img/p43_1.jpeg" alt="Materialidad">
-                <img src="img/p43_2.jpeg" alt="Materialidad">
-                <img src="img/p44_3.jpeg" alt="Acabados">
+            <h2 class="section-title">Acabados y materiales</h2>
+            <span class="note" style="margin-top:18px">Texto provisional</span>
+            <p class="body-serif" style="max-width:64ch">Gama de materiales base —acero, galvanizado, prelacado e inoxidable (0,6–1,00 mm)— y catálogo de acabados y colores RAL. Pendiente de contenido definitivo (catálogo, páginas 84–85).</p>
+            <div class="alt-row" style="margin-top:46px">
+                <div class="alt-media"><img src="img/p43_1.jpeg" alt="Materialidad"></div>
+                <div><img src="img/p43_2.jpeg" alt="Acabados"></div>
             </div>
         </div>
     </section>
 
     <!-- BIM -->
-    <section id="bim" class="pad cream">
+    <section class="screen cream" id="bim">
         <div class="wrap split">
-            <div class="img-grid g2">
-                <img src="img/p44_1.jpeg" alt="Método BIM">
-                <img src="img/p44_2.jpeg" alt="Método BIM">
-            </div>
-            <div class="body">
+            <div class="media-frame"><img src="img/p44_1.jpeg" alt="Método BIM" style="aspect-ratio:4/3"></div>
+            <div>
                 <span class="eyebrow">BIM + Tecnología</span>
-                <h2 class="title">Método BIM</h2>
-                <span class="note">Texto provisional</span>
-                <p>Familias paramétricas y objetos BIM de los sistemas Metalperfil para integrar en proyectos Revit / IFC. Pendiente de enlaces de descarga y documentación técnica (catálogo, páginas 86–87).</p>
+                <h2 class="section-title">Método BIM</h2>
+                <span class="note" style="margin-top:18px">Texto provisional</span>
+                <p class="body-serif">Familias paramétricas y objetos BIM de los sistemas Metalperfil para integrar en proyectos Revit / IFC. Pendiente de enlaces de descarga y documentación técnica (catálogo, páginas 86–87).</p>
             </div>
         </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto" class="pad">
+    <section class="screen" id="contacto">
         <div class="wrap contact-grid">
             <div>
                 <span class="eyebrow">Contacto</span>
-                <h2 class="display">Hablemos de tu fachada</h2>
-                <p class="body" style="margin-top:20px">Cuéntanos tu proyecto y te asesoramos sobre el sistema, el perfil y el acabado más adecuados.</p>
+                <h2 class="section-title">Hablemos de tu fachada</h2>
+                <p class="body-serif" style="margin-top:20px">Cuéntanos tu proyecto y te asesoramos sobre el sistema, el perfil y el acabado más adecuados.</p>
             </div>
             <div class="cinfo">
                 <span class="note">Datos provisionales</span>
-                <span class="k">Dirección</span>
-                C/ Poner una calle 1, Albacete (España)
-                <span class="k">Teléfono</span>
-                +34 900 000 000
-                <span class="k">Email</span>
-                info@metalperfil.com
+                <span class="k">Dirección</span>C/ Poner una calle 1, Albacete (España)
+                <span class="k">Teléfono</span>+34 900 000 000
+                <span class="k">Email</span>info@metalperfil.com
             </div>
         </div>
     </section>
@@ -358,7 +350,6 @@
             <div class="brand">
                 <h3>Metalperfil</h3>
                 <p class="meta">Sistemas de revestimiento metálico de alta gama para arquitectura contemporánea.</p>
-                <p class="meta" style="margin-top:14px"><span class="note">Provisional</span></p>
             </div>
             <div>
                 <h4>Navegación</h4>
@@ -370,18 +361,13 @@
             </div>
             <div>
                 <h4>Contacto</h4>
-                <p class="meta">
-                    C/ Poner una calle 1<br>
-                    Albacete (España)<br>
-                    +34 900 000 000<br>
-                    info@metalperfil.com
-                </p>
+                <p class="meta">C/ Poner una calle 1<br>Albacete (España)<br>+34 900 000 000<br>info@metalperfil.com</p>
             </div>
         </div>
         <div class="footbar">
             <div class="wrap">
                 <span>© 2026 Metalperfil · Catálogo de revestimientos metálicos</span>
-                <span>Fabricación española · Desde —</span>
+                <span>Fabricación española</span>
             </div>
         </div>
     </footer>
@@ -389,92 +375,111 @@
     <script>
     /* =========================================================================
        CATÁLOGO METALPERFIL — datos por familia.
-       Estructura por familia (replicando el PDF):
-         · ficha técnica (config + materiales)
-         · "Perfiles" = secciones 2D de cada tipo (profiles[])
-         · "Renders"  = imágenes de acabado (renders[])
-       Para completar una familia: rellena los campos y pon status:'real'.
-       status: 'real' (completa) | 'partial' (datos a medias) | 'placeholder'.
-       Imágenes en la carpeta img/ (ver img/_manifest.json).
+       Por familia: ficha + Perfiles (types[].img) + Visor 3D con RAL (model{})
+       + Renders editoriales salteados (renders[] con caption inspiracional).
+       status: 'real' | 'partial' | 'placeholder'. Imágenes en img/ (ver _manifest.json).
+       Modelos 3D en models/ — model:{prefix, types:[...]} (string o {label,file}).
        ========================================================================= */
     const MAT = ['Acero (0,6–1,00 mm)', 'Galvanizado', 'Prelacado', 'Inoxidable'];
+    const RAL = [
+        { ral: 'RAL 9005', name: 'Negro intenso',   hex: '#0e0e10' },
+        { ral: 'RAL 7016', name: 'Gris antracita',  hex: '#383E42' },
+        { ral: 'RAL 9006', name: 'Aluminio blanco', hex: '#A1A1A0' },
+        { ral: 'RAL 9010', name: 'Blanco puro',     hex: '#F1F0EA' },
+        { ral: 'RAL 3005', name: 'Rojo vino',       hex: '#5E2129' },
+        { ral: 'RAL 8017', name: 'Marrón chocolate',hex: '#45322E' },
+        { ral: 'RAL 6005', name: 'Verde musgo',     hex: '#2F4538' },
+        { ral: 'RAL 5011', name: 'Azul acero',      hex: '#1E2A38' },
+        { ral: 'RAL 1015', name: 'Marfil claro',    hex: '#E3D5B8' }
+    ];
+    const INSPO = [
+        'La luz talla cada arista.',
+        'Sombra y ritmo en movimiento.',
+        'Una piel que respira con la fachada.',
+        'Geometría precisa, presencia serena.',
+        'Profundidad que cambia con el sol.'
+    ];
 
     const FAMILIES = [
         {
             num: '01', name: 'Pyramid', anchor: 'pyramid', pages: '12–17', status: 'real',
-            tagline: 'Prismas triangulares uniformes',
-            desc: 'Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma geométrica. El patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista y contemporánea.',
+            desc: 'Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma geométrica. El patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista y contemporánea. Su forma distintiva realza la profundidad visual de la fachada y ofrece una declaración sofisticada y moderna que complementa diseños arquitectónicos innovadores.',
             config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT,
-            thumb: 'img/p09_5.jpeg',
+            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg',
             types: [
-                { lab: 'Pyramid 33',  ancho: '894 mm',  altura: '33 mm',  img: 'img/p09_2.jpeg' },
-                { lab: 'Pyramid 45',  ancho: '952 mm',  altura: '15 mm',  img: 'img/p09_3.jpeg' },
-                { lab: 'Pyramid 68',  ancho: '893 mm',  altura: '68 mm',  img: 'img/p09_4.jpeg' },
-                { lab: 'Pyramid 110', ancho: '780 mm',  altura: '110 mm', img: 'img/p09_5.jpeg' }
+                { lab: 'Pyramid 33',  ancho: '894 mm', altura: '33 mm',  img: 'img/p09_2.jpeg' },
+                { lab: 'Pyramid 45',  ancho: '952 mm', altura: '15 mm',  img: 'img/p09_3.jpeg' },
+                { lab: 'Pyramid 68',  ancho: '893 mm', altura: '68 mm',  img: 'img/p09_4.jpeg' },
+                { lab: 'Pyramid 110', ancho: '780 mm', altura: '110 mm', img: 'img/p09_5.jpeg' }
             ],
-            warn: 'Dimensiones a verificar: altura de P45 (15 mm) y ancho de P68 (893 / 793 mm) aparecen contradictorios en el PDF. La asignación perfil↔tipo es provisional.',
-            glb: 'models/Pyramid_39.glb',
+            warn: 'Dimensiones a verificar (altura P45, ancho P68) y asignación perfil↔tipo provisional.',
+            model: { prefix: 'models/Pyramid_', types: ['39', '45', '68', '110'] },
             renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p07_1.jpeg']
         },
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
-            tagline: 'Pureza de la proporción y rigor geométrico',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: {},
-            materials: MAT,
-            thumb: 'img/p12_5.jpeg',
+            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p11_1.jpeg',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
                 { lab: 'Symmetric 29', ancho: '1005 mm', altura: '29 mm', angulo: '142°', img: 'img/p12_4.jpeg' },
                 { lab: 'Symmetric 40', ancho: '1007 mm', altura: '40 mm', angulo: '113°', img: 'img/p12_5.jpeg' }
             ],
+            model: { prefix: 'models/Symetric_', types: ['23', '25', '29', '40'] },
             renders: ['img/p11_1.jpeg', 'img/p11_2.jpeg', 'img/p10_1.jpeg']
         },
         {
             num: '03', name: 'Asymmetric', anchor: 'asymmetric', pages: '24–29', status: 'partial',
-            tagline: 'Ritmo asimétrico de planos',
-            desc: '',
-            config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT,
+            desc: '', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
+            materials: MAT, heroRender: 'img/p13_1.jpeg',
             types: [
                 { lab: 'Asymmetric 35', ancho: '— mm', altura: '35 mm' },
                 { lab: 'Asymmetric 55', ancho: '— mm', altura: '55 mm' },
                 { lab: 'Asymmetric 60', ancho: '— mm', altura: '60 mm' },
                 { lab: 'Asymmetric 80', ancho: '— mm', altura: '80 mm' }
             ],
-            warn: 'Nombres de tipo reales; dimensiones (ancho útil) y descripción pendientes en el PDF.',
-            renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p13_1.jpeg']
+            warn: 'Nombres de tipo reales; ancho útil y descripción pendientes en el PDF.',
+            model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
+            renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg']
         },
-        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'placeholder' },
-        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'placeholder' },
-        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'placeholder' },
-        { num: '07', name: 'Onda',    anchor: 'onda',    pages: '48–53', status: 'placeholder' },
-        { num: '08', name: 'Kubo',    anchor: 'kubo',    pages: '54–59', status: 'placeholder' },
-        { num: '09', name: 'Nordik',  anchor: 'nordik',  pages: '60–65', status: 'placeholder' },
+        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'placeholder',
+          model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
+        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'placeholder',
+          model: { prefix: 'models/Kaotiko_', types: ['24', '28', '50', '73'] } },
+        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'placeholder',
+          model: { prefix: 'models/Origami_', types: ['11', '25', '45', '50'] } },
+        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'placeholder',
+          model: { prefix: 'models/AcerOnda_', types: ['18', '27', '42'] } },
+        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'placeholder',
+          model: { prefix: 'models/Kubo_', types: [
+              { label: '17·17·17', file: '171717' }, { label: '24·24·24', file: '242424' },
+              { label: '36·41·41', file: '364141' }, { label: '50·50·50', file: '505050' } ] } },
+        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'placeholder',
+          model: { prefix: 'models/Nordik_', types: [
+              { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
         { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
-        { num: '11', name: 'Skala',   anchor: 'skala',   pages: '72–77', status: 'placeholder' }
+        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder' }
     ];
 
-    const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+    const norm = t => (typeof t === 'string') ? { label: t, file: t } : t;
+    const hexRgba = hex => { const h = hex.replace('#',''); return [parseInt(h.substr(0,2),16)/255, parseInt(h.substr(2,2),16)/255, parseInt(h.substr(4,2),16)/255, 1]; };
 
-    /* ---- índice de chapas ---- */
+    /* ---- índice de chapas (dibujo de línea + nombre) ---- */
     document.getElementById('chapas').innerHTML = FAMILIES.map(f => `
         <a class="chapa" href="#${f.anchor}">
-            <div class="thumb">${f.thumb ? `<img src="${esc(f.thumb)}" alt="${esc(f.name)}">` : '<div class="ph"></div>'}</div>
-            <div class="nm">${esc(f.name)}</div>
-            <div class="nmsub">${f.num}</div>
+            <div class="draw">${f.thumb ? `<img src="${esc(f.thumb)}" alt="${esc(f.name)}">` : '<div class="ph"></div>'}</div>
+            <div class="nm">${esc(f.name)}<small>${f.num}</small></div>
         </a>`).join('');
 
-    /* ---- bloques de familia ---- */
+    /* ---- familia ---- */
     function configBlock(f) {
         const e = Object.entries(f.config || {});
         if (!e.length) return '';
-        return `<div class="specs">${e.map(([k, v]) =>
-            `<div class="cell"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`).join('')}</div>`;
+        return `<div class="specs">${e.map(([k,v]) => `<div class="cell"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`).join('')}</div>`;
     }
-    function materialsBlock(f) {
+    function chipsBlock(f) {
         if (!f.materials || !f.materials.length) return '';
         return `<div class="chips">${f.materials.map(m => `<span class="chip">${esc(m)}</span>`).join('')}</div>`;
     }
@@ -486,55 +491,103 @@
                 <div class="lab">${esc(t.lab)}</div>
                 <div class="dim">${esc(t.ancho || '')}${t.altura ? ' · ' + esc(t.altura) : ''}${t.angulo ? ' · ' + esc(t.angulo) : ''}</div>
             </div>`).join('');
-        const rows = f.types.map(t => `<tr>
-            <td>${esc(t.lab)}</td><td>${esc(t.ancho || '—')}</td><td>${esc(t.altura || '—')}</td><td>${esc(t.angulo || '—')}</td></tr>`).join('');
-        return `
-            <div class="subhead"><h3>Perfiles</h3><span class="ln"></span></div>
+        const rows = f.types.map(t => `<tr><td>${esc(t.lab)}</td><td>${esc(t.ancho || '—')}</td><td>${esc(t.altura || '—')}</td><td>${esc(t.angulo || '—')}</td></tr>`).join('');
+        return `<div class="subhead"><h3>Perfiles</h3><span class="ln"></span></div>
             <div class="profiles">${cards}</div>
-            <table class="dims">
-                <tr><th>Tipo</th><th>Ancho útil</th><th>Altura</th><th>Ángulo</th></tr>${rows}
-            </table>`;
+            <table class="dims"><tr><th>Tipo</th><th>Ancho útil</th><th>Altura</th><th>Ángulo</th></tr>${rows}</table>`;
+    }
+    function viewerBlock(f) {
+        if (!f.model) return '';
+        const types = JSON.stringify((f.model.types || []).map(norm));
+        return `<div class="subhead"><h3>Visor 3D</h3><span class="ln"></span></div>
+            <div class="fam-viewer" data-prefix="${esc(f.model.prefix)}" data-types="${esc(types)}">
+                <model-viewer camera-controls disable-pan auto-rotate interaction-prompt="none"
+                    camera-orbit="35deg 75deg auto" min-camera-orbit="-60deg 30deg auto" max-camera-orbit="60deg 110deg auto"
+                    shadow-intensity="1" environment-image="neutral" exposure="1.2" alt="Modelo 3D ${esc(f.name)}"></model-viewer>
+                <div class="vctrl">
+                    <div class="vlabel">Perfil</div>
+                    <div class="vtypes"></div>
+                    <div class="vlabel">Acabado · RAL</div>
+                    <div class="vcolors"></div>
+                </div>
+            </div>`;
     }
     function rendersBlock(f) {
-        const items = [];
-        if (f.glb) items.push(`<model-viewer class="fam3d" src="${esc(f.glb)}" camera-controls disable-pan auto-rotate
-            interaction-prompt="none" camera-orbit="35deg 75deg auto" shadow-intensity="1"
-            environment-image="neutral" exposure="1.2" alt="Modelo 3D ${esc(f.name)}"></model-viewer>`);
+        const rows = [];
         if (f.renders && f.renders.length) {
-            f.renders.forEach((src, i) => items.push(`<img src="${esc(src)}" class="${i === 0 && !f.glb ? 'span2' : ''}" alt="${esc(f.name)} render ${i + 1}" loading="lazy">`));
+            f.renders.forEach((src, i) => {
+                rows.push(`<div class="render-row ${i % 3 === 0 ? 'big' : ''}">
+                    <div class="render-media"><img src="${esc(src)}" alt="${esc(f.name)} ${i + 1}" loading="lazy"></div>
+                    <div class="inspo"><span class="e">Inspiración</span>${esc(INSPO[i % INSPO.length])}</div>
+                </div>`);
+            });
         } else {
-            items.push(`<div class="slot span2">${esc(f.name)} · Render 1</div>`);
-            items.push(`<div class="slot">${esc(f.name)} · Render 2</div>`);
-            items.push(`<div class="slot">${esc(f.name)} · Render 3</div>`);
+            [1, 2].forEach(n => rows.push(`<div class="render-row">
+                <div class="render-media"><div class="slot">${esc(f.name)} · Render ${n}</div></div>
+                <div class="inspo"><span class="e">Inspiración</span>${esc(INSPO[n % INSPO.length])}</div>
+            </div>`));
         }
-        return `<div class="subhead"><h3>Acabados &amp; renders</h3><span class="ln"></span></div>
-                <div class="renders">${items.join('')}</div>`;
+        return `<div class="subhead"><h3>Acabados</h3><span class="ln"></span></div>${rows.join('')}`;
     }
     function familySection(f, idx) {
         const ph = f.status === 'placeholder';
-        const descHtml = ph
-            ? `<span class="note">Texto provisional</span><p class="family-desc">Descripción de <strong>${esc(f.name)}</strong> pendiente de contenido real (catálogo, páginas ${f.pages}).</p>`
-            : (f.desc
-                ? `<p class="family-desc">${esc(f.desc)}</p>`
-                : `<span class="note">Descripción provisional</span><p class="family-desc">Descripción de ${esc(f.name)} pendiente.</p>`)
-              + (f.warn ? `<div class="warn">⚠ ${esc(f.warn)}</div>` : '');
-        const cls = (idx % 2 === 1) ? 'family pad cream' : 'family pad';
+        const descHtml = (!ph && f.desc)
+            ? `<p class="fam-desc">${esc(f.desc)}</p>`
+            : `<span class="note">${ph ? 'Texto provisional' : 'Descripción provisional'}</span>
+               <p class="fam-desc">Descripción de ${esc(f.name)} pendiente de contenido real (catálogo, páginas ${f.pages}).</p>`;
+        const render = f.heroRender
+            ? `<div class="fam-render"><img src="${esc(f.heroRender)}" alt="${esc(f.name)}"></div>`
+            : `<div class="fam-render"><div class="slot">${esc(f.name)} · Render</div></div>`;
         return `
-        <section class="${cls}" id="${f.anchor}">
+        <section class="screen ${idx % 2 ? 'cream' : ''}" id="${f.anchor}">
             <div class="wrap">
-                <div class="family-hero">
-                    <div class="n">${f.num}</div>
-                    <div class="t"><span class="eyebrow">${f.tagline ? esc(f.tagline) : 'Sistema de fijación vista'}</span><h2>${esc(f.name)}</h2></div>
+                <div class="fam-intro">
+                    <div>
+                        <h2 class="fam-name"><span class="fnum">${f.num}.</span> ${esc(f.name)}</h2>
+                        ${descHtml}
+                        ${ph ? '' : (f.warn ? `<div class="warn">⚠ ${esc(f.warn)}</div>` : '')}
+                    </div>
+                    ${render}
                 </div>
-                ${descHtml}
                 ${ph ? '' : configBlock(f)}
-                ${ph ? '' : materialsBlock(f)}
+                ${ph ? '' : chipsBlock(f)}
                 ${profilesBlock(f)}
+                ${viewerBlock(f)}
                 ${rendersBlock(f)}
             </div>
         </section>`;
     }
     document.getElementById('families').innerHTML = FAMILIES.map(familySection).join('');
+
+    /* ---- inicializar visores 3D (tipo + RAL) ---- */
+    function initViewers() {
+        document.querySelectorAll('.fam-viewer').forEach(v => {
+            const prefix = v.dataset.prefix;
+            const types = JSON.parse(v.dataset.types);
+            const mv = v.querySelector('model-viewer');
+            const tbox = v.querySelector('.vtypes');
+            const cbox = v.querySelector('.vcolors');
+            let color = RAL[0].hex;
+            const apply = () => { if (!mv.model) return; mv.model.materials.forEach(m => { if (m.pbrMetallicRoughness) m.pbrMetallicRoughness.setBaseColorFactor(hexRgba(color)); }); };
+            mv.addEventListener('load', apply);
+            types.forEach((t, i) => {
+                const b = document.createElement('button');
+                b.className = 'vtype' + (i === 0 ? ' on' : '');
+                b.textContent = t.label;
+                b.addEventListener('click', () => { tbox.querySelectorAll('.vtype').forEach(x => x.classList.remove('on')); b.classList.add('on'); mv.src = encodeURI(prefix + t.file + '.glb'); });
+                tbox.appendChild(b);
+            });
+            RAL.forEach((c, i) => {
+                const s = document.createElement('button');
+                s.className = 'vsw' + (i === 0 ? ' on' : '');
+                s.style.background = c.hex; s.title = c.ral + ' · ' + c.name;
+                s.addEventListener('click', () => { cbox.querySelectorAll('.vsw').forEach(x => x.classList.remove('on')); s.classList.add('on'); color = c.hex; apply(); });
+                cbox.appendChild(s);
+            });
+            if (types.length) mv.src = encodeURI(prefix + types[0].file + '.glb');
+        });
+    }
+    initViewers();
 
     /* ---- menú móvil ---- */
     const nav = document.getElementById('mainNav');

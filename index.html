@@ -6,7 +6,7 @@
     <title>Metalperfil - Visor Interactivo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <style>
@@ -54,7 +54,23 @@
             height: clamp(40px, 10vw, 54px);
             width: auto;
             display: block;
+            flex-shrink: 0;
         }
+
+        .header-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            color: var(--text-white);
+            font-size: clamp(18px, 2.2vw, 28px);
+            line-height: 1.1;
+            text-align: center;
+            flex: 1;
+            padding: 0 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 720px) { .header-title { display: none; } }
 
         .family-select {
             font-family: var(--sans-font);
@@ -79,7 +95,8 @@
         /* --- BANDA 2: CENTRAL (Visor) --- */
         .viewer-container {
             width: 100%;
-            height: 58vh;
+            flex: 1 1 auto;       /* ocupa todo el espacio libre: nada de hueco negro */
+            min-height: 56vh;     /* nunca colapsa a 0px (model-viewer necesita altura) */
             background-color: #ffffff;
             display: flex;
             justify-content: center;
@@ -128,7 +145,7 @@
         /* --- BANDA 3: INFERIOR (más compacta) --- */
         .bottom-panel {
             width: 100%;
-            flex: 1 0 auto;
+            flex: 0 0 auto;        /* solo ocupa lo que mide su contenido */
             background-color: var(--panel-black);
             padding: 16px 20px calc(16px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
@@ -231,7 +248,7 @@
             .brand-header { padding: 0 40px; height: 88px; }
             .brand-logo { height: 60px; }
             .bottom-panel { padding: 20px 40px; }
-            .viewer-container { height: 64vh; }
+            .viewer-container { min-height: 60vh; }
         }
     </style>
 </head>
@@ -239,6 +256,7 @@
 
     <div class="brand-header">
         <img src="assets/Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
+        <div class="header-title">Revestimientos metálicos de alta gama</div>
         <select class="family-select" id="familySelect"></select>
     </div>
 
@@ -253,8 +271,8 @@
             auto-rotate
             interaction-prompt="none"
             camera-orbit="35deg 75deg auto"
-            min-camera-orbit="-60deg 30deg auto"
-            max-camera-orbit="60deg 110deg auto"
+            min-camera-orbit="auto 0deg auto"
+            max-camera-orbit="auto 180deg auto"
             shadow-intensity="1"
             environment-image="neutral"
             exposure="1.2"
@@ -301,7 +319,7 @@
             Kaotiko:   { label: 'Kaotico',    prefix: 'models/Kaotiko_',  types: ['24', '28', '50', '73'],                     anchor: 'kaotico'    },
             Origami:   { label: 'Origami',    prefix: 'models/Origami_',  types: ['11', '25', '45', '50'],                     anchor: 'origami'    },
             AcerOnda:  { label: 'AcerOnda',   prefix: 'models/AcerOnda_', types: ['18', '27', '42'],                           anchor: 'onda'       },
-            Kubo:      { label: 'Kubo',       prefix: 'models/Kubo_',     types: ['171717', '242424', '364141', '505050'],     anchor: 'kubo'       },
+            Kubo:      { label: 'Kubo',       prefix: 'models/Kubo_',     types: [{label:'17·17·17',file:'171717'},{label:'24·24·24',file:'242424'},{label:'36·41·41',file:'364141'},{label:'50·50·50',file:'505050'}], anchor: 'kubo' },
             Nordik:    { label: 'Nordik',     prefix: 'models/Nordik_',   types: ['24 A', '24 B', '24 C'],                     anchor: 'nordik'     },
             Ritmiko:   { label: 'Ritmiko',    prefix: 'models/Ritmiko_',  types: ['24 A', '24 B', '24 C'],                     anchor: 'indice'     }
         };
@@ -341,12 +359,15 @@
             catalogLink.href = `${CATALOG_PAGE}#${catalog[currentFamily].anchor}`;
         }
 
+        const typeLabel = t => (typeof t === 'string') ? t : t.label;
+        const typeFile  = t => (typeof t === 'string') ? t : t.file;
+
         function renderButtons() {
             btnContainer.innerHTML = '';
             catalog[currentFamily].types.forEach((type, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'type-btn' + (index === 0 ? ' active' : '');
-                btn.textContent = type;
+                btn.textContent = typeLabel(type);
                 btn.addEventListener('click', () => loadModel(type, btn));
                 btnContainer.appendChild(btn);
             });
@@ -355,7 +376,7 @@
         function loadModel(type, btnElement) {
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
             btnElement.classList.add('active');
-            setSource(`${catalog[currentFamily].prefix}${type}.glb`);
+            setSource(`${catalog[currentFamily].prefix}${typeFile(type)}.glb`);
         }
 
         function changeFamily(family) {
@@ -363,7 +384,7 @@
             renderButtons();
             updateCatalogLink();
             const firstType = catalog[currentFamily].types[0];
-            setSource(`${catalog[currentFamily].prefix}${firstType}.glb`);
+            setSource(`${catalog[currentFamily].prefix}${typeFile(firstType)}.glb`);
         }
         familySelect.addEventListener('change', (e) => changeFamily(e.target.value));
 
