@@ -11,7 +11,7 @@
     
     <style>
         :root {
-            --brand-red: rgb(182, 31, 38); /* Tu color exacto */
+            --brand-red-granate: rgb(140, 20, 26); /* Rojo modificado a un tono más granate */
             --text-black: #1a1a1a;
             --text-white: #ffffff;
             --panel-black: #111111;
@@ -26,7 +26,7 @@
         }
 
         body {
-            background-color: var(--brand-red); /* Fondo general rojo */
+            background-color: #ffffff;
             font-family: var(--sans-font);
             color: var(--text-black);
             min-height: 100vh;
@@ -35,13 +35,16 @@
             overflow: hidden;
         }
 
-        /* Encabezado Superior */
+        /* --- BANDA 1: SUPERIOR (Fondo Blanco, Letras en Rojo Granate) --- */
         .brand-header {
             width: 100%;
-            padding: 20px;
+            height: 80px;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #ffffff; /* Fondo superior blanco */
+            border-bottom: 1px solid #ededed;
             z-index: 10;
         }
 
@@ -50,15 +53,15 @@
             font-size: 26px;
             letter-spacing: -0.5px;
             font-weight: 700;
-            color: var(--text-black);
+            color: var(--brand-red-granate); /* Metalperfil en rojo granate */
         }
 
         .brand-name::after {
             content: ".";
-            color: var(--text-white);
+            color: var(--text-black);
         }
 
-        /* Selector de familias moderno */
+        /* Selector de familias a la derecha en rojo granate */
         .family-select {
             font-family: var(--sans-font);
             font-size: 12px;
@@ -66,28 +69,26 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             padding: 8px 32px 8px 12px;
-            border: 1px solid var(--text-black);
+            border: 1px solid var(--brand-red-granate); /* Borde granate */
             background-color: transparent;
-            color: var(--text-black);
+            color: var(--brand-red-granate); /* Texto granate */
             cursor: pointer;
             outline: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%231a1a1a'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%238C141A'/></svg>");
             background-repeat: no-repeat;
             background-position: right 12px center;
         }
 
-        /* Contenedor del Visor Central - AHORA EN BLANCO */
+        /* --- BANDA 2: CENTRAL (Visor de lado a lado, fondo blanco) --- */
         .viewer-container {
             flex: 1;
-            margin: 0 20px;
-            background-color: #ffffff; /* Cuadro del visor blanco */
-            border-radius: 4px;
+            width: 100%;
+            background-color: #ffffff; /* Visor fondo blanco sin márgenes */
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         model-viewer {
@@ -95,28 +96,26 @@
             height: 100%;
         }
 
-        /* Panel de Control Inferior - AHORA EN NEGRO */
+        /* --- BANDA 3: INFERIOR (Fondo Negro) --- */
         .bottom-panel {
             width: 100%;
-            background-color: var(--panel-black); /* Fondo negro inferior */
+            background-color: var(--panel-black); /* Fondo negro absoluto */
             padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-top: 20px;
         }
 
         .selector-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #777777;
+            color: #555555;
             font-weight: 600;
             text-align: center;
         }
 
-        /* Botones de tipos de perfil */
         .type-selector {
             display: flex;
             width: 100%;
@@ -127,7 +126,7 @@
         .type-btn {
             flex: 1;
             height: 46px;
-            border: 1px solid #333333;
+            border: 1px solid #222222;
             background: transparent;
             color: #aaaaaa;
             font-family: var(--sans-font);
@@ -142,10 +141,11 @@
             border-left: none;
         }
 
+        /* Seleccionado en Rojo Granate corporativo */
         .type-btn.active {
-            background: var(--brand-red); /* Destaca tu tipo seleccionado en rojo */
+            background: var(--brand-red-granate); 
             color: var(--text-white);
-            border-color: var(--brand-red);
+            border-color: var(--brand-red-granate);
         }
 
         /* Botón de acceso a la página web */
@@ -155,8 +155,8 @@
             max-width: 500px;
             margin: 0 auto;
             padding: 14px;
-            border: 1px solid #333333;
-            background: #222222;
+            border: 1px solid #222222;
+            background: #181818;
             color: var(--text-white);
             text-align: center;
             text-transform: uppercase;
@@ -168,34 +168,31 @@
         }
 
         .cta-button:hover {
-            background: var(--text-white);
-            color: var(--text-black);
+            background: var(--brand-red-granate);
+            border-color: var(--brand-red-granate);
         }
 
         @media (min-width: 768px) {
-            .brand-header { padding: 30px 40px; }
-            .bottom-panel { padding: 30px 40px; }
-            .viewer-container { margin: 0 40px; }
-            model-viewer { max-height: 65vh; }
+            .brand-header { padding: 0 40px; }
+            .bottom-panel { padding: 32px 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado Superior -->
+    <!-- Banda Superior -->
     <div class="brand-header">
         <div class="brand-name">metalperfil</div>
         
-        <!-- Desplegable con los nuevos productos añadidos -->
         <select class="family-select" onchange="changeFamily(this.value)">
-            <option value="pyramid">Pyramid</option>
-            <option value="symmetric">Symmetric</option>
-            <option value="asimmetric">Asimmetric</option>
-            <option value="eskaler">Eskaler</option>
+            <option value="Pyramid">Pyramid</option>
+            <option value="Symmetric">Symmetric</option>
+            <option value="Asimmetric">Asimmetric</option>
+            <option value="Eskaler">Eskaler</option>
         </select>
     </div>
 
-    <!-- Visor 3D Central con Fondo Blanco -->
+    <!-- Banda Central: Visor 3D de lado a lado -->
     <div class="viewer-container">
         <model-viewer 
             id="visorMetal" 
@@ -209,11 +206,9 @@
         </model-viewer>
     </div>
 
-    <!-- Panel de Control Inferior con Fondo Negro -->
+    <!-- Banda Inferior -->
     <div class="bottom-panel">
         <div class="selector-label">Perfil / Espesor (mm)</div>
-        
-        <!-- Los botones se generarán dinámicamente con JavaScript -->
         <div class="type-selector" id="btnContainer"></div>
         
         <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank">
@@ -225,29 +220,28 @@
         const visor = document.getElementById('visorMetal');
         const btnContainer = document.getElementById('btnContainer');
 
-        // Base de datos de productos y sus archivos correspondientes
+        // Base de datos de productos con nombres que coinciden con las MAYÚSCULAS en GitHub
         const catalog = {
-            pyramid: {
+            Pyramid: {
                 prefix: 'Pyramid_',
-                types: ['39', '45', '68', '110'] // Vinculados directamente a tus archivos .glb
+                types: ['39', '45', '68', '110']
             },
-            symmetric: {
+            Symmetric: {
                 prefix: 'Symmetric_',
-                types: ['20', '40', '60', '80'] // Datos asignados de prueba
+                types: ['20', '40', '60', '80']
             },
-            asimmetric: {
+            Asimmetric: {
                 prefix: 'Asimmetric_',
-                types: ['15', '30', '45', '60'] // Datos asignados de prueba
+                types: ['15', '30', '45', '60']
             },
-            eskaler: {
+            Eskaler: {
                 prefix: 'Eskaler_',
-                types: ['10', '25', '50', '75'] // Datos asignados de prueba
+                types: ['10', '25', '50', '75']
             }
         };
 
-        let currentFamily = 'pyramid';
+        let currentFamily = 'Pyramid';
 
-        // Genera los botones inferiores según la familia activa
         function renderButtons() {
             btnContainer.innerHTML = '';
             const familyData = catalog[currentFamily];
@@ -261,27 +255,22 @@
             });
         }
 
-        // Cambia el archivo .glb del visor directamente al pulsar el botón
         function loadModel(type, btnElement) {
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-            btnElement.classList.add('active');
+            btnElement.add('active');
 
             const familyData = catalog[currentFamily];
-            // Construye el nombre exacto del archivo: ej: Pyramid_45.glb
             visor.src = `${familyData.prefix}${type}.glb`; 
         }
 
-        // Maneja el cambio de producto desde el menú desplegable superior
         function changeFamily(family) {
             currentFamily = family;
             renderButtons();
             
-            // Carga el primer modelo por defecto de la nueva familia seleccionada
             const firstType = catalog[currentFamily].types[0];
             visor.src = `${catalog[currentFamily].prefix}${firstType}.glb`;
         }
 
-        // Inicialización de la pantalla al cargar
         renderButtons();
     </script>
 </body>
