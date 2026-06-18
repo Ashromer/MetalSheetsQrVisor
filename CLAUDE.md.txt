@@ -23,19 +23,32 @@ URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
   se unificó con la web para que cabecera e imágenes coincidan). `--red` en catalogo.html,
   `--brand-red-granate` en index.html.
 
-## Archivos en el repo
+## Estructura del repo (organizada en carpetas)
+Raíz solo con las páginas y la fuente; el resto en subcarpetas (GitHub Pages las sirve
+sin problema; ojo: Pages distingue mayúsculas/minúsculas en las rutas).
 - `index.html` — visor 3D (funcional, no romper la lógica de cámara/carga).
-- `catalogo.html` — catálogo (esqueleto montado; familias por rellenar salvo Pyramid).
-- `Metalperfil_white.png` — logo original (3508x2479, con MUCHO margen transparente).
-- `Metalperfil_white_trim.png` — logo recortado a su contenido (825x439). **Es el que
-  usan los HTML.** El original se veía minúsculo porque la marca ocupaba ~23% del lienzo.
+- `catalogo.html` — catálogo (data-driven; ver arriba).
 - `Catalogo_Metalperfil.pdf` — catálogo original en PDF (fuente de imágenes; ver abajo).
+- `models/` — **todos los `.glb`** (`Familia_Tipo.glb`, p.ej. `Pyramid_39.glb`,
+  `Nordik_24 A.glb`). Referenciados con prefijo `models/` en index.html (objeto `catalog`)
+  y en `FAMILIES[].glb` de catalogo.html. Familias con modelo: Pyramid, Symetric, Asymetric,
+  Escaler, Kaotiko, Origami, AcerOnda, Kubo, Nordik, Ritmiko (10).
+- `assets/` — `Metalperfil_white.png` (logo original, 3508x2479, mucho margen transparente)
+  y `Metalperfil_white_trim.png` (recortado 825x439, **el que usan los HTML**).
 - `img/` — renders extraídos del PDF (`pNN_i.jpeg/png`) + `_manifest.json` + `_texto.txt`.
-- `Pyramid_39.glb`, `Pyramid_45.glb`, `Pyramid_68.glb`, `Pyramid_110.glb` — modelos 3D.
 - `tools/extract_pdf.py` — re-extrae imágenes y texto del PDF (reproducible).
-- `tools/trim_logo.py` — regenera el logo recortado.
-- `familia_chapas.glb` — archivo antiguo, NO se usa. Se puede borrar.
-- `test.html` — archivo de prueba. Se puede borrar.
+- `tools/trim_logo.py` — regenera el logo recortado (lee/escribe en `assets/`).
+- (Borrados) `familia_chapas.glb` y `test.html` — eran cruft sin uso.
+
+## ⚠️ Nombres de `.glb` (cuidado)
+- El selector del visor se llena solo desde el objeto `catalog` de index.html: cada familia
+  tiene `label` (lo que se ve), `prefix` (nombre EXACTO de archivo, p.ej. `models/Symetric_`),
+  `types` (sufijos) y `anchor` (sección del catálogo).
+- Ortografía de archivo ≠ ortografía comercial: `Symetric_`/`Asymetric_`/`Kaotiko_` en los
+  `.glb` vs Symmetric/Asymmetric/Kaotico en el catálogo. El `label` muestra la comercial.
+- Hay nombres con **espacio** (`Nordik_24 A.glb`, `Ritmiko_24 A.glb`): el `src` se pasa por
+  `encodeURI()` en index.html para que el espacio viaje como `%20`.
+- `AcerOnda` ↦ ancla `onda`; `Ritmiko` no tiene sección aún (ancla `indice`).
 
 ## ⚠️ No tocar sin cuidado (en index.html)
 El visor costó hacerlo funcionar. Claves que NO hay que cambiar:

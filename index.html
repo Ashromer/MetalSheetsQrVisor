@@ -238,14 +238,14 @@
 <body>
 
     <div class="brand-header">
-        <img src="Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
+        <img src="assets/Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
         <select class="family-select" id="familySelect"></select>
     </div>
 
     <div class="viewer-container">
         <model-viewer
             id="visorMetal"
-            src="Pyramid_39.glb"
+            src="models/Pyramid_39.glb"
             alt="Perfil metálico Metalperfil"
             camera-controls
             disable-pan
@@ -294,16 +294,16 @@
         // Cada familia: label (lo que se ve), prefix (nombre exacto del .glb),
         // types (sufijos de archivo), anchor (sección del catálogo).
         const catalog = {
-            Pyramid:   { label: 'Pyramid',    prefix: 'Pyramid_',  types: ['39', '45', '68', '110'],                    anchor: 'pyramid'    },
-            Symetric:  { label: 'Symmetric',  prefix: 'Symetric_', types: ['23', '25', '29', '40'],                     anchor: 'symmetric'  },
-            Asymetric: { label: 'Asymmetric', prefix: 'Asymetric_',types: ['35', '55', '60', '80'],                     anchor: 'asymmetric' },
-            Escaler:   { label: 'Escaler',    prefix: 'Escaler_',  types: ['22', '48', '55', '70'],                     anchor: 'escaler'    },
-            Kaotiko:   { label: 'Kaotico',    prefix: 'Kaotiko_',  types: ['24', '28', '50', '73'],                     anchor: 'kaotico'    },
-            Origami:   { label: 'Origami',    prefix: 'Origami_',  types: ['11', '25', '45', '50'],                     anchor: 'origami'    },
-            AcerOnda:  { label: 'AcerOnda',   prefix: 'AcerOnda_', types: ['18', '27', '42'],                           anchor: 'onda'       },
-            Kubo:      { label: 'Kubo',       prefix: 'Kubo_',     types: ['171717', '242424', '364141', '505050'],     anchor: 'kubo'       },
-            Nordik:    { label: 'Nordik',     prefix: 'Nordik_',   types: ['24 A', '24 B', '24 C'],                     anchor: 'nordik'     },
-            Ritmiko:   { label: 'Ritmiko',    prefix: 'Ritmiko_',  types: ['24 A', '24 B', '24 C'],                     anchor: 'indice'     }
+            Pyramid:   { label: 'Pyramid',    prefix: 'models/Pyramid_',  types: ['39', '45', '68', '110'],                    anchor: 'pyramid'    },
+            Symetric:  { label: 'Symmetric',  prefix: 'models/Symetric_', types: ['23', '25', '29', '40'],                     anchor: 'symmetric'  },
+            Asymetric: { label: 'Asymmetric', prefix: 'models/Asymetric_',types: ['35', '55', '60', '80'],                     anchor: 'asymmetric' },
+            Escaler:   { label: 'Escaler',    prefix: 'models/Escaler_',  types: ['22', '48', '55', '70'],                     anchor: 'escaler'    },
+            Kaotiko:   { label: 'Kaotico',    prefix: 'models/Kaotiko_',  types: ['24', '28', '50', '73'],                     anchor: 'kaotico'    },
+            Origami:   { label: 'Origami',    prefix: 'models/Origami_',  types: ['11', '25', '45', '50'],                     anchor: 'origami'    },
+            AcerOnda:  { label: 'AcerOnda',   prefix: 'models/AcerOnda_', types: ['18', '27', '42'],                           anchor: 'onda'       },
+            Kubo:      { label: 'Kubo',       prefix: 'models/Kubo_',     types: ['171717', '242424', '364141', '505050'],     anchor: 'kubo'       },
+            Nordik:    { label: 'Nordik',     prefix: 'models/Nordik_',   types: ['24 A', '24 B', '24 C'],                     anchor: 'nordik'     },
+            Ritmiko:   { label: 'Ritmiko',    prefix: 'models/Ritmiko_',  types: ['24 A', '24 B', '24 C'],                     anchor: 'indice'     }
         };
 
         const colors = [

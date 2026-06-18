@@ -13,10 +13,10 @@ Genera Metalperfil_white_trim.png (el que usan index.html y catalogo.html).
 from PIL import Image
 
 PAD = 12
-im = Image.open("Metalperfil_white.png").convert("RGBA")
+im = Image.open("assets/Metalperfil_white.png").convert("RGBA")
 bbox = im.split()[3].getbbox()
 crop = (max(0, bbox[0]-PAD), max(0, bbox[1]-PAD),
         min(im.size[0], bbox[2]+PAD), min(im.size[1], bbox[3]+PAD))
 out = im.crop(crop)
-out.save("Metalperfil_white_trim.png")
+out.save("assets/Metalperfil_white_trim.png")
 print("OK ->", out.size)
