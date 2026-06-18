@@ -11,10 +11,10 @@
     
     <style>
         :root {
-            --brand-red: #e30613; /* El rojo corporativo de fondo */
+            --brand-red: rgb(182, 31, 38); /* Tu color exacto */
             --text-black: #1a1a1a;
             --text-white: #ffffff;
-            --border-color: rgba(26, 26, 26, 0.15);
+            --panel-black: #111111;
             --serif-font: 'Playfair Display', serif;
             --sans-font: 'Inter', sans-serif;
         }
@@ -26,90 +26,92 @@
         }
 
         body {
-            background-color: var(--brand-red); /* Fondo general en rojo */
+            background-color: var(--brand-red); /* Fondo general rojo */
             font-family: var(--sans-font);
             color: var(--text-black);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Evita scrolls extraños en la interfaz */
+            overflow: hidden;
         }
 
         /* Encabezado Superior */
         .brand-header {
             width: 100%;
-            padding: 24px 20px;
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 10;
         }
 
-        .brand-logo-zone {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
         .brand-name {
             font-family: var(--serif-font);
-            font-size: 28px;
+            font-size: 26px;
             letter-spacing: -0.5px;
             font-weight: 700;
-            line-height: 1;
-            color: var(--text-black); /* Logo en negro */
+            color: var(--text-black);
         }
 
-        /* El punto del logo en blanco para contrastar sobre el fondo rojo */
         .brand-name::after {
             content: ".";
             color: var(--text-white);
         }
 
-        .product-type-label {
+        /* Selector de familias moderno */
+        .family-select {
             font-family: var(--sans-font);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-black); /* Tipo de plancha a la derecha en negro */
+            letter-spacing: 1.5px;
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--text-black);
+            background-color: transparent;
+            color: var(--text-black);
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%231a1a1a'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
         }
 
-        /* Contenedor del Visor Central */
+        /* Contenedor del Visor Central - AHORA EN BLANCO */
         .viewer-container {
             flex: 1;
-            width: 100%;
+            margin: 0 20px;
+            background-color: #ffffff; /* Cuadro del visor blanco */
+            border-radius: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
-            padding: 0 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         model-viewer {
             width: 100%;
             height: 100%;
-            max-height: 55vh; /* Ajuste para dejar aire arriba y abajo en móviles */
-            /* Mantenemos un fondo de iluminación neutro y limpio para el objeto 3D */
-            --poster-color: transparent; 
-            background-color: transparent;
         }
 
-        /* Panel de Control Inferior (Botonera + Web) */
+        /* Panel de Control Inferior - AHORA EN NEGRO */
         .bottom-panel {
             width: 100%;
+            background-color: var(--panel-black); /* Fondo negro inferior */
             padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
             display: flex;
             flex-direction: column;
             gap: 16px;
+            margin-top: 20px;
         }
 
         .selector-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--text-black);
+            color: #777777;
             font-weight: 600;
             text-align: center;
         }
@@ -124,12 +126,12 @@
 
         .type-btn {
             flex: 1;
-            height: 50px;
-            border: 1px solid var(--text-black);
+            height: 46px;
+            border: 1px solid #333333;
             background: transparent;
-            color: var(--text-black);
+            color: #aaaaaa;
             font-family: var(--sans-font);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             text-align: center;
             cursor: pointer;
@@ -140,10 +142,10 @@
             border-left: none;
         }
 
-        /* Estado activo: se vuelve negro con texto blanco */
         .type-btn.active {
-            background: var(--text-black);
+            background: var(--brand-red); /* Destaca tu tipo seleccionado en rojo */
             color: var(--text-white);
+            border-color: var(--brand-red);
         }
 
         /* Botón de acceso a la página web */
@@ -152,40 +154,29 @@
             width: 100%;
             max-width: 500px;
             margin: 0 auto;
-            padding: 16px;
-            border: 1px solid var(--text-black);
-            background: var(--text-black);
+            padding: 14px;
+            border: 1px solid #333333;
+            background: #222222;
             color: var(--text-white);
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: transparent;
+            background: var(--text-white);
             color: var(--text-black);
         }
 
-        /* Ajustes de optimización para pantallas Desktop grandes */
         @media (min-width: 768px) {
-            .brand-header {
-                padding: 40px 60px;
-            }
-            .brand-name {
-                font-size: 32px;
-            }
-            .bottom-panel {
-                padding: 40px 60px;
-                gap: 20px;
-            }
-            model-viewer {
-                max-height: 60vh;
-                width: 80%;
-            }
+            .brand-header { padding: 30px 40px; }
+            .bottom-panel { padding: 30px 40px; }
+            .viewer-container { margin: 0 40px; }
+            model-viewer { max-height: 65vh; }
         }
     </style>
 </head>
@@ -193,15 +184,18 @@
 
     <!-- Encabezado Superior -->
     <div class="brand-header">
-        <div class="brand-logo-zone">
-            <!-- Texto corporativo en Negro -->
-            <div class="brand-name">metalperfil</div>
-        </div>
-        <!-- Tipo de plancha actual a la derecha en Negro -->
-        <div class="product-type-label">Pyramid</div>
+        <div class="brand-name">metalperfil</div>
+        
+        <!-- Desplegable con los nuevos productos añadidos -->
+        <select class="family-select" onchange="changeFamily(this.value)">
+            <option value="pyramid">Pyramid</option>
+            <option value="symmetric">Symmetric</option>
+            <option value="asimmetric">Asimmetric</option>
+            <option value="eskaler">Eskaler</option>
+        </select>
     </div>
 
-    <!-- Visor 3D Central -->
+    <!-- Visor 3D Central con Fondo Blanco -->
     <div class="viewer-container">
         <model-viewer 
             id="visorMetal" 
@@ -215,19 +209,13 @@
         </model-viewer>
     </div>
 
-    <!-- Panel de Control Inferior -->
+    <!-- Panel de Control Inferior con Fondo Negro -->
     <div class="bottom-panel">
         <div class="selector-label">Perfil / Espesor (mm)</div>
         
-        <!-- Selectores de Tipos -->
-        <div class="type-selector">
-            <button class="type-btn active" onclick="updateType('33', this)">33</button>
-            <button class="type-btn" onclick="updateType('45', this)">45</button>
-            <button class="type-btn" onclick="updateType('68', this)">68</button>
-            <button class="type-btn" onclick="updateType('110', this)">110</button>
-        </div>
+        <!-- Los botones se generarán dinámicamente con JavaScript -->
+        <div class="type-selector" id="btnContainer"></div>
         
-        <!-- Enlace de salida hacia el catálogo web -->
         <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank">
             Acceder a la Página Web
         </a>
@@ -235,40 +223,66 @@
 
     <script>
         const visor = document.getElementById('visorMetal');
-        const tipos = ['33', '45', '68', '110'];
+        const btnContainer = document.getElementById('btnContainer');
 
-        function updateType(tipo, btn) {
-            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            if (visor.model) {
-                const escena = visor.model.scene;
-                tipos.forEach(t => {
-                    const obj = escena.find(o => o.name === `tipo_${t}`);
-                    if (obj) {
-                        obj.visible = (t === tipo);
-                    }
-                });
-                visor.queueRender();
+        // Base de datos de productos y sus archivos correspondientes
+        const catalog = {
+            pyramid: {
+                prefix: 'Pyramid_',
+                types: ['39', '45', '68', '110'] // Vinculados directamente a tus archivos .glb
+            },
+            symmetric: {
+                prefix: 'Symmetric_',
+                types: ['20', '40', '60', '80'] // Datos asignados de prueba
+            },
+            asimmetric: {
+                prefix: 'Asimmetric_',
+                types: ['15', '30', '45', '60'] // Datos asignados de prueba
+            },
+            eskaler: {
+                prefix: 'Eskaler_',
+                types: ['10', '25', '50', '75'] // Datos asignados de prueba
             }
+        };
+
+        let currentFamily = 'pyramid';
+
+        // Genera los botones inferiores según la familia activa
+        function renderButtons() {
+            btnContainer.innerHTML = '';
+            const familyData = catalog[currentFamily];
+            
+            familyData.types.forEach((type, index) => {
+                const btn = document.createElement('button');
+                btn.className = `type-btn ${index === 0 ? 'active' : ''}`;
+                btn.innerText = type;
+                btn.onclick = () => loadModel(type, btn);
+                btnContainer.appendChild(btn);
+            });
         }
 
-        // Dejamos limpia la carga inicial para evitar errores de visualización con el GLB temporal
-        visor.addEventListener('load', () => {
-            if (visor.model) {
-                const escena = visor.model.scene;
-                // Si ya existen las capas tipo_33, tipo_45... inicializa con la primera
-                const tieneCapas = tipos.some(t => escena.find(o => o.name === `tipo_${t}`));
-                
-                if (tieneCapas) {
-                    tipos.forEach((t, i) => {
-                        const obj = escena.find(o => o.name === `tipo_${t}`);
-                        if (obj) obj.visible = (i === 0);
-                    });
-                    visor.queueRender();
-                }
-            }
-        });
+        // Cambia el archivo .glb del visor directamente al pulsar el botón
+        function loadModel(type, btnElement) {
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            const familyData = catalog[currentFamily];
+            // Construye el nombre exacto del archivo: ej: Pyramid_45.glb
+            visor.src = `${familyData.prefix}${type}.glb`; 
+        }
+
+        // Maneja el cambio de producto desde el menú desplegable superior
+        function changeFamily(family) {
+            currentFamily = family;
+            renderButtons();
+            
+            // Carga el primer modelo por defecto de la nueva familia seleccionada
+            const firstType = catalog[currentFamily].types[0];
+            visor.src = `${catalog[currentFamily].prefix}${firstType}.glb`;
+        }
+
+        // Inicialización de la pantalla al cargar
+        renderButtons();
     </script>
 </body>
 </html>
