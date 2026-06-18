@@ -80,6 +80,13 @@ El `Catalogo_Metalperfil.pdf` (46 hojas = pliegos de 2 págs) se va completando 
   Origen / Trajes / Materialidad / BIM: aún **lorem ipsum** (`status:'placeholder'`).
 - Cada vez que el cliente sube un PDF nuevo: re-extraer y volcar los datos reales a
   `FAMILIES`, cambiando el `status`.
+
+Secciones de contenido PROPUESTO (redacción propia, marcadas con `.note` "Propuesta",
+pendientes de confirmar con la empresa): **Acabados/Materialidad** (soportes, RAL, efectos,
+perforado — basado en práctica del sector) y **BIM** (familias Revit/IFC, LOD, descargas).
+Los **desarrollos** por familia (`desarrollo_*.png`) están recortados de `source/paginas/`
+(Pyramid pág.07, Symmetric pág.10, Asymmetric pág.13). Sección "gama" tras la portada =
+contenido de la pág. 2.
 - Contacto (pág 46) también de ejemplo: "C/ Poner una calle 1, Albacete, +34 900 000 000".
 - **Lo bueno**: los renders SÍ son reales y de alta resolución (36 imágenes únicas ≥400px,
   varias 2000–3500px). Extraídos a `img/`.
