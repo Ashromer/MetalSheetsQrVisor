@@ -28,7 +28,7 @@ Sistemas de fijación oculta
 34.
 46.
 58.
-01.
+78.
 18.
 28.
 40.
@@ -93,7 +93,7 @@ Kaotico
 36-39
 Symmetric
 18-23
-0x. sistemas de fijación vista
+sistemas de fijación vista
 Trajes a medida
 10-11
 Escaler
@@ -113,8 +113,8 @@ C.
 21.
 D.
 10.
-0x./1x. sistemas de fijación vista
-2x. sistemas de fijación oculta
+sistemas de fijación vista
+sistemas de fijación oculta
 06
 07
 Nordik
@@ -131,7 +131,7 @@ Kubo
 54-59
 Sistemas ocultos
 78-83
-Biblioteca BIM
+BIM+Tecnología
 86-87
 
 
@@ -250,8 +250,11 @@ esti vendis samendan
 01. Pyramid
 Propiedades técnicas
 Longitud mínima:
+1250 mm
 Longitud máxima:
+5000 mm
 Configuración:  
+Horizontal / Vertical
 Posibilidades:
 Material
 Dimensiones
@@ -263,10 +266,14 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-P33  ancho útil - 894 mm  altura 33 - mm
-P45  ancho útil - 952 mm  altura 15 - mm
-P68 ancho útil - 893 mm  altura 68 - mm
-P110 ancho útil - 780 mm  altura 110 - mm
+Pyramid 33  
+ancho útil - 894 mm    altura 33 - mm
+Pyramid 45  
+ancho útil - 952 mm    altura 15 - mm
+Pyramid 68
+ancho útil - 893 mm    altura 68 - mm
+Pyramid 110
+ancho útil - 780 mm    altura 110 - mm
 Ancho útil - 894mm
 Ancho útil - 952mm
 Ancho útil - 793mm
@@ -276,13 +283,13 @@ Pyramid 33
 Pyramid 45
 Pyramid 68
 Pyramid 110
-Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separa­
-dos por segmentos planos que definen con precisión cada forma geométrica. El patrón ní­
-tido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, 
-mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista 
-y contemporánea. Su forma distintiva no solo realza la profundidad visual de la fachada, 
-sino que también ofrece una declaración sofisticada y moderna que complementa diseños 
-arquitectónicos innovadores.
+Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
+separados por segmentos planos que definen con precisión cada forma geométrica. El 
+patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad 
+estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una 
+estética minimalista y contemporánea. Su forma distintiva no solo realza la profundidad 
+visual de la fachada, sino que también ofrece una declaración sofisticada y moderna que 
+complementa diseños arquitectónicos innovadores.
 Ficha
 Técnica
 
@@ -314,56 +321,147 @@ Pyramid 110
 ===== PDF PAG 10 =====
 18
 02. Symmetric
-La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, 
-esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una 
-versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo
+La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. 
+Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas 
+limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, dis­
+ponible en una versatilidad de formatos y acabados técnicos, permite una integración 
+absoluta en cualquier lenguaje arquitectónico contemporáneo
 19
+23
+25
+29
+40
+31
+24
+81
+35
+81
+181
+41
+35
+37
+35
+115
+50
+51
+157
+49
+125°
+128°
+142°
+113°
+Ancho útil - 927mm
+Ancho útil - 1155mm
+Ancho útil - 1005mm
+Ancho útil - 1007mm
+Symmetric 40
+Symmetric 23
+Symmetric 25
+Symmetric 29
+Propiedades técnicas
+Longitud mínima:
+Longitud máxima:
+Configuración:  
+Posibilidades:
+Symmetric 25
+Ficha
+Técnica
 Material
 Dimensiones
 acero
+(0,6mm a 1,00mm)
 acero galvanizado
+(0,6mm a 1,00mm)
 acero prelacado
-acero inoxidable (0,6mm a 1,00mm)
-S15  ancho útil - 978 mm  altura 15 - mm
-S29 ancho útil - 920 mm  altura - 29mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
+(0,6mm a 1,00mm)
+acero inoxidable
+(0,6mm a 1,00mm)
+Symmetric 23
+ancho útil - 927 mm    altura 23 - mm
+Symmetric 25
+ancho útil - 1155 mm    altura 25 - mm
+Symmetric 29
+ancho útil - 1005 mm    altura 29 - mm
+Symmetric 40
+ancho útil - 1007 mm    altura 40 - mm
 
 
 ===== PDF PAG 11 =====
 21
 20
-02. Symmetric |
+02. Symmetric | 21
+Sistema Pyramid | Eosande ntiisquidunt 
 
 
 ===== PDF PAG 12 =====
-23
 22 | 02. Symmetric
+Sistema Symmetric
+Eosande 
+ntiisquidunt 
+ut 
+endebit 
+explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis solum 
+restrum que labore laute comnis doluptatibus 
+Etra nosupiocchil ta publiciam tem los num 
+sulut vid morur, qua L. Mae in sedo, quit, n
+Symmetric 23
+Symmetric 25
+Symmetric 29
+Symmetric 40
+23
 
 
 ===== PDF PAG 13 =====
 24
 03. Asymmetric
-La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, 
-esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una 
-versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo
+24
 25
+Propiedades técnicas
+Longitud mínima:
+1250 mm
+Longitud máxima:
+5000 mm
+Configuración:  
+Horizontal / Vertical
+Posibilidades:
 Material
 Dimensiones
 acero
+(0,6mm a 1,00mm)
 acero galvanizado
+(0,6mm a 1,00mm)
 acero prelacado
-acero inoxidable (0,6mm a 1,00mm)
-S15  ancho útil - 978 mm  altura 15 - mm
-S29 ancho útil - 920 mm  altura - 29mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
-S15  ancho útil - 978 mm  altura 15 - mm
+(0,6mm a 1,00mm)
+acero inoxidable
+(0,6mm a 1,00mm)
+Pyramid 33  
+ancho útil - 894 mm    altura 33 - mm
+Pyramid 45  
+ancho útil - 952 mm    altura 15 - mm
+Pyramid 68
+ancho útil - 893 mm    altura 68 - mm
+Pyramid 110
+ancho útil - 780 mm    altura 110 - mm
+Ancho útil - 894mm
+Ancho útil - 952mm
+Ancho útil - 793mm
+Ancho útil - 780mm
+Asymmetric 35
+Pyramid 33
+Asymmetric 55
+Asymmetric 60
+Asymmetric 80
+Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
+separados por segmentos planos que definen con precisión cada forma geométrica. El 
+patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad 
+estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una 
+estética minimalista y contemporánea. Su forma distintiva no solo realza la profundidad 
+visual de la fachada, sino que también ofrece una declaración sofisticada y moderna que 
+complementa diseños arquitectónicos innovadores.
+Ficha
+Técnica
 
 
 ===== PDF PAG 14 =====
@@ -693,9 +791,6 @@ quiditia ducitaquia
 
 
 ===== PDF PAG 46 =====
-Metalperfil
 Dirección C/ Poner una calle 1,
  Albacete (España)
 +34 900 000 000
-Catálogo de revestimientos
-metálicos 2026

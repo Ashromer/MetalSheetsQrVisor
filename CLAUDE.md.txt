@@ -6,18 +6,22 @@ empresa de revestimientos metálicos. Tiene dos partes:
 
 1. **`index.html`** — Visor 3D interactivo. Muestra perfiles metálicos en 3D con
    `<model-viewer>`, permite elegir familia, espesor y color, y enlaza al catálogo.
-2. **`catalogo.html`** — Catálogo web con todas las familias de producto (descripción,
-   dimensiones, materiales, galería de imágenes). **Data-driven**: el contenido se edita
-   en el array `FAMILIES` del `<script>` al final del archivo.
+2. **`catalogo.html`** — Catálogo web (una sola página, scroll largo). **Data-driven**: el
+   contenido se edita en el array `FAMILIES` del `<script>` al final del archivo. Cada
+   familia replica el PDF: ficha técnica + sección "Perfiles" (secciones 2D por tipo,
+   `types[].img`) + sección "Acabados & renders" (`renders[]`). Índice = fila de "chapas"
+   clicables (`thumb`). Cabecera con nav y footer de empresa.
 
 URL publicada: https://ashromer.github.io/MetalSheetsQrVisor/
 
 ## Stack
 - HTML/CSS/JS plano, sin framework ni build. Todo en archivos sueltos.
 - `<model-viewer>` vía CDN jsDelivr (`@google/model-viewer`).
-- Tipografías Google Fonts: Playfair Display (serif) + Inter (sans).
-- Color corporativo granate: **`rgb(150, 24, 30)`** (oscurecido a petición del cliente;
-  antes era `#B61F26`). Definido como `--brand-red-granate` en ambos HTML.
+- Tipografías Google Fonts: **Cormorant Garamond** (elegante/títulos) + **Montserrat**
+  (datos técnicos/nav) en catalogo.html. index.html mantiene Playfair Display + Inter.
+- Color corporativo rojo: **`rgb(158, 39, 44)` / `#9E272C`** (el real de la portada del PDF;
+  se unificó con la web para que cabecera e imágenes coincidan). `--red` en catalogo.html,
+  `--brand-red-granate` en index.html.
 
 ## Archivos en el repo
 - `index.html` — visor 3D (funcional, no romper la lógica de cámara/carga).
@@ -44,12 +48,17 @@ El visor costó hacerlo funcionar. Claves que NO hay que cambiar:
 - `disable-pan` debe quedarse.
 
 ## ⚠️ El PDF es en su mayoría una MAQUETA provisional
-El `Catalogo_Metalperfil.pdf` (46 hojas = pliegos de 2 págs) está a medio maquetar:
-- **Solo Pyramid tiene contenido REAL** (descripción propia + dimensiones P33/P45/P68/P110).
-- **El resto de familias** (Symmetric, Asymmetric, Escaler, Kaotico, Origami, Onda, Kubo,
-  Nordik, Alterno, Skala) y las secciones Origen / Trajes a medida / Materialidad / BIM
-  llevan **lorem ipsum** (de hecho todas repiten la misma descripción de "Symmetric" y las
-  mismas dimensiones dummy `S15 978mm`). NO son datos reales.
+El `Catalogo_Metalperfil.pdf` (46 hojas = pliegos de 2 págs) se va completando por tandas
+(el cliente lo edita y se re-extrae con tools/extract_pdf.py). Estado a 2026-06-18:
+- **Pyramid**: REAL y completo (config + dimensiones + perfiles + renders).
+- **Symmetric**: REAL (tipos 23/25/29/40, anchos 927/1155/1005/1007 mm, ángulos
+  125/128/142/113°). Reflejado en `FAMILIES` con `status:'real'`.
+- **Asymmetric**: PARCIAL — nombres de tipo reales (35/55/60/80) pero ancho útil y
+  descripción aún sin rellenar en el PDF (`status:'partial'`).
+- **Resto** (Escaler, Kaotico, Origami, Onda, Kubo, Nordik, Alterno, Skala) y las secciones
+  Origen / Trajes / Materialidad / BIM: aún **lorem ipsum** (`status:'placeholder'`).
+- Cada vez que el cliente sube un PDF nuevo: re-extraer y volcar los datos reales a
+  `FAMILIES`, cambiando el `status`.
 - Contacto (pág 46) también de ejemplo: "C/ Poner una calle 1, Albacete, +34 900 000 000".
 - **Lo bueno**: los renders SÍ son reales y de alta resolución (36 imágenes únicas ≥400px,
   varias 2000–3500px). Extraídos a `img/`.
