@@ -25,7 +25,7 @@
         html { background-color: var(--panel-black); }
 
         body {
-            background-color: #ffffff;
+            background-color: var(--panel-black);
             font-family: var(--sans-font);
             color: var(--text-black);
             min-height: 100vh;
@@ -95,8 +95,7 @@
         /* --- BANDA 2: CENTRAL (Visor) --- */
         .viewer-container {
             width: 100%;
-            flex: 1 1 auto;       /* ocupa todo el espacio libre: nada de hueco negro */
-            min-height: 56vh;     /* nunca colapsa a 0px (model-viewer necesita altura) */
+            height: 64vh;          /* ALTURA FIJA: model-viewer NO funciona con flex (queda a 0px) */
             background-color: #ffffff;
             display: flex;
             justify-content: center;
@@ -248,7 +247,7 @@
             .brand-header { padding: 0 40px; height: 88px; }
             .brand-logo { height: 60px; }
             .bottom-panel { padding: 20px 40px; }
-            .viewer-container { min-height: 60vh; }
+            .viewer-container { height: 66vh; }
         }
     </style>
 </head>

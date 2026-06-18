@@ -119,7 +119,8 @@
         .fam-intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
         .fam-desc { font-family: var(--serif); font-weight: 400; font-size: clamp(17px, 1.8vw, 22px);
             line-height: 1.6; color: #2c2825; text-align: justify; margin-top: 24px; }
-        .fam-render img { width: 100%; border-radius: 3px; object-fit: cover; aspect-ratio: 4/3; }
+        .fam-render { display: flex; align-items: center; justify-content: center; }
+        .fam-render img { width: 100%; height: auto; border-radius: 3px; }   /* pieza completa, SIN recortar */
 
         .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px;
             background: var(--line); border: 1px solid var(--line); margin-top: 44px; }
@@ -405,7 +406,7 @@
             num: '01', name: 'Pyramid', anchor: 'pyramid', pages: '12–17', status: 'real',
             desc: 'Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma geométrica. El patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista y contemporánea. Su forma distintiva realza la profundidad visual de la fachada y ofrece una declaración sofisticada y moderna que complementa diseños arquitectónicos innovadores.',
             config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg',
+            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg',  /* p07_1 = la pieza */
             types: [
                 { lab: 'Pyramid 33',  ancho: '894 mm', altura: '33 mm',  img: 'img/p09_2.jpeg' },
                 { lab: 'Pyramid 45',  ancho: '952 mm', altura: '15 mm',  img: 'img/p09_3.jpeg' },
@@ -414,12 +415,12 @@
             ],
             warn: 'Dimensiones a verificar (altura P45, ancho P68) y asignación perfil↔tipo provisional.',
             model: { prefix: 'models/Pyramid_', types: ['39', '45', '68', '110'] },
-            renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p07_1.jpeg']
+            renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p07_2.jpeg']
         },
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p11_1.jpeg',
+            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p10_1.jpeg',  /* pieza, no edificio */
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -427,7 +428,7 @@
                 { lab: 'Symmetric 40', ancho: '1007 mm', altura: '40 mm', angulo: '113°', img: 'img/p12_5.jpeg' }
             ],
             model: { prefix: 'models/Symetric_', types: ['23', '25', '29', '40'] },
-            renders: ['img/p11_1.jpeg', 'img/p11_2.jpeg', 'img/p10_1.jpeg']
+            renders: ['img/p11_1.jpeg', 'img/p11_2.jpeg', 'img/p12_1.jpeg']
         },
         {
             num: '03', name: 'Asymmetric', anchor: 'asymmetric', pages: '24–29', status: 'partial',
@@ -441,7 +442,7 @@
             ],
             warn: 'Nombres de tipo reales; ancho útil y descripción pendientes en el PDF.',
             model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
-            renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg']
+            renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p14_2.jpeg']
         },
         { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'placeholder',
           model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
