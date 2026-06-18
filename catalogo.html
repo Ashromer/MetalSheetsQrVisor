@@ -99,6 +99,17 @@
         .gama-prod .widths { font-family: var(--serif); font-size: clamp(20px, 2.6vw, 30px); color: var(--ink); margin: 8px 0 22px; }
         @media (max-width: 860px) { .sysrow { grid-template-columns: 1fr; } }
 
+        /* ---- acabados y materiales ---- */
+        .mat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 26px; }
+        .mat-card { border: 1px solid var(--line); border-radius: 3px; padding: 22px; background: #fff; }
+        .mat-card h4 { font-family: var(--serif); font-size: 23px; font-weight: 600; margin-bottom: 8px; }
+        .mat-card p { font-family: var(--sans); font-size: 13px; color: var(--grey); line-height: 1.65; }
+        .mat-sub { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--grey); margin: clamp(40px,6vw,64px) 0 14px; }
+        .ral-grid { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        .ral-sw { width: 44px; height: 44px; border-radius: 5px; border: 1px solid rgba(0,0,0,.14); cursor: default; }
+        .ral-more { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--grey); margin-left: 8px; }
+
         /* ---- índice: línea de tiempo de perfiles (vista / oculta) ---- */
         .tl-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
             text-transform: uppercase; color: var(--grey); margin: clamp(34px, 5vw, 60px) 0 6px; }
@@ -380,24 +391,65 @@
         <div class="wrap">
             <span class="eyebrow">D · Materialidad</span>
             <h2 class="section-title">Acabados y materiales</h2>
-            <span class="note" style="margin-top:18px">Texto provisional</span>
-            <p class="body-serif" style="max-width:64ch">Gama de materiales base —acero, galvanizado, prelacado e inoxidable (0,6–1,00 mm)— y catálogo de acabados y colores RAL. Pendiente de contenido definitivo (catálogo, páginas 84–85).</p>
-            <div class="alt-row" style="margin-top:46px">
-                <div class="alt-media"><img src="img/p43_1.jpeg" alt="Materialidad"></div>
-                <div><img src="img/p43_2.jpeg" alt="Acabados"></div>
+            <span class="note" style="margin-top:18px">Propuesta — confirmar gama real con Metalperfil</span>
+            <p class="lead-serif" style="max-width:34ch;margin-top:8px">Casi cualquier acabado es posible: del galvanizado técnico al corten que envejece con el edificio.</p>
+            <p class="body-serif" style="max-width:62ch;margin-top:16px">Cada perfil de la colección puede fabricarse en distintos soportes metálicos, espesores (0,6–1,00 mm) y acabados, con la carta RAL completa, efectos especiales y opción de perforado.</p>
+
+            <div class="mat-sub">Soportes metálicos</div>
+            <div class="mat-grid">
+                <div class="mat-card"><h4>Galvanizado / Aluzinc</h4><p>Base de acero con recubrimiento de zinc o aleación aluminio-zinc (Aluzinc): protección anticorrosión de altas prestaciones y aspecto técnico.</p></div>
+                <div class="mat-card"><h4>Acero prelacado</h4><p>Galvanizado + imprimación + pintura de poliéster horneada. Disponible en toda la carta RAL y en acabados de alta durabilidad (PVDF).</p></div>
+                <div class="mat-card"><h4>Acero inoxidable</h4><p>Máxima resistencia y durabilidad, con acabados del pulido espejo al satinado y al arenado mate.</p></div>
+                <div class="mat-card"><h4>Acero corten</h4><p>Acero patinable que desarrolla una pátina oxidada estable: estética cálida e industrial y protección natural que evoluciona con el tiempo.</p></div>
+                <div class="mat-card"><h4>Aluminio · Zinc · Cobre</h4><p>Soportes ligeros y nobles para proyectos de alta exigencia, con su envejecimiento y color característicos.</p></div>
+            </div>
+
+            <div class="mat-sub">Color · Carta RAL</div>
+            <div class="ral-grid" id="ralSwatches"></div>
+
+            <div class="mat-sub">Acabados y efectos</div>
+            <div class="chips">
+                <span class="chip">Mate</span><span class="chip">Satinado</span><span class="chip">Brillo</span>
+                <span class="chip">Metalizado</span><span class="chip">Efecto madera</span><span class="chip">Efecto óxido / corten</span>
+                <span class="chip">Texturado</span><span class="chip">Arenado</span><span class="chip">Anodizado</span>
+                <span class="chip">Imprimaciones</span><span class="chip">PVDF alta durabilidad</span>
+            </div>
+
+            <div class="mat-sub">Perforado</div>
+            <div class="split" style="align-items:center">
+                <p class="body-serif">Cualquier perfil admite <strong>chapa perforada</strong> para soluciones acústicas o de filtro de luz, con patrones redondo, cuadrado o a medida y distintos grados de paso.</p>
+                <div class="img-grid g2">
+                    <img src="img/p43_1.jpeg" alt="Acabado metálico">
+                    <img src="img/p43_2.jpeg" alt="Acabado metálico">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- BIM -->
     <section class="screen cream" id="bim">
-        <div class="wrap split">
-            <div class="media-frame"><img src="img/p44_1.jpeg" alt="Método BIM" style="aspect-ratio:4/3"></div>
-            <div>
-                <span class="eyebrow">BIM + Tecnología</span>
-                <h2 class="section-title">Método BIM</h2>
-                <span class="note" style="margin-top:18px">Texto provisional</span>
-                <p class="body-serif">Familias paramétricas y objetos BIM de los sistemas Metalperfil para integrar en proyectos Revit / IFC. Pendiente de enlaces de descarga y documentación técnica (catálogo, páginas 86–87).</p>
+        <div class="wrap">
+            <span class="eyebrow">Biblioteca BIM</span>
+            <h2 class="section-title">Método BIM</h2>
+            <span class="note" style="margin-top:18px">Propuesta — ampliar con datos reales</span>
+            <div class="split" style="margin-top:18px;align-items:start">
+                <div>
+                    <p class="lead-serif" style="max-width:28ch">Cada sistema, listo para tu proyecto BIM.</p>
+                    <p class="body-serif" style="margin-top:14px">Los perfiles Metalperfil se entregan como objetos BIM con la geometría real del perfil, sus materiales y sus datos técnicos, para documentar, medir y coordinar la fachada desde las fases iniciales del proyecto.</p>
+                </div>
+                <div class="media-frame"><img src="img/p44_3.jpeg" alt="Modelo BIM de fachada" style="aspect-ratio:4/3"></div>
+            </div>
+            <div class="mat-grid">
+                <div class="mat-card"><h4>Familias paramétricas</h4><p>Objetos Revit (.rfa) con los tipos y dimensiones reales de cada familia, ajustables por parámetros.</p></div>
+                <div class="mat-card"><h4>Formatos abiertos</h4><p>Exportación IFC para integrarse en cualquier software BIM (Revit, ArchiCAD, Allplan…).</p></div>
+                <div class="mat-card"><h4>Datos integrados</h4><p>Material, espesor, acabado, ancho útil y peso embebidos para medición y especificación.</p></div>
+                <div class="mat-card"><h4>Niveles de detalle</h4><p>Geometría preparada por nivel de desarrollo (LOD 200–350) según la fase del proyecto.</p></div>
+                <div class="mat-card"><h4>Descarga directa</h4><p>Biblioteca descargable desde la web por familia y tipo <em>(próximamente)</em>.</p></div>
+                <div class="mat-card"><h4>Coordinación</h4><p>Geometría ligera y limpia, pensada para no penalizar el modelo de coordinación.</p></div>
+            </div>
+            <div class="img-grid g2" style="margin-top:clamp(36px,5vw,56px)">
+                <img src="img/p44_1.jpeg" alt="Fachada Metalperfil">
+                <img src="img/p44_2.jpeg" alt="Detalle BIM">
             </div>
         </div>
     </section>
@@ -695,6 +747,12 @@
         });
     }
     initViewers();
+
+    /* ---- muestras RAL en Materialidad ---- */
+    const ralBox = document.getElementById('ralSwatches');
+    if (ralBox) ralBox.innerHTML = RAL.map(c =>
+        `<div class="ral-sw" style="background:${esc(c.hex)}" title="${esc(c.ral)} · ${esc(c.name)}"></div>`).join('')
+        + '<span class="ral-more">+ carta RAL completa</span>';
 
     /* ---- menú móvil ---- */
     const nav = document.getElementById('mainNav');
