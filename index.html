@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metalperfil - Visor 3D</title>
+    <title>Metalperfil - Visor Interactivo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -14,6 +14,7 @@
             --bg-color: #ffffff;
             --text-color: #1a1a1a;
             --accent-color: #787878;
+            --brand-red: #e30613; /* El rojo corporativo */
             --soft-gray: #f8f8f8;
             --border-color: #e5e5e5;
             --serif-font: 'Playfair Display', serif;
@@ -26,58 +27,83 @@
             padding: 0; 
         }
 
+        /* Corregimos la estructura para evitar bloqueos y permitir adaptabilidad total */
         body {
             background-color: var(--bg-color);
             font-family: var(--sans-font);
             color: var(--text-color);
-            height: 100vh;
-            display: block;
-            position: relative;
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Encabezado minimalista corporativo */
+        /* Encabezado adaptativo */
         .brand-header {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
-            padding: 24px 20px;
-            display: block;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             border-bottom: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
+            background: var(--bg-color);
             z-index: 10;
         }
 
         .brand-name {
             font-family: var(--serif-font);
-            font-size: 24px;
+            font-size: 26px;
             letter-spacing: -0.5px;
             font-weight: 700;
             line-height: 1;
         }
 
-        .product-title {
-            font-size: 11px;
+        /* DETALLE EN ROJO: El punto o sutil indicador de marca */
+        .brand-name::after {
+            content: ".";
+            color: var(--brand-red);
+        }
+
+        /* Desplegable elegante para cambiar de familia (MetalSheets) */
+        .family-select {
+            font-family: var(--sans-font);
+            font-size: 13px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-            margin-top: 4px;
+            letter-spacing: 1px;
+            padding: 8px 32px 8px 12px;
+            border: 1px solid var(--text-color);
+            background-color: transparent;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%231a1a1a'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
         }
 
-        /* El área del visor 3D */
+        .family-select:focus {
+            border-color: var(--brand-red);
+        }
+
+        /* Contenedor principal: En Desktop va en paralelo, en Móvil en columna */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* El área del visor 3D se adapta al espacio disponible */
         model-viewer {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            flex: 1;
+            min-height: 50vh; /* Asegura buen tamaño en móviles sin romper el layout */
             background-color: var(--soft-gray);
-            display: block;
         }
 
-        /* Indicador flotante sutil de interactividad */
         .viewer-hint {
             position: absolute;
-            top: 95px;
+            top: 20px;
             right: 20px;
             font-family: var(--serif-font);
             font-style: italic;
@@ -87,17 +113,12 @@
             z-index: 5;
         }
 
-        /* Panel de control inferior adaptado a móviles */
+        /* Panel de control inferior/lateral */
         .controls-panel {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
             background: var(--bg-color);
             border-top: 1px solid var(--border-color);
-            padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
+            padding: 24px 20px;
             z-index: 10;
-            box-shadow: 0 -10px 30px rgba(0,0,0,0.02);
         }
 
         .selector-label {
@@ -109,44 +130,44 @@
             font-weight: 600;
         }
 
-        /* Contenedor del selector y el botón web */
         .actions-row {
-            display: block; /* Diseño limpio vertical en móvil */
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        /* Botones de variantes (Estilo caja minimalista de la presentación) */
+        /* Botones de variantes adaptados (33, 45, 68, 110) */
         .type-selector {
-            display: table;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            display: flex;
+            width: 100%;
         }
 
         .type-btn {
-            display: table-cell;
-            width: 48px;
+            flex: 1;
             height: 48px;
             border: 1px solid var(--text-color);
             background: var(--bg-color);
             color: var(--text-color);
-            font-family: var(--serif-font);
-            font-size: 18px;
+            font-family: var(--sans-font); /* Cambiado a sans para códigos numéricos técnicos */
+            font-size: 15px;
+            font-weight: 600;
             text-align: center;
-            vertical-align: middle;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
-        /* Unificamos bordes intermedios para simular cuadrícula editorial */
         .type-btn:not(:first-child) {
             border-left: none;
         }
 
-        .type-btn.active, .type-btn:hover {
+        /* DETALLE EN ROJO: El botón activo ahora destaca con el marco o fondo sutil de marca */
+        .type-btn.active {
             background: var(--text-color);
             color: var(--bg-color);
+            border-color: var(--text-color);
         }
 
-        /* Botón de redirección a la web (Enlace elegante y sobrio) */
+        /* Botón de redirección a la web */
         .cta-button {
             display: block;
             width: 100%;
@@ -164,8 +185,43 @@
         }
 
         .cta-button:hover {
-            background: var(--text-color);
-            color: var(--bg-color);
+            background: var(--brand-red); /* DETALLE EN ROJO: Feedback visual al pasar el ratón */
+            color: white;
+            border-color: var(--brand-red);
+        }
+
+        /* --- MEDIA QUERIES PARA ESCRITORIO (DESKTOP) --- */
+        @media (min-width: 768px) {
+            body {
+                overflow: hidden; /* En desktop fijamos para evitar scroll global */
+            }
+            .main-content {
+                flex-direction: row; /* Ponemos el visor al lado de los controles */
+            }
+            model-viewer {
+                min-height: auto;
+                height: calc(100vh - 77px);
+            }
+            .controls-panel {
+                width: 380px;
+                border-top: none;
+                border-left: 1px solid var(--border-color);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 40px;
+            }
+            .actions-row {
+                gap: 24px;
+            }
+            .type-selector {
+                display: grid;
+                grid-template-columns: 1fr 1fr; /* Formato matriz 2x2 en desktop */
+                gap: 10px;
+            }
+            .type-btn:not(:first-child) {
+                border-left: 1px solid var(--text-color);
+            }
         }
     </style>
 </head>
@@ -173,69 +229,82 @@
 
     <div class="brand-header">
         <div class="brand-name">metalperfil</div>
-        <div class="product-title">Colección de Paneles / Pyramid</div>
+        
+        <select class="family-select" onchange="changeFamily(this.value)">
+            <option value="pyramid">Pyramid</option>
+            <option value="wave">Wave</option>
+            <option value="trapezoidal">Trapezoidal</option>
+        </select>
     </div>
 
-    <div class="viewer-hint">Vista interactiva 3D</div>
+    <div class="main-content">
+        <div class="viewer-hint">Vista interactiva 3D</div>
 
-    <model-viewer 
-        id="visorMetal" 
-        src="familia_chapas.glb" 
-        camera-controls 
-        touch-action="pan-y"
-        auto-rotate 
-        shadow-intensity="1" 
-        environment-image="neutral"
-        exposure="1.15">
-    </model-viewer>
+        <model-viewer 
+            id="visorMetal" 
+            src="Pyramid_39.glb" 
+            camera-controls 
+            touch-action="pan-y"
+            auto-rotate 
+            shadow-intensity="1" 
+            environment-image="neutral"
+            exposure="1.15">
+        </model-viewer>
 
-    <div class="controls-panel">
-        <div class="selector-label">Selección de perfil</div>
-        
-        <div class="actions-row">
-            <div class="type-selector">
-                <button class="type-btn active" onclick="updateType('A', this)">1</button>
-                <button class="type-btn" onclick="updateType('B', this)">2</button>
-                <button class="type-btn" onclick="updateType('C', this)">3</button>
-                <button class="type-btn" onclick="updateType('D', this)">4</button>
-            </div>
+        <div class="controls-panel">
+            <div class="selector-label">Canto / Espesor Perfil (mm)</div>
             
-            <a href="https://tu-pagina-web-comercial.com/catalogo" class="cta-button" target="_blank">
-                Ver Catálogo Completo
-            </a>
+            <div class="actions-row">
+                <div class="type-selector">
+                    <button class="type-btn active" onclick="updateType('33', this)">33</button>
+                    <button class="type-btn" onclick="updateType('45', this)">45</button>
+                    <button class="type-btn" onclick="updateType('68', this)">68</button>
+                    <button class="type-btn" onclick="updateType('110', this)">110</button>
+                </div>
+                
+                <a href="https://ashromer.github.io/MetalSheetsQrVisor/" class="cta-button" target="_blank">
+                    Ver en Catálogo Web
+                </a>
+            </div>
         </div>
     </div>
 
     <script>
         const visor = document.getElementById('visorMetal');
-        const tipos = ['A', 'B', 'C', 'D'];
+        // Mapeamos los nuevos nombres de tus tipos reales
+        const tipos = ['33', '45', '68', '110'];
 
         function updateType(tipo, btn) {
-            // Cambiar estado visual del botón activo
             document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Cambiar visibilidad de las capas dentro del archivo .glb
             if (visor.model) {
                 const escena = visor.model.scene;
                 tipos.forEach(t => {
+                    // El código buscará objetos llamados 'tipo_33', 'tipo_45', etc.
                     const obj = escena.find(o => o.name === `tipo_${t}`);
                     if (obj) {
                         obj.visible = (t === tipo);
                     }
                 });
-                // Forzar el refresco del renderizado 3D
                 visor.queueRender();
             }
         }
 
-        // Cuando el .glb termine de cargar en el móvil, dejamos visible solo el tipo 1 (A)
+        // Al cambiar el desplegable de familia de chapas
+        function changeFamily(familyName) {
+            // Ejemplo de cómo redirigirías a las otras subcarpetas que crees en GitHub
+            if(familyName !== 'pyramid') {
+                window.location.href = `https://ashromer.github.io/MetalSheetsQrVisor/${familyName}/`;
+            }
+        }
+
         visor.addEventListener('load', () => {
             const escena = visor.model.scene;
             tipos.forEach((t, i) => {
                 const obj = escena.find(o => o.name === `tipo_${t}`);
                 if (obj) {
-                    obj.visible = (i === 0);
+                    obj.visible = (i === 0); // Inicializa mostrando el tipo 33
                 }
             });
             visor.queueRender();
