@@ -34,30 +34,27 @@
             flex-direction: column;
         }
 
-        /* --- BANDA 1: SUPERIOR --- */
+        /* --- BANDA 1: SUPERIOR (ahora en granate) --- */
         .brand-header {
             width: 100%;
-            height: 80px;
+            height: 72px;
             flex-shrink: 0;
             padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #ffffff;
-            border-bottom: 1px solid #ededed;
+            background-color: var(--brand-red-granate);
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
-        .brand-name {
-            font-family: var(--serif-font);
-            font-size: 26px;
-            letter-spacing: -0.5px;
-            font-weight: 700;
-            color: var(--brand-red-granate);
+        /* Logo en lugar del texto */
+        .brand-logo {
+            height: 34px;
+            width: auto;
+            display: block;
         }
-        .brand-name::after { content: "."; color: var(--text-black); }
 
         .family-select {
             font-family: var(--sans-font);
@@ -65,22 +62,24 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            padding: 8px 32px 8px 12px;
-            border: 1px solid var(--brand-red-granate);
+            padding: 8px 36px 8px 16px;
+            min-width: 160px;          /* más ancho para que quepa el nombre */
+            border: 1px solid var(--text-white);
             background-color: transparent;
-            color: var(--brand-red-granate);
+            color: var(--text-white);
             cursor: pointer;
             outline: none;
             appearance: none;
-            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23B61F26'/></svg>");
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M0 3l5 5 5-5z' fill='%23ffffff'/></svg>");
             background-repeat: no-repeat;
-            background-position: right 12px center;
+            background-position: right 14px center;
         }
+        .family-select option { color: var(--text-black); }
 
         /* --- BANDA 2: CENTRAL (Visor) --- */
         .viewer-container {
             width: 100%;
-            height: 55vh;
+            height: 58vh;
             background-color: #ffffff;
             display: flex;
             justify-content: center;
@@ -126,20 +125,20 @@
         .status-overlay.error .spinner { display: none; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* --- BANDA 3: INFERIOR --- */
+        /* --- BANDA 3: INFERIOR (más compacta) --- */
         .bottom-panel {
             width: 100%;
             flex: 1 0 auto;
             background-color: var(--panel-black);
-            padding: 24px 20px calc(24px + env(safe-area-inset-bottom, 0px)) 20px;
+            padding: 16px 20px calc(16px + env(safe-area-inset-bottom, 0px)) 20px;
             z-index: 10;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 10px;
         }
 
         .selector-label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #555555;
@@ -156,7 +155,7 @@
 
         .type-btn {
             flex: 1;
-            height: 46px;
+            height: 42px;
             border: 1px solid #222222;
             background: transparent;
             color: #aaaaaa;
@@ -177,14 +176,14 @@
         .color-selector {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
             max-width: 500px;
             margin: 0 auto;
         }
         .color-swatch {
-            width: 38px;
-            height: 38px;
+            width: 28px;               /* círculos más pequeños */
+            height: 28px;
             border-radius: 50%;
             border: 2px solid #333333;
             cursor: pointer;
@@ -200,7 +199,7 @@
         .color-swatch.active::after {
             content: "";
             position: absolute;
-            inset: -6px;
+            inset: -5px;
             border-radius: 50%;
             border: 1px solid var(--brand-red-granate);
         }
@@ -209,8 +208,8 @@
             display: block;
             width: 100%;
             max-width: 500px;
-            margin: 4px auto 0 auto;
-            padding: 14px;
+            margin: 2px auto 0 auto;
+            padding: 12px;
             border: 1px solid #222222;
             background: #181818;
             color: var(--text-white);
@@ -229,16 +228,17 @@
         }
 
         @media (min-width: 768px) {
-            .brand-header { padding: 0 40px; }
-            .bottom-panel { padding: 32px 40px; }
-            .viewer-container { height: 65vh; }
+            .brand-header { padding: 0 40px; height: 80px; }
+            .brand-logo { height: 38px; }
+            .bottom-panel { padding: 20px 40px; }
+            .viewer-container { height: 64vh; }
         }
     </style>
 </head>
 <body>
 
     <div class="brand-header">
-        <div class="brand-name">metalperfil</div>
+        <img src="Metalperfil_white.png" alt="Metalperfil" class="brand-logo">
         <select class="family-select" id="familySelect">
             <option value="Pyramid">Pyramid</option>
             <option value="Symmetric">Symmetric</option>
@@ -296,7 +296,6 @@
 
         const PDF = 'Catalogo_Metalperfil.pdf';
 
-        // page = página del PDF a la que salta cada familia. CAMBIA estos números por los reales.
         const catalog = {
             Pyramid:    { prefix: 'Pyramid_',    types: ['39', '45', '68', '110'], page: 7  },
             Symmetric:  { prefix: 'Symmetric_',  types: ['20', '40', '60', '80'],  page: 12 },
