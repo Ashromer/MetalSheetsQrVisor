@@ -187,12 +187,25 @@ Requiere Python 3 + `pip install PyMuPDF Pillow`. Desde la raíz del repo:
 
 ## 9. Tareas pendientes
 
-1. Rellenar las familias **placeholder** (textos, dimensiones, desarrollos, renders) según el
+1. Rellenar las familias **placeholder** (textos, dimensiones, tipos, renders) según el
    cliente complete el PDF → volcar a `FAMILIES` y poner `status:'real'`.
-2. Trazar el **perfil SVG real** de cada familia en el índice (ahora solo Pyramid/Symmetric/
-   Asymmetric; el resto genérico).
-3. Confirmar/ajustar el contenido **propuesto** de Acabados y BIM con datos reales de la empresa.
-4. **Datos de contacto** reales (footer y sección Contacto).
-5. Verificar dimensiones de Pyramid (P45 / P68).
-6. (Opcional) Limpiar del historial de git los 68 MB de PNGs colados en el commit `1fb22be`
-   (requiere reescritura + `push --force`).
+2. **Índice — perfiles por pieza:** el cliente dará **PNG recortados del perfil de cada
+   familia**; sustituir entonces los `PROFILES` (SVG) por imágenes. Hoy solo Pyramid y
+   Symmetric llevan SVG trazado; Asymmetric y el resto usan el genérico (`.gen`).
+3. **"Tipos"** (antes "Desarrollos"): la imagen actual está recortada del PDF; el cliente
+   dará versión en **alta resolución** → sustituir `desarrollo_*.png`.
+4. **Acabados:** las "burbujas" de material son gradientes CSS de muestra; valorar fotos
+   reales de cada acabado. Confirmar gama real (corten, perforados, efectos…) con la empresa.
+5. Confirmar/ajustar contenido **propuesto** de Acabados y **BIM**.
+6. **Datos de contacto** reales (footer y sección Contacto).
+7. Verificar dimensiones de Pyramid (P45 / P68).
+8. (Opcional) Limpiar del historial de git los 68 MB de PNGs colados en `1fb22be`
+   (reescritura + `push --force`).
+
+### Estado de hoy (última sesión)
+Hechos: índice con líneas de tiempo (mini-render B/N→color + perfil SVG), título "Índice"
+grande sin etiquetas vista/oculta; portada con titular arriba; sección "Sistemas y productos"
+(pág. 2) con imágenes; bloque "Tipos" por familia; "Proyectos de referencia" (antes "Acabados")
+en cada familia; Materialidad con burbujas + tira de muro; BIM con imágenes/texto intercalados.
+Esperando del cliente: PNG de perfiles por familia, imágenes de "Tipos" en alta resolución,
+y confirmación de Acabados/BIM.

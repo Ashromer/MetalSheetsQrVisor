@@ -1,7 +1,34 @@
-# Temporales de revisión (contact sheets, renders de inspección)
-img/_review/
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Fuente pesada que no se usa en la web — se mantiene local, no en git
-source/MIGUEL-1.pdf
-# 46 PNGs de paginas del catalogo (~68 MB), referencia local
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Output directories
+dist/
+build/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Material fuente pesado — NO servir en la web (se queda solo en local)
 source/paginas/
+source/*.pdf

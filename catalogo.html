@@ -532,6 +532,7 @@
        Modelos 3D en models/ — model:{prefix, types:[...]} (string o {label,file}).
        ========================================================================= */
     const MAT = ['Acero (0,6–1,00 mm)', 'Galvanizado', 'Prelacado', 'Inoxidable'];
+    const STD = { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' };
     const RAL = [
         { ral: 'RAL 9005', name: 'Negro intenso',   hex: '#0e0e10' },
         { ral: 'RAL 7016', name: 'Gris antracita',  hex: '#383E42' },
@@ -558,12 +559,11 @@
             config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
             materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg', desarrollo: 'img/desarrollo_pyramid.png',
             types: [
-                { lab: 'Pyramid 33',  ancho: '894 mm', altura: '33 mm',  img: 'img/p09_2.jpeg' },
-                { lab: 'Pyramid 45',  ancho: '952 mm', altura: '15 mm',  img: 'img/p09_3.jpeg' },
-                { lab: 'Pyramid 68',  ancho: '893 mm', altura: '68 mm',  img: 'img/p09_4.jpeg' },
-                { lab: 'Pyramid 110', ancho: '780 mm', altura: '110 mm', img: 'img/p09_5.jpeg' }
+                { lab: 'Pyramid 39',  ancho: '882 mm',  altura: '39 mm',  img: 'img/p09_2.jpeg' },
+                { lab: 'Pyramid 45',  ancho: '1021 mm', altura: '47 mm',  img: 'img/p09_3.jpeg' },
+                { lab: 'Pyramid 68',  ancho: '880 mm',  altura: '69 mm',  img: 'img/p09_4.jpeg' },
+                { lab: 'Pyramid 110', ancho: '827 mm',  altura: '110 mm', img: 'img/p09_5.jpeg' }
             ],
-            warn: 'Dimensiones a verificar (altura P45, ancho P68) y asignación perfil↔tipo provisional.',
             model: { prefix: 'models/Pyramid_', types: ['39', '45', '68', '110'] },
             renders: ['img/p08_1.jpeg', 'img/p08_2.jpeg', 'img/p09_1.jpeg']
         },
@@ -585,32 +585,89 @@
             desc: '', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
             materials: MAT, heroRender: 'img/p13_1.jpeg', desarrollo: 'img/desarrollo_asymmetric.png',
             types: [
-                { lab: 'Asymmetric 35', ancho: '— mm', altura: '35 mm' },
-                { lab: 'Asymmetric 55', ancho: '— mm', altura: '55 mm' },
-                { lab: 'Asymmetric 60', ancho: '— mm', altura: '60 mm' },
-                { lab: 'Asymmetric 80', ancho: '— mm', altura: '80 mm' }
+                { lab: 'Asymmetric 35', ancho: '740 mm', altura: '34 mm' },
+                { lab: 'Asymmetric 55', ancho: '718 mm', altura: '55 mm' },
+                { lab: 'Asymmetric 60', ancho: '926 mm', altura: '60 mm' },
+                { lab: 'Asymmetric 80', ancho: '684 mm', altura: '80 mm' }
             ],
-            warn: 'Nombres de tipo reales; ancho útil y descripción pendientes en el PDF.',
+            warn: 'Dimensiones reales del DXF; descripción pendiente.',
             model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
             renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p14_2.jpeg']
         },
-        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'placeholder',
+        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Escaler 22', ancho: '1053 mm', altura: '22 mm' },
+              { lab: 'Escaler 48', ancho: '1088 mm', altura: '48 mm' },
+              { lab: 'Escaler 55', ancho: '883 mm',  altura: '56 mm' },
+              { lab: 'Escaler 70', ancho: '1018 mm', altura: '70 mm' } ],
           model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
-        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'placeholder',
+        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Kaotico 24', ancho: '983 mm', altura: '24 mm' },
+              { lab: 'Kaotico 28', ancho: '865 mm', altura: '30 mm' },
+              { lab: 'Kaotico 50', ancho: '788 mm', altura: '51 mm' },
+              { lab: 'Kaotico 73', ancho: '851 mm', altura: '73 mm' } ],
           model: { prefix: 'models/Kaotiko_', types: ['24', '28', '50', '73'] } },
-        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'placeholder',
+        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Origami 11', ancho: '948 mm', altura: '11 mm' },
+              { lab: 'Origami 25', ancho: '847 mm', altura: '25 mm' },
+              { lab: 'Origami 45', ancho: '731 mm', altura: '45 mm' },
+              { lab: 'Origami 50', ancho: '960 mm', altura: '50 mm' } ],
           model: { prefix: 'models/Origami_', types: ['11', '25', '45', '50'] } },
-        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'placeholder',
+        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Onda 18', ancho: '1118 mm', altura: '12 mm' },
+              { lab: 'Onda 27', ancho: '1103 mm', altura: '19 mm' },
+              { lab: 'Onda 42', ancho: '1082 mm', altura: '42 mm' } ],
           model: { prefix: 'models/AcerOnda_', types: ['18', '27', '42'] } },
-        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'placeholder',
+        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Kubo 17·17·17', ancho: '652 mm', altura: '17 mm' },
+              { lab: 'Kubo 24·24·24', ancho: '652 mm', altura: '24 mm' },
+              { lab: 'Kubo 36·41·41', ancho: '700 mm', altura: '36 mm' },
+              { lab: 'Kubo 50·50·50', ancho: '659 mm', altura: '52 mm' } ],
           model: { prefix: 'models/Kubo_', types: [
               { label: '17·17·17', file: '171717' }, { label: '24·24·24', file: '242424' },
               { label: '36·41·41', file: '364141' }, { label: '50·50·50', file: '505050' } ] } },
-        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'placeholder',
+        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente. Tipo 50 A en el DXF sin geometría (capa).',
+          types: [
+              { lab: 'Nordik 24 A', ancho: '776 mm', altura: '24 mm' },
+              { lab: 'Nordik 24 B', ancho: '776 mm', altura: '24 mm' },
+              { lab: 'Nordik 24 C', ancho: '776 mm', altura: '24 mm' } ],
           model: { prefix: 'models/Nordik_', types: [
               { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
-        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
-        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder' }
+        { num: '10', name: 'Ritmiko', anchor: 'ritmiko', pages: '—', status: 'partial',
+          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente. Familia asociada a Kubo (confirmar agrupación).',
+          types: [
+              { lab: 'Ritmiko 24 A', ancho: '723 mm', altura: '24 mm' },
+              { lab: 'Ritmiko 24 B', ancho: '723 mm', altura: '24 mm' },
+              { lab: 'Ritmiko 24 C', ancho: '723 mm', altura: '24 mm' } ],
+          model: { prefix: 'models/Ritmiko_', types: [
+              { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
+        { num: '11', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
+        { num: '12', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder',
+          warn: 'Geometría no extraíble: en el DXF las polilíneas de Skala están en capa incorrecta. Dimensiones pendientes.' },
+        { num: '13', name: 'Aqqua', anchor: 'aqqua', pages: '—', status: 'partial',
+          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Aqqua 33', ancho: '1025 mm', altura: '15 mm' },
+              { lab: 'Aqqua 37', ancho: '913 mm',  altura: '38 mm' } ] },
+        { num: '14', name: 'Cubik', anchor: 'cubik', pages: '—', status: 'partial',
+          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Cubik 39', ancho: '760 mm', altura: '40 mm' } ] },
+        { num: '15', name: 'Triangle', anchor: 'triangle', pages: '—', status: 'partial',
+          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
+          types: [
+              { lab: 'Triangle 46', ancho: '1125 mm', altura: '45 mm' },
+              { lab: 'Triangle 60', ancho: '1049 mm', altura: '59 mm' } ] }
     ];
 
     const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
@@ -644,8 +701,9 @@
             </a>`;
         }).join('');
     }
-    buildTimeline('tlVista', FAMILIES.slice(0, 6));
-    buildTimeline('tlOculta', FAMILIES.slice(6));
+    const OCULTA = ['Aqqua', 'Cubik', 'Triangle'];
+    buildTimeline('tlVista', FAMILIES.filter(f => !OCULTA.includes(f.name)));
+    buildTimeline('tlOculta', FAMILIES.filter(f => OCULTA.includes(f.name)));
 
     /* ---- familia ---- */
     function configBlock(f) {
