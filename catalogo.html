@@ -122,17 +122,17 @@
         .tl-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
             text-transform: uppercase; color: var(--grey); margin: clamp(34px, 5vw, 60px) 0 6px; }
         .timeline { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; }
-        .tl-fam { display: grid; grid-template-rows: 1fr 30px 1fr; text-decoration: none;
+        .tl-fam { display: grid; grid-template-rows: 1fr 22px 1fr; text-decoration: none;
             color: var(--grey); transition: color .18s ease; }
         .tl-fam .entry { text-align: center; padding: 6px 4px; }
         .tl-fam .num { display: block; font-family: var(--serif); font-size: clamp(24px, 3vw, 46px); font-weight: 600; line-height: .95; color: inherit; }
         .tl-fam .nm { display: block; font-family: var(--serif); font-size: clamp(13px, 1.35vw, 19px); font-weight: 500; color: inherit; margin-top: 2px; }
         .tl-fam .pg { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; color: var(--grey); margin-top: 2px; }
-        .tl-fam .mini { width: clamp(78px, 9vw, 128px); aspect-ratio: 4/3; margin: 0 auto 10px;
-            overflow: hidden; border-radius: 2px; background: #fff; }
-        .tl-fam .mini img { width: 100%; height: 100%; object-fit: cover;
-            filter: grayscale(1) contrast(1.03); transition: filter .25s ease; }
-        .tl-fam:hover .mini img { filter: none; }
+        .tl-fam .mini { width: clamp(72px, 8.5vw, 118px); aspect-ratio: 4/3; margin: 0 auto 6px;
+            overflow: hidden; border-radius: 2px; background: transparent; }
+        .tl-fam .mini img { width: 100%; height: 100%; object-fit: contain;
+            filter: grayscale(1) contrast(1.03); transition: filter .3s ease, transform .3s ease; }
+        .tl-fam:hover .mini img { filter: none; transform: scale(1.12); }
         .tl-fam .mini .miniph { width: 100%; height: 100%;
             background: repeating-linear-gradient(45deg, #ecebe7, #ecebe7 8px, #e3ded6 8px, #e3ded6 16px); }
         .tl-fam.gen .seg path { stroke-dasharray: 4 4; }
@@ -140,7 +140,7 @@
         .tl-fam.up .seg    { grid-row: 2; }
         .tl-fam.down .entry{ grid-row: 3; align-self: start; }
         .tl-fam.down .seg  { grid-row: 2; }
-        .tl-fam .seg { width: 100%; height: 30px; display: block; }
+        .tl-fam .seg { width: 100%; height: 22px; display: block; }
         .tl-fam .seg path { fill: none; stroke: #c3bdb2; stroke-width: 1.4; transition: stroke .18s ease; }
         .tl-fam:hover { color: var(--red); }
         .tl-fam:hover .pg { color: var(--red); }
@@ -196,6 +196,10 @@
         .profile .dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 4px; line-height: 1.7; }
         .dev { margin-top: 6px; }
         .dev img { width: 100%; height: auto; border-radius: 3px; }
+        .fronts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-top: 6px; }
+        .front-media { aspect-ratio: 4/3; background: #fff; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .front-media img { width: 100%; height: 100%; object-fit: cover; }
+        .front-lab { font-family: var(--sans); font-size: 12px; color: var(--grey); text-align: center; margin-top: 6px; }
         table.dims { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px; margin-top: 36px; }
         table.dims th, table.dims td { text-align: left; padding: 14px 12px; border-bottom: 1px solid var(--line); }
         table.dims th { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
@@ -288,8 +292,7 @@
         <div class="wrap">
             <span class="eyebrow">La gama</span>
             <h2 class="section-title">Sistemas y productos</h2>
-            <p class="lead-serif" style="margin-top:24px;max-width:30ch">Soluciones abiertas y personalizadas para arquitectura contemporánea de alta exigencia.</p>
-            <div class="sysrow">
+            <div class="sysrow" style="margin-top:clamp(24px,4vw,44px)">
                 <div class="sys">
                     <div class="syn">01</div>
                     <h3>Sistemas de fijación vista</h3>
@@ -301,28 +304,8 @@
                     <p class="body-serif">La superficie se lee continua y limpia, sin anclajes a la vista, para una piel tersa y monolítica de gran nivel de acabado.</p>
                 </div>
             </div>
-            <div class="split" style="margin-top:clamp(36px,5vw,60px)">
-                <div style="background:#fff;border:1px solid var(--line);border-radius:3px;padding:16px">
-                    <img src="img/p02_1.png" alt="Gama de productos Metalperfil: fijación vista y oculta" style="width:100%;height:auto;display:block">
-                </div>
-                <div class="media-frame"><img src="img/p02_3.jpeg" alt="Fachada de revestimiento metálico" style="aspect-ratio:3/4;border-radius:3px"></div>
-            </div>
-            <div class="gama-prod">
-                <span class="note">Contenido en revisión</span>
-                <div class="lbl">Gama completa de productos de Metalperfil</div>
-                <div class="widths">Anchos 1100–600 · 250–800 · 100–500 mm</div>
-                <div class="chips">
-                    <span class="chip">Rollforming</span>
-                    <span class="chip">Custom</span>
-                    <span class="chip">Screenpanel</span>
-                    <span class="chip">Lamas</span>
-                    <span class="chip">Panel Sándwich</span>
-                    <span class="chip">Panel Perforado</span>
-                    <span class="chip">Panel Deployé</span>
-                    <span class="chip">Panel 3D</span>
-                    <span class="chip">Casette</span>
-                    <span class="chip">Louver</span>
-                </div>
+            <div style="margin-top:clamp(36px,5vw,60px)">
+                <img src="img/gama_pag02.png" alt="Gama completa de productos de Metalperfil: soluciones abiertas, anchos y sistemas" style="width:100%;height:auto;display:block;border-radius:3px">
             </div>
         </div>
     </section>
@@ -345,8 +328,8 @@
     <section class="screen cream" id="indice">
         <div class="wrap">
             <h2 class="section-title">Índice</h2>
-            <div class="timeline" id="tlVista" style="margin-top:clamp(44px,6vw,80px)"></div>
-            <div class="timeline" id="tlOculta" style="margin-top:clamp(48px,7vw,90px)"></div>
+            <div class="timeline" id="tlVista" style="margin-top:clamp(26px,4vw,48px)"></div>
+            <div class="timeline" id="tlOculta" style="margin-top:clamp(28px,4vw,52px)"></div>
         </div>
     </section>
 
@@ -429,10 +412,7 @@
             <div class="mat-sub">Perforado</div>
             <div class="split" style="align-items:center">
                 <p class="body-serif">Cualquier perfil admite <strong>chapa perforada</strong> para soluciones acústicas o de filtro de luz, con patrones redondo, cuadrado o a medida y distintos grados de paso.</p>
-                <div class="img-grid g2">
-                    <img src="img/p43_1.jpeg" alt="Acabado metálico">
-                    <img src="img/p43_2.jpeg" alt="Acabado metálico">
-                </div>
+                <div role="img" aria-label="Ejemplo de chapa perforada" style="aspect-ratio:3/2;border-radius:3px;background-color:#9aa1a6;background-image:radial-gradient(circle,#15171a 30%,transparent 32%);background-size:16px 16px;box-shadow:inset 0 0 50px rgba(0,0,0,.3)"></div>
             </div>
 
             <div class="mat-sub">Una fachada, muchos materiales</div>
@@ -474,6 +454,13 @@
                 <div>
                     <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Datos y niveles de detalle</h3>
                     <p class="body-serif">Material, espesor, acabado, ancho útil y peso embebidos para medición y especificación; geometría por nivel de desarrollo (<strong>LOD 200–350</strong>) según fase y pensada para no penalizar el modelo de coordinación. Descarga directa por familia y tipo <em>(próximamente)</em>.</p>
+                </div>
+            </div>
+            <div class="alt-row">
+                <div class="alt-media"><img src="img/01_Pyramid_cut.png" alt="Visor 3D interactivo Metalperfil"></div>
+                <div>
+                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Tecnología aplicada · visor online e interactividad</h3>
+                    <p class="body-serif">Más allá del modelo BIM, cada perfil cuenta con un <strong>visor 3D interactivo</strong> en el navegador —rotación 360°, cambio de tipo y de color RAL en tiempo real— y acceso por <strong>código QR</strong> desde el catálogo impreso y la propia obra, para consultar la ficha técnica, ver la geometría y descargar el modelo al instante. Una capa digital que acerca el producto al prescriptor y agiliza la decisión en proyecto.</p>
                 </div>
             </div>
         </div>
@@ -570,7 +557,7 @@
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png', desarrollo: 'img/desarrollo_symmetric.png',
+            config: STD, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png', desarrollo: 'img/desarrollo_symmetric.png',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -582,7 +569,7 @@
         },
         {
             num: '03', name: 'Asymmetric', anchor: 'asymmetric', pages: '24–29', status: 'partial',
-            desc: '', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
+            desc: 'Variación asimétrica del trapecio: faldones de distinta pendiente que rompen la repetición regular y generan un juego de luces cambiante a lo largo del día. Conserva el rigor técnico de la gama Symmetric, pero introduce una direccionalidad sutil que aporta dinamismo a la fachada sin renunciar a la sobriedad. Una opción muy versátil para paños largos que buscan movimiento controlado.', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
             materials: MAT, heroRender: 'img/03_Asymmetric_cut.png', desarrollo: 'img/desarrollo_asymmetric.png',
             types: [
                 { lab: 'Asymmetric 35', ancho: '740 mm', altura: '34 mm' },
@@ -590,12 +577,12 @@
                 { lab: 'Asymmetric 60', ancho: '926 mm', altura: '60 mm' },
                 { lab: 'Asymmetric 80', ancho: '684 mm', altura: '80 mm' }
             ],
-            warn: 'Dimensiones reales del DXF; descripción pendiente.',
             model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
             renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p14_2.jpeg']
         },
         { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial', heroRender: 'img/04_Escaler_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          config: STD, materials: MAT,
+          desc: 'Perfil de geometría escalonada, con peldaños ascendentes que dibujan una sucesión de planos y sombras nítidas. Su marcado relieve aporta profundidad y un fuerte carácter gráfico a la fachada, con una lectura rítmica y ordenada que funciona especialmente bien en grandes paños y en composiciones que buscan textura arquitectónica.',
           types: [
               { lab: 'Escaler 22', ancho: '1053 mm', altura: '22 mm' },
               { lab: 'Escaler 48', ancho: '1088 mm', altura: '48 mm' },
@@ -603,7 +590,8 @@
               { lab: 'Escaler 70', ancho: '1018 mm', altura: '70 mm' } ],
           model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
         { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial', heroRender: 'img/05_Kaotico_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          config: STD, materials: MAT,
+          desc: 'Composición de pliegues deliberadamente irregular: un ritmo aparentemente aleatorio que rompe la monotonía y dota a la piel de una textura viva y orgánica. La irregularidad está controlada para generar reflejos cambiantes y una superficie que nunca se percibe dos veces igual, ideal para fachadas con voluntad expresiva y carácter contemporáneo.',
           types: [
               { lab: 'Kaotico 24', ancho: '983 mm', altura: '24 mm' },
               { lab: 'Kaotico 28', ancho: '865 mm', altura: '30 mm' },
@@ -611,7 +599,8 @@
               { lab: 'Kaotico 73', ancho: '851 mm', altura: '73 mm' } ],
           model: { prefix: 'models/Kaotiko_', types: ['24', '28', '50', '73'] } },
         { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'partial', heroRender: 'img/06_Origami_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          config: STD, materials: MAT,
+          desc: 'Plegado fino y continuo inspirado en el origami, con un plisado denso de aristas vivas que tensa la superficie como un papel doblado. Su escala menuda produce un acabado vibrante y sedoso que matiza la luz con suavidad, aportando una elegancia táctil y un detalle preciso a la envolvente del edificio.',
           types: [
               { lab: 'Origami 11', ancho: '948 mm', altura: '11 mm' },
               { lab: 'Origami 25', ancho: '847 mm', altura: '25 mm' },
@@ -619,14 +608,16 @@
               { lab: 'Origami 50', ancho: '960 mm', altura: '50 mm' } ],
           model: { prefix: 'models/Origami_', types: ['11', '25', '45', '50'] } },
         { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial', heroRender: 'img/07_Onda_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          config: STD, materials: MAT,
+          desc: 'Perfil ondulado de curva continua que sustituye la arista por el trazo suave. Su sinuosidad introduce un movimiento sereno y orgánico en la fachada, con transiciones de luz graduales que suavizan el volumen del edificio y aportan calidez y un acabado fluido al revestimiento metálico.',
           types: [
               { lab: 'Onda 18', ancho: '1118 mm', altura: '12 mm' },
               { lab: 'Onda 27', ancho: '1103 mm', altura: '19 mm' },
               { lab: 'Onda 42', ancho: '1082 mm', altura: '42 mm' } ],
           model: { prefix: 'models/AcerOnda_', types: ['18', '27', '42'] } },
         { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial', heroRender: 'img/08_Kubo_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
+          config: STD, materials: MAT,
+          desc: 'Costillas rectangulares de fuerte presencia, con caras planas y ángulos rectos que proyectan sombras limpias y profundas. Su lenguaje rotundo y cúbico transmite solidez y orden arquitectónico, idóneo para volúmenes contundentes y composiciones de marcada verticalidad u horizontalidad.',
           types: [
               { lab: 'Kubo 17·17·17', ancho: '652 mm', altura: '17 mm' },
               { lab: 'Kubo 24·24·24', ancho: '652 mm', altura: '24 mm' },
@@ -636,15 +627,21 @@
               { label: '17·17·17', file: '171717' }, { label: '24·24·24', file: '242424' },
               { label: '36·41·41', file: '364141' }, { label: '50·50·50', file: '505050' } ] } },
         { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial', heroRender: 'img/09_Nordik_cut.png',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente. Tipo 50 A en el DXF sin geometría (capa).',
+          config: STD, materials: MAT,
+          desc: 'Acanaladura ancha de líneas sobrias y espaciadas, de inspiración nórdica: pocos planos, grandes superficies y una elegancia contenida. Su ritmo pausado aporta serenidad y un acabado depurado, perfecto para arquitecturas minimalistas donde menos es más.',
           types: [
               { lab: 'Nordik 24 A', ancho: '776 mm', altura: '24 mm' },
               { lab: 'Nordik 24 B', ancho: '776 mm', altura: '24 mm' },
               { lab: 'Nordik 24 C', ancho: '776 mm', altura: '24 mm' } ],
           model: { prefix: 'models/Nordik_', types: [
               { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
-        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
-        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder',
+        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'partial',
+          config: STD, materials: MAT,
+          desc: 'Sistema de módulos alternos que combina piezas o posiciones diferentes en un patrón regular, generando una trama de dos tiempos que enriquece la fachada sin recurrir a relieves pronunciados. Una solución versátil para introducir variación rítmica con un repertorio reducido de piezas.',
+          warn: 'Dimensiones pendientes (sin geometría asignada en el DXF).' },
+        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'partial',
+          config: STD, materials: MAT,
+          desc: 'Revestimiento de fijación oculta con efecto de escama o solape escalonado, que produce una piel continua y tersa de juntas mínimas. La luz resbala por sus planos generando una textura sutil y sofisticada, sin anclajes a la vista, para acabados de máximo nivel.',
           warn: 'Geometría no extraíble: en el DXF las polilíneas de Skala están en capa incorrecta. Dimensiones pendientes.' }
     ];
 
@@ -659,15 +656,15 @@
     /* Perfiles reales generados desde la FIBRA NEUTRA del DXF (un módulo por familia,
        tipo de menor altura). Regenerar con _PERFILES_MASTER/make_profiles_svg.py. */
     const PROFILES = {
-        pyramid:     'M2.0,26.0 L5.8,26.0 L8.9,4.0 L11.9,26.0 L15.9,26.0 L19.0,4.0 L22.0,26.0 L26.0,26.0 L29.1,4.0 L32.1,26.0 L36.2,26.0 L39.2,4.0 L42.2,26.0 L46.3,26.0 L49.3,4.0 L52.4,26.0 L56.4,26.0 L59.4,4.0 L62.5,26.0 L66.5,26.0 L69.6,4.0 L72.6,26.0 L76.6,26.0 L79.7,4.0 L82.7,26.0 L86.7,26.0 L89.8,4.0 L92.8,26.0 L96.9,26.0 L98.0,17.8',
-        symmetric:   'M98.0,15.8 L97.6,24.0 L94.4,24.0 L93.4,4.0 L90.2,4.0 L89.2,24.0 L86.0,24.0 L85.0,4.0 L81.8,4.0 L80.8,24.0 L77.5,24.0 L76.6,4.0 L73.3,4.0 L72.3,24.0 L69.1,24.0 L68.1,4.0 L64.9,4.0 L63.9,24.0 L60.7,24.0 L59.7,4.0 L56.5,4.0 L55.5,24.0 L52.3,24.0 L51.3,4.0 L48.1,4.0 L47.1,24.0 L43.9,24.0 L42.9,4.0 L39.7,4.0 L38.7,24.0 L35.5,24.0 L34.5,4.0 L31.3,4.0 L30.3,24.0 L27.0,24.0 L26.1,4.0 L22.8,4.0 L21.8,24.0 L18.6,24.0 L17.6,4.0 L14.4,4.0 L13.4,24.0 L10.2,24.0 L9.2,4.0 L6.0,4.0 L5.0,24.0 L2.9,24.0 L2.0,26.0',
-        asymmetric:  'M98.0,26.0 L95.1,26.0 L96.1,4.0 L91.9,4.0 L87.6,26.0 L84.8,26.0 L85.8,4.0 L81.5,4.0 L77.2,26.0 L74.4,26.0 L75.4,4.0 L71.1,4.0 L66.9,26.0 L64.0,26.0 L65.0,4.0 L60.7,4.0 L56.5,26.0 L53.6,26.0 L54.6,4.0 L50.3,4.0 L46.1,26.0 L43.3,26.0 L44.2,4.0 L40.0,4.0 L35.7,26.0 L32.9,26.0 L33.9,4.0 L29.6,4.0 L25.4,26.0 L22.5,26.0 L23.5,4.0 L19.2,4.0 L15.0,26.0 L12.1,26.0 L13.1,4.0 L8.8,4.0 L4.6,26.0 L2.0,26.0',
-        escaler:     'M2.0,26.0 L3.9,26.0 L3.9,4.0 L13.7,26.0 L15.7,26.0 L15.7,4.0 L25.4,26.0 L27.4,26.0 L27.4,4.0 L37.2,26.0 L39.2,26.0 L39.2,4.0 L49.0,26.0 L51.0,26.0 L51.0,4.0 L60.7,26.0 L62.7,26.0 L62.7,4.0 L72.5,26.0 L74.5,26.0 L74.5,4.0 L84.2,26.0 L86.2,26.0 L86.2,4.0 L96.0,26.0 L98.0,26.0',
-        kaotico:     'M2.0,14.7 L2.6,26.0 L5.3,26.0 L6.5,4.0 L10.2,26.0 L13.1,26.0 L16.8,4.0 L18.0,26.0 L21.3,26.0 L25.0,4.0 L26.1,26.0 L27.2,26.0 L28.3,4.0 L32.0,26.0 L36.3,26.0 L40.0,4.0 L41.2,26.0 L44.1,26.0 L45.2,4.0 L48.9,26.0 L51.7,26.0 L52.9,4.0 L56.6,26.0 L59.5,26.0 L63.2,4.0 L64.4,26.0 L67.7,26.0 L71.4,4.0 L72.5,26.0 L73.6,26.0 L74.7,4.0 L78.4,26.0 L82.7,26.0 L86.4,4.0 L87.6,26.0 L90.5,26.0 L94.2,4.0 L95.4,26.0 L98.0,26.0',
-        origami:     'M2.0,17.0 L2.5,26.0 L3.8,4.0 L5.1,26.0 L6.4,4.0 L7.7,26.0 L9.0,4.0 L10.3,26.0 L11.6,4.0 L12.9,26.0 L14.1,4.0 L15.4,26.0 L16.7,4.0 L18.0,26.0 L19.3,4.0 L20.6,26.0 L21.9,4.0 L23.2,26.0 L24.5,4.0 L25.8,26.0 L27.0,4.0 L28.3,26.0 L29.6,4.0 L30.9,26.0 L32.2,4.0 L33.5,26.0 L34.8,4.0 L36.1,26.0 L37.4,4.0 L38.7,26.0 L39.9,4.0 L41.2,26.0 L42.5,4.0 L43.8,26.0 L45.1,4.0 L46.4,26.0 L47.7,4.0 L49.0,26.0 L50.3,4.0 L51.6,26.0 L52.8,4.0 L54.1,26.0 L55.4,4.0 L56.7,26.0 L58.0,4.0 L59.3,26.0 L60.6,4.0 L61.9,26.0 L63.2,4.0 L64.5,26.0 L65.7,4.0 L67.0,26.0 L68.3,4.0 L69.6,26.0 L70.9,4.0 L72.2,26.0 L73.5,4.0 L74.8,26.0 L76.1,4.0 L77.4,26.0 L78.6,4.0 L79.9,26.0 L81.2,4.0 L82.5,26.0 L83.8,4.0 L85.1,26.0 L86.4,4.0 L87.7,26.0 L89.0,4.0 L90.3,26.0 L91.5,4.0 L92.8,26.0 L94.1,4.0 L95.4,26.0 L96.7,4.0 L98.0,26.0',
-        onda:        'M2.0,14.2 L2.9,5.7 L3.6,4.0 L4.2,5.7 L6.2,24.3 L6.8,26.0 L7.5,24.3 L9.4,5.7 L10.1,4.0 L10.8,5.7 L12.7,24.3 L13.4,26.0 L14.0,24.3 L16.0,5.7 L16.6,4.0 L17.3,5.7 L19.2,24.3 L19.9,26.0 L20.5,24.3 L22.5,5.7 L23.1,4.0 L23.8,5.7 L25.7,24.3 L26.4,26.0 L27.1,24.3 L29.0,5.7 L29.7,4.0 L30.3,5.7 L32.3,24.3 L32.9,26.0 L33.6,24.3 L35.5,5.7 L36.2,4.0 L36.9,5.7 L38.8,24.3 L39.5,26.0 L40.1,24.3 L42.1,5.7 L42.7,4.0 L43.4,5.7 L45.3,24.3 L46.0,26.0 L46.6,24.3 L48.6,5.7 L49.2,4.0 L49.9,5.7 L51.8,24.3 L52.5,26.0 L53.2,24.3 L55.1,5.7 L55.8,4.0 L56.4,5.7 L58.4,24.3 L59.0,26.0 L59.7,24.3 L61.6,5.7 L62.3,4.0 L63.0,5.7 L64.9,24.3 L65.6,26.0 L66.2,24.3 L68.2,5.7 L68.8,4.0 L69.5,5.7 L71.4,24.3 L72.1,26.0 L72.8,24.3 L74.7,5.7 L75.3,4.0 L76.0,5.7 L77.9,24.3 L78.6,26.0 L79.3,24.3 L81.2,5.7 L81.9,4.0 L82.5,5.7 L84.5,24.3 L85.1,26.0 L85.8,24.3 L87.7,5.7 L88.4,4.0 L89.1,5.7 L91.0,24.3 L91.7,26.0 L92.3,24.3 L94.3,5.7 L94.9,4.0 L95.6,5.7 L98.0,25.9',
+        pyramid:     'M2.0,26.0 L5.8,26.0 L8.9,15.0 L11.9,26.0 L15.9,26.0 L19.0,15.0 L22.0,26.0 L26.0,26.0 L29.1,15.0 L32.1,26.0 L36.2,26.0 L39.2,15.0 L42.2,26.0 L46.3,26.0 L49.3,15.0 L52.4,26.0 L56.4,26.0 L59.4,15.0 L62.5,26.0 L66.5,26.0 L69.6,15.0 L72.6,26.0 L76.6,26.0 L79.7,15.0 L82.7,26.0 L86.7,26.0 L89.8,15.0 L92.8,26.0 L96.9,26.0 L98.0,21.9',
+        symmetric:   'M98.0,20.9 L97.6,25.0 L94.4,25.0 L93.4,15.0 L90.2,15.0 L89.2,25.0 L86.0,25.0 L85.0,15.0 L81.8,15.0 L80.8,25.0 L77.5,25.0 L76.6,15.0 L73.3,15.0 L72.3,25.0 L69.1,25.0 L68.1,15.0 L64.9,15.0 L63.9,25.0 L60.7,25.0 L59.7,15.0 L56.5,15.0 L55.5,25.0 L52.3,25.0 L51.3,15.0 L48.1,15.0 L47.1,25.0 L43.9,25.0 L42.9,15.0 L39.7,15.0 L38.7,25.0 L35.5,25.0 L34.5,15.0 L31.3,15.0 L30.3,25.0 L27.0,25.0 L26.1,15.0 L22.8,15.0 L21.8,25.0 L18.6,25.0 L17.6,15.0 L14.4,15.0 L13.4,25.0 L10.2,25.0 L9.2,15.0 L6.0,15.0 L5.0,25.0 L2.9,25.0 L2.0,26.0',
+        asymmetric:  'M98.0,26.0 L95.1,26.0 L96.1,15.0 L91.9,15.0 L87.6,26.0 L84.8,26.0 L85.8,15.0 L81.5,15.0 L77.2,26.0 L74.4,26.0 L75.4,15.0 L71.1,15.0 L66.9,26.0 L64.0,26.0 L65.0,15.0 L60.7,15.0 L56.5,26.0 L53.6,26.0 L54.6,15.0 L50.3,15.0 L46.1,26.0 L43.3,26.0 L44.2,15.0 L40.0,15.0 L35.7,26.0 L32.9,26.0 L33.9,15.0 L29.6,15.0 L25.4,26.0 L22.5,26.0 L23.5,15.0 L19.2,15.0 L15.0,26.0 L12.1,26.0 L13.1,15.0 L8.8,15.0 L4.6,26.0 L2.0,26.0',
+        escaler:     'M2.0,26.0 L3.9,26.0 L3.9,15.0 L13.7,26.0 L15.7,26.0 L15.7,15.0 L25.4,26.0 L27.4,26.0 L27.4,15.0 L37.2,26.0 L39.2,26.0 L39.2,15.0 L49.0,26.0 L51.0,26.0 L51.0,15.0 L60.7,26.0 L62.7,26.0 L62.7,15.0 L72.5,26.0 L74.5,26.0 L74.5,15.0 L84.2,26.0 L86.2,26.0 L86.2,15.0 L96.0,26.0 L98.0,26.0',
+        kaotico:     'M2.0,20.3 L2.6,26.0 L5.3,26.0 L6.5,15.0 L10.2,26.0 L13.1,26.0 L16.8,15.0 L18.0,26.0 L21.3,26.0 L25.0,15.0 L26.1,26.0 L27.2,26.0 L28.3,15.0 L32.0,26.0 L36.3,26.0 L40.0,15.0 L41.2,26.0 L44.1,26.0 L45.2,15.0 L48.9,26.0 L51.7,26.0 L52.9,15.0 L56.6,26.0 L59.5,26.0 L63.2,15.0 L64.4,26.0 L67.7,26.0 L71.4,15.0 L72.5,26.0 L73.6,26.0 L74.7,15.0 L78.4,26.0 L82.7,26.0 L86.4,15.0 L87.6,26.0 L90.5,26.0 L94.2,15.0 L95.4,26.0 L98.0,26.0',
+        origami:     'M2.0,21.5 L2.5,26.0 L3.8,15.0 L5.1,26.0 L6.4,15.0 L7.7,26.0 L9.0,15.0 L10.3,26.0 L11.6,15.0 L12.9,26.0 L14.1,15.0 L15.4,26.0 L16.7,15.0 L18.0,26.0 L19.3,15.0 L20.6,26.0 L21.9,15.0 L23.2,26.0 L24.5,15.0 L25.8,26.0 L27.0,15.0 L28.3,26.0 L29.6,15.0 L30.9,26.0 L32.2,15.0 L33.5,26.0 L34.8,15.0 L36.1,26.0 L37.4,15.0 L38.7,26.0 L39.9,15.0 L41.2,26.0 L42.5,15.0 L43.8,26.0 L45.1,15.0 L46.4,26.0 L47.7,15.0 L49.0,26.0 L50.3,15.0 L51.6,26.0 L52.8,15.0 L54.1,26.0 L55.4,15.0 L56.7,26.0 L58.0,15.0 L59.3,26.0 L60.6,15.0 L61.9,26.0 L63.2,15.0 L64.5,26.0 L65.7,15.0 L67.0,26.0 L68.3,15.0 L69.6,26.0 L70.9,15.0 L72.2,26.0 L73.5,15.0 L74.8,26.0 L76.1,15.0 L77.4,26.0 L78.6,15.0 L79.9,26.0 L81.2,15.0 L82.5,26.0 L83.8,15.0 L85.1,26.0 L86.4,15.0 L87.7,26.0 L89.0,15.0 L90.3,26.0 L91.5,15.0 L92.8,26.0 L94.1,15.0 L95.4,26.0 L96.7,15.0 L98.0,26.0',
+        onda:        'M2.0,20.1 L3.6,15.0 L6.8,26.0 L10.1,15.0 L13.4,26.0 L16.6,15.0 L19.9,26.0 L23.1,15.0 L26.4,26.0 L29.7,15.0 L32.9,26.0 L36.2,15.0 L39.5,26.0 L42.7,15.0 L46.0,26.0 L49.2,15.0 L52.5,26.0 L55.8,15.0 L59.0,26.0 L62.3,15.0 L65.6,26.0 L68.8,15.0 L72.1,26.0 L75.3,15.0 L78.6,26.0 L81.9,15.0 L85.1,26.0 L88.4,15.0 L91.7,26.0 L94.9,15.0 L95.6,15.8 L98.0,25.9',
         kubo:        'M2.0,11.8 L2.0,26.0 L4.5,26.0 L4.6,4.2 L7.2,4.0 L7.2,25.8 L9.7,26.0 L9.8,4.2 L12.3,4.0 L12.4,25.8 L15.0,26.0 L15.0,4.2 L17.6,4.0 L17.7,25.8 L20.2,26.0 L20.3,4.2 L22.8,4.0 L22.9,25.8 L25.4,26.0 L25.5,4.2 L28.0,4.0 L28.1,25.8 L30.6,26.0 L30.7,4.2 L33.2,4.0 L33.3,25.8 L35.8,26.0 L35.9,4.2 L38.4,4.0 L38.5,25.8 L41.0,26.0 L41.1,4.2 L43.6,4.0 L43.7,25.8 L46.2,26.0 L46.3,4.2 L48.8,4.0 L48.9,25.8 L51.4,26.0 L51.5,4.2 L54.0,4.0 L54.1,25.8 L56.6,26.0 L56.7,4.2 L59.2,4.0 L59.3,25.8 L61.8,26.0 L61.9,4.2 L64.5,4.0 L64.5,25.8 L67.1,26.0 L67.2,4.2 L69.7,4.0 L69.8,25.8 L72.3,26.0 L72.4,4.2 L74.9,4.0 L75.0,25.8 L77.5,26.0 L77.6,4.2 L80.1,4.0 L80.2,25.8 L82.7,26.0 L82.8,4.2 L85.3,4.0 L85.4,25.8 L87.9,26.0 L88.0,4.2 L90.5,4.0 L90.6,25.8 L93.1,26.0 L93.2,4.2 L95.7,4.0 L95.8,25.8 L98.0,26.0',
-        nordik:      'M2.0,26.0 L4.7,25.7 L4.8,4.0 L16.8,4.1 L17.0,26.0 L19.7,25.7 L19.8,4.0 L22.6,4.3 L22.8,26.0 L25.5,25.7 L25.6,4.0 L32.6,4.1 L32.8,26.0 L35.5,25.7 L35.6,4.0 L38.5,4.3 L38.6,26.0 L41.3,25.7 L41.5,4.0 L48.4,4.1 L48.6,26.0 L51.3,25.7 L51.5,4.0 L54.3,4.3 L54.5,26.0 L57.1,25.7 L57.3,4.0 L69.2,4.1 L69.4,26.0 L72.1,25.7 L72.3,4.0 L79.2,4.1 L79.4,26.0 L82.1,25.7 L82.3,4.0 L85.1,4.3 L85.3,26.0 L87.9,25.7 L88.1,4.0 L95.1,4.1 L95.3,26.0 L97.9,25.9 L98.0,13.2'
+        nordik:      'M2.0,26.0 L4.7,25.9 L4.8,15.0 L16.8,15.0 L17.0,26.0 L19.7,25.9 L19.8,15.0 L22.6,15.1 L22.8,26.0 L25.5,25.9 L25.6,15.0 L32.6,15.0 L32.8,26.0 L35.5,25.9 L35.6,15.0 L38.5,15.1 L38.6,26.0 L41.3,25.9 L41.5,15.0 L48.4,15.0 L48.6,26.0 L51.3,25.9 L51.5,15.0 L54.3,15.1 L54.5,26.0 L57.1,25.9 L57.3,15.0 L69.2,15.0 L69.4,26.0 L72.1,25.9 L72.3,15.0 L79.2,15.0 L79.4,26.0 L82.1,25.9 L82.3,15.0 L85.1,15.1 L85.3,26.0 L87.9,25.9 L88.1,15.0 L95.1,15.0 L95.3,26.0 L97.9,26.0 L98.0,19.6'
     };
     const SEG_GEN = 'M2,17 Q14,10 26,17 T50,17 T74,17 T98,17';
     function buildTimeline(elId, fams) {
@@ -683,7 +680,7 @@
                     <span class="num">${esc(f.num)}.</span>
                     <span class="nm">${esc(f.name)}</span>
                 </div>
-                <svg class="seg" viewBox="0 0 100 30" preserveAspectRatio="none"><path d="${generic ? SEG_GEN : PROFILES[f.anchor]}" vector-effect="non-scaling-stroke"/></svg>
+                <svg class="seg" viewBox="0 13 100 14" preserveAspectRatio="none"><path d="${generic ? SEG_GEN : PROFILES[f.anchor]}" vector-effect="non-scaling-stroke"/></svg>
             </a>`;
         }).join('');
     }
@@ -755,11 +752,19 @@
         }
         return `<div class="subhead"><h3>Proyectos de referencia</h3><span class="ln"></span></div>${rows.join('')}`;
     }
+    function frontBlock(f) {
+        if (!f.types || !f.types.length) return '';
+        const cards = f.types.map(t => `
+            <div class="front">
+                <div class="front-media">${t.front ? `<img src="${esc(t.front)}" alt="${esc(t.lab)}" loading="lazy">` : `<div class="slot">${esc(t.lab)} · render</div>`}</div>
+                <div class="front-lab">${esc(t.lab)}</div>
+            </div>`).join('');
+        return `<div class="subhead"><h3>Renders por tipo</h3><span class="ln"></span></div><div class="fronts">${cards}</div>`;
+    }
     function familySection(f, idx) {
-        const ph = f.status === 'placeholder';
-        const descHtml = (!ph && f.desc)
+        const descHtml = f.desc
             ? `<p class="fam-desc">${esc(f.desc)}</p>`
-            : `<span class="note">${ph ? 'Texto provisional' : 'Descripción provisional'}</span>
+            : `<span class="note">Descripción provisional</span>
                <p class="fam-desc">Descripción de ${esc(f.name)} pendiente de contenido real (catálogo, páginas ${f.pages}).</p>`;
         const render = f.heroRender
             ? `<div class="fam-render"><img src="${esc(f.heroRender)}" alt="${esc(f.name)}"></div>`
@@ -771,14 +776,15 @@
                     <div>
                         <h2 class="fam-name"><span class="fnum">${f.num}.</span> ${esc(f.name)}</h2>
                         ${descHtml}
-                        ${ph ? '' : (f.warn ? `<div class="warn">⚠ ${esc(f.warn)}</div>` : '')}
+                        ${f.warn ? `<div class="warn">⚠ ${esc(f.warn)}</div>` : ''}
                     </div>
                     ${render}
                 </div>
                 ${developmentsBlock(f)}
-                ${ph ? '' : configBlock(f)}
-                ${ph ? '' : chipsBlock(f)}
-                ${ph ? '' : dimsBlock(f)}
+                ${configBlock(f)}
+                ${chipsBlock(f)}
+                ${frontBlock(f)}
+                ${dimsBlock(f)}
                 ${viewerBlock(f)}
                 ${rendersBlock(f)}
             </div>
