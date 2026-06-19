@@ -276,8 +276,8 @@
  {
   "page": 14,
   "file": "p14_1.jpeg",
-  "w": 2134,
-  "h": 1504,
+  "w": 1660,
+  "h": 1172,
   "ext": "jpeg"
  },
  {
@@ -290,15 +290,43 @@
  {
   "page": 14,
   "file": "p14_3.jpeg",
-  "w": 1790,
+  "w": 1788,
   "h": 860,
   "ext": "jpeg"
  },
  {
   "page": 15,
   "file": "p15_1.jpeg",
-  "w": 1352,
-  "h": 603,
+  "w": 865,
+  "h": 1500,
+  "ext": "jpeg"
+ },
+ {
+  "page": 15,
+  "file": "p15_2.jpeg",
+  "w": 532,
+  "h": 925,
+  "ext": "jpeg"
+ },
+ {
+  "page": 15,
+  "file": "p15_3.jpeg",
+  "w": 373,
+  "h": 925,
+  "ext": "jpeg"
+ },
+ {
+  "page": 15,
+  "file": "p15_4.jpeg",
+  "w": 446,
+  "h": 925,
+  "ext": "jpeg"
+ },
+ {
+  "page": 15,
+  "file": "p15_5.jpeg",
+  "w": 678,
+  "h": 925,
   "ext": "jpeg"
  },
  {
@@ -324,15 +352,40 @@
  },
  {
   "page": 17,
-  "reuse_of": "p14_3.jpeg",
+  "file": "p17_3.jpeg",
   "w": 1790,
-  "h": 860
+  "h": 860,
+  "ext": "jpeg"
  },
  {
   "page": 18,
-  "reuse_of": "p15_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p12_1.jpeg",
+  "w": 1016,
+  "h": 1495
+ },
+ {
+  "page": 18,
+  "reuse_of": "p12_2.jpeg",
+  "w": 373,
+  "h": 925
+ },
+ {
+  "page": 18,
+  "reuse_of": "p12_3.jpeg",
+  "w": 446,
+  "h": 925
+ },
+ {
+  "page": 18,
+  "reuse_of": "p12_4.jpeg",
+  "w": 373,
+  "h": 925
+ },
+ {
+  "page": 18,
+  "reuse_of": "p12_5.jpeg",
+  "w": 823,
+  "h": 925
  },
  {
   "page": 19,
@@ -367,9 +420,10 @@
  },
  {
   "page": 21,
-  "reuse_of": "p15_1.jpeg",
+  "file": "p21_1.jpeg",
   "w": 1352,
-  "h": 603
+  "h": 603,
+  "ext": "jpeg"
  },
  {
   "page": 22,
@@ -392,7 +446,7 @@
  },
  {
   "page": 24,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },
@@ -429,7 +483,7 @@
  },
  {
   "page": 27,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },
@@ -453,7 +507,7 @@
  },
  {
   "page": 30,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },
@@ -490,7 +544,7 @@
  },
  {
   "page": 33,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },
@@ -508,7 +562,7 @@
  },
  {
   "page": 36,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },
@@ -538,7 +592,7 @@
  },
  {
   "page": 39,
-  "reuse_of": "p15_1.jpeg",
+  "reuse_of": "p21_1.jpeg",
   "w": 1352,
   "h": 603
  },

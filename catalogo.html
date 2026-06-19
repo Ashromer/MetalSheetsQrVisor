@@ -130,7 +130,7 @@
         .tl-fam .nm { display: block; font-family: var(--serif); font-size: clamp(13px, 1.35vw, 19px); font-weight: 500; color: inherit; margin-top: 2px; }
         .tl-fam .pg { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; color: var(--grey); margin-top: 2px; }
         .tl-fam .mini { width: clamp(120px, 14vw, 200px); aspect-ratio: 2.9/1; margin: 0 auto 2px;
-            overflow: hidden; border-radius: 2px; background: transparent; }
+            overflow: visible; border-radius: 2px; background: transparent; }
         .tl-fam .mini img { width: 100%; height: 100%; object-fit: contain;
             filter: grayscale(1) contrast(1.03); transition: filter .3s ease, transform .3s ease; }
         .tl-fam:hover .mini img { filter: none; transform: scale(1.12); }
@@ -199,8 +199,8 @@
         .dev img { width: 100%; height: auto; border-radius: 3px; }
         .tcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 8px; }
         .tcard { border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
-        .tcard-media { aspect-ratio: 16/9; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--line); }
-        .tcard-media img { width: 100%; height: 100%; object-fit: cover; }
+        .tcard-media { aspect-ratio: 3/4; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid var(--line); }
+        .tcard-media img { width: 100%; height: 100%; object-fit: contain; }
         .tcard-body { padding: 12px 14px 14px; }
         .tcard-lab { font-family: var(--serif); font-size: 20px; font-weight: 600; }
         .tcard-dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 4px; line-height: 1.6; }
@@ -561,7 +561,7 @@
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: STD, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png', desarrollo: 'img/desarrollo_symmetric.png',
+            config: STD, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -639,11 +639,11 @@
               { lab: 'Nordik 24 C', ancho: '776 mm', altura: '24 mm' } ],
           model: { prefix: 'models/Nordik_', types: [
               { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
-        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'partial',
+        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'partial', heroRender: 'img/09_Nordik_cut.png',
           config: STD, materials: MAT,
           desc: 'Sistema de módulos alternos que combina piezas o posiciones diferentes en un patrón regular, generando una trama de dos tiempos que enriquece la fachada sin recurrir a relieves pronunciados. Una solución versátil para introducir variación rítmica con un repertorio reducido de piezas.',
           warn: 'Dimensiones pendientes (sin geometría asignada en el DXF).' },
-        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'partial',
+        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'partial', heroRender: 'img/09_Nordik_cut.png',
           config: STD, materials: MAT,
           desc: 'Revestimiento de fijación oculta con efecto de escama o solape escalonado, que produce una piel continua y tersa de juntas mínimas. La luz resbala por sus planos generando una textura sutil y sofisticada, sin anclajes a la vista, para acabados de máximo nivel.',
           warn: 'Geometría no extraíble: en el DXF las polilíneas de Skala están en capa incorrecta. Dimensiones pendientes.' }
@@ -670,6 +670,7 @@
         kubo:        'M0.0,23.7 L0.0,26.0 L2.6,26.0 L2.7,22.5 L5.4,22.5 L5.5,26.0 L8.1,26.0 L8.2,22.5 L10.8,22.5 L10.9,26.0 L13.5,26.0 L13.6,22.5 L16.2,22.5 L16.3,26.0 L18.9,26.0 L19.0,22.5 L21.6,22.5 L21.7,26.0 L24.3,26.0 L24.4,22.5 L27.1,22.5 L27.2,26.0 L29.8,26.0 L29.9,22.5 L32.5,22.5 L32.6,26.0 L35.2,26.0 L35.3,22.5 L37.9,22.5 L38.0,26.0 L40.6,26.0 L40.7,22.5 L43.3,22.5 L43.4,26.0 L46.1,26.0 L46.2,22.5 L48.8,22.5 L48.9,26.0 L51.5,26.0 L51.6,22.5 L54.2,22.5 L54.3,26.0 L56.9,26.0 L57.0,22.5 L59.6,22.5 L59.7,26.0 L62.3,26.0 L62.4,22.5 L65.1,22.5 L65.2,26.0 L67.8,26.0 L67.9,22.5 L70.5,22.5 L70.6,26.0 L73.2,26.0 L73.3,22.5 L75.9,22.5 L76.0,26.0 L78.6,26.0 L78.7,22.5 L81.3,22.5 L81.4,26.0 L84.1,26.0 L84.2,22.5 L86.8,22.5 L86.9,26.0 L89.5,26.0 L89.6,22.5 L92.2,22.5 L92.3,26.0 L94.9,26.0 L95.0,22.5 L97.6,22.5 L97.7,26.0 L100.0,26.0',
         nordik:      'M0.0,26.0 L2.8,25.9 L3.0,21.1 L15.4,21.1 L15.6,26.0 L18.4,25.9 L18.6,21.1 L21.5,21.1 L21.6,26.0 L24.4,25.9 L24.6,21.1 L31.9,21.1 L32.1,26.0 L34.9,25.9 L35.1,21.1 L38.0,21.1 L38.1,26.0 L40.9,25.9 L41.1,21.1 L48.4,21.1 L48.6,26.0 L51.4,25.9 L51.5,21.1 L54.5,21.1 L54.6,26.0 L57.4,25.9 L57.6,21.1 L70.0,21.1 L70.2,26.0 L73.0,25.9 L73.2,21.1 L80.5,21.1 L80.7,26.0 L83.5,25.9 L83.6,21.1 L86.6,21.1 L86.7,26.0 L89.5,25.9 L89.7,21.1 L97.0,21.1 L97.2,26.0 L99.9,26.0 L100.0,23.1'
     };
+    PROFILES.alterno = PROFILES.skala = PROFILES.nordik;
     const SEG_GEN = 'M2,17 Q14,10 26,17 T50,17 T74,17 T98,17';
     function buildTimeline(elId, fams) {
         document.getElementById(elId).innerHTML = fams.map((f, i) => {

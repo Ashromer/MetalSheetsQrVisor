@@ -420,7 +420,6 @@ Symmetric 40
 80
 22
 55
-81
 89
 100
 19
@@ -499,6 +498,17 @@ Técnica
 ===== PDF PAG 15 =====
 02. Asymmetric | 29
 28
+Sistema Pyramid
+Eosande ntiisquidunt ut endebit explis accuptatiis 
+eum il incturi aria ipsusandia nulpa nimus, volori­
+bus sendem dis adis solum restrum que labore laute 
+comnis doluptatibus excestemolut ut ipsunt dolorei 
+cidunt adipisto cones atquid mo et aperoriam quis 
+expeliquo con non eatur? 
+Pyramid 33
+Pyramid 45
+Pyramid 68
+Pyramid 110
 
 
 ===== PDF PAG 16 =====
@@ -583,12 +593,24 @@ ancho útil - 1007 mm    altura 40 - mm
 
 ===== PDF PAG 17 =====
 33
-32 | 02. Symmetric
+02. Symmetric | 33
+32
 
 
 ===== PDF PAG 18 =====
-02. Symmetric | 35
 34
+Sistema Symmetric
+Eosande 
+ntiisquidunt 
+ut 
+endebit 
+explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis solum 
+restrum que labore laute comnis doluptatibus 
+Etra nosupiocchil ta publiciam tem los num 
+sulut vid morur, qua L. Mae in sedo, quit, n
+34 | 02. Symmetric
 
 
 ===== PDF PAG 19 =====
@@ -648,11 +670,11 @@ Técnica
 
 ===== PDF PAG 20 =====
 39
-38 | 02. Symmetric
+38 | 05. Kaotico
 
 
 ===== PDF PAG 21 =====
-02. Symmetric | 41
+05. Kaotico | 41
 40
 
 
@@ -665,14 +687,27 @@ limpias que articula la fachada con una sobriedad atemporal. Su estructura forma
 ponible en una versatilidad de formatos y acabados técnicos, permite una integración 
 absoluta en cualquier lenguaje arquitectónico contemporáneo
 43
+17
+11
+24
+56
+27
+46
+50
+25
+65
+120
+78
+50
+45
 Ancho útil - 927mm
 Ancho útil - 1155mm
 Ancho útil - 1005mm
 Ancho útil - 1007mm
-Symmetric 40
-Symmetric 23
-Symmetric 25
-Symmetric 29
+Origami 50
+Origami 11
+Origami 24
+Origami 45
 Propiedades técnicas
 Longitud mínima:
 Longitud máxima:
@@ -703,15 +738,21 @@ ancho útil - 1007 mm    altura 40 - mm
 
 ===== PDF PAG 23 =====
 45
-44 | 02. Symmetric
+44 | 06. Origami
 
 
 ===== PDF PAG 24 =====
-02. Symmetric | 47
+06. Origami | 47
 46
 
 
 ===== PDF PAG 25 =====
+23
+30
+35
+111
+76
+204
 48
 49
 07. Onda
@@ -733,23 +774,19 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Pyramid 33  
+Onda 23  
 ancho útil - 894 mm    altura 33 - mm
-Pyramid 45  
+Onda 30 
 ancho útil - 952 mm    altura 15 - mm
-Pyramid 68
+Onda 35 
 ancho útil - 893 mm    altura 68 - mm
-Pyramid 110
-ancho útil - 780 mm    altura 110 - mm
 Ancho útil - 894mm
-Ancho útil - 952mm
 Ancho útil - 793mm
 Ancho útil - 780mm
-Pyramid 33
-Onda 40
-Pyramid 45
-Pyramid 68
-Pyramid 110
+Onda 23
+Onda 30
+Onda 30
+Onda 35
 Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
 separados por segmentos planos que definen con precisión cada forma geométrica. El 
 patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad 
@@ -763,11 +800,11 @@ Técnica
 
 ===== PDF PAG 26 =====
 51
-50 | 02. Symmetric
+50 | 07. Onda
 
 
 ===== PDF PAG 27 =====
-02. Symmetric | 53
+08. Onda | 53
 52
 
 
@@ -780,37 +817,26 @@ limpias que articula la fachada con una sobriedad atemporal. Su estructura forma
 ponible en una versatilidad de formatos y acabados técnicos, permite una integración 
 absoluta en cualquier lenguaje arquitectónico contemporáneo
 55
-23
-25
-29
-40
-31
+17
 24
-81
-35
-81
-181
-41
-35
-37
-35
-115
-50
-51
-157
+36
 49
-125°
-128°
-142°
-113°
+50
+100
+41
+83
+24
+48
+18
+35
 Ancho útil - 927mm
 Ancho útil - 1155mm
 Ancho útil - 1005mm
 Ancho útil - 1007mm
-Symmetric 40
-Symmetric 23
-Symmetric 25
-Symmetric 29
+Kubo 40
+Kubo 23
+Kubo 25
+Kubo 29
 Propiedades técnicas
 Longitud mínima:
 Longitud máxima:
@@ -829,14 +855,14 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Symmetric 23
-ancho útil - 927 mm    altura 23 - mm
-Symmetric 25
-ancho útil - 1155 mm    altura 25 - mm
-Symmetric 29
-ancho útil - 1005 mm    altura 29 - mm
-Symmetric 40
-ancho útil - 1007 mm    altura 40 - mm
+Kubo 17
+ancho útil - 927 mm    altura 17 - mm
+Kubo 24
+ancho útil - 1155 mm    altura 24 - mm
+Kubo 36
+ancho útil - 1005 mm    altura 36 - mm
+Kubo 49
+ancho útil - 1007 mm    altura 49 - mm
 
 
 ===== PDF PAG 29 =====
@@ -850,6 +876,10 @@ ancho útil - 1007 mm    altura 40 - mm
 
 
 ===== PDF PAG 31 =====
+24
+24
+24
+49
 60
 61
 09. Nordik
@@ -871,23 +901,23 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Pyramid 33  
-ancho útil - 894 mm    altura 33 - mm
-Pyramid 45  
-ancho útil - 952 mm    altura 15 - mm
-Pyramid 68
-ancho útil - 893 mm    altura 68 - mm
-Pyramid 110
-ancho útil - 780 mm    altura 110 - mm
+Nordik 24a
+ancho útil - 755 mm    altura 24 - mm
+Nordik 24b
+ancho útil - 755 mm    altura 24 - mm
+Nordik 24c
+ancho útil - 755 mm    altura 24 - mm
+Nordik 49a
+ancho útil - 695m    altura 49 - mm
 Ancho útil - 894mm
-Ancho útil - 952mm
-Ancho útil - 793mm
-Ancho útil - 780mm
+Ancho útil - 894mm
+Ancho útil - 755mm
+Ancho útil - 695mm
+Nordik 24a
+Nordik 24b
 Pyramid 33
-Pyramid 33
-Pyramid 45
-Pyramid 68
-Pyramid 110
+Nordik 24c
+Nordik 49a
 Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
 separados por segmentos planos que definen con precisión cada forma geométrica. El 
 patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad 
