@@ -129,7 +129,7 @@
         .tl-fam .nm { display: block; font-family: var(--serif); font-size: clamp(13px, 1.35vw, 19px); font-weight: 500; color: inherit; margin-top: 2px; }
         .tl-fam .pg { display: block; font-family: var(--sans); font-size: 10px; letter-spacing: 1px; color: var(--grey); margin-top: 2px; }
         .tl-fam .mini { width: clamp(78px, 9vw, 128px); aspect-ratio: 4/3; margin: 0 auto 10px;
-            overflow: hidden; border-radius: 2px; background: #eee; }
+            overflow: hidden; border-radius: 2px; background: #fff; }
         .tl-fam .mini img { width: 100%; height: 100%; object-fit: cover;
             filter: grayscale(1) contrast(1.03); transition: filter .25s ease; }
         .tl-fam:hover .mini img { filter: none; }
@@ -557,7 +557,7 @@
             num: '01', name: 'Pyramid', anchor: 'pyramid', pages: '12–17', status: 'real',
             desc: 'Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma geométrica. El patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad estructural, mientras que sus ángulos pronunciados y líneas limpias encarnan una estética minimalista y contemporánea. Su forma distintiva realza la profundidad visual de la fachada y ofrece una declaración sofisticada y moderna que complementa diseños arquitectónicos innovadores.',
             config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/p07_1.jpeg', desarrollo: 'img/desarrollo_pyramid.png',
+            materials: MAT, thumb: 'img/p09_5.jpeg', heroRender: 'img/01_Pyramid_cut.png', desarrollo: 'img/desarrollo_pyramid.png',
             types: [
                 { lab: 'Pyramid 39',  ancho: '882 mm',  altura: '39 mm',  img: 'img/p09_2.jpeg' },
                 { lab: 'Pyramid 45',  ancho: '1021 mm', altura: '47 mm',  img: 'img/p09_3.jpeg' },
@@ -570,7 +570,7 @@
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/p10_1.jpeg', desarrollo: 'img/desarrollo_symmetric.png',
+            config: {}, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png', desarrollo: 'img/desarrollo_symmetric.png',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -583,7 +583,7 @@
         {
             num: '03', name: 'Asymmetric', anchor: 'asymmetric', pages: '24–29', status: 'partial',
             desc: '', config: { 'Longitud mínima': '1250 mm', 'Longitud máxima': '5000 mm', 'Configuración': 'Horizontal / Vertical' },
-            materials: MAT, heroRender: 'img/p13_1.jpeg', desarrollo: 'img/desarrollo_asymmetric.png',
+            materials: MAT, heroRender: 'img/03_Asymmetric_cut.png', desarrollo: 'img/desarrollo_asymmetric.png',
             types: [
                 { lab: 'Asymmetric 35', ancho: '740 mm', altura: '34 mm' },
                 { lab: 'Asymmetric 55', ancho: '718 mm', altura: '55 mm' },
@@ -594,7 +594,7 @@
             model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
             renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p14_2.jpeg']
         },
-        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial',
+        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial', heroRender: 'img/04_Escaler_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
           types: [
               { lab: 'Escaler 22', ancho: '1053 mm', altura: '22 mm' },
@@ -602,7 +602,7 @@
               { lab: 'Escaler 55', ancho: '883 mm',  altura: '56 mm' },
               { lab: 'Escaler 70', ancho: '1018 mm', altura: '70 mm' } ],
           model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
-        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial',
+        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial', heroRender: 'img/05_Kaotico_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
           types: [
               { lab: 'Kaotico 24', ancho: '983 mm', altura: '24 mm' },
@@ -610,7 +610,7 @@
               { lab: 'Kaotico 50', ancho: '788 mm', altura: '51 mm' },
               { lab: 'Kaotico 73', ancho: '851 mm', altura: '73 mm' } ],
           model: { prefix: 'models/Kaotiko_', types: ['24', '28', '50', '73'] } },
-        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'partial',
+        { num: '06', name: 'Origami', anchor: 'origami', pages: '40–47', status: 'partial', heroRender: 'img/06_Origami_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
           types: [
               { lab: 'Origami 11', ancho: '948 mm', altura: '11 mm' },
@@ -618,14 +618,14 @@
               { lab: 'Origami 45', ancho: '731 mm', altura: '45 mm' },
               { lab: 'Origami 50', ancho: '960 mm', altura: '50 mm' } ],
           model: { prefix: 'models/Origami_', types: ['11', '25', '45', '50'] } },
-        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial',
+        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial', heroRender: 'img/07_Onda_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
           types: [
               { lab: 'Onda 18', ancho: '1118 mm', altura: '12 mm' },
               { lab: 'Onda 27', ancho: '1103 mm', altura: '19 mm' },
               { lab: 'Onda 42', ancho: '1082 mm', altura: '42 mm' } ],
           model: { prefix: 'models/AcerOnda_', types: ['18', '27', '42'] } },
-        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial',
+        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial', heroRender: 'img/08_Kubo_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente.',
           types: [
               { lab: 'Kubo 17·17·17', ancho: '652 mm', altura: '17 mm' },
@@ -635,7 +635,7 @@
           model: { prefix: 'models/Kubo_', types: [
               { label: '17·17·17', file: '171717' }, { label: '24·24·24', file: '242424' },
               { label: '36·41·41', file: '364141' }, { label: '50·50·50', file: '505050' } ] } },
-        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial',
+        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial', heroRender: 'img/09_Nordik_cut.png',
           config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente. Tipo 50 A en el DXF sin geometría (capa).',
           types: [
               { lab: 'Nordik 24 A', ancho: '776 mm', altura: '24 mm' },
@@ -643,31 +643,9 @@
               { lab: 'Nordik 24 C', ancho: '776 mm', altura: '24 mm' } ],
           model: { prefix: 'models/Nordik_', types: [
               { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
-        { num: '10', name: 'Ritmiko', anchor: 'ritmiko', pages: '—', status: 'partial',
-          config: STD, materials: MAT, warn: 'Medidas del DXF; descripción pendiente. Familia asociada a Kubo (confirmar agrupación).',
-          types: [
-              { lab: 'Ritmiko 24 A', ancho: '723 mm', altura: '24 mm' },
-              { lab: 'Ritmiko 24 B', ancho: '723 mm', altura: '24 mm' },
-              { lab: 'Ritmiko 24 C', ancho: '723 mm', altura: '24 mm' } ],
-          model: { prefix: 'models/Ritmiko_', types: [
-              { label: '24 A', file: '24 A' }, { label: '24 B', file: '24 B' }, { label: '24 C', file: '24 C' } ] } },
-        { num: '11', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
-        { num: '12', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder',
-          warn: 'Geometría no extraíble: en el DXF las polilíneas de Skala están en capa incorrecta. Dimensiones pendientes.' },
-        { num: '13', name: 'Aqqua', anchor: 'aqqua', pages: '—', status: 'partial',
-          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
-          types: [
-              { lab: 'Aqqua 33', ancho: '1025 mm', altura: '15 mm' },
-              { lab: 'Aqqua 37', ancho: '913 mm',  altura: '38 mm' } ] },
-        { num: '14', name: 'Cubik', anchor: 'cubik', pages: '—', status: 'partial',
-          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
-          types: [
-              { lab: 'Cubik 39', ancho: '760 mm', altura: '40 mm' } ] },
-        { num: '15', name: 'Triangle', anchor: 'triangle', pages: '—', status: 'partial',
-          config: STD, materials: MAT, warn: 'Fijación oculta. Medidas del DXF; descripción pendiente.',
-          types: [
-              { lab: 'Triangle 46', ancho: '1125 mm', altura: '45 mm' },
-              { lab: 'Triangle 60', ancho: '1049 mm', altura: '59 mm' } ] }
+        { num: '10', name: 'Alterno', anchor: 'alterno', pages: '66–71', status: 'placeholder' },
+        { num: '11', name: 'Skala', anchor: 'skala', pages: '72–77', status: 'placeholder',
+          warn: 'Geometría no extraíble: en el DXF las polilíneas de Skala están en capa incorrecta. Dimensiones pendientes.' }
     ];
 
     const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
@@ -678,10 +656,18 @@
        Cada entrada: mini-render (B/N → color al hover) + número + nombre +
        tramo de perfil con la forma real de la familia (SVG). Las placeholder
        usan el perfil genérico (SEG_GEN, marcado con .gen). */
+    /* Perfiles reales generados desde la FIBRA NEUTRA del DXF (un módulo por familia,
+       tipo de menor altura). Regenerar con _PERFILES_MASTER/make_profiles_svg.py. */
     const PROFILES = {
-        pyramid:    'M2,26 L14,5 L26,26 L38,5 L50,26 L62,5 L74,26 L86,5 L98,26',
-        symmetric:  'M2,26 L10,6 L24,6 L32,26 L44,26 L52,6 L66,6 L74,26 L86,26 L94,6 L99,6'
-        // asymmetric y resto: perfil genérico hasta tener el PNG/trazo real
+        pyramid:     'M2.0,26.0 L5.8,26.0 L8.9,4.0 L11.9,26.0 L15.9,26.0 L19.0,4.0 L22.0,26.0 L26.0,26.0 L29.1,4.0 L32.1,26.0 L36.2,26.0 L39.2,4.0 L42.2,26.0 L46.3,26.0 L49.3,4.0 L52.4,26.0 L56.4,26.0 L59.4,4.0 L62.5,26.0 L66.5,26.0 L69.6,4.0 L72.6,26.0 L76.6,26.0 L79.7,4.0 L82.7,26.0 L86.7,26.0 L89.8,4.0 L92.8,26.0 L96.9,26.0 L98.0,17.8',
+        symmetric:   'M98.0,15.8 L97.6,24.0 L94.4,24.0 L93.4,4.0 L90.2,4.0 L89.2,24.0 L86.0,24.0 L85.0,4.0 L81.8,4.0 L80.8,24.0 L77.5,24.0 L76.6,4.0 L73.3,4.0 L72.3,24.0 L69.1,24.0 L68.1,4.0 L64.9,4.0 L63.9,24.0 L60.7,24.0 L59.7,4.0 L56.5,4.0 L55.5,24.0 L52.3,24.0 L51.3,4.0 L48.1,4.0 L47.1,24.0 L43.9,24.0 L42.9,4.0 L39.7,4.0 L38.7,24.0 L35.5,24.0 L34.5,4.0 L31.3,4.0 L30.3,24.0 L27.0,24.0 L26.1,4.0 L22.8,4.0 L21.8,24.0 L18.6,24.0 L17.6,4.0 L14.4,4.0 L13.4,24.0 L10.2,24.0 L9.2,4.0 L6.0,4.0 L5.0,24.0 L2.9,24.0 L2.0,26.0',
+        asymmetric:  'M98.0,26.0 L95.1,26.0 L96.1,4.0 L91.9,4.0 L87.6,26.0 L84.8,26.0 L85.8,4.0 L81.5,4.0 L77.2,26.0 L74.4,26.0 L75.4,4.0 L71.1,4.0 L66.9,26.0 L64.0,26.0 L65.0,4.0 L60.7,4.0 L56.5,26.0 L53.6,26.0 L54.6,4.0 L50.3,4.0 L46.1,26.0 L43.3,26.0 L44.2,4.0 L40.0,4.0 L35.7,26.0 L32.9,26.0 L33.9,4.0 L29.6,4.0 L25.4,26.0 L22.5,26.0 L23.5,4.0 L19.2,4.0 L15.0,26.0 L12.1,26.0 L13.1,4.0 L8.8,4.0 L4.6,26.0 L2.0,26.0',
+        escaler:     'M2.0,26.0 L3.9,26.0 L3.9,4.0 L13.7,26.0 L15.7,26.0 L15.7,4.0 L25.4,26.0 L27.4,26.0 L27.4,4.0 L37.2,26.0 L39.2,26.0 L39.2,4.0 L49.0,26.0 L51.0,26.0 L51.0,4.0 L60.7,26.0 L62.7,26.0 L62.7,4.0 L72.5,26.0 L74.5,26.0 L74.5,4.0 L84.2,26.0 L86.2,26.0 L86.2,4.0 L96.0,26.0 L98.0,26.0',
+        kaotico:     'M2.0,14.7 L2.6,26.0 L5.3,26.0 L6.5,4.0 L10.2,26.0 L13.1,26.0 L16.8,4.0 L18.0,26.0 L21.3,26.0 L25.0,4.0 L26.1,26.0 L27.2,26.0 L28.3,4.0 L32.0,26.0 L36.3,26.0 L40.0,4.0 L41.2,26.0 L44.1,26.0 L45.2,4.0 L48.9,26.0 L51.7,26.0 L52.9,4.0 L56.6,26.0 L59.5,26.0 L63.2,4.0 L64.4,26.0 L67.7,26.0 L71.4,4.0 L72.5,26.0 L73.6,26.0 L74.7,4.0 L78.4,26.0 L82.7,26.0 L86.4,4.0 L87.6,26.0 L90.5,26.0 L94.2,4.0 L95.4,26.0 L98.0,26.0',
+        origami:     'M2.0,17.0 L2.5,26.0 L3.8,4.0 L5.1,26.0 L6.4,4.0 L7.7,26.0 L9.0,4.0 L10.3,26.0 L11.6,4.0 L12.9,26.0 L14.1,4.0 L15.4,26.0 L16.7,4.0 L18.0,26.0 L19.3,4.0 L20.6,26.0 L21.9,4.0 L23.2,26.0 L24.5,4.0 L25.8,26.0 L27.0,4.0 L28.3,26.0 L29.6,4.0 L30.9,26.0 L32.2,4.0 L33.5,26.0 L34.8,4.0 L36.1,26.0 L37.4,4.0 L38.7,26.0 L39.9,4.0 L41.2,26.0 L42.5,4.0 L43.8,26.0 L45.1,4.0 L46.4,26.0 L47.7,4.0 L49.0,26.0 L50.3,4.0 L51.6,26.0 L52.8,4.0 L54.1,26.0 L55.4,4.0 L56.7,26.0 L58.0,4.0 L59.3,26.0 L60.6,4.0 L61.9,26.0 L63.2,4.0 L64.5,26.0 L65.7,4.0 L67.0,26.0 L68.3,4.0 L69.6,26.0 L70.9,4.0 L72.2,26.0 L73.5,4.0 L74.8,26.0 L76.1,4.0 L77.4,26.0 L78.6,4.0 L79.9,26.0 L81.2,4.0 L82.5,26.0 L83.8,4.0 L85.1,26.0 L86.4,4.0 L87.7,26.0 L89.0,4.0 L90.3,26.0 L91.5,4.0 L92.8,26.0 L94.1,4.0 L95.4,26.0 L96.7,4.0 L98.0,26.0',
+        onda:        'M2.0,14.2 L2.9,5.7 L3.6,4.0 L4.2,5.7 L6.2,24.3 L6.8,26.0 L7.5,24.3 L9.4,5.7 L10.1,4.0 L10.8,5.7 L12.7,24.3 L13.4,26.0 L14.0,24.3 L16.0,5.7 L16.6,4.0 L17.3,5.7 L19.2,24.3 L19.9,26.0 L20.5,24.3 L22.5,5.7 L23.1,4.0 L23.8,5.7 L25.7,24.3 L26.4,26.0 L27.1,24.3 L29.0,5.7 L29.7,4.0 L30.3,5.7 L32.3,24.3 L32.9,26.0 L33.6,24.3 L35.5,5.7 L36.2,4.0 L36.9,5.7 L38.8,24.3 L39.5,26.0 L40.1,24.3 L42.1,5.7 L42.7,4.0 L43.4,5.7 L45.3,24.3 L46.0,26.0 L46.6,24.3 L48.6,5.7 L49.2,4.0 L49.9,5.7 L51.8,24.3 L52.5,26.0 L53.2,24.3 L55.1,5.7 L55.8,4.0 L56.4,5.7 L58.4,24.3 L59.0,26.0 L59.7,24.3 L61.6,5.7 L62.3,4.0 L63.0,5.7 L64.9,24.3 L65.6,26.0 L66.2,24.3 L68.2,5.7 L68.8,4.0 L69.5,5.7 L71.4,24.3 L72.1,26.0 L72.8,24.3 L74.7,5.7 L75.3,4.0 L76.0,5.7 L77.9,24.3 L78.6,26.0 L79.3,24.3 L81.2,5.7 L81.9,4.0 L82.5,5.7 L84.5,24.3 L85.1,26.0 L85.8,24.3 L87.7,5.7 L88.4,4.0 L89.1,5.7 L91.0,24.3 L91.7,26.0 L92.3,24.3 L94.3,5.7 L94.9,4.0 L95.6,5.7 L98.0,25.9',
+        kubo:        'M2.0,11.8 L2.0,26.0 L4.5,26.0 L4.6,4.2 L7.2,4.0 L7.2,25.8 L9.7,26.0 L9.8,4.2 L12.3,4.0 L12.4,25.8 L15.0,26.0 L15.0,4.2 L17.6,4.0 L17.7,25.8 L20.2,26.0 L20.3,4.2 L22.8,4.0 L22.9,25.8 L25.4,26.0 L25.5,4.2 L28.0,4.0 L28.1,25.8 L30.6,26.0 L30.7,4.2 L33.2,4.0 L33.3,25.8 L35.8,26.0 L35.9,4.2 L38.4,4.0 L38.5,25.8 L41.0,26.0 L41.1,4.2 L43.6,4.0 L43.7,25.8 L46.2,26.0 L46.3,4.2 L48.8,4.0 L48.9,25.8 L51.4,26.0 L51.5,4.2 L54.0,4.0 L54.1,25.8 L56.6,26.0 L56.7,4.2 L59.2,4.0 L59.3,25.8 L61.8,26.0 L61.9,4.2 L64.5,4.0 L64.5,25.8 L67.1,26.0 L67.2,4.2 L69.7,4.0 L69.8,25.8 L72.3,26.0 L72.4,4.2 L74.9,4.0 L75.0,25.8 L77.5,26.0 L77.6,4.2 L80.1,4.0 L80.2,25.8 L82.7,26.0 L82.8,4.2 L85.3,4.0 L85.4,25.8 L87.9,26.0 L88.0,4.2 L90.5,4.0 L90.6,25.8 L93.1,26.0 L93.2,4.2 L95.7,4.0 L95.8,25.8 L98.0,26.0',
+        nordik:      'M2.0,26.0 L4.7,25.7 L4.8,4.0 L16.8,4.1 L17.0,26.0 L19.7,25.7 L19.8,4.0 L22.6,4.3 L22.8,26.0 L25.5,25.7 L25.6,4.0 L32.6,4.1 L32.8,26.0 L35.5,25.7 L35.6,4.0 L38.5,4.3 L38.6,26.0 L41.3,25.7 L41.5,4.0 L48.4,4.1 L48.6,26.0 L51.3,25.7 L51.5,4.0 L54.3,4.3 L54.5,26.0 L57.1,25.7 L57.3,4.0 L69.2,4.1 L69.4,26.0 L72.1,25.7 L72.3,4.0 L79.2,4.1 L79.4,26.0 L82.1,25.7 L82.3,4.0 L85.1,4.3 L85.3,26.0 L87.9,25.7 L88.1,4.0 L95.1,4.1 L95.3,26.0 L97.9,25.9 L98.0,13.2'
     };
     const SEG_GEN = 'M2,17 Q14,10 26,17 T50,17 T74,17 T98,17';
     function buildTimeline(elId, fams) {
@@ -701,9 +687,8 @@
             </a>`;
         }).join('');
     }
-    const OCULTA = ['Aqqua', 'Cubik', 'Triangle'];
-    buildTimeline('tlVista', FAMILIES.filter(f => !OCULTA.includes(f.name)));
-    buildTimeline('tlOculta', FAMILIES.filter(f => OCULTA.includes(f.name)));
+    buildTimeline('tlVista', FAMILIES.slice(0, 6));
+    buildTimeline('tlOculta', FAMILIES.slice(6));
 
     /* ---- familia ---- */
     function configBlock(f) {
