@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metalperfil - Visor Interactivo</title>
-    <link rel="icon" type="image/png" href="assets/Metalperfil_red.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 
     <style>
@@ -16,8 +16,8 @@
             --text-black: #1a1a1a;
             --text-white: #ffffff;
             --panel-black: #111111;
-            --serif-font: 'Playfair Display', serif;
-            --sans-font: 'Inter', sans-serif;
+            --serif-font: 'Cormorant Garamond', serif;
+            --sans-font: 'Montserrat', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -324,13 +324,17 @@
             Ritmiko:   { label: 'Ritmiko',    prefix: 'models/Ritmiko_',  types: ['24 A', '24 B', '24 C'],                     anchor: 'indice'     }
         };
 
+        // Misma carta RAL que el catálogo (catalogo.html → RAL[])
         const colors = [
-            { name: 'Granate corporativo', hex: '#B61F26' },
-            { name: 'Gris antracita',      hex: '#383E42' },
-            { name: 'Blanco puro',         hex: '#F2F2EE' },
-            { name: 'Negro grafito',       hex: '#1A1A1A' },
-            { name: 'Azul acero',          hex: '#2A5C8A' },
-            { name: 'Verde musgo',         hex: '#4A5D3A' }
+            { name: 'RAL 9005 · Negro intenso',    hex: '#0e0e10' },
+            { name: 'RAL 7016 · Gris antracita',   hex: '#383E42' },
+            { name: 'RAL 9006 · Aluminio blanco',  hex: '#A1A1A0' },
+            { name: 'RAL 9010 · Blanco puro',      hex: '#F1F0EA' },
+            { name: 'RAL 3005 · Rojo vino',        hex: '#5E2129' },
+            { name: 'RAL 8017 · Marrón chocolate', hex: '#45322E' },
+            { name: 'RAL 6005 · Verde musgo',      hex: '#2F4538' },
+            { name: 'RAL 5011 · Azul acero',       hex: '#1E2A38' },
+            { name: 'RAL 1015 · Marfil claro',     hex: '#E3D5B8' }
         ];
 
         let currentFamily = 'Pyramid';

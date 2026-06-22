@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metalperfil — Catálogo de revestimientos metálicos 2026</title>
-    <link rel="icon" type="image/png" href="assets/Metalperfil_red.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=2">
     <meta name="description" content="Sistemas de revestimiento metálico de alta gama. Perfiles para fachada: Pyramid, Symmetric, Asymmetric y más.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -963,6 +963,14 @@
 
     /* ---- inicializar visores 3D (tipo + RAL) ---- */
     function initViewers() {
+        const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries, obs) => {
+            entries.forEach(en => {
+                if (!en.isIntersecting) return;
+                const mv = en.target.__mv, p = en.target.__prefix, ts = en.target.__types;
+                if (ts.length && !mv.getAttribute('src')) mv.src = encodeURI(p + ts[0].file + '.glb');
+                obs.unobserve(en.target);
+            });
+        }, { rootMargin: '300px 0px' }) : null;
         document.querySelectorAll('.fam-viewer').forEach(v => {
             const prefix = v.dataset.prefix;
             const types = JSON.parse(v.dataset.types);
@@ -986,7 +994,8 @@
                 s.addEventListener('click', () => { cbox.querySelectorAll('.vsw').forEach(x => x.classList.remove('on')); s.classList.add('on'); color = c.hex; apply(); });
                 cbox.appendChild(s);
             });
-            if (types.length) mv.src = encodeURI(prefix + types[0].file + '.glb');
+            if (io) { v.__mv = mv; v.__prefix = prefix; v.__types = types; io.observe(v); }
+            else if (types.length) mv.src = encodeURI(prefix + types[0].file + '.glb');
         });
     }
     initViewers();
