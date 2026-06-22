@@ -303,6 +303,36 @@
         }
         @media (max-width: 560px) { footer .wrap { grid-template-columns: 1fr; } }
         @media (min-width: 768px) { .site-header { height: 84px; padding: 0 40px; } .site-header .logo img { height: 54px; } .screen { min-height: calc(100vh - 84px); } .hero, .hero img.cover { min-height: calc(100vh - 84px); } }
+
+        /* ---- móvil (teléfono): flujo vertical natural + rejilla tipo desktop ---- */
+        @media (max-width: 767px) {
+            /* las secciones fluyen seguidas, sin pantallas completas vacías */
+            .screen { min-height: auto; padding: clamp(40px, 9vw, 60px) 0; justify-content: flex-start; scroll-margin-top: 60px; }
+            .wrap { padding: 0 20px; }
+            .section-title { font-size: clamp(40px, 13.5vw, 66px); }
+            .fam-name { font-size: clamp(32px, 9.5vw, 52px); }
+            .subhead { margin: clamp(38px, 9vw, 56px) 0 22px; }
+            .subhead h3 { font-size: clamp(24px, 7vw, 34px); }
+            .lead-serif { font-size: clamp(19px, 5vw, 24px); }
+
+            /* fichas de tipo: rejilla de 2 columnas (como desktop, no una imagen gigante por fila) */
+            .tcards { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .tcard-lab { font-size: 17px; }
+            .tcard-dim { font-size: 11px; }
+            .specs { margin-top: 28px; }
+
+            /* desarrollo acotado: scroll horizontal para que las cotas sigan legibles */
+            .dev { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: 3px; }
+            .dev img { min-width: 540px; border-radius: 0; }
+
+            /* visor por familia: apilado y compacto */
+            .fam-viewer { padding: 16px; }
+            .fam-viewer model-viewer { height: clamp(280px, 60vw, 360px); }
+
+            /* hero un punto más contenido */
+            .hero .hero-copy { padding: 40px 22px; }
+        }
+        @media (max-width: 380px) { .tcards { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
