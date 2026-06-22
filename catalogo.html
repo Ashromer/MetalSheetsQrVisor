@@ -62,7 +62,7 @@
         /* ---- layout: cada sección llena como mínimo el alto del monitor ---- */
         .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; width: 100%; }
         .screen { min-height: calc(100vh - 70px); display: flex; flex-direction: column; justify-content: center;
-            padding: clamp(56px, 9vw, 120px) 0; scroll-margin-top: 78px; }
+            padding: clamp(56px, 9vw, 120px) 0; scroll-margin-top: 70px; }
         .cream { background: var(--cream); }
         .panel-dark { background: var(--panel); color: #d8d3cc; }
 
@@ -224,6 +224,7 @@
         .subhead { display: flex; align-items: baseline; gap: 16px; margin: clamp(56px,8vw,100px) 0 38px; }
         .subhead h3 { font-family: var(--serif); font-size: clamp(28px, 4vw, 46px); font-weight: 500; }
         .subhead .ln { flex: 1; height: 1px; background: var(--line); }
+        .h-sub { font-family: var(--serif); font-size: clamp(22px, 3vw, 34px); font-weight: 500; margin-bottom: 10px; }
 
         /* perfiles */
         .profiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: clamp(18px, 3vw, 40px); }
@@ -262,7 +263,7 @@
         .vsw { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #ddd6cc; cursor: pointer; padding: 0;
             transition: transform .15s; }
         .vsw:hover { transform: scale(1.12); }
-        .vsw.on { border-color: var(--ink); transform: scale(1.14); }
+        .vsw.on { border-color: var(--ink); transform: scale(1.12); box-shadow: 0 0 0 2px var(--red); }
 
         /* renders editoriales salteados */
         .render-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 70px); align-items: center;
@@ -302,12 +303,12 @@
             footer .wrap { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 560px) { footer .wrap { grid-template-columns: 1fr; } }
-        @media (min-width: 768px) { .site-header { height: 84px; padding: 0 40px; } .site-header .logo img { height: 54px; } .screen { min-height: calc(100vh - 84px); } .hero, .hero img.cover { min-height: calc(100vh - 84px); } }
+        @media (min-width: 768px) { .site-header { height: 84px; padding: 0 40px; } .site-header .logo img { height: 54px; } .screen { min-height: calc(100vh - 84px); scroll-margin-top: 84px; } .hero, .hero img.cover { min-height: calc(100vh - 84px); } }
 
         /* ---- móvil (teléfono): flujo vertical natural + rejilla tipo desktop ---- */
         @media (max-width: 767px) {
             /* las secciones fluyen seguidas, sin pantallas completas vacías */
-            .screen { min-height: auto; padding: clamp(40px, 9vw, 60px) 0; justify-content: flex-start; scroll-margin-top: 60px; }
+            .screen { min-height: auto; padding: clamp(40px, 9vw, 60px) 0; justify-content: flex-start; scroll-margin-top: 70px; }
             .wrap { padding: 0 20px; }
             .section-title { font-size: clamp(40px, 13.5vw, 66px); }
             .fam-name { font-size: clamp(32px, 9.5vw, 52px); }
@@ -333,6 +334,13 @@
             .hero .hero-copy { padding: 40px 22px; }
         }
         @media (max-width: 380px) { .tcards { grid-template-columns: 1fr; } }
+
+        /* ---- accesibilidad: reducir movimiento ---- */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important; scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body>
@@ -411,7 +419,7 @@
     <section class="screen" id="origen">
         <div class="wrap split">
             <div>
-                <span class="eyebrow">A · Quiénes somos</span>
+                <span class="eyebrow">Quiénes somos</span>
                 <h2 class="section-title">Origen</h2>
                 <span class="note" style="margin-top:18px">Texto provisional</span>
                 <p class="body-serif">Aquí irá el relato de la empresa: trayectoria, valores y el proceso con el que se fabrican las planchas metálicas. Sustituir con el texto definitivo de «Origen» (catálogo, páginas 8–9).</p>
@@ -558,7 +566,7 @@
     <!-- MATERIALIDAD -->
     <section class="screen" id="materialidad">
         <div class="wrap">
-            <span class="eyebrow">D · Materialidad</span>
+            <span class="eyebrow">Materialidad</span>
             <h2 class="section-title">Acabados y materiales</h2>
             <span class="note" style="margin-top:18px">Propuesta — confirmar gama real con Metalperfil</span>
             <p class="lead-serif" style="max-width:34ch;margin-top:8px">Casi cualquier acabado es posible: del galvanizado técnico al corten que envejece con el edificio.</p>
@@ -620,21 +628,21 @@
             <div class="alt-row">
                 <div class="alt-media"><img src="img/p44_1.jpeg" alt="Fachada Metalperfil"></div>
                 <div>
-                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Familias paramétricas y formatos abiertos</h3>
+                    <h3 class="h-sub">Familias paramétricas y formatos abiertos</h3>
                     <p class="body-serif">Objetos Revit (.rfa) con los tipos y dimensiones reales de cada familia, ajustables por parámetros, y exportación <strong>IFC</strong> para integrarse en cualquier software BIM (Revit, ArchiCAD, Allplan…).</p>
                 </div>
             </div>
             <div class="alt-row">
                 <div class="alt-media"><img src="img/p44_2.jpeg" alt="Detalle BIM"></div>
                 <div>
-                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Datos y niveles de detalle</h3>
+                    <h3 class="h-sub">Datos y niveles de detalle</h3>
                     <p class="body-serif">Material, espesor, acabado, ancho útil y peso embebidos para medición y especificación; geometría por nivel de desarrollo (<strong>LOD 200–350</strong>) según fase y pensada para no penalizar el modelo de coordinación. Descarga directa por familia y tipo <em>(próximamente)</em>.</p>
                 </div>
             </div>
             <div class="alt-row">
                 <div class="alt-media"><img src="img/01_Pyramid_cut.png" alt="Visor 3D interactivo Metalperfil"></div>
                 <div>
-                    <h3 style="font-family:var(--serif);font-size:clamp(22px,3vw,34px);font-weight:500;margin-bottom:10px">Tecnología aplicada · visor online e interactividad</h3>
+                    <h3 class="h-sub">Tecnología aplicada · visor online e interactividad</h3>
                     <p class="body-serif">Más allá del modelo BIM, cada perfil cuenta con un <strong>visor 3D interactivo</strong> en el navegador —rotación 360°, cambio de tipo y de color RAL en tiempo real— y acceso por <strong>código QR</strong> desde el catálogo impreso y la propia obra, para consultar la ficha técnica, ver la geometría y descargar el modelo al instante. Una capa digital que acerca el producto al prescriptor y agiliza la decisión en proyecto.</p>
                 </div>
             </div>
@@ -937,7 +945,7 @@
             : `<span class="note">Descripción provisional</span>
                <p class="fam-desc">Descripción de ${esc(f.name)} pendiente de contenido real (catálogo, páginas ${f.pages}).</p>`;
         const render = f.heroRender
-            ? `<div class="fam-render"><img src="${esc(f.heroRender)}" alt="${esc(f.name)}"></div>`
+            ? `<div class="fam-render"><img src="${esc(f.heroRender)}" alt="${esc(f.name)}" loading="lazy"></div>`
             : `<div class="fam-render"><div class="slot">${esc(f.name)} · Render</div></div>`;
         return `
         <section class="screen ${idx % 2 ? 'cream' : ''}" id="${f.anchor}">
@@ -999,6 +1007,8 @@
         });
     }
     initViewers();
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)
+        document.querySelectorAll('model-viewer[auto-rotate]').forEach(m => m.removeAttribute('auto-rotate'));
 
     /* ---- muestras RAL en Materialidad ---- */
     const ralBox = document.getElementById('ralSwatches');

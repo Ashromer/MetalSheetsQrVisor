@@ -184,6 +184,8 @@
             transition: all 0.2s ease;
         }
         .type-btn:not(:first-child) { border-left: none; }
+        .type-btn:first-child { border-radius: 2px 0 0 2px; }
+        .type-btn:last-child { border-radius: 0 2px 2px 0; }
         .type-btn.active {
             background: var(--brand-red-granate);
             color: var(--text-white);
@@ -199,8 +201,8 @@
             margin: 0 auto;
         }
         .color-swatch {
-            width: 28px;               /* círculos más pequeños */
-            height: 28px;
+            width: 30px;               /* unificado con el catálogo (.vsw) */
+            height: 30px;
             border-radius: 50%;
             border: 2px solid #333333;
             cursor: pointer;
@@ -249,6 +251,12 @@
             .brand-logo { height: 60px; }
             .bottom-panel { padding: 20px 40px; }
             .viewer-container { height: 66vh; }
+        }
+
+        /* ---- accesibilidad: reducir movimiento ---- */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+                transition-duration: .001ms !important; }
         }
     </style>
 </head>
@@ -436,6 +444,7 @@
         renderColors();
         updateCatalogLink();
         showStatus('Cargando modelo…', false);
+        if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) visor.removeAttribute('auto-rotate');
     </script>
 </body>
 </html>
