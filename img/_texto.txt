@@ -179,6 +179,10 @@ luptas remquid et eos sum volorrum libus.
 09
 Trabajadores manipulando las planchas metálicas
 PLACEHOLDER
+Trabajadores manipulan­
+do las planchas metáli­
+cas
+PLACEHOLDER
 
 
 ===== PDF PAG 6 =====
@@ -222,6 +226,12 @@ quias ute nes conserio enis volore velloreped magnimo san­
 dunt aliqui quam, que ditiis ipidelique paruptatium qui qua­
 tibeaqui tet litatem aperitatiur? Quia aut vitiis asit odipsum 
 esti vendis samendan
+MEJORAR PERO 
+ESTILO SIMILAR
+Mejorar 
+calidad trazo
+MEJORAR PERO 
+ESTILO SIMILAR
 
 
 ===== PDF PAG 7 =====
@@ -390,7 +400,7 @@ ancho útil - 1007 mm    altura 40 - mm
 21
 20
 02. Symmetric | 21
-Sistema Pyramid | Eosande ntiisquidunt 
+Sistema Symmetric | Eosande ntiisquidunt 
 
 
 ===== PDF PAG 12 =====
@@ -415,7 +425,6 @@ Symmetric 40
 
 ===== PDF PAG 13 =====
 34
-58
 47
 80
 22
@@ -463,19 +472,19 @@ acero prelacado
 acero inoxidable
 (0,6mm a 1,00mm)
 Asymmetric 35
-ancho útil - 894 mm    altura 33 - mm
+ancho útil - 740 mm    altura 35 - mm
 Asymmetric 55
-ancho útil - 952 mm    altura 15 - mm
+ancho útil - 718 mm    altura 55 - mm
 Asymmetric 60
-ancho útil - 893 mm    altura 68 - mm
+ancho útil - 930 mm    altura 60 - mm
 Asymmetric 80
-ancho útil - 780 mm    altura 110 - mm
+ancho útil - 684 mm    altura 80 - mm
 Ancho útil - 740mm
 Ancho útil - 718mm
 Ancho útil - 930mm
 Ancho útil - 684mm
 Asymmetric 35
-Pyramid 33
+Asymmetric 35
 Asymmetric 55
 Asymmetric 60
 Asymmetric 80
@@ -493,22 +502,24 @@ Técnica
 ===== PDF PAG 14 =====
 27
 26 | 02. Asymmetric
+Sistema Pyramid | Eosande ntiisquidunt 
 
 
 ===== PDF PAG 15 =====
 02. Asymmetric | 29
 28
-Sistema Pyramid
-Eosande ntiisquidunt ut endebit explis accuptatiis 
-eum il incturi aria ipsusandia nulpa nimus, volori­
-bus sendem dis adis solum restrum que labore laute 
-comnis doluptatibus excestemolut ut ipsunt dolorei 
-cidunt adipisto cones atquid mo et aperoriam quis 
-expeliquo con non eatur? 
-Pyramid 33
-Pyramid 45
-Pyramid 68
-Pyramid 110
+Sistema Asymmetric
+Eosande ntiisquidunt ut endebit explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis 
+solum restrum que labore laute comnis 
+doluptatibus excestemolut ut ipsunt do­
+lorei cidunt adipisto cones atquid mo et 
+aperoriam quis expeliquo con non eatur? 
+Asymmetric 35
+Asymmetric 55
+Asymmetric 60
+Asymmetric 80
 
 
 ===== PDF PAG 16 =====
@@ -555,19 +566,15 @@ absoluta en cualquier lenguaje arquitectónico contemporáneo
 86
 104
 57
-Ancho útil - 927mm
-Ancho útil - 1155mm
-Ancho útil - 1005mm
-Ancho útil - 1007mm
+Ancho útil - 1050mm
+Ancho útil - 1080mm
+Ancho útil - 880mm
+Ancho útil - 1020mm
 Eskaler 70
 Eskaler 22
 Eskaler 48
 Eskaler 54
 Propiedades técnicas
-Longitud mínima:
-Longitud máxima:
-Configuración:  
-Posibilidades:
 Eskaler 48
 Ficha
 Técnica
@@ -581,20 +588,28 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Symmetric 23
-ancho útil - 927 mm    altura 23 - mm
-Symmetric 25
-ancho útil - 1155 mm    altura 25 - mm
-Symmetric 29
-ancho útil - 1005 mm    altura 29 - mm
-Symmetric 40
-ancho útil - 1007 mm    altura 40 - mm
+Eskaler 22
+ancho útil - 927 mm    altura 22 - mm
+Eskaler 48
+ancho útil - 1155 mm    altura 48 - mm
+Eskaler 54
+ancho útil - 1005 mm    altura 54 - mm
+Eskaler 70
+ancho útil - 1007 mm    altura 70 - mm
+Longitud mínima:
+1250 mm
+Longitud máxima:
+5000 mm
+Configuración:  
+Horizontal / Vertical
+Posibilidades:
 
 
 ===== PDF PAG 17 =====
 33
-02. Symmetric | 33
+04. Eskaler | 33
 32
+Sistema Pyramid | Eosande ntiisquidunt 
 
 
 ===== PDF PAG 18 =====
@@ -610,16 +625,41 @@ nulpa nimus, voloribus sendem dis adis solum
 restrum que labore laute comnis doluptatibus 
 Etra nosupiocchil ta publiciam tem los num 
 sulut vid morur, qua L. Mae in sedo, quit, n
-34 | 02. Symmetric
+34 | 04. Eskaler
+Eskaler 22
+Eskaler 48
+Eskaler 54
+Eskaler 70
+35
 
 
 ===== PDF PAG 19 =====
 05. Kaotico
-224
 24
 28
 50
 72
+223
+148°
+84°
+45
+27
+40
+27
+27
+135°
+90°
+95°
+60°
+115°
+103°
+132°
+537
+397
+144°
+54°
+84
+77
 36
 37
 Propiedades técnicas
@@ -641,19 +681,19 @@ acero prelacado
 acero inoxidable
 (0,6mm a 1,00mm)
 Kaotico 24
-ancho útil - 894 mm    altura 33 - mm
+ancho útil - 1086 mm    altura 24 - mm
 Kaotico 28 
-ancho útil - 952 mm    altura 15 - mm
+ancho útil - 985 mm    altura 28 - mm
 Kaotico 50
-ancho útil - 893 mm    altura 68 - mm
+ancho útil - 865 mm    altura 50 - mm
 Kaotico 72
-ancho útil - 780 mm    altura 110 - mm
-Ancho útil - 894mm
-Ancho útil - 952mm
-Ancho útil - 793mm
-Ancho útil - 780mm
+ancho útil - 935 mm    altura 72 - mm
+Ancho útil - 1086mm
+Ancho útil - 985mm
+Ancho útil - 865mm
+Ancho útil - 935mm
 Kaotico 24
-Pyramid 33
+Kaotico 24
 Kaotico 28
 Kaotico 50
 Kaotico 72
@@ -671,11 +711,24 @@ Técnica
 ===== PDF PAG 20 =====
 39
 38 | 05. Kaotico
+Sistema Kaotico | Eosande ntiisquidunt 
 
 
 ===== PDF PAG 21 =====
 05. Kaotico | 41
 40
+Sistema Kaotico
+Eosande ntiisquidunt ut endebit explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis 
+solum restrum que labore laute comnis 
+doluptatibus excestemolut ut ipsunt do­
+lorei cidunt adipisto cones atquid mo et 
+aperoriam quis expeliquo con non eatur? 
+Kaotico 24
+Kaotico 28
+Kaotico 50
+Kaotico 72
 
 
 ===== PDF PAG 22 =====
@@ -700,20 +753,15 @@ absoluta en cualquier lenguaje arquitectónico contemporáneo
 78
 50
 45
-Ancho útil - 927mm
-Ancho útil - 1155mm
-Ancho útil - 1005mm
-Ancho útil - 1007mm
+Ancho útil - 1050mm
+Ancho útil - 940mm
+Ancho útil - 820mm
+Ancho útil - 1055mm
 Origami 50
 Origami 11
 Origami 24
 Origami 45
-Propiedades técnicas
-Longitud mínima:
-Longitud máxima:
-Configuración:  
-Posibilidades:
-Symmetric 25
+Origami 11
 Ficha
 Técnica
 Material
@@ -726,24 +774,50 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Symmetric 23
+Origami 11
 ancho útil - 927 mm    altura 23 - mm
-Symmetric 25
+Origami 24
 ancho útil - 1155 mm    altura 25 - mm
-Symmetric 29
+Origami 45
 ancho útil - 1005 mm    altura 29 - mm
-Symmetric 40
+Origami 50
 ancho útil - 1007 mm    altura 40 - mm
+Propiedades técnicas
+Longitud mínima:
+1250 mm
+Longitud máxima:
+5000 mm
+Configuración:  
+Horizontal / Vertical
+Posibilidades:
 
 
 ===== PDF PAG 23 =====
 45
-44 | 06. Origami
+06. Origami | 45
+Sistema Pyramid | Eosande ntiisquidunt 
+44
 
 
 ===== PDF PAG 24 =====
-06. Origami | 47
 46
+Sistema Symmetric
+Eosande 
+ntiisquidunt 
+ut 
+endebit 
+explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis solum 
+restrum que labore laute comnis doluptatibus 
+Etra nosupiocchil ta publiciam tem los num 
+sulut vid morur, qua L. Mae in sedo, quit, n
+Origami 11
+Origami 24
+Origami 45
+Origami 50
+46 | 06. Origami
+47
 
 
 ===== PDF PAG 25 =====
@@ -753,6 +827,8 @@ ancho útil - 1007 mm    altura 40 - mm
 111
 76
 204
+220
+68
 48
 49
 07. Onda
@@ -775,18 +851,22 @@ acero prelacado
 acero inoxidable
 (0,6mm a 1,00mm)
 Onda 23  
-ancho útil - 894 mm    altura 33 - mm
+ancho útil - 1240 mm    altura 17 - mm
 Onda 30 
-ancho útil - 952 mm    altura 15 - mm
+ancho útil - 1220 mm    altura 26 - mm
 Onda 35 
-ancho útil - 893 mm    altura 68 - mm
-Ancho útil - 894mm
-Ancho útil - 793mm
-Ancho útil - 780mm
+ancho útil - 1190 mm    altura 42 - mm
+Onda 68
+ancho útil - 1200 mm    altura 55 - mm
+Ancho útil - 1240mm
+Ancho útil - 1220mm
+Ancho útil - 1190mm
+Ancho útil - 1200mm
 Onda 23
 Onda 30
 Onda 30
 Onda 35
+Onda 68
 Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
 separados por segmentos planos que definen con precisión cada forma geométrica. El 
 patrón nítido y consistente transmite una fuerte sensación de durabilidad e integridad 
@@ -800,12 +880,24 @@ Técnica
 
 ===== PDF PAG 26 =====
 51
-50 | 07. Onda
+50 | 08. Onda
 
 
 ===== PDF PAG 27 =====
 08. Onda | 53
 52
+Sistema Onda
+Eosande ntiisquidunt ut endebit explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis 
+solum restrum que labore laute comnis 
+doluptatibus excestemolut ut ipsunt do­
+lorei cidunt adipisto cones atquid mo et 
+aperoriam quis expeliquo con non eatur? 
+Onda 23
+Onda 30
+Onda 35
+Onda 68
 
 
 ===== PDF PAG 28 =====
@@ -829,20 +921,15 @@ absoluta en cualquier lenguaje arquitectónico contemporáneo
 48
 18
 35
-Ancho útil - 927mm
-Ancho útil - 1155mm
-Ancho útil - 1005mm
-Ancho útil - 1007mm
+Ancho útil - 725mm
+Ancho útil - 725mm
+Ancho útil - 779mm
+Ancho útil - 725mm
 Kubo 40
 Kubo 23
 Kubo 25
 Kubo 29
-Propiedades técnicas
-Longitud mínima:
-Longitud máxima:
-Configuración:  
-Posibilidades:
-Symmetric 25
+Kubo 23
 Ficha
 Técnica
 Material
@@ -855,24 +942,48 @@ acero prelacado
 (0,6mm a 1,00mm)
 acero inoxidable
 (0,6mm a 1,00mm)
-Kubo 17
-ancho útil - 927 mm    altura 17 - mm
-Kubo 24
-ancho útil - 1155 mm    altura 24 - mm
-Kubo 36
-ancho útil - 1005 mm    altura 36 - mm
-Kubo 49
-ancho útil - 1007 mm    altura 49 - mm
+Kubo 23
+ancho útil - 725 mm    altura 17 - mm
+Kubo 25
+ancho útil - 725 mm    altura 24 - mm
+Kubo 29
+ancho útil - 779 mm    altura 36 - mm
+Kubo 40
+ancho útil - 725 mm    altura 49 - mm
+Propiedades técnicas
+Longitud mínima:
+1250 mm
+Longitud máxima:
+5000 mm
+Configuración:  
+Horizontal / Vertical
+Posibilidades:
 
 
 ===== PDF PAG 29 =====
-57
-56 | 02. Symmetric
+Sistema Pyramid | Eosande ntiisquidunt 
+08. Kubo 57
+56
 
 
 ===== PDF PAG 30 =====
-02. Symmetric | 59
-58
+59
+58 | 08. Kubo
+Sistema Kubo
+Eosande 
+ntiisquidunt 
+ut 
+endebit 
+explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis solum 
+restrum que labore laute comnis doluptatibus 
+Etra nosupiocchil ta publiciam tem los num 
+sulut vid morur, qua L. Mae in sedo, quit, n
+Kubo 23
+Kubo 25
+Kubo 29
+Kubo 40
 
 
 ===== PDF PAG 31 =====
@@ -880,6 +991,15 @@ ancho útil - 1007 mm    altura 49 - mm
 24
 24
 49
+98
+23 58
+23
+98
+58
+98
+23 58
+89
+50
 60
 61
 09. Nordik
@@ -902,20 +1022,20 @@ acero prelacado
 acero inoxidable
 (0,6mm a 1,00mm)
 Nordik 24a
-ancho útil - 755 mm    altura 24 - mm
+ancho útil - 880 mm    altura 24 - mm
 Nordik 24b
-ancho útil - 755 mm    altura 24 - mm
+ancho útil - 880 mm    altura 24 - mm
 Nordik 24c
-ancho útil - 755 mm    altura 24 - mm
+ancho útil - 880 mm    altura 24 - mm
 Nordik 49a
-ancho útil - 695m    altura 49 - mm
-Ancho útil - 894mm
-Ancho útil - 894mm
-Ancho útil - 755mm
-Ancho útil - 695mm
+ancho útil - 830 mm    altura 49 - mm
+Ancho útil - 880mm
+Ancho útil - 880mm
+Ancho útil - 880mm
+Ancho útil - 830mm
 Nordik 24a
 Nordik 24b
-Pyramid 33
+Nordik 24a
 Nordik 24c
 Nordik 49a
 Este perfil presenta una disposición armoniosa de prismas triangulares uniformes, 
@@ -931,23 +1051,42 @@ Técnica
 
 ===== PDF PAG 32 =====
 63
-62 | 02. Symmetric
+62 | 09. Nordik
 
 
 ===== PDF PAG 33 =====
-02. Symmetric | 65
+09. Nordik | 65
 64
+Sistema Nordik
+Eosande ntiisquidunt ut endebit explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis 
+solum restrum que labore laute comnis 
+doluptatibus excestemolut ut ipsunt do­
+lorei cidunt adipisto cones atquid mo et 
+aperoriam quis expeliquo con non eatur? 
+Nordik 24a
+Nordik 24c
+Nordik 24c
+Nordik 49a
 
 
 ===== PDF PAG 34 =====
 66
-08. Kubo
+10. Alterno
 La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. 
 Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas 
 limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, dis­
 ponible en una versatilidad de formatos y acabados técnicos, permite una integración 
 absoluta en cualquier lenguaje arquitectónico contemporáneo
 67
+24
+24
+24
+23 54
+54 23
+94
+232323 54
 Ancho útil - 927mm
 Ancho útil - 1155mm
 Ancho útil - 1007mm
@@ -983,19 +1122,35 @@ ancho útil - 1007 mm    altura 40 - mm
 
 
 ===== PDF PAG 35 =====
+Sistema Alterno | Eosande ntiisquidunt 
 69
-68 | 02. Symmetric
+10. Alterno | 69
 
 
 ===== PDF PAG 36 =====
-02. Symmetric | 71
+Sistema Kubo
+Eosande 
+ntiisquidunt 
+ut 
+endebit 
+explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis solum 
+restrum que labore laute comnis doluptatibus 
+Etra nosupiocchil ta publiciam tem los num 
+sulut vid morur, qua L. Mae in sedo, quit, n
+Ritmiko 24 A
+Ritmiko 24 B
+Ritmiko 24 C
+Ritmiko 24 D
 70
+70 | 10. Alterno
 
 
 ===== PDF PAG 37 =====
 72
 73
-10. Skala
+11. Skala
 Propiedades técnicas
 Longitud mínima:
 1250 mm
@@ -1040,16 +1195,42 @@ visual de la fachada, sino que también ofrece una declaración sofisticada y mo
 complementa diseños arquitectónicos innovadores.
 Ficha
 Técnica
+50
+50
+50
+45
+53 24
+86
+24
+86
+53
+40
+24
+86
+24
+24 62
 
 
 ===== PDF PAG 38 =====
 75
-74 | 02. Symmetric
+74 | 09. Nordik
 
 
 ===== PDF PAG 39 =====
-02. Symmetric | 77
+09. Nordik | 77
 76
+Sistema Nordik
+Eosande ntiisquidunt ut endebit explis 
+accuptatiis eum il incturi aria ipsusandia 
+nulpa nimus, voloribus sendem dis adis 
+solum restrum que labore laute comnis 
+doluptatibus excestemolut ut ipsunt do­
+lorei cidunt adipisto cones atquid mo et 
+aperoriam quis expeliquo con non eatur? 
+Nordik 24a
+Nordik 24c
+Nordik 24c
+Nordik 49a
 
 
 ===== PDF PAG 40 =====

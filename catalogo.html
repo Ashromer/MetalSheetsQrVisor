@@ -100,6 +100,45 @@
         .gama-prod .widths { font-family: var(--serif); font-size: clamp(20px, 2.6vw, 30px); color: var(--ink); margin: 8px 0 22px; }
         @media (max-width: 860px) { .sysrow { grid-template-columns: 1fr; } }
 
+        /* ---- fijación oculta (sección dedicada) ---- */
+        .oc-lead { max-width: 62ch; }
+        .oc-systems { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: clamp(16px, 2.4vw, 26px); margin-top: clamp(34px, 5vw, 58px); }
+        .oc-card { border: 1px solid var(--line); border-radius: 4px; background: #fff; padding: 26px 22px 22px;
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+        .oc-card:hover { transform: translateY(-4px); box-shadow: 0 18px 38px -24px rgba(28,27,26,.45); border-color: #d8d2c8; }
+        .oc-draw { height: 92px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+        .oc-draw svg { width: 100%; height: 100%; overflow: visible; }
+        .oc-draw .ln { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; }
+        .oc-draw .ac { stroke: var(--red); stroke-width: 2; }
+        .oc-card h4 { font-family: var(--serif); font-size: 27px; font-weight: 600; }
+        .oc-range { display: inline-block; margin-top: 9px; font-family: var(--sans); font-size: 11px; font-weight: 600;
+            letter-spacing: .5px; color: var(--red); background: var(--red-soft); padding: 4px 12px; border-radius: 999px; }
+        .oc-card p { font-family: var(--serif); font-size: 16px; line-height: 1.55; color: #46413b; margin-top: 15px; }
+
+        .oc-composer { margin-top: clamp(50px, 7vw, 100px); }
+        .oc-comp-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 14px; }
+        .oc-comp-head h3 { font-family: var(--serif); font-size: clamp(26px, 3.6vw, 42px); font-weight: 500; }
+        .oc-readout { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2vw, 25px); color: var(--red); }
+        .oc-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 18px; }
+        .oc-btn { font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 10px 17px; cursor: pointer;
+            background: #fff; border: 1px solid var(--line); border-radius: 2px; color: #4a443e; transition: all .15s; }
+        .oc-btn:hover { border-color: #c9c2b6; }
+        .oc-btn.on { background: var(--red); color: #fff; border-color: var(--red); }
+        .oc-wall { display: flex; gap: 3px; height: clamp(220px, 36vh, 380px); border-radius: 4px; overflow: hidden;
+            background: #1a1816; box-shadow: inset 0 0 0 1px rgba(0,0,0,.4); }
+        .oc-mod { flex: 0 0 auto; min-width: 2px;
+            background:
+                linear-gradient(95deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.55) 9%, rgba(255,255,255,0) 17%),
+                linear-gradient(100deg, #c4c6cb 0%, #eef0f1 26%, #abafb6 52%, #e4e6e8 74%, #b7babf 100%);
+            box-shadow: inset 1px 0 0 rgba(255,255,255,.4), inset -1px 0 0 rgba(0,0,0,.2);
+            opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+        .oc-mod.show { opacity: 1; transform: translateY(0); }
+        .oc-cap { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 14px; }
+        @media (max-width: 860px) { .oc-systems { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .oc-systems { grid-template-columns: 1fr; } }
+        @media (prefers-reduced-motion: reduce) { .oc-card, .oc-mod { transition: none; } }
+
         /* ---- acabados y materiales ---- */
         .mat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 26px; }
         .mat-card { border: 1px solid var(--line); border-radius: 3px; padding: 22px; background: #fff; }
@@ -273,6 +312,7 @@
         <button class="nav-toggle" id="navToggle" aria-label="Menú">☰</button>
         <nav class="main" id="mainNav">
             <a href="#indice">Familias</a>
+            <a href="#oculta">Fijación oculta</a>
             <a href="#origen">Quiénes somos</a>
             <a href="#materialidad">Materialidad</a>
             <a href="#bim">BIM</a>
@@ -313,6 +353,107 @@
             </div>
         </div>
     </section>
+
+    <!-- FIJACIÓN OCULTA -->
+    <section class="screen cream" id="oculta">
+        <div class="wrap">
+            <span class="eyebrow">Sistema 02 · sin anclajes a la vista</span>
+            <h2 class="section-title">Fijación oculta</h2>
+            <p class="lead-serif oc-lead" style="margin-top:26px">Una piel continua y tersa, <strong>sin un solo anclaje a la vista</strong>. La fachada se resuelve con piezas modulares de menor tamaño que se combinan con total libertad —ancho, ritmo y despiece— para vestir cualquier geometría con la misma limpieza monolítica.</p>
+
+            <div class="oc-systems">
+                <article class="oc-card">
+                    <div class="oc-draw">
+                        <svg viewBox="0 0 200 90" aria-hidden="true"><path class="ln" d="M2 64 H30 L46 26 H92 L108 64 H136 L152 26 H198"/></svg>
+                    </div>
+                    <h4>Rollforming</h4>
+                    <span class="oc-range">600 – 1100 mm</span>
+                    <p>Perfil conformado en continuo. Grandes paños de líneas largas y sobrias, con la máxima eficiencia de montaje.</p>
+                </article>
+                <article class="oc-card">
+                    <div class="oc-draw">
+                        <svg viewBox="0 0 200 90" aria-hidden="true"><path class="ln" d="M34 26 H166 V58 H34 Z"/><path class="ln ac" d="M40 78 H160 M40 78 l9 -5 M40 78 l9 5 M160 78 l-9 -5 M160 78 l-9 5"/></svg>
+                    </div>
+                    <h4>Custom</h4>
+                    <span class="oc-range">a medida</span>
+                    <p>Despiece a la carta. El ancho de cada pieza se ajusta al proyecto para cuadrar replanteo y juntas sin recortes a obra.</p>
+                </article>
+                <article class="oc-card">
+                    <div class="oc-draw">
+                        <svg viewBox="0 0 200 90" aria-hidden="true"><path class="ln" d="M14 32 H92 V62 M108 62 V32 H186"/><path class="ln" d="M14 32 V44 M92 62 V52 M108 62 V52 M186 32 V44"/></svg>
+                    </div>
+                    <h4>Screenpanel</h4>
+                    <span class="oc-range">250 – 800 mm</span>
+                    <p>Casetón plano de bordes plegados y junta oculta. Superficie tensa, de planos nítidos y sombra controlada.</p>
+                </article>
+                <article class="oc-card">
+                    <div class="oc-draw">
+                        <svg viewBox="0 0 200 90" aria-hidden="true"><path class="ln" d="M20 14 V76 M52 14 V76 M84 14 V76 M116 14 V76 M148 14 V76 M180 14 V76"/></svg>
+                    </div>
+                    <h4>Lamas</h4>
+                    <span class="oc-range">100 – 500 mm</span>
+                    <p>Lamas estrechas de ritmo menudo. Filtran luz y vistas y dan profundidad y movimiento a la envolvente.</p>
+                </article>
+            </div>
+
+            <div class="oc-composer">
+                <div class="oc-comp-head">
+                    <h3>Configúrala a tu medida</h3>
+                    <span class="oc-readout" id="ocReadout">Rollforming · módulo ≈ 850 mm</span>
+                </div>
+                <div class="oc-controls" id="ocControls">
+                    <button class="oc-btn on" type="button" data-sys="roll">Rollforming</button>
+                    <button class="oc-btn" type="button" data-sys="screen">Screenpanel</button>
+                    <button class="oc-btn" type="button" data-sys="lamas">Lamas</button>
+                    <button class="oc-btn" type="button" data-sys="custom">Custom · libre</button>
+                </div>
+                <div class="oc-wall" id="ocWall" role="img" aria-label="Composición de fachada de fijación oculta"></div>
+                <p class="oc-cap">El mismo paño, distinto módulo: cambia el sistema y observa cómo se recompone la piel. Despiece orientativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    (function () {
+        var wall = document.getElementById('ocWall'),
+            ctrl = document.getElementById('ocControls'),
+            read = document.getElementById('ocReadout');
+        if (!wall || !ctrl) return;
+        var WALL = 7200; // mm de paño de muestra
+        var SYS = {
+            roll:   { label: 'Rollforming',     w: [820, 920, 760],                txt: 'módulo ≈ 850 mm' },
+            screen: { label: 'Screenpanel',     w: [460, 520, 380],                txt: 'módulo ≈ 450 mm' },
+            lamas:  { label: 'Lamas',           w: [180, 240, 140, 200],           txt: 'lama ≈ 190 mm' },
+            custom: { label: 'Custom · libre',  w: [300, 760, 180, 520, 420, 900, 260], txt: 'anchos libres · a medida' }
+        };
+        function build(key) {
+            var s = SYS[key]; if (!s) return;
+            var widths = [], acc = 0, i = 0;
+            while (acc < WALL - 60 && i < 60) {
+                var w = s.w[i % s.w.length];
+                if (acc + w > WALL) w = WALL - acc;
+                widths.push(w); acc += w; i++;
+            }
+            wall.innerHTML = '';
+            widths.forEach(function (w, idx) {
+                var d = document.createElement('div');
+                d.className = 'oc-mod';
+                d.style.flex = w + ' 1 0';
+                d.style.transitionDelay = Math.min(idx * 28, 700) + 'ms';
+                wall.appendChild(d);
+                requestAnimationFrame(function () { requestAnimationFrame(function () { d.classList.add('show'); }); });
+            });
+            if (read) read.textContent = s.label + ' · ' + s.txt;
+        }
+        ctrl.addEventListener('click', function (e) {
+            var b = e.target.closest('.oc-btn'); if (!b) return;
+            ctrl.querySelectorAll('.oc-btn').forEach(function (x) { x.classList.remove('on'); });
+            b.classList.add('on');
+            build(b.dataset.sys);
+        });
+        build('roll');
+    })();
+    </script>
 
     <!-- LA COLECCIÓN -->
     <section class="screen" id="coleccion">
@@ -561,7 +702,7 @@
         {
             num: '02', name: 'Symmetric', anchor: 'symmetric', pages: '18–23', status: 'real',
             desc: 'La gama Symmetric se fundamenta en la pureza de la proporción y el rigor geométrico. Diseñada bajo un esquema de congruencia visual, esta serie ofrece una métrica de líneas limpias que articula la fachada con una sobriedad atemporal. Su estructura formal, disponible en una versatilidad de formatos y acabados técnicos, permite una integración absoluta en cualquier lenguaje arquitectónico contemporáneo.',
-            config: STD, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png',
+            config: STD, materials: MAT, thumb: 'img/p12_5.jpeg', heroRender: 'img/02_Symmetric_cut.png', desarrollo: 'img/desarrollo_symmetric.png',
             types: [
                 { lab: 'Symmetric 23', ancho: '927 mm',  altura: '23 mm', angulo: '125°', img: 'img/p12_2.jpeg' },
                 { lab: 'Symmetric 25', ancho: '1155 mm', altura: '25 mm', angulo: '128°', img: 'img/p12_3.jpeg' },
@@ -582,9 +723,9 @@
                 { lab: 'Asymmetric 80', ancho: '684 mm', altura: '80 mm' }
             ],
             model: { prefix: 'models/Asymetric_', types: ['35', '55', '60', '80'] },
-            renders: ['img/p14_1.jpeg', 'img/p14_3.jpeg', 'img/p14_2.jpeg']
+            renders: ['img/p14_1.jpeg', 'img/p14_2.jpeg']
         },
-        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial', heroRender: 'img/04_Escaler_cut.png',
+        { num: '04', name: 'Escaler', anchor: 'escaler', pages: '30–35', status: 'partial', heroRender: 'img/04_Escaler_cut.png', desarrollo: 'img/desarrollo_escaler.png',
           config: STD, materials: MAT,
           desc: 'Perfil de geometría escalonada, con peldaños ascendentes que dibujan una sucesión de planos y sombras nítidas. Su marcado relieve aporta profundidad y un fuerte carácter gráfico a la fachada, con una lectura rítmica y ordenada que funciona especialmente bien en grandes paños y en composiciones que buscan textura arquitectónica.',
           types: [
@@ -593,7 +734,7 @@
               { lab: 'Escaler 55', ancho: '883 mm',  altura: '56 mm' },
               { lab: 'Escaler 70', ancho: '1018 mm', altura: '70 mm' } ],
           model: { prefix: 'models/Escaler_', types: ['22', '48', '55', '70'] } },
-        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial', heroRender: 'img/05_Kaotico_cut.png',
+        { num: '05', name: 'Kaotico', anchor: 'kaotico', pages: '36–39', status: 'partial', heroRender: 'img/05_Kaotico_cut.png', desarrollo: 'img/desarrollo_kaotico.png',
           config: STD, materials: MAT,
           desc: 'Composición de pliegues deliberadamente irregular: un ritmo aparentemente aleatorio que rompe la monotonía y dota a la piel de una textura viva y orgánica. La irregularidad está controlada para generar reflejos cambiantes y una superficie que nunca se percibe dos veces igual, ideal para fachadas con voluntad expresiva y carácter contemporáneo.',
           types: [
@@ -611,7 +752,7 @@
               { lab: 'Origami 45', ancho: '731 mm', altura: '45 mm' },
               { lab: 'Origami 50', ancho: '960 mm', altura: '50 mm' } ],
           model: { prefix: 'models/Origami_', types: ['11', '25', '45', '50'] } },
-        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial', heroRender: 'img/07_Onda_cut.png',
+        { num: '07', name: 'Onda', anchor: 'onda', pages: '48–53', status: 'partial', heroRender: 'img/07_Onda_cut.png', desarrollo: 'img/desarrollo_onda.png',
           config: STD, materials: MAT,
           desc: 'Perfil ondulado de curva continua que sustituye la arista por el trazo suave. Su sinuosidad introduce un movimiento sereno y orgánico en la fachada, con transiciones de luz graduales que suavizan el volumen del edificio y aportan calidez y un acabado fluido al revestimiento metálico.',
           types: [
@@ -619,7 +760,7 @@
               { lab: 'Onda 27', ancho: '1103 mm', altura: '19 mm' },
               { lab: 'Onda 42', ancho: '1082 mm', altura: '42 mm' } ],
           model: { prefix: 'models/AcerOnda_', types: ['18', '27', '42'] } },
-        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial', heroRender: 'img/08_Kubo_cut.png',
+        { num: '08', name: 'Kubo', anchor: 'kubo', pages: '54–59', status: 'partial', heroRender: 'img/08_Kubo_cut.png', desarrollo: 'img/desarrollo_kubo.png',
           config: STD, materials: MAT,
           desc: 'Costillas rectangulares de fuerte presencia, con caras planas y ángulos rectos que proyectan sombras limpias y profundas. Su lenguaje rotundo y cúbico transmite solidez y orden arquitectónico, idóneo para volúmenes contundentes y composiciones de marcada verticalidad u horizontalidad.',
           types: [
@@ -630,7 +771,7 @@
           model: { prefix: 'models/Kubo_', types: [
               { label: '17·17·17', file: '171717' }, { label: '24·24·24', file: '242424' },
               { label: '36·41·41', file: '364141' }, { label: '50·50·50', file: '505050' } ] } },
-        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial', heroRender: 'img/09_Nordik_cut.png',
+        { num: '09', name: 'Nordik', anchor: 'nordik', pages: '60–65', status: 'partial', heroRender: 'img/09_Nordik_cut.png', desarrollo: 'img/desarrollo_nordik.png',
           config: STD, materials: MAT,
           desc: 'Acanaladura ancha de líneas sobrias y espaciadas, de inspiración nórdica: pocos planos, grandes superficies y una elegancia contenida. Su ritmo pausado aporta serenidad y un acabado depurado, perfecto para arquitecturas minimalistas donde menos es más.',
           types: [

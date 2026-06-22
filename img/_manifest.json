@@ -53,6 +53,13 @@
   "ext": "jpeg"
  },
  {
+  "page": 3,
+  "file": "p03_1.png",
+  "w": 500,
+  "h": 500,
+  "ext": "png"
+ },
+ {
   "page": 4,
   "file": "p04_1.jpeg",
   "w": 1698,
@@ -142,12 +149,6 @@
   "w": 958,
   "h": 541,
   "ext": "jpeg"
- },
- {
-  "page": 7,
-  "reuse_of": "p07_2.jpeg",
-  "w": 958,
-  "h": 541
  },
  {
   "page": 8,
@@ -268,12 +269,6 @@
   "h": 541
  },
  {
-  "page": 13,
-  "reuse_of": "p07_2.jpeg",
-  "w": 958,
-  "h": 541
- },
- {
   "page": 14,
   "file": "p14_1.jpeg",
   "w": 1660,
@@ -283,13 +278,6 @@
  {
   "page": 14,
   "file": "p14_2.jpeg",
-  "w": 621,
-  "h": 435,
-  "ext": "jpeg"
- },
- {
-  "page": 14,
-  "file": "p14_3.jpeg",
   "w": 1788,
   "h": 860,
   "ext": "jpeg"
@@ -297,95 +285,99 @@
  {
   "page": 15,
   "file": "p15_1.jpeg",
-  "w": 865,
+  "w": 774,
   "h": 1500,
   "ext": "jpeg"
  },
  {
   "page": 15,
   "file": "p15_2.jpeg",
-  "w": 532,
+  "w": 298,
   "h": 925,
   "ext": "jpeg"
  },
  {
   "page": 15,
   "file": "p15_3.jpeg",
-  "w": 373,
+  "w": 286,
   "h": 925,
   "ext": "jpeg"
  },
  {
   "page": 15,
   "file": "p15_4.jpeg",
-  "w": 446,
+  "w": 502,
   "h": 925,
   "ext": "jpeg"
  },
  {
   "page": 15,
   "file": "p15_5.jpeg",
-  "w": 678,
+  "w": 905,
   "h": 925,
   "ext": "jpeg"
  },
  {
   "page": 16,
   "file": "p16_1.jpeg",
-  "w": 1717,
+  "w": 1794,
   "h": 888,
   "ext": "jpeg"
  },
  {
-  "page": 17,
-  "file": "p17_1.jpeg",
-  "w": 854,
-  "h": 601,
-  "ext": "jpeg"
+  "page": 16,
+  "reuse_of": "p07_2.jpeg",
+  "w": 958,
+  "h": 541
  },
  {
   "page": 17,
-  "file": "p17_2.png",
-  "w": 621,
-  "h": 59,
+  "file": "p17_1.png",
+  "w": 2048,
+  "h": 1454,
   "ext": "png"
  },
  {
   "page": 17,
-  "file": "p17_3.jpeg",
-  "w": 1790,
-  "h": 860,
-  "ext": "jpeg"
+  "file": "p17_2.png",
+  "w": 2048,
+  "h": 982,
+  "ext": "png"
  },
  {
   "page": 18,
-  "reuse_of": "p12_1.jpeg",
-  "w": 1016,
-  "h": 1495
+  "file": "p18_1.png",
+  "w": 1077,
+  "h": 1582,
+  "ext": "png"
  },
  {
   "page": 18,
-  "reuse_of": "p12_2.jpeg",
-  "w": 373,
-  "h": 925
+  "file": "p18_2.png",
+  "w": 331,
+  "h": 820,
+  "ext": "png"
  },
  {
   "page": 18,
-  "reuse_of": "p12_3.jpeg",
-  "w": 446,
-  "h": 925
+  "file": "p18_3.png",
+  "w": 396,
+  "h": 820,
+  "ext": "png"
  },
  {
   "page": 18,
-  "reuse_of": "p12_4.jpeg",
-  "w": 373,
-  "h": 925
+  "file": "p18_4.png",
+  "w": 331,
+  "h": 820,
+  "ext": "png"
  },
  {
   "page": 18,
-  "reuse_of": "p12_5.jpeg",
-  "w": 823,
-  "h": 925
+  "file": "p18_5.png",
+  "w": 731,
+  "h": 820,
+  "ext": "png"
  },
  {
   "page": 19,
@@ -408,47 +400,105 @@
  },
  {
   "page": 20,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
  },
  {
   "page": 20,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 21,
-  "file": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603,
-  "ext": "jpeg"
+  "file": "p21_1.png",
+  "w": 806,
+  "h": 1562,
+  "ext": "png"
+ },
+ {
+  "page": 21,
+  "file": "p21_2.png",
+  "w": 233,
+  "h": 723,
+  "ext": "png"
+ },
+ {
+  "page": 21,
+  "file": "p21_3.png",
+  "w": 224,
+  "h": 723,
+  "ext": "png"
+ },
+ {
+  "page": 21,
+  "file": "p21_4.png",
+  "w": 392,
+  "h": 723,
+  "ext": "png"
+ },
+ {
+  "page": 21,
+  "file": "p21_5.png",
+  "w": 707,
+  "h": 723,
+  "ext": "png"
  },
  {
   "page": 22,
   "file": "p22_1.jpeg",
-  "w": 1608,
+  "w": 1344,
   "h": 779,
   "ext": "jpeg"
  },
  {
-  "page": 23,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
+  "page": 22,
+  "reuse_of": "p07_2.jpeg",
+  "w": 958,
+  "h": 541
  },
  {
   "page": 23,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
+ },
+ {
+  "page": 23,
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 24,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p18_1.png",
+  "w": 1077,
+  "h": 1582
+ },
+ {
+  "page": 24,
+  "reuse_of": "p18_2.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 24,
+  "reuse_of": "p18_3.png",
+  "w": 396,
+  "h": 820
+ },
+ {
+  "page": 24,
+  "reuse_of": "p18_4.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 24,
+  "reuse_of": "p18_5.png",
+  "w": 731,
+  "h": 820
  },
  {
   "page": 25,
@@ -464,52 +514,101 @@
   "h": 541
  },
  {
-  "page": 25,
+  "page": 26,
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
+ },
+ {
+  "page": 26,
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
+ },
+ {
+  "page": 27,
+  "reuse_of": "p21_1.png",
+  "w": 806,
+  "h": 1562
+ },
+ {
+  "page": 27,
+  "reuse_of": "p21_2.png",
+  "w": 233,
+  "h": 723
+ },
+ {
+  "page": 27,
+  "reuse_of": "p21_3.png",
+  "w": 224,
+  "h": 723
+ },
+ {
+  "page": 27,
+  "reuse_of": "p21_4.png",
+  "w": 392,
+  "h": 723
+ },
+ {
+  "page": 27,
+  "reuse_of": "p21_5.png",
+  "w": 707,
+  "h": 723
+ },
+ {
+  "page": 28,
+  "file": "p28_1.jpeg",
+  "w": 1608,
+  "h": 779,
+  "ext": "jpeg"
+ },
+ {
+  "page": 28,
   "reuse_of": "p07_2.jpeg",
   "w": 958,
   "h": 541
  },
  {
-  "page": 26,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
- },
- {
-  "page": 26,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
- },
- {
-  "page": 27,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
- },
- {
-  "page": 28,
-  "reuse_of": "p10_1.jpeg",
-  "w": 1608,
-  "h": 779
+  "page": 29,
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
  },
  {
   "page": 29,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
- },
- {
-  "page": 29,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 30,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p18_1.png",
+  "w": 1077,
+  "h": 1582
+ },
+ {
+  "page": 30,
+  "reuse_of": "p18_2.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 30,
+  "reuse_of": "p18_3.png",
+  "w": 396,
+  "h": 820
+ },
+ {
+  "page": 30,
+  "reuse_of": "p18_4.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 30,
+  "reuse_of": "p18_5.png",
+  "w": 731,
+  "h": 820
  },
  {
   "page": 31,
@@ -525,46 +624,88 @@
   "h": 541
  },
  {
-  "page": 31,
-  "reuse_of": "p07_2.jpeg",
-  "w": 958,
-  "h": 541
+  "page": 32,
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
  },
  {
   "page": 32,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
- },
- {
-  "page": 32,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 33,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p21_1.png",
+  "w": 806,
+  "h": 1562
+ },
+ {
+  "page": 33,
+  "reuse_of": "p21_2.png",
+  "w": 233,
+  "h": 723
+ },
+ {
+  "page": 33,
+  "reuse_of": "p21_3.png",
+  "w": 224,
+  "h": 723
+ },
+ {
+  "page": 33,
+  "reuse_of": "p21_4.png",
+  "w": 392,
+  "h": 723
+ },
+ {
+  "page": 33,
+  "reuse_of": "p21_5.png",
+  "w": 707,
+  "h": 723
  },
  {
   "page": 35,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
  },
  {
   "page": 35,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 36,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p18_1.png",
+  "w": 1077,
+  "h": 1582
+ },
+ {
+  "page": 36,
+  "reuse_of": "p18_2.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 36,
+  "reuse_of": "p18_3.png",
+  "w": 396,
+  "h": 820
+ },
+ {
+  "page": 36,
+  "reuse_of": "p18_4.png",
+  "w": 331,
+  "h": 820
+ },
+ {
+  "page": 36,
+  "reuse_of": "p18_5.png",
+  "w": 731,
+  "h": 820
  },
  {
   "page": 37,
@@ -580,21 +721,45 @@
  },
  {
   "page": 38,
-  "reuse_of": "p17_1.jpeg",
-  "w": 854,
-  "h": 601
+  "reuse_of": "p17_1.png",
+  "w": 2048,
+  "h": 1454
  },
  {
   "page": 38,
-  "reuse_of": "p14_2.jpeg",
-  "w": 621,
-  "h": 435
+  "reuse_of": "p17_2.png",
+  "w": 2048,
+  "h": 982
  },
  {
   "page": 39,
-  "reuse_of": "p21_1.jpeg",
-  "w": 1352,
-  "h": 603
+  "reuse_of": "p21_1.png",
+  "w": 806,
+  "h": 1562
+ },
+ {
+  "page": 39,
+  "reuse_of": "p21_2.png",
+  "w": 233,
+  "h": 723
+ },
+ {
+  "page": 39,
+  "reuse_of": "p21_3.png",
+  "w": 224,
+  "h": 723
+ },
+ {
+  "page": 39,
+  "reuse_of": "p21_4.png",
+  "w": 392,
+  "h": 723
+ },
+ {
+  "page": 39,
+  "reuse_of": "p21_5.png",
+  "w": 707,
+  "h": 723
  },
  {
   "page": 43,

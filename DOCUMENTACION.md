@@ -209,3 +209,52 @@ grande sin etiquetas vista/oculta; portada con titular arriba; sección "Sistema
 en cada familia; Materialidad con burbujas + tira de muro; BIM con imágenes/texto intercalados.
 Esperando del cliente: PNG de perfiles por familia, imágenes de "Tipos" en alta resolución,
 y confirmación de Acabados/BIM.
+
+### Actualización 2026-06-19 (sesión Claude)
+**Fuente única de datos:** `02_PROYECTO/_PERFILES_MASTER/` (fuera del repo). El DXF
+`01_REFERENCIAS/planos_cad/PERFILES ARQUITECTÓNICOS DE FACHADA.dxf` es el origen; de ahí salen
+medidas y perfiles. Ver su `README.md`.
+
+- **Catálogo a 11 familias** (Pyramid, Symmetric, Asymmetric, Escaler, Kaotico, Origami, Onda,
+  Kubo, Nordik, Alterno, Skala). Aqqua/Cubik/Triangle = grupo "Singular"/oculta, **no salen**.
+  Mapeo nombre: AcerOnda=Onda, Symetric=Symmetric, Asymetric=Asymmetric, Kaotiko=Kaotico.
+- **Medidas reales del DXF** en todas las familias (resuelven contradicciones del PDF: Pyramid
+  P45 altura ≈47, "Pyramid 33"→39). Skala sin geometría (capa DXF mal puesta); Nordik 50A idem.
+- **Índice — perfiles SVG ahora REALES**, generados del DXF con
+  `_PERFILES_MASTER/make_profiles_svg.py` (un módulo por familia, altura relativa real, ancho
+  completo = continuos). Pegar el output en el objeto `PROFILES` de catalogo.html. Alterno/Skala
+  reutilizan el perfil e imagen de Nordik como placeholder (`PROFILES.alterno = PROFILES.skala = PROFILES.nordik`).
+- **Miniaturas del índice** = recortes `img/0X_Familia_cut.png` (autorecortados al contenido,
+  transparentes, `aspect-ratio:2.9/1`, `overflow:visible` para que el hover-zoom no recorte).
+- **Fichas "Tipos y dimensiones"** (`typeCards()`): render por tipo (3/4, `contain`, entero) +
+  Ancho/Alto/Ángulo. Sustituye la antigua tabla de dimensiones.
+- **Descripciones por familia en cursiva** (`.fam-desc`), redactadas por Claude.
+- **Acabados/Perforado**: patrón CSS real de perforación (no foto).
+- **BIM**: añadido apartado "Tecnología aplicada · visor online e interactividad".
+- **Favicon**: `assets/Metalperfil_red.png` (logo granate) en catalogo.html e index.html.
+- **Git**: el clon perdió el `.git` y se reconectó por terminal (remoto `Ashromer/MetalSheetsQrVisor`).
+  `.gitignore` debe ignorar `source/paginas/` y `source/*.pdf` (si no, se cuelan ~90 MB).
+
+**Pendiente:** perfil acotado de **Symmetric** (quitado; el recorte salía mal — rehacer desde la
+página correcta del catálogo, como el de Asymmetric). Renders por tipo reales para las familias
+sin imagen. Limpiar la captura `Captura_correccion.JPG` del repo.
+
+### Actualización 2026-06-22 (sesión Claude)
+**Norma del líder:** el **PDF/PNG del catálogo manda** como documento de referencia (revierte lo
+del DXF como fuente única para la web). Se copia del PDF; se señalan sus errores pero gobierna él.
+
+- **Nueva sección "Fijación oculta"** (`#oculta`, tras la gama): explica el sistema 02 (piel
+  continua sin anclajes) con 4 tarjetas (Rollforming/Custom/Screenpanel/Lamas, dibujos SVG de
+  marca) + **configurador interactivo** (`#ocComposer`/`#ocWall`) que recompone un paño según el
+  sistema (anchos orientativos del diagrama de gama). Enlace nuevo en el nav. CSS/JS vanilla,
+  `prefers-reduced-motion` respetado.
+- **`img/` refrescado desde el PDF nuevo (46 pág.)**: borradas las 57 imágenes extraídas viejas
+  y re-extraídas 66 con `tools/extract_pdf.py`. Desapareció `p14_3` → Asymmetric se queda con
+  `p14_1`+`p14_2`. `gama_pag02.png` regenerada de la pág. 2 actual.
+- **Desarrollos acotados rehechos del PDF (8)**: `desarrollo_{pyramid,symmetric,asymmetric,escaler,
+  kaotico,kubo,nordik,onda}.png`, recortados de la 1ª hoja de cada familia (págs. PDF 7/10/13/16/
+  19/28/31/25) con auto-trim. Origami/Alterno/Skala = spreads "PLACEHOLDER" → sin desarrollo real.
+  Enlazados en `FAMILIES` (`desarrollo:`).
+- **Aviso de coherencia:** las cifras del desarrollo (p.ej. "Pyramid 33 / ancho 894") vienen del
+  PDF y aún difieren de la tabla `FAMILIES` (sacada del DXF: 39 / 882). Pendiente unificar la tabla
+  al PDF si el líder lo confirma.
