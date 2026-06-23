@@ -342,7 +342,19 @@
             { name: 'RAL 1015 · Marfil claro',     hex: '#E3D5B8' }
         ];
 
-        let currentFamily = 'Pyramid';
+        // Deep-link desde el QR del catálogo: ?family=pyramid&type=45
+        // (acepta clave, etiqueta o anchor; insensible a mayúsculas)
+        const params = new URLSearchParams(location.search);
+        function resolveFamily(p) {
+            if (!p) return null;
+            const q = p.trim().toLowerCase();
+            return Object.keys(catalog).find(k =>
+                k.toLowerCase() === q ||
+                catalog[k].label.toLowerCase() === q ||
+                catalog[k].anchor === q) || null;
+        }
+        let currentFamily = resolveFamily(params.get('family')) || 'Pyramid';
+        const requestedType = params.get('type');
         let currentColor  = colors[0].hex;
 
         function showStatus(text, isError) {
@@ -440,7 +452,19 @@
         renderButtons();
         renderColors();
         updateCatalogLink();
-        showStatus('Cargando modelo…', false);
+
+        // Carga inicial respetando el deep-link (familia + tipo opcional)
+        const initTypes = catalog[currentFamily].types;
+        const initType  = (requestedType && initTypes.map(typeFile).includes(requestedType))
+            ? requestedType : initTypes[0];
+        const initIndex = initTypes.findIndex(t => typeFile(t) === typeFile(initType));
+        const initBtn   = btnContainer.children[initIndex >= 0 ? initIndex : 0];
+        if (initBtn) {
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            initBtn.classList.add('active');
+        }
+        setSource(`${catalog[currentFamily].prefix}${typeFile(initType)}.glb`);
+
         if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) visor.removeAttribute('auto-rotate');
     </script>
 </body>
