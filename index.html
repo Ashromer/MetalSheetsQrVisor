@@ -12,7 +12,7 @@
 
     <style>
         :root {
-            --brand-red-granate: rgb(158, 39, 44);
+            --brand-red-granate: rgb(122, 28, 40);
             --text-black: #1a1a1a;
             --text-white: #ffffff;
             --panel-black: #111111;
@@ -265,7 +265,7 @@
     <div class="brand-header">
         <img src="assets/Metalperfil_white_trim.png" alt="Metalperfil" class="brand-logo">
         <div class="header-title">Revestimientos metálicos de alta gama</div>
-        <select class="family-select" id="familySelect"></select>
+        <select class="family-select" id="familySelect" aria-label="Familia de perfil"></select>
     </div>
 
     <div class="viewer-container">
@@ -285,7 +285,9 @@
             environment-image="neutral"
             exposure="1.2"
             loading="eager"
-            reveal="auto">
+            reveal="auto"
+            ar
+            ar-modes="webxr scene-viewer quick-look">
         </model-viewer>
 
         <div class="status-overlay" id="statusOverlay">

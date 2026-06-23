@@ -32,3 +32,7 @@ Thumbs.db
 # Material fuente pesado — NO servir en la web (se queda solo en local)
 source/paginas/
 source/*.pdf
+
+# Artefactos de desarrollo — no publicar en GitHub Pages (se quedan en local)
+Captura_correccion.JPG
+catalogo_clasico.html
