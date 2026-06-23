@@ -69,6 +69,7 @@
             text-transform: uppercase; color: #fff; padding: 12px 6px; border-bottom: 1px solid rgba(255,255,255,.15); transition: color .2s; }
         nav.main a:last-child { border-bottom: none; }
         nav.main a:hover { color: #f0c7c9; }
+        @media (max-width: 640px) { .hdr-right > a.hide-sm { display: none; } }
         @media (max-width: 460px) { .hdr-right > a.hide-xs { display: none; } nav.main { right: 8px; left: 8px; } }
 
         /* ---------- layout ---------- */
@@ -83,20 +84,27 @@
         .reveal.in { opacity: 1; transform: none; }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
 
-        /* ---------- HERO ---------- */
-        .hero { display: grid; grid-template-columns: 0.62fr 1fr 1.25fr; min-height: calc(100vh - 70px); }
-        @media (max-width: 880px) { .hero { grid-template-columns: 1fr; } }
+        /* ---------- HERO (1/3 rojo + texto a caballo sobre la imagen) ---------- */
+        .hero { position: relative; display: grid; grid-template-columns: 1fr 2fr; min-height: calc(100vh - 70px); }
         .hero-band { background: var(--red); }
-        @media (max-width: 880px) { .hero-band { min-height: 10px; } }
-        .hero-text { background: var(--cream); display: flex; flex-direction: column; justify-content: center; padding: clamp(34px, 5vw, 74px); }
-        .hero-text .eyebrow { color: var(--red); }
-        .hero-img { position: relative; overflow: hidden; background: var(--cream); }
-        .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(1.07) saturate(.98); }
-        @media (max-width: 880px) { .hero-img { min-height: 46vh; order: -1; } }
-        .hero h1 { color: var(--ink); font-size: clamp(40px, 5.4vw, 78px); line-height: 1.04; margin-top: 18px; }
-        .hero h1 em { font-style: italic; color: var(--red); }
+        .hero-img { position: relative; overflow: hidden; background: var(--panel); }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.97) saturate(.98); }
+        .hero-img::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(90deg, rgba(20,18,16,.5) 0%, rgba(20,18,16,.16) 38%, rgba(20,18,16,0) 60%); }
+        .hero-text { position: absolute; top: 0; bottom: 0; left: 0; width: min(720px, 66%); z-index: 2;
+            display: flex; flex-direction: column; justify-content: center; padding: clamp(34px, 5vw, 74px);
+            background: linear-gradient(90deg, var(--red) 0%, var(--red) 44%, rgba(122,28,40,.95) 60%, rgba(122,28,40,.62) 78%, rgba(122,28,40,0) 100%); }
+        .hero-text .eyebrow { color: #f3c9cb; }
+        .hero h1 { color: #fff; font-size: clamp(40px, 5.4vw, 78px); line-height: 1.04; margin-top: 18px; text-shadow: 0 2px 20px rgba(15,13,12,.32); }
+        .hero h1 em { font-style: italic; color: #f4cdcf; }
         .hero .lead { font-family: var(--serif); font-style: italic; font-weight: 400;
-            font-size: clamp(18px, 1.9vw, 25px); color: #44403b; margin-top: 24px; max-width: 40ch; line-height: 1.5; }
+            font-size: clamp(18px, 1.9vw, 25px); color: #f6eee9; margin-top: 24px; max-width: 38ch; line-height: 1.5; text-shadow: 0 1px 14px rgba(15,13,12,.3); }
+        @media (max-width: 880px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-band { display: none; }
+            .hero-img { min-height: 46vh; order: -1; }
+            .hero-text { position: static; width: auto; background: var(--red); }
+        }
 
         /* ---------- editorial ---------- */
         .lead-serif { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 3.2vw, 42px); line-height: 1.28; color: var(--ink); }
@@ -149,11 +157,11 @@
         @media (max-width: 920px) { .fam { grid-template-columns: 1fr; } .fam-block:nth-child(even) .fam-media { order: 0; } }
 
         /* ---- Tipos y dimensiones (ficha por tipo) ---- */
-        .fam-types { margin-top: clamp(40px, 5vw, 64px); }
-        .fam-types .subhead { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
+        .fam-types { margin-top: clamp(54px, 6vw, 88px); }
+        .fam-types .subhead { display: flex; align-items: center; gap: 18px; margin-bottom: 32px; }
         .fam-types .subhead h3 { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); font-weight: 500; white-space: nowrap; }
         .fam-types .subhead .ln { flex: 1; height: 1px; background: var(--line); }
-        .tcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .tcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.2vw, 26px); }
         @media (max-width: 880px) { .tcards { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 480px) { .tcards { grid-template-columns: 1fr; } }
         .tcard { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--white);
@@ -161,15 +169,15 @@
         .tcard:hover { transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(28,27,26,.5); border-color: #dcd6cc; }
         .tcard .tc-media { aspect-ratio: 5/8; overflow: hidden; background: var(--cream); display: flex; align-items: center; justify-content: center; }
         .tcard .tc-media img { width: 100%; height: 100%; object-fit: contain; }
-        .tcard .tc-body { padding: 16px 18px 18px; }
+        .tcard .tc-body { padding: 22px 22px 24px; }
         .tcard .tc-lab { font-family: var(--serif); font-size: 22px; font-weight: 600; }
-        .tcard .tc-dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 6px; line-height: 1.7; }
+        .tcard .tc-dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 10px; line-height: 1.85; }
         /* ---- ficha técnica por familia ---- */
-        .ficha { display: grid; grid-template-columns: 1.25fr 1fr 1fr 0.75fr; gap: clamp(20px, 3vw, 44px); }
-        @media (max-width: 880px) { .ficha { grid-template-columns: 1fr 1fr; gap: 28px; } }
+        .ficha { display: grid; grid-template-columns: 1.25fr 1fr 1fr 0.75fr; gap: clamp(26px, 3.6vw, 56px); }
+        @media (max-width: 880px) { .ficha { grid-template-columns: 1fr 1fr; gap: 34px; } }
         @media (max-width: 520px) { .ficha { grid-template-columns: 1fr; } }
-        .ficha h5 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
-        .ficha .frow { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13.5px; color: #44403b; }
+        .ficha h5 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+        .ficha .frow { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 13.5px; color: #44403b; }
         .ficha .frow b { font-weight: 500; color: var(--ink); white-space: nowrap; }
         .ficha .qr img { width: 100px; height: 100px; border: 1px solid var(--line); border-radius: 6px; padding: 7px; background: #fff; }
         .ficha .qr span { display: block; font-size: 11px; color: var(--grey); margin-top: 10px; line-height: 1.5; max-width: 22ch; }
@@ -253,6 +261,11 @@
             background: none; color: var(--red); font-size: 30px; }
         .mx.sol { aspect-ratio: auto; background: var(--red); display: flex; align-items: center; justify-content: center; min-width: 150px; }
         .mx.sol span { position: static; background: none; font-style: italic; text-align: center; padding: 20px; }
+        /* galería de 3 (Flow / Uniko) */
+        .gal3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 880px) { .gal3 { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .gal3 { grid-template-columns: 1fr; } }
+        .ucard figcaption { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 10px; letter-spacing: .3px; line-height: 1.5; }
 
         /* ---------- materiales ---------- */
         .mat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(34px,5vw,52px); }
@@ -349,8 +362,9 @@
 <header class="site-header">
     <a class="logo" href="#top" aria-label="Metalperfil"><img src="assets/Metalperfil_white_trim.png" alt="Metalperfil"></a>
     <div class="hdr-right">
-        <a href="index.html">Visor 3D</a>
+        <a class="hide-sm" href="#nosotros">Quiénes somos</a>
         <a class="hide-xs" href="#contacto">Contacto</a>
+        <a href="index.html">Visor 3D</a>
         <button class="nav-toggle" aria-label="Menú" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.querySelector('nav.main').classList.toggle('open'))">☰</button>
     </div>
     <nav class="main">
@@ -362,6 +376,7 @@
         <a href="#materia">Materia</a>
         <a href="#acabados">Acabados</a>
         <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#nosotros">Quiénes somos</a>
         <a href="#contacto">Contacto</a>
     </nav>
 </header>
@@ -388,7 +403,7 @@
 </section>
 
 <!-- ===================== CADA FORMA NACE DE UNA INTENCIÓN ===================== -->
-<section class="screen cream">
+<section class="screen cream" id="nosotros">
     <div class="wrap reveal">
         <div class="split">
             <div class="frame ar43"><img src="img/propuesta/craft_copper.jpg" alt="La artesanía del metal" loading="lazy"></div>
@@ -411,13 +426,13 @@
 
         <div class="grid g4">
             <div class="icard"><div class="ic-img"><img src="img/propuesta/forma_profile.jpg" alt="Formas" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">01</div><h4>Formas</h4><p>Ondulados, trapezoidales, planos o volumétricos. Cada geometría define la identidad visual del edificio y optimiza su comportamiento. <em>Origami &amp; Uniko.</em></p></div></div>
-            <div class="icard"><div class="ic-img"><img src="img/propuesta/sistema_vista.jpg" alt="Sistemas" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">02</div><h4>Sistemas</h4><p>Fijación vista u oculta, ventilada o estructural. La solución define cómo la piel metálica se integra con la arquitectura.</p></div></div>
+                <div class="ic-tx"><div class="ic-n">01 · Eliges la</div><h4>Forma</h4><p>La geometría del perfil: ondulada, trapezoidal, plana o volumétrica. Es la primera decisión y la que más marca el carácter de la fachada. Elígela del catálogo <em>Origami</em> o diséñala a medida con <em>Uniko</em>.</p></div></div>
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/ph_sistemas.svg" alt="Diagrama de fijación vista y oculta" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">02 · Decides el</div><h4>Sistema</h4><p>Cómo se ancla la piel: <strong style="font-weight:500;color:var(--ink)">fijación vista</strong> (el anclaje forma parte de la estética) u <strong style="font-weight:500;color:var(--ink)">oculta</strong> (superficie continua, sin tornillos a la vista). Condiciona el montaje y la lectura del paño.</p></div></div>
             <div class="icard"><div class="ic-img"><img src="img/propuesta/material_cubes.jpg" alt="Materiales" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">03</div><h4>Materiales</h4><p>Acero, aluminio, inoxidable, corten, zinc o cobre. Cada material es una respuesta técnica y estética distinta al contexto del proyecto.</p></div></div>
+                <div class="ic-tx"><div class="ic-n">03 · Escoges el</div><h4>Material</h4><p>El metal base: acero, aluminio, inoxidable, corten, zinc o cobre. Cada uno responde distinto al clima, la exigencia estructural y el presupuesto del proyecto.</p></div></div>
             <div class="icard"><div class="ic-img"><img src="img/propuesta/finish_bronze.jpg" alt="Acabados" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">04</div><h4>Acabados</h4><p>Color, brillo, textura y perforación como herramientas de lenguaje. Una misma forma se transforma por completo según su superficie.</p></div></div>
+                <div class="ic-tx"><div class="ic-n">04 · Defines el</div><h4>Acabado</h4><p>La superficie: color (RAL/NCS), brillo, textura y perforación. Una misma forma cambia por completo según el acabado — aquí se afina la identidad final. <em>Y la suma de las cuatro es tu fachada.</em></p></div></div>
         </div>
     </div>
 </section>
@@ -430,10 +445,10 @@
         <div class="grid g3">
             <a class="icard" href="#origami"><div class="ic-img"><img src="img/propuesta/g_metal.jpg" alt="Origami" loading="lazy"></div>
                 <div class="ic-tx"><h4>Origami<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La arquitectura comienza con una forma.</p><p>Colección de perfiles categorizados en series por geometría. Amplitud de formas para dar carácter a la envolvente.</p><div class="go">Ver colección →</div></div></a>
-            <a class="icard" href="#uniko"><div class="ic-img"><img src="img/propuesta/uniko_form.jpg" alt="Uniko" loading="lazy"></div>
-                <div class="ic-tx"><h4>Uniko<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La forma más singular se crea.</p><p>Servicio de diseño colaborativo para desarrollar perfiles exclusivos a medida de cada proyecto.</p><div class="go">Ver servicio →</div></div></a>
             <a class="icard" href="#flow"><div class="ic-img"><img src="img/propuesta/g_bronze.jpg" alt="Flow" loading="lazy"></div>
                 <div class="ic-tx"><h4>Flow<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La belleza surge de la combinación.</p><p>Composiciones de perfiles, materiales y acabados que generan ritmo, textura y movimiento visual.</p><div class="go">Ver combinaciones →</div></div></a>
+            <a class="icard" href="#uniko"><div class="ic-img"><img src="img/propuesta/uniko_form.jpg" alt="Uniko" loading="lazy"></div>
+                <div class="ic-tx"><h4>Uniko<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La forma más singular se crea.</p><p>Servicio de diseño colaborativo para desarrollar perfiles exclusivos a medida de cada proyecto.</p><div class="go">Ver servicio →</div></div></a>
         </div>
     </div>
 </section>
@@ -473,6 +488,27 @@
             <div class="strip" style="aspect-ratio:17/6"><img src="img/propuesta/finish_cool.jpg" alt="Combinación de acabados fríos" loading="lazy"></div>
             <div class="strip" style="aspect-ratio:17/6"><img src="img/propuesta/flow_matrix.jpg" alt="Matriz de combinaciones" loading="lazy"></div>
         </div>
+
+        <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px); color:#d99;">Mezcla de perfiles · un mismo paño</p>
+        <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">Varias geometrías, una sola fachada.</h3>
+        <p class="body grey" style="max-width:70ch; margin-bottom:22px;">FLOW™ es la <strong style="color:#ece7df;font-weight:500;">conjunción de distintos perfiles ORIGAMI</strong> en el mismo paño. Se combinan formas, anchos y direcciones para construir un ritmo propio: cada fachada nace de la suma de varias piezas.</p>
+        <div class="matrix">
+            <div class="mx"><img src="img/types/type_pyramid_45.jpg" alt="Perfil Pyramid"><span>Pyramid</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_symmetric_25.jpg" alt="Perfil Symmetric"><span>Symmetric</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_escaler_48.jpg" alt="Perfil Escaler"><span>Escaler</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_kaotico_50.jpg" alt="Perfil Kaotico"><span>Kaotico</span><span class="op">=</span></div>
+            <div class="mx sol"><span>Un paño<br>en FLOW™</span></div>
+        </div>
+
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,56px); color:#d99;">Composiciones</p>
+        <div class="gal3" style="margin-top:14px;">
+            <div class="frame ar43"><img src="img/propuesta/g_metal.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_bronze.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/curved_ribbed.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_earth.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_urban.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_wood.jpg" alt="Composición FLOW" loading="lazy"></div>
+        </div>
     </div>
 </section>
 
@@ -497,6 +533,14 @@
             <div class="step"><div class="st-img"><img src="img/propuesta/product_pyramid.jpg" alt="Prototipo" loading="lazy"></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Producimos una muestra física para validar acabado, luz y sombra in situ antes de la serie.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/propuesta/craft_copper.jpg" alt="Fabricación" loading="lazy"></div><div class="st-tx"><div class="si">05</div><div class="stt">Fabricación</div><p class="sd">Fabricación seriada a medida, control dimensional y entrega a obra con acompañamiento técnico.</p></div></div>
         </div>
+
+        <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px);">Ejemplos · perfiles a medida</p>
+        <p class="body" style="max-width:64ch; margin:8px 0 20px;">Algunos desarrollos UNIKO™ creados para proyectos concretos. <em style="color:var(--grey);">Imágenes de muestra — pendientes de sustituir por renders reales de proyecto.</em></p>
+        <div class="gal3">
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/uniko_building.jpg" alt="Ejemplo UNIKO: envolvente a medida" loading="lazy"></div><figcaption>Envolvente perforada a medida · edificio de oficinas</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/g_stilts.jpg" alt="Ejemplo UNIKO: perfil volumétrico" loading="lazy"></div><figcaption>Perfil volumétrico exclusivo · equipamiento cultural</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/ph_uniko.svg" alt="Ejemplo UNIKO (placeholder)" loading="lazy"></div><figcaption>Sección custom · imagen placeholder</figcaption></figure>
+        </div>
     </div>
 </section>
 
@@ -513,7 +557,7 @@
                 </svg>
             </div>
             <div class="dos-col">
-                <div class="dos-media"><img src="img/propuesta/sistema_vista.jpg" alt="Fijación vista" loading="lazy"></div>
+                <div class="dos-media"><img src="img/propuesta/ph_fix_vista.svg" alt="Diagrama de fijación vista: tornillo visto sobre el perfil" loading="lazy"></div>
                 <p class="eyebrow">Arquitectura expresiva</p>
                 <h3>Fijaciones vistas</h3>
                 <p class="txt">Soluciones donde la técnica forma parte de la estética. La modulación y los puntos de unión contribuyen a la identidad visual del proyecto. Es la gama ORIGAMI.</p>
@@ -521,7 +565,7 @@
                 <div id="gamaRow" class="gama"></div>
             </div>
             <div class="dos-col">
-                <div class="dos-media"><img src="img/propuesta/curved_ribbed.jpg" alt="Fijación oculta" loading="lazy"></div>
+                <div class="dos-media"><img src="img/propuesta/ph_fix_oculta.svg" alt="Diagrama de fijación oculta: clip oculto, superficie continua" loading="lazy"></div>
                 <p class="eyebrow">Arquitectura continua</p>
                 <h3>Fijaciones ocultas</h3>
                 <p class="txt">Superficies limpias y homogéneas donde la geometría y la luz adquieren el máximo protagonismo. Piel continua, sin anclajes a la vista.</p>
