@@ -6,6 +6,16 @@
     <title>Metalperfil — Arquitectura de envolventes metálicas</title>
     <link rel="icon" type="image/png" href="assets/Metalperfil_red.png">
     <meta name="description" content="Sistemas arquitectónicos de envolvente metálica. ORIGAMI, UNIKO y FLOW: forma + material + acabado. Catálogo de prescripción para arquitectura.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Metalperfil">
+    <meta property="og:title" content="Metalperfil — Arquitectura de envolventes metálicas">
+    <meta property="og:description" content="Forma + material + acabado. Catálogo de prescripción: perfiles arquitectónicos, personalización y combinaciones para la envolvente del edificio.">
+    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/img/propuesta/g_detail.jpg">
+    <meta property="og:url" content="https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Metalperfil — Arquitectura de envolventes metálicas">
+    <meta name="twitter:description" content="Catálogo de prescripción de envolventes metálicas: forma, material, acabado y personalización a medida.">
+    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/img/propuesta/g_detail.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -153,6 +163,15 @@
         .tcard .tc-body { padding: 16px 18px 18px; }
         .tcard .tc-lab { font-family: var(--serif); font-size: 22px; font-weight: 600; }
         .tcard .tc-dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 6px; line-height: 1.7; }
+        /* ---- ficha técnica por familia ---- */
+        .ficha { display: grid; grid-template-columns: 1.25fr 1fr 1fr 0.75fr; gap: clamp(20px, 3vw, 44px); }
+        @media (max-width: 880px) { .ficha { grid-template-columns: 1fr 1fr; gap: 28px; } }
+        @media (max-width: 520px) { .ficha { grid-template-columns: 1fr; } }
+        .ficha h5 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+        .ficha .frow { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-top: 1px solid var(--line); font-size: 13.5px; color: #44403b; }
+        .ficha .frow b { font-weight: 500; color: var(--ink); white-space: nowrap; }
+        .ficha .qr img { width: 100px; height: 100px; border: 1px solid var(--line); border-radius: 6px; padding: 7px; background: #fff; }
+        .ficha .qr span { display: block; font-size: 11px; color: var(--grey); margin-top: 10px; line-height: 1.5; max-width: 22ch; }
         .fam-media { position: relative; }
         .fam-render { border-radius: 6px; overflow: hidden; background: var(--cream); aspect-ratio: 4/3; }
         .fam-render img { width: 100%; height: 100%; object-fit: cover; }
@@ -320,6 +339,8 @@
         .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 12px; font-weight: 600;
             letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: var(--red); padding: 14px 26px; border-radius: 3px; margin-top: 24px; transition: transform .2s, box-shadow .2s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -16px rgba(122,28,40,.6); }
+        .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,.32); color: #ece7df; }
+        .btn.ghost:hover { background: rgba(255,255,255,.06); box-shadow: none; border-color: rgba(255,255,255,.6); }
     </style>
 </head>
 <body>
@@ -402,11 +423,11 @@
         <p class="eyebrow">Tres propuestas de valor</p>
         <h2 class="section-title" style="margin:14px 0 6px; color:#fff;">Diseñar la piel.</h2>
         <div class="grid g3">
-            <a class="icard" href="#origami"><div class="ic-img"><img src="img/propuesta/curved_ribbed.jpg" alt="Origami" loading="lazy"></div>
+            <a class="icard" href="#origami"><div class="ic-img"><img src="img/propuesta/g_metal.jpg" alt="Origami" loading="lazy"></div>
                 <div class="ic-tx"><h4>Origami<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La arquitectura comienza con una forma.</p><p>Colección de perfiles categorizados en series por geometría. Amplitud de formas para dar carácter a la envolvente.</p><div class="go">Ver colección →</div></div></a>
             <a class="icard" href="#uniko"><div class="ic-img"><img src="img/propuesta/uniko_form.jpg" alt="Uniko" loading="lazy"></div>
                 <div class="ic-tx"><h4>Uniko<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La forma más singular se crea.</p><p>Servicio de diseño colaborativo para desarrollar perfiles exclusivos a medida de cada proyecto.</p><div class="go">Ver servicio →</div></div></a>
-            <a class="icard" href="#flow"><div class="ic-img"><img src="img/propuesta/finish_copper.jpg" alt="Flow" loading="lazy"></div>
+            <a class="icard" href="#flow"><div class="ic-img"><img src="img/propuesta/g_bronze.jpg" alt="Flow" loading="lazy"></div>
                 <div class="ic-tx"><h4>Flow<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La belleza surge de la combinación.</p><p>Composiciones de perfiles, materiales y acabados que generan ritmo, textura y movimiento visual.</p><div class="go">Ver combinaciones →</div></div></a>
         </div>
     </div>
@@ -420,8 +441,9 @@
             <h2 class="section-title" style="margin:14px 0 22px;">Origami<span class="tm" style="color:var(--bronze)">™</span></h2>
             <p class="lead-serif" style="max-width:28ch;">Cada pliegue tiene un propósito.</p>
             <p class="body" style="margin-top:20px;">ORIGAMI™ reúne una colección de perfiles arquitectónicos concebidos a partir de geometrías estudiadas para aportar identidad, profundidad y expresión a la envolvente. Cada serie explora una relación única entre luz, sombra, escala y volumen: una biblioteca de formas para transformar superficies en elementos con personalidad propia.</p>
+            <p class="body" style="margin-top:14px;"><strong style="color:var(--ink);font-weight:500;">Cinco familias que cubren todo el espectro geométrico.</strong> No buscamos ampliar la lista sin fin: con estas cinco se resuelve cualquier fachada. El verdadero valor está en lo que viene después — <em>personalizar</em> cada perfil en material, acabado, perforación, dirección y combinación (FLOW), o diseñarlo a medida (UNIKO).</p>
         </div>
-        <div class="frame reveal" style="aspect-ratio:21/8; margin-top:clamp(34px,5vw,52px);"><img src="img/propuesta/soluciones_yellow.jpg" alt="Proyecto con envolvente ORIGAMI" loading="lazy"></div>
+        <div class="frame reveal" style="aspect-ratio:21/8; margin-top:clamp(34px,5vw,52px);"><img src="img/propuesta/g_detail.jpg" alt="Proyecto con envolvente ORIGAMI" loading="lazy"></div>
         <div id="famList"></div>
         <p class="body" style="margin-top:46px;color:var(--grey);font-size:13px;">Datos técnicos completos (dimensiones, tipos y propiedades) en las fichas de producto por perfil — documentación a parte.</p>
     </div>
@@ -467,7 +489,7 @@
             <div class="step"><div class="st-img"><img src="img/propuesta/uniko_sketch.jpg" alt="Idea" loading="lazy"></div><div class="st-tx"><div class="si">01</div><div class="stt">Idea</div><p class="sd">Recogemos el concepto, los bocetos y las referencias del arquitecto. Definimos juntos la intención de la envolvente.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/propuesta/uniko_form.jpg" alt="Diseño" loading="lazy"></div><div class="st-tx"><div class="si">02</div><div class="stt">Diseño</div><p class="sd">Traducimos la visión a una geometría de perfil: sección, profundidad y ritmo, con renders y muestras de la forma.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/desarrollo_pyramid.png" alt="Ingeniería" loading="lazy" style="object-fit:contain;background:#fff;padding:8px;"></div><div class="st-tx"><div class="si">03</div><div class="stt">Ingeniería</div><p class="sd">Validamos la fabricabilidad: espesores, plegados, tolerancias y comportamiento estructural del perfil.</p></div></div>
-            <div class="step"><div class="st-img"><img src="img/01_Pyramid_cut.png" alt="Prototipo" loading="lazy" style="object-fit:contain;background:var(--cream);padding:10px;"></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Producimos una muestra física para validar acabado, luz y sombra in situ antes de la serie.</p></div></div>
+            <div class="step"><div class="st-img"><img src="img/propuesta/product_pyramid.jpg" alt="Prototipo" loading="lazy"></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Producimos una muestra física para validar acabado, luz y sombra in situ antes de la serie.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/propuesta/craft_copper.jpg" alt="Fabricación" loading="lazy"></div><div class="st-tx"><div class="si">05</div><div class="stt">Fabricación</div><p class="sd">Fabricación seriada a medida, control dimensional y entrega a obra con acompañamiento técnico.</p></div></div>
         </div>
     </div>
@@ -589,9 +611,9 @@
             <div class="app-col">
                 <h3>Exterior</h3>
                 <div class="app-gallery">
-                    <div class="frame"><img src="img/propuesta/app_green.jpg" alt="Fachada exterior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/soluciones_yellow.jpg" alt="Fachada exterior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/app_wood.jpg" alt="Fachada exterior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_desert.jpg" alt="Fachada exterior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/escaler_entrada.jpg" alt="Fachada exterior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_stilts.jpg" alt="Protección solar exterior" loading="lazy"></div>
                 </div>
                 <ul>
                     <li>Concealed Fastener Panels</li>
@@ -606,8 +628,8 @@
                 <h3>Interior</h3>
                 <div class="app-gallery">
                     <div class="frame"><img src="img/propuesta/perf_interior.jpg" alt="Interior metálico" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/finish_bronze.jpg" alt="Revestimiento interior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/material_cubes.jpg" alt="Material interior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_city.jpg" alt="Revestimiento interior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_sky.jpg" alt="Sistema lineal interior" loading="lazy"></div>
                 </div>
                 <ul>
                     <li>Screen Panels</li>
@@ -633,9 +655,12 @@
             </div>
             <div class="frame ar43"><img src="img/propuesta/soluciones_yellow.jpg" alt="Soluciones de envolvente" loading="lazy"></div>
         </div>
-        <div class="strip-row" style="margin-top:clamp(34px,5vw,52px);">
-            <div class="strip" style="aspect-ratio:3/2"><img src="img/propuesta/rendimiento_balcony.jpg" alt="Rendimiento en obra" loading="lazy"></div>
-            <div class="strip" style="aspect-ratio:3/2"><img src="img/propuesta/bim_mirador.jpg" alt="Modelo BIM" loading="lazy"></div>
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Tecnología aplicada · BIM</p>
+        <p class="body" style="margin-bottom:22px;">Cada perfil del catálogo está disponible como <strong style="color:var(--ink);font-weight:500;">familia paramétrica de Revit (.rfa) e IFC</strong>, con sus dimensiones, materiales y acabados integrados. El arquitecto coloca la envolvente en su modelo desde la fase de diseño, con datos reales y medición automática.</p>
+        <div class="strip-row" style="grid-template-columns:repeat(3,1fr);">
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim1.jpg" alt="Modelo BIM en Revit" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim3.jpg" alt="Envolvente paramétrica" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim2.jpg" alt="Datos integrados y medición" loading="lazy"></div>
         </div>
         <div class="svc-row">
             <div class="svc"><h4>Prescripción</h4><p>Asesoramiento técnico, detalles constructivos, cálculo de despieces y muestras físicas para incorporar la envolvente al proyecto desde la fase de diseño.</p></div>
@@ -660,7 +685,13 @@
             <div>
                 <p class="eyebrow" style="color:#d99;">Hablemos de su proyecto</p>
                 <h2 style="margin-top:12px;">Transformamos metal.<br><em>Creamos arquitectura.</em></h2>
-                <a class="btn" href="mailto:info@metalperfil.com">Solicitar prescripción</a>
+                <p class="body" style="color:#b3aca2;max-width:48ch;margin-top:16px;">Asesoramiento de prescripción, muestras físicas, fichas técnicas y modelos BIM para integrar la envolvente en tu proyecto desde el primer trazo.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;">
+                    <a class="btn" href="mailto:info@metalperfil.com?subject=Prescripción%20envolvente">Solicitar prescripción</a>
+                    <a class="btn ghost" href="catalogo_clasico.html">Catálogo técnico (PDF)</a>
+                    <a class="btn ghost" href="index.html">Descargas BIM · .rfa / IFC</a>
+                    <a class="btn ghost" href="mailto:info@metalperfil.com?subject=Muestras">Pedir muestras</a>
+                </div>
             </div>
             <div class="ft-links">
                 <p class="eyebrow" style="color:#d99; margin-bottom:8px;">Navegación</p>
@@ -712,7 +743,7 @@
           model:{ prefix:'models/Asymetric_', types:['35','55','60','80'] } },
         { num:'04', name:'Escaler', anchor:'escaler', tag:'Profundidad que cambia con el sol.', attrs:['Relieve marcado','Ritmo','Carácter gráfico'],
           desc:'Geometría escalonada, con peldaños ascendentes que dibujan una sucesión de planos y sombras nítidas. Su marcado relieve aporta un fuerte carácter gráfico, con una lectura rítmica y ordenada que funciona especialmente bien en grandes paños.',
-          render:'img/p17_1.jpeg', product:'img/04_Escaler_cut.png',
+          render:'img/propuesta/escaler_front.jpg', product:'img/04_Escaler_cut.png',
           types:[
             {lab:'Escaler 22', ancho:'1053 mm', altura:'22 mm', img:'img/types/type_escaler_22.jpg'},
             {lab:'Escaler 48', ancho:'1088 mm', altura:'48 mm', img:'img/types/type_escaler_48.jpg'},
@@ -755,6 +786,8 @@
                         <div class="tc-dim">${t.ancho?'Ancho '+esc(t.ancho):''}${t.altura?'<br>Alto '+esc(t.altura):''}${t.angulo?'<br>Ángulo '+esc(t.angulo):''}</div>
                     </div>
                 </div>`).join('');
+        const dims = (f.types||[]).map(t =>
+            `<div class="frow"><span>${esc(t.lab)}</span><b>${esc(t.ancho)}${t.altura?' · '+esc(t.altura):''}</b></div>`).join('');
         return `
         <article class="fam-block reveal" id="${f.anchor}">
             <div class="fam">
@@ -784,6 +817,25 @@
             <div class="fam-types">
                 <div class="subhead"><h3>Tipos y dimensiones</h3><span class="ln"></span></div>
                 <div class="tcards">${tcards}</div>
+            </div>
+            <div class="fam-types">
+                <div class="subhead"><h3>Ficha técnica</h3><span class="ln"></span></div>
+                <div class="ficha">
+                    <div><h5>Dimensiones · ancho · alto</h5>${dims}</div>
+                    <div><h5>Material</h5>
+                        <div class="frow"><span>Acero galvanizado</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Acero prelacado</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Acero inoxidable</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Aluminio / zinc / cobre</span><b>bajo demanda</b></div>
+                    </div>
+                    <div><h5>Propiedades técnicas</h5>
+                        <div class="frow"><span>Longitud mínima</span><b>1250 mm</b></div>
+                        <div class="frow"><span>Longitud máxima</span><b>5000 mm</b></div>
+                        <div class="frow"><span>Configuración</span><b>Horiz. / Vert.</b></div>
+                        <div class="frow"><span>Fijación</span><b>Vista</b></div>
+                    </div>
+                    <div class="qr"><h5>Ficha &amp; 3D</h5><a href="index.html" aria-label="Visor 3D ${esc(f.name)}"><img src="assets/qr.png" alt="QR ficha técnica ${esc(f.name)}" loading="lazy"></a><span>Escanea para el visor 3D interactivo y la ficha descargable.</span></div>
+                </div>
             </div>
         </article>`;
     }).join('');
