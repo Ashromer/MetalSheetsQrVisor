@@ -290,6 +290,8 @@
         .sw-corten { background: linear-gradient(135deg,#a05a36,#7c3f25 45%,#b96f43); }
         .sw-zinc { background: linear-gradient(135deg,#969ca1,#6b7176 50%,#aab0b5); }
         .sw-copper { background: linear-gradient(135deg,#c08454,#8f5430 45%,#d39a66); }
+        .sw-galv { background: linear-gradient(135deg,#cfd3d6,#9aa0a4 45%,#e1e4e6 70%,#a8aeb2); }
+        .sw-brass { background: linear-gradient(135deg,#d4af52,#a8842f 45%,#e6c873); }
 
         /* ---------- acabados ---------- */
         .fin-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: clamp(34px,5vw,48px); }
@@ -362,6 +364,46 @@
         .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -16px rgba(122,28,40,.6); }
         .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,.32); color: #ece7df; }
         .btn.ghost:hover { background: rgba(255,255,255,.06); box-shadow: none; border-color: rgba(255,255,255,.6); }
+
+        /* ---------- placeholders de imagen (pendientes de foto real) ---------- */
+        .ph { width: 100%; height: 100%; min-height: 170px; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; gap: 7px; text-align: center; padding: 20px;
+            background: repeating-linear-gradient(45deg, #efeae2, #efeae2 13px, #e4ded3 13px, #e4ded3 26px); }
+        .ph .ph-t { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); }
+        .ph .ph-d { font-family: var(--sans); font-size: 11.5px; color: #6f6a64; max-width: 32ch; line-height: 1.5; }
+        .panel-dark .ph, .ph.dark { background: repeating-linear-gradient(45deg, #242019, #242019 13px, #1c1813 13px, #1c1813 26px); }
+        .panel-dark .ph .ph-t, .ph.dark .ph-t { color: #d99; }
+        .panel-dark .ph .ph-d, .ph.dark .ph-d { color: #9c958b; }
+
+        /* perfiles vistos: gráfico SVG a la mitad de alto (descompensaba la tarjeta) */
+        #gamaRow .gama-i { padding: 16px 12px 14px; }
+        #gamaRow .gama-i svg { height: 26px; }
+
+        /* ---------- BIM · flujo técnico, plugins y herramientas ---------- */
+        .bim-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: stretch; margin: clamp(30px,4vw,46px) 0; }
+        @media (max-width: 820px) { .bim-flow { grid-template-columns: 1fr; } .bim-flow .bf-ar { display: none; } }
+        .bf { border: 1px solid var(--line); border-radius: 8px; padding: 22px 22px 24px; background: var(--white); }
+        .bf .bf-n { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--red); }
+        .bf h4 { font-family: var(--serif); font-size: 22px; font-weight: 600; margin: 6px 0 8px; }
+        .bf p { font-size: 13.5px; color: var(--grey); line-height: 1.6; }
+        .bf-ar { display: flex; align-items: center; justify-content: center; color: var(--red); font-size: 26px; }
+        .plugins { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: clamp(28px,4vw,40px); }
+        @media (max-width: 820px) { .plugins { grid-template-columns: 1fr; } }
+        .plug { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); transition: transform .3s, box-shadow .3s, border-color .3s; }
+        .plug:hover { transform: translateY(-5px); box-shadow: 0 26px 50px -32px rgba(28,27,26,.5); border-color: #dcd6cc; }
+        .plug .frame { border-radius: 0; }
+        .plug .pl-tx { padding: 22px 24px 26px; }
+        .plug .pl-n { font-family: var(--serif); font-size: 38px; font-weight: 600; color: var(--red); line-height: 1; }
+        .plug .pl-tag { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--bronze); margin: 4px 0 10px; display: block; }
+        .plug h4 { font-family: var(--serif); font-size: 23px; font-weight: 600; margin-bottom: 10px; }
+        .plug p { font-size: 14px; color: var(--grey); line-height: 1.62; }
+        .viz-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: clamp(28px,4vw,40px); }
+        @media (max-width: 720px) { .viz-row { grid-template-columns: 1fr; } }
+        .viz { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); }
+        .viz .frame { border-radius: 0; }
+        .viz .vz-tx { padding: 18px 20px 20px; }
+        .viz h4 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin-bottom: 6px; }
+        .viz p { font-size: 13px; color: var(--grey); line-height: 1.55; }
     </style>
 </head>
 <body>
@@ -485,12 +527,12 @@
         <h2 class="section-title" style="margin:14px 0 14px; color:#fff;">Flow<span class="tm" style="color:var(--bronze)">™</span></h2>
         <p class="lead-serif" style="max-width:30ch; color:#ece7df;">La armonía nace de la combinación.</p>
         <p class="body grey" style="max-width:68ch; margin-top:18px;">FLOW™ es la <strong style="color:#ece7df;font-weight:500;">conjunción de diferentes perfiles de la colección ORIGAMI</strong> en un mismo paño. El arquitecto combina varias geometrías, materiales y acabados a su gusto para generar ritmo, textura y movimiento visual: cada fachada se convierte en una composición única, nunca repetida.</p>
-        <div class="matrix">
-            <div class="mx"><img src="img/types/type_pyramid_45.jpg" alt="Perfiles Origami"><span>Perfiles</span><span class="op">+</span></div>
-            <div class="mx"><img src="img/propuesta/material_cubes.jpg" alt="Material"><span>Material</span><span class="op">+</span></div>
-            <div class="mx"><img src="img/propuesta/finish_bronze.jpg" alt="Acabado"><span>Acabado</span><span class="op">+</span></div>
-            <div class="mx"><img src="img/propuesta/perf_pattern.jpg" alt="Perforación"><span>Perforación</span><span class="op">=</span></div>
-            <div class="mx sol"><span>Composición<br>única</span></div>
+        <p class="eyebrow" style="margin-top:clamp(34px,4vw,48px); color:#d99;">El proceso · de la fachada a la solución</p>
+        <div class="grid g4">
+            <div class="icard"><div class="ic-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Tu fachada · paño a resolver</span></div></div><div class="ic-tx"><div class="ic-n" style="color:var(--bronze)">01</div><h4>Tu fachada</h4><p>Partes de un paño real: superficie, orientación y modulación. FLOW™ se diseña sobre el proyecto concreto.</p></div></div>
+            <div class="icard"><div class="ic-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Variedad de opciones · combinar perfiles ORIGAMI</span></div></div><div class="ic-tx"><div class="ic-n" style="color:var(--bronze)">02</div><h4>Variedad de opciones</h4><p>Eliges y combinas dos o más geometrías ORIGAMI, alternándolas en anchos y direcciones para crear el ritmo.</p></div></div>
+            <div class="icard"><div class="ic-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Material y acabado · color, brillo y perforación</span></div></div><div class="ic-tx"><div class="ic-n" style="color:var(--bronze)">03</div><h4>Material y acabado</h4><p>Defines metal base, color, brillo y patrón de perforación de cada perfil de la composición.</p></div></div>
+            <div class="icard"><div class="ic-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Sistema de fijación · vista u oculta</span></div></div><div class="ic-tx"><div class="ic-n" style="color:var(--bronze)">04</div><h4>Sistema de fijación</h4><p>Vista u oculta, según la lectura del paño y el montaje. Con esto la composición FLOW™ queda definida.</p></div></div>
         </div>
         <p class="body grey" style="max-width:68ch;">Mezclando anchos, alturas y direcciones —en horizontal o en vertical—, alternando fijación vista y oculta y jugando con materiales y acabados, FLOW™ convierte un catálogo de perfiles en infinitas envolventes posibles, siempre a medida del gusto del proyecto.</p>
         <div class="strip-row">
@@ -500,10 +542,11 @@
 
         <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px); color:#d99;">Mezcla de perfiles · un mismo paño</p>
         <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">Varias geometrías, una sola fachada.</h3>
-        <p class="body grey" style="max-width:70ch; margin-bottom:22px;">Un ejemplo concreto: cuatro geometrías ORIGAMI —Pyramid, Symmetric, Escaler y Kaotico— alternadas en anchos y direcciones para construir un ritmo propio. Cada fachada nace de la suma de varias piezas.</p>
-        <div class="matrix">
+        <p class="body grey" style="max-width:70ch; margin-bottom:22px;">Un ejemplo concreto: cinco geometrías ORIGAMI —Pyramid, Symmetric, Asymmetric, Escaler y Kaotico— alternadas en anchos y direcciones para construir un ritmo propio. Cada fachada nace de la suma de varias piezas.</p>
+        <div class="matrix" style="grid-template-columns:repeat(5,1fr) auto;">
             <div class="mx"><img src="img/types/type_pyramid_45.jpg" alt="Perfil Pyramid"><span>Pyramid</span><span class="op">+</span></div>
             <div class="mx"><img src="img/types/type_symmetric_25.jpg" alt="Perfil Symmetric"><span>Symmetric</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_asymmetric_55.jpg" alt="Perfil Asymmetric"><span>Asymmetric</span><span class="op">+</span></div>
             <div class="mx"><img src="img/types/type_escaler_48.jpg" alt="Perfil Escaler"><span>Escaler</span><span class="op">+</span></div>
             <div class="mx"><img src="img/types/type_kaotico_50.jpg" alt="Perfil Kaotico"><span>Kaotico</span><span class="op">=</span></div>
             <div class="mx sol"><span>Un paño<br>en FLOW™</span></div>
@@ -511,12 +554,12 @@
 
         <p class="eyebrow" style="margin-top:clamp(40px,5vw,56px); color:#d99;">Composiciones</p>
         <div class="gal3" style="margin-top:14px;">
-            <div class="frame ar43"><img src="img/propuesta/app_wood.jpg" alt="Composición FLOW: fachada en latón" loading="lazy"></div>
-            <div class="frame ar43"><img src="img/propuesta/app_green.jpg" alt="Composición FLOW: ritmo cromático" loading="lazy"></div>
-            <div class="frame ar43"><img src="img/propuesta/curved_ribbed.jpg" alt="Composición FLOW" loading="lazy"></div>
-            <div class="frame ar43"><img src="img/propuesta/g_earth.jpg" alt="Composición FLOW" loading="lazy"></div>
-            <div class="frame ar43"><img src="img/propuesta/g_urban.jpg" alt="Composición FLOW" loading="lazy"></div>
-            <div class="frame ar43"><img src="img/propuesta/g_wood.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · composición FLOW en latón</span></div></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · ritmo cromático en fachada</span></div></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · combinación de perfiles</span></div></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · textura mixta</span></div></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · paño urbano</span></div></div>
+            <div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · detalle de combinación</span></div></div>
         </div>
     </div>
 </section>
@@ -538,17 +581,17 @@
         <div class="steps">
             <div class="step"><div class="st-img"><img src="img/propuesta/uniko_sketch.jpg" alt="Idea" loading="lazy"></div><div class="st-tx"><div class="si">01</div><div class="stt">Idea</div><p class="sd">Recogemos el concepto, los bocetos y las referencias del arquitecto. Definimos juntos la intención de la envolvente.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/propuesta/uniko_form.jpg" alt="Diseño" loading="lazy"></div><div class="st-tx"><div class="si">02</div><div class="stt">Diseño</div><p class="sd">Traducimos la visión a una geometría de perfil: sección, profundidad y ritmo, con renders y muestras de la forma.</p></div></div>
-            <div class="step"><div class="st-img"><img src="img/desarrollo_pyramid.png" alt="Ingeniería" loading="lazy" style="object-fit:contain;background:#fff;padding:8px;"></div><div class="st-tx"><div class="si">03</div><div class="stt">Ingeniería</div><p class="sd">Validamos la fabricabilidad: espesores, plegados, tolerancias y comportamiento estructural del perfil.</p></div></div>
-            <div class="step"><div class="st-img"><img src="img/propuesta/product_pyramid.jpg" alt="Prototipo" loading="lazy"></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Producimos una muestra física para validar acabado, luz y sombra in situ antes de la serie.</p></div></div>
+            <div class="step"><div class="st-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Plano técnico / sección de ingeniería del perfil</span></div></div><div class="st-tx"><div class="si">03</div><div class="stt">Ingeniería</div><p class="sd">Convertimos la forma en un perfil fabricable: espesores, radios de plegado, tolerancias y comportamiento estructural, y lo llevamos a familia paramétrica BIM lista para el modelo.</p></div></div>
+            <div class="step"><div class="st-img"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto del prototipo físico del perfil a medida</span></div></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Fabricamos una muestra física a escala real para validar in situ el acabado, el plegado y el juego de luz y sombra del perfil antes de lanzar la serie.</p></div></div>
             <div class="step"><div class="st-img"><img src="img/propuesta/craft_copper.jpg" alt="Fabricación" loading="lazy"></div><div class="st-tx"><div class="si">05</div><div class="stt">Fabricación</div><p class="sd">Fabricación seriada a medida, control dimensional y entrega a obra con acompañamiento técnico.</p></div></div>
         </div>
 
         <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px);">Ejemplos · perfiles a medida</p>
         <p class="body" style="max-width:64ch; margin:8px 0 20px;">Algunos desarrollos UNIKO™ creados para proyectos concretos: perfiles exclusivos diseñados a medida de cada arquitectura.</p>
         <div class="gal3">
-            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/uniko_building.jpg" alt="Ejemplo UNIKO: envolvente a medida" loading="lazy"></div><figcaption>Envolvente perforada a medida · edificio de oficinas</figcaption></figure>
-            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/g_stilts.jpg" alt="Ejemplo UNIKO: perfil volumétrico" loading="lazy"></div><figcaption>Perfil volumétrico exclusivo · equipamiento cultural</figcaption></figure>
-            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/rendimiento_balcony.jpg" alt="Ejemplo UNIKO: envolvente con balcones a medida" loading="lazy"></div><figcaption>Perfil exclusivo en residencial · balcones y antepechos</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Imagen frontal con composición compleja de perfiles a medida</span></div></div><figcaption>Composición frontal a medida · gran variedad de perfiles</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Misma composición frontal explorando distintos colores</span></div></div><figcaption>Misma composición · variación cromática</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Foto de obra real · esquina o punto singular con varios sistemas</span></div></div><figcaption>Detalle constructivo en esquina · proyecto real</figcaption></figure>
         </div>
     </div>
 </section>
@@ -602,12 +645,14 @@
             </div>
         </div>
         <div class="mat-grid">
-            <div class="mat"><div class="swatch sw-steel"></div><div class="mt"><b>Steel</b><span>Acero prelacado. Resistencia y estabilidad dimensional.</span></div></div>
-            <div class="mat"><div class="swatch sw-alu"></div><div class="mt"><b>Aluminium</b><span>Ligereza, durabilidad y resistencia a la corrosión.</span></div></div>
-            <div class="mat"><div class="swatch sw-inox"></div><div class="mt"><b>Stainless Steel</b><span>Precisión, nobleza y elegancia.</span></div></div>
+            <div class="mat"><div class="swatch sw-steel"></div><div class="mt"><b>Acero prelacado</b><span>Resistencia y estabilidad dimensional.</span></div></div>
+            <div class="mat"><div class="swatch sw-galv"></div><div class="mt"><b>Acero galvanizado</b><span>Protección anticorrosión y buena relación coste-prestación.</span></div></div>
+            <div class="mat"><div class="swatch sw-alu"></div><div class="mt"><b>Aluminio</b><span>Ligereza, durabilidad y resistencia a la corrosión.</span></div></div>
+            <div class="mat"><div class="swatch sw-inox"></div><div class="mt"><b>Acero inoxidable</b><span>Precisión, nobleza y elegancia.</span></div></div>
             <div class="mat"><div class="swatch sw-corten"></div><div class="mt"><b>Corten</b><span>Carácter y evolución natural en el tiempo.</span></div></div>
             <div class="mat"><div class="swatch sw-zinc"></div><div class="mt"><b>Zinc</b><span>Arquitectura atemporal.</span></div></div>
-            <div class="mat"><div class="swatch sw-copper"></div><div class="mt"><b>Copper</b><span>Nobleza y exclusividad.</span></div></div>
+            <div class="mat"><div class="swatch sw-copper"></div><div class="mt"><b>Cobre</b><span>Nobleza y exclusividad.</span></div></div>
+            <div class="mat"><div class="swatch sw-brass"></div><div class="mt"><b>Latón</b><span>Calidez dorada y elegancia contemporánea.</span></div></div>
         </div>
     </div>
 </section>
@@ -623,6 +668,7 @@
             <div class="strip" style="aspect-ratio:20/6"><img src="img/propuesta/finish_copper.jpg" alt="Acabados cálidos cobre" loading="lazy"></div>
         </div>
         <div id="finGrid" class="fin-grid"></div>
+        <div class="frame" style="aspect-ratio:21/9; margin-top:clamp(30px,4vw,44px);"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Imagen frontal combinando gran variedad de perfiles en muchos colores distintos</span></div></div>
         <p class="body" style="margin-top:28px;color:var(--grey);font-size:13px;">Muestra orientativa. Carta RAL completa, NCS y acabados especiales bajo demanda.</p>
     </div>
 </section>
@@ -669,33 +715,33 @@
             <div class="app-col">
                 <h3>Exterior</h3>
                 <div class="app-gallery">
-                    <div class="frame"><img src="img/propuesta/g_desert.jpg" alt="Fachada exterior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/escaler_entrada.jpg" alt="Fachada exterior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/g_stilts.jpg" alt="Protección solar exterior" loading="lazy"></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Fachada exterior · vista general</span></div></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Fachada exterior · detalle</span></div></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Protección solar exterior</span></div></div>
                 </div>
                 <ul>
-                    <li>Concealed Fastener Panels</li>
-                    <li>Exposed Fastener Panels</li>
-                    <li>Corrugated Profiles</li>
-                    <li>Screen &amp; Perforated Facades</li>
-                    <li>Sun Control Systems</li>
-                    <li>Architectural Pergolas</li>
+                    <li>Paneles de fijación oculta</li>
+                    <li>Paneles de fijación vista</li>
+                    <li>Perfiles ondulados</li>
+                    <li>Fachadas perforadas y tipo screen</li>
+                    <li>Sistemas de protección solar</li>
+                    <li>Pérgolas arquitectónicas</li>
                 </ul>
             </div>
             <div class="app-col">
                 <h3>Interior</h3>
                 <div class="app-gallery">
-                    <div class="frame"><img src="img/propuesta/perf_interior.jpg" alt="Interior metálico" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/g_city.jpg" alt="Revestimiento interior" loading="lazy"></div>
-                    <div class="frame"><img src="img/propuesta/g_sky.jpg" alt="Sistema lineal interior" loading="lazy"></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Revestimiento interior metálico</span></div></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Muro o techo singular interior</span></div></div>
+                    <div class="frame"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Sistema lineal interior</span></div></div>
                 </div>
                 <ul>
-                    <li>Screen Panels</li>
-                    <li>Decorative Perforated Panels</li>
-                    <li>Acoustic Metal Panels</li>
-                    <li>Linear Metal Systems</li>
-                    <li>Feature Walls &amp; Ceilings</li>
-                    <li>Wall Systems</li>
+                    <li>Paneles tipo screen</li>
+                    <li>Paneles perforados decorativos</li>
+                    <li>Paneles metálicos acústicos</li>
+                    <li>Sistemas lineales metálicos</li>
+                    <li>Muros y techos singulares</li>
+                    <li>Sistemas de revestimiento mural</li>
                 </ul>
             </div>
         </div>
@@ -713,17 +759,30 @@
             </div>
             <div class="frame ar43"><img src="img/propuesta/soluciones_yellow.jpg" alt="Soluciones de envolvente" loading="lazy"></div>
         </div>
-        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Tecnología aplicada · BIM</p>
-        <p class="body" style="margin-bottom:22px;">Cada perfil del catálogo está disponible como <strong style="color:var(--ink);font-weight:500;">familia paramétrica de Revit (.rfa) e IFC</strong>, con sus dimensiones, materiales y acabados integrados. El arquitecto coloca la envolvente en su modelo desde la fase de diseño, con datos reales y medición automática.</p>
-        <div class="strip-row" style="grid-template-columns:repeat(3,1fr);">
-            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim1.jpg" alt="Modelo BIM en Revit" loading="lazy"></div>
-            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim3.jpg" alt="Envolvente paramétrica" loading="lazy"></div>
-            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim2.jpg" alt="Datos integrados y medición" loading="lazy"></div>
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Del diseño a la obra · flujo de trabajo</p>
+        <h3 style="font-family:var(--serif); font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 10px;">Tu perfil, convertido en modelo BIM.</h3>
+        <p class="body" style="margin-bottom:8px;">Automatizamos el salto del dibujo a la obra para darte seguridad en cada fase. Tú dibujas el perfil que imaginas; nosotros lo convertimos en una familia paramétrica de Revit que responde a los parámetros constructivos reales y lo integramos en el sistema de fachada que has elegido.</p>
+        <div class="bim-flow">
+            <div class="bf"><div class="bf-n">01 · Dibujo</div><h4>Tu perfil en DWG</h4><p>Dibujas a medida el perfil que imaginas —vinculado al servicio UNIKO™— y nos lo entregas en formato DWG.</p></div>
+            <div class="bf-ar">→</div>
+            <div class="bf"><div class="bf-n">02 · Conversión</div><h4>Familia BIM paramétrica</h4><p>Transformamos ese dibujo en una familia de Revit (.rfa) que responde a los parámetros constructivos reales del perfil.</p></div>
+            <div class="bf-ar">→</div>
+            <div class="bf"><div class="bf-n">03 · Integración</div><h4>En tu fachada</h4><p>Añadimos la familia personalizada al grupo de sistemas que has seleccionado para la envolvente del proyecto.</p></div>
         </div>
-        <div class="svc-row">
-            <div class="svc"><h4>Prescripción</h4><p>Asesoramiento técnico, detalles constructivos, cálculo de despieces y muestras físicas para incorporar la envolvente al proyecto desde la fase de diseño.</p></div>
-            <div class="svc"><h4>BIM &amp; paramétrico</h4><p>Familias Revit (.rfa), modelos IFC y geometría paramétrica con datos integrados (LOD 200–350) listos para el modelo del edificio.</p></div>
-            <div class="svc"><h4>Fabricación &amp; obra</h4><p>Producción a medida, control dimensional y acompañamiento en obra para garantizar el resultado proyectado, junta a junta.</p></div>
+
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">El ecosistema · tres plugins propios de Revit</p>
+        <p class="body" style="margin-bottom:4px;">Todo el proceso queda automatizado y parametrizado en Revit a través de nuestros tres plugins propios.</p>
+        <div class="plugins">
+            <article class="plug"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Captura del plugin · geometría del perfil → familia Revit</span></div></div><div class="pl-tx"><div class="pl-n">01</div><span class="pl-tag">Geometría → Familia</span><h4>Generador de familias</h4><p>Convierte la geometría del perfil (CAD/DXF) en una familia nativa de Revit, parametrizada y lista para usar.</p></div></article>
+            <article class="plug"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Captura del plugin · composición de la fachada</span></div></div><div class="pl-tx"><div class="pl-n">02</div><span class="pl-tag">Composición</span><h4>Parametrizador de fachada</h4><p>Parametriza la composición completa de la envolvente dentro del modelo: distribución, ritmo y combinación de perfiles.</p></div></article>
+            <article class="plug"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Captura del plugin · conexión con Twinmotion</span></div></div><div class="pl-tx"><div class="pl-n">03</div><span class="pl-tag">Visualización</span><h4>Conexión Twinmotion</h4><p>Enlaza el modelo con Twinmotion para seguimiento visual continuo, renders y exportación a Realidad Virtual.</p></div></article>
+        </div>
+
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Herramientas de acompañamiento y control</p>
+        <div class="viz-row">
+            <div class="viz"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Esquema del cálculo de ancho / espesor de fachada</span></div></div><div class="vz-tx"><h4>Cálculo de ancho de fachada</h4><p>Predimensiona el espesor total de la envolvente para evitar que la fachada quede descolgada o genere imprevistos en obra.</p></div></div>
+            <div class="viz"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Imagen estática · recorrido interactivo · VR</span></div></div><div class="vz-tx"><h4>Visualización avanzada</h4><p>Validamos el diseño con imagen estática, recorrido interactivo en el ordenador o experiencia inmersiva en Realidad Virtual (VR).</p></div></div>
+            <div class="viz"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Visor 3D web del catálogo</span></div></div><div class="vz-tx"><h4>Visor 3D y herramientas a medida</h4><p>La web ya incluye un <a href="index.html" style="color:var(--red);">visor 3D interactivo</a>, y seguimos desarrollando herramientas a medida según las necesidades de cada proyecto.</p></div></div>
         </div>
     </div>
 </section>
