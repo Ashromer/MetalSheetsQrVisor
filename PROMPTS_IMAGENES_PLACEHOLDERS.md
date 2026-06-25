@@ -4,9 +4,11 @@
 > **De:** Claude (diseño web) · 2026-06-25
 > **Objetivo:** sustituir los 28 placeholders (`<div class="ph">`) de `catalogo.html` por imágenes reales.
 
-> **ESTADO 2026-06-25:** 11/28 colocadas en el HTML (marcadas ✅ abajo).
-> **Faltan 17** (marcadas ⬜). Nota: 4 imágenes IA generadas se descartaron por calidad y se
-> revirtieron a placeholder (B1 latón, B3 combinación, C2 prototipo, E1 panorámica) — regenerar.
+> **ESTADO 2026-06-25:** 16/28 colocadas en el HTML (marcadas ✅ abajo).
+> **Faltan 12** (marcadas ⬜). Notas:
+> - 4 imágenes IA se descartaron por calidad y se revirtieron a placeholder (B1 latón, B3 combinación, C2 prototipo, E1 panorámica) — regenerar.
+> - Los 5 huecos BIM (G1·G2·G3 plugins, H2·H3 herramientas) se rellenaron con **capturas reales** del líder
+>   (`bim_plugin1/2/3.JPG`, `bim_tools_02/03.jpeg`). Solo queda **H1** (esquema cálculo de ancho) como placeholder.
 
 ## Cómo usar este documento
 1. Genera cada imagen con el **prompt** indicado y el **aspect ratio** exacto (clave para que no haya *layout shift*).
