@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metalperfil — Arquitectura de envolventes metálicas</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png?v=3">
+    <meta name="description" content="Sistemas arquitectónicos de envolvente metálica. ORIGAMI, UNIKO y FLOW: forma + material + acabado. Catálogo de prescripción para arquitectura.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Metalperfil">
+    <meta property="og:title" content="Metalperfil — Arquitectura de envolventes metálicas">
+    <meta property="og:description" content="Forma + material + acabado. Catálogo de prescripción: perfiles arquitectónicos, personalización y combinaciones para la envolvente del edificio.">
+    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/img/propuesta/g_detail.jpg">
+    <meta property="og:url" content="https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html">
+    <link rel="canonical" href="https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Metalperfil — Arquitectura de envolventes metálicas">
+    <meta name="twitter:description" content="Catálogo de prescripción de envolventes metálicas: forma, material, acabado y personalización a medida.">
+    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/img/propuesta/g_detail.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"Metalperfil","url":"https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html","logo":"https://ashromer.github.io/MetalSheetsQrVisor/assets/favicon.png","description":"Sistemas arquitectónicos de envolvente metálica: forma, material, acabado y personalización a medida para arquitectura."}
+    </script>
+
+    <style>
+        :root {
+            --red: rgb(122, 28, 40);
+            --red-soft: rgba(122, 28, 40, .08);
+            --ink: #1c1b1a;
+            --grey: #6f6a64;
+            --line: #e7e3dd;
+            --white: #ffffff;
+            --panel: #141210;          /* break oscuro de marca */
+            --cream: #f7f5f1;
+            --bronze: #9a6b3a;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Montserrat', sans-serif;
+            --maxw: 1280px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--white); color: var(--ink); font-family: var(--sans);
+            font-weight: 300; line-height: 1.75; font-size: 16px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; text-decoration: none; }
+        ::selection { background: var(--red); color: #fff; }
+        .skip { position: absolute; left: -9999px; top: 0; z-index: 200; background: var(--red); color: #fff;
+            font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 1px; padding: 12px 18px; border-radius: 0 0 4px 0; }
+        .skip:focus { left: 0; }
+
+        h1, h2, h3, .display { font-family: var(--serif); font-weight: 500; line-height: 1.05; }
+        .eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 3.5px;
+            text-transform: uppercase; color: var(--red); }
+        .section-title { font-family: var(--serif); font-weight: 500; font-size: clamp(44px, 7.6vw, 100px); line-height: .98; }
+        .tm { font-size: .5em; vertical-align: super; font-family: var(--sans); font-weight: 500; opacity: .55; }
+
+        /* ---------- header rojo ---------- */
+        .site-header { position: sticky; top: 0; z-index: 100; background: var(--red);
+            display: flex; align-items: center; justify-content: space-between; height: 70px; padding: 0 16px 0 22px; }
+        .site-header .logo img { height: clamp(36px, 9vw, 46px); width: auto; }
+        .hdr-right { display: flex; align-items: center; gap: 6px; }
+        .hdr-right > a { font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: 1.4px;
+            text-transform: uppercase; color: #fff; padding: 9px 14px; border-radius: 2px; transition: background .2s, color .2s; white-space: nowrap; }
+        .hdr-right > a:hover { background: #fff; color: var(--red); }
+        .nav-toggle { display: inline-flex; align-items: center; justify-content: center; background: none;
+            border: 1px solid rgba(255,255,255,.6); color: #fff; width: 46px; height: 38px; border-radius: 2px; cursor: pointer; font-size: 17px; }
+        .nav-toggle:hover { background: #fff; color: var(--red); }
+        nav.main { position: absolute; top: 66px; right: 14px; min-width: 232px; background: var(--red);
+            flex-direction: column; align-items: stretch; gap: 0; padding: 8px 16px 14px; display: none;
+            border: 1px solid rgba(255,255,255,.18); border-radius: 4px; box-shadow: 0 26px 54px -22px rgba(0,0,0,.55); }
+        nav.main.open { display: flex; }
+        nav.main a { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 1.4px;
+            text-transform: uppercase; color: #fff; padding: 12px 6px; border-bottom: 1px solid rgba(255,255,255,.15); transition: color .2s; }
+        nav.main a:last-child { border-bottom: none; }
+        nav.main a:hover { color: #f0c7c9; }
+        @media (max-width: 640px) { .hdr-right > a.hide-sm { display: none; } }
+        @media (max-width: 460px) { .hdr-right > a.hide-xs { display: none; } nav.main { right: 8px; left: 8px; } }
+
+        /* ---------- layout ---------- */
+        .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; width: 100%; }
+        .screen { padding: clamp(64px, 9vw, 128px) 0; scroll-margin-top: 70px; }
+        .cream { background: var(--cream); }
+        .panel-dark { background: var(--panel); color: #ece7df; }
+        .panel-dark .eyebrow { color: #d99; }
+        .panel-dark .grey { color: #9c958b; }
+
+        .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+
+        /* ---------- HERO (1/3 rojo + texto a caballo sobre la imagen) ---------- */
+        .hero { position: relative; display: grid; grid-template-columns: 1fr 2fr; min-height: calc(100vh - 70px); }
+        .hero-band { background: var(--red); }
+        .hero-img { position: relative; overflow: hidden; background: var(--panel); }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(.97) saturate(.98); }
+        .hero-img::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(90deg, rgba(20,18,16,.5) 0%, rgba(20,18,16,.16) 38%, rgba(20,18,16,0) 60%); }
+        .hero-text { position: absolute; top: 0; bottom: 0; left: 0; width: min(720px, 66%); z-index: 2;
+            display: flex; flex-direction: column; justify-content: center; padding: clamp(34px, 5vw, 74px);
+            background: linear-gradient(90deg, var(--red) 0%, var(--red) 44%, rgba(122,28,40,.95) 60%, rgba(122,28,40,.62) 78%, rgba(122,28,40,0) 100%); }
+        .hero-text .eyebrow { color: #f3c9cb; }
+        .hero h1 { color: #fff; font-size: clamp(40px, 5.4vw, 78px); line-height: 1.04; margin-top: 18px; text-shadow: 0 2px 20px rgba(15,13,12,.32); }
+        .hero h1 em { font-style: italic; color: #f4cdcf; }
+        .hero .lead { font-family: var(--serif); font-style: italic; font-weight: 400;
+            font-size: clamp(18px, 1.9vw, 25px); color: #f6eee9; margin-top: 24px; max-width: 38ch; line-height: 1.5; text-shadow: 0 1px 14px rgba(15,13,12,.3); }
+        @media (max-width: 880px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-band { display: none; }
+            .hero-img { min-height: 46vh; order: -1; }
+            .hero-text { position: static; width: auto; background: var(--red); }
+        }
+
+        /* ---------- editorial ---------- */
+        .lead-serif { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 3.2vw, 42px); line-height: 1.28; color: var(--ink); }
+        .body-serif { font-family: var(--serif); font-weight: 400; font-size: clamp(18px, 1.8vw, 23px); line-height: 1.6; color: #34302c; }
+        .body { color: #44403b; max-width: 64ch; }
+        .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 6vw, 84px); align-items: center; }
+        .split.wide-img { grid-template-columns: 1.15fr .85fr; }
+        @media (max-width: 880px) { .split, .split.wide-img { grid-template-columns: 1fr; } }
+        .frame { border-radius: 4px; overflow: hidden; background: var(--cream); }
+        .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .frame.ar43 { aspect-ratio: 4/3; }
+        .frame.ar11 { aspect-ratio: 1/1; }
+        .frame.ar32 { aspect-ratio: 3/2; }
+        .frame.tall { aspect-ratio: 3/4; }
+
+        /* ---------- equation ---------- */
+        .equation { display: flex; flex-wrap: wrap; align-items: center; gap: clamp(10px, 2vw, 22px);
+            font-family: var(--serif); font-size: clamp(26px, 5vw, 56px); font-weight: 500; line-height: 1.1; margin-top: 10px; }
+        .equation .op { color: var(--red); font-weight: 400; }
+        .equation .res { color: var(--bronze); font-style: italic; }
+
+        /* ---------- grids de tarjetas con imagen ---------- */
+        .grid { display: grid; gap: 18px; margin-top: clamp(36px, 5vw, 60px); }
+        .g4 { grid-template-columns: repeat(4, 1fr); }
+        .g3 { grid-template-columns: repeat(3, 1fr); }
+        .g2 { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 980px) { .g4 { grid-template-columns: repeat(2, 1fr); } .g3 { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .g4, .g3, .g2 { grid-template-columns: 1fr; } }
+
+        .icard { border: 1px solid var(--line); border-radius: 5px; overflow: hidden; background: var(--white);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+        .icard:hover { transform: translateY(-5px); box-shadow: 0 26px 50px -32px rgba(28,27,26,.5); border-color: #dcd6cc; }
+        .icard .ic-img { overflow: hidden; aspect-ratio: 4/3; }
+        .icard .ic-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+        .icard:hover .ic-img img { transform: scale(1.05); }
+        .icard .ic-tx { padding: 22px 22px 24px; }
+        .icard .ic-n { font-family: var(--serif); font-size: 15px; color: var(--red); letter-spacing: 1px; }
+        .icard h4 { font-family: var(--serif); font-size: clamp(24px, 3vw, 30px); font-weight: 600; margin: 2px 0 10px; }
+        .icard h4 .tm { color: var(--bronze); }
+        .icard p { font-size: 14px; color: var(--grey); line-height: 1.6; }
+        .icard .go { margin-top: 16px; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); }
+        .panel-dark .icard { background: #1d1a16; border-color: rgba(236,231,223,.12); }
+        .panel-dark .icard h4 { color: #fff; }
+        .panel-dark .icard p { color: #a89f93; }
+
+        /* ---------- ORIGAMI familias ---------- */
+        .fam-block { border-top: 1px solid var(--line); padding: clamp(48px, 7vw, 96px) 0; }
+        .fam { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(30px, 5vw, 72px); align-items: center; }
+        .fam-block:nth-child(even) .fam-media { order: 2; }
+        @media (max-width: 920px) { .fam { grid-template-columns: 1fr; } .fam-block:nth-child(even) .fam-media { order: 0; } }
+
+        /* ---- Tipos y dimensiones (ficha por tipo) ---- */
+        .fam-types { margin-top: clamp(54px, 6vw, 88px); }
+        .fam-types .subhead { display: flex; align-items: center; gap: 18px; margin-bottom: 32px; }
+        .fam-types .subhead h3 { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); font-weight: 500; white-space: nowrap; }
+        .fam-types .subhead .ln { flex: 1; height: 1px; background: var(--line); }
+        .tcards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.2vw, 26px); }
+        @media (max-width: 880px) { .tcards { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .tcards { grid-template-columns: 1fr; } }
+        .tcard { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--white);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+        .tcard:hover { transform: translateY(-5px); box-shadow: 0 24px 46px -30px rgba(28,27,26,.5); border-color: #dcd6cc; }
+        .tcard .tc-media { aspect-ratio: 5/8; overflow: hidden; background: var(--cream); display: flex; align-items: center; justify-content: center; }
+        .tcard .tc-media img { width: 100%; height: 100%; object-fit: contain; }
+        .tcard .tc-body { padding: 22px 22px 24px; }
+        .tcard .tc-lab { font-family: var(--serif); font-size: 22px; font-weight: 600; }
+        .tcard .tc-dim { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 10px; line-height: 1.85; }
+        /* ---- ficha técnica por familia ---- */
+        .ficha { display: grid; grid-template-columns: 1.25fr 1fr 1fr 0.75fr; gap: clamp(26px, 3.6vw, 56px); }
+        @media (max-width: 880px) { .ficha { grid-template-columns: 1fr 1fr; gap: 34px; } }
+        @media (max-width: 520px) { .ficha { grid-template-columns: 1fr; } }
+        .ficha h5 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+        .ficha .frow { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 13.5px; color: #44403b; }
+        .ficha .frow b { font-weight: 500; color: var(--ink); white-space: nowrap; }
+        .ficha .qr img { width: 100px; height: 100px; border: 1px solid var(--line); border-radius: 6px; padding: 7px; background: #fff; }
+        .ficha .qr span { display: block; font-size: 11px; color: var(--grey); margin-top: 10px; line-height: 1.5; max-width: 22ch; }
+        .fam-media { position: relative; }
+        .fam-render { border-radius: 6px; overflow: hidden; background: var(--cream); aspect-ratio: 4/3; }
+        .fam-render img { width: 100%; height: 100%; object-fit: cover; }
+        .fam-product { position: absolute; right: -14px; bottom: -22px; width: 46%; max-width: 232px;
+            background: rgba(255,255,255,.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--line); border-radius: 6px; padding: 12px; box-shadow: 0 26px 50px -28px rgba(28,27,26,.5); }
+        .fam-product img { width: 100%; height: auto; object-fit: contain; }
+        .fam-num { font-family: var(--serif); font-size: clamp(52px, 8vw, 100px); font-weight: 600; line-height: .8; color: var(--red); }
+        .fam h3 { font-size: clamp(38px, 5.4vw, 62px); margin: 6px 0 4px; }
+        .fam h3 .tm { color: var(--bronze); }
+        .fam .fam-tag { font-family: var(--serif); font-style: italic; font-size: 21px; color: var(--red); margin-bottom: 16px; }
+        .fam .fam-desc { color: #44403b; font-size: 15.5px; line-height: 1.66; max-width: 56ch; }
+        .fam-attrs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+        .fam-attrs span { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .5px; color: var(--red);
+            background: var(--red-soft); border: 1px solid rgba(122,28,40,.22); border-radius: 999px; padding: 6px 13px; }
+        .fam-profile { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 18px; }
+        .fam-profile .lbl { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); margin-bottom: 10px; }
+        .fam-profile svg { width: 100%; height: 52px; overflow: visible; }
+        .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+        .fam-viewer { margin-top: 22px; }
+        model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
+            border: 1px solid var(--line); border-radius: 6px; --poster-color: transparent; }
+        .mv-types { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .mv-types button { font-family: var(--sans); font-size: 11px; font-weight: 500; color: var(--ink);
+            background: var(--white); border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; cursor: pointer; transition: all .2s; }
+        .mv-types button:hover { border-color: var(--red); color: var(--red); }
+        .mv-types button.active { background: var(--red); color: #fff; border-color: var(--red); }
+
+        /* ---------- dos sistemas (diagrama ramificado, panel oscuro) ---------- */
+        .dos { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(26px, 5vw, 70px); margin-top: clamp(58px, 8vw, 104px); }
+        @media (max-width: 820px) { .dos { grid-template-columns: 1fr; gap: 44px; } }
+        .dos-branch { position: absolute; top: calc(-1 * clamp(36px, 5vw, 60px)); left: 0; right: 0; height: clamp(36px, 5vw, 60px); pointer-events: none; }
+        @media (max-width: 820px) { .dos-branch { display: none; } }
+        .dos-branch svg { width: 100%; height: 100%; overflow: visible; }
+        .dos-branch path { fill: none; stroke: rgba(236,231,223,.38); stroke-width: 1.4; }
+        .dos-media { aspect-ratio: 16/11; border-radius: 6px; overflow: hidden; margin-bottom: 22px; }
+        .dos-media img { width: 100%; height: 100%; object-fit: cover; }
+        .dos-col .eyebrow { color: #d99; }
+        .dos-col h3 { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); font-weight: 600; color: #fff; margin: 8px 0 12px; }
+        .dos-col .txt { color: #a89f93; font-size: 15px; line-height: 1.62; max-width: 46ch; }
+        .dos-col ul { list-style: none; margin-top: 18px; }
+        .dos-col li { padding: 9px 0 9px 22px; position: relative; color: #cfc7bb; font-size: 14.5px; border-top: 1px solid rgba(236,231,223,.12); }
+        .dos-col li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 7px; height: 7px; background: var(--red); border-radius: 50%; }
+        /* ---- gama de perfiles (fila de secciones) ---- */
+        .gama { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 11px; margin-top: 14px; }
+        .gama-i { border: 1px solid rgba(236,231,223,.14); border-radius: 6px; padding: 28px 12px 18px; text-align: center; transition: border-color .25s, background .25s; }
+        .gama-i:hover { border-color: rgba(176,141,87,.5); background: rgba(236,231,223,.03); }
+        .gama-i svg { width: 100%; height: 50px; overflow: visible; }
+        .gama-i svg path { fill: none; stroke: #ece7df; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+        .gama-i .gl { font-family: var(--sans); font-size: 9.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8a8377; margin-top: 10px; }
+
+        /* ---------- sistemas ---------- */
+        .sys-syn { font-family: var(--serif); font-size: clamp(40px, 5vw, 72px); color: var(--line); font-weight: 400; line-height: .8; }
+        .sys ul { list-style: none; margin-top: 16px; }
+        .sys li { padding: 9px 0 9px 22px; position: relative; color: #44403b; font-size: 15px; border-top: 1px solid var(--line); }
+        .sys li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 7px; height: 7px; background: var(--red); border-radius: 50%; }
+
+        /* ---------- proceso UNIKO ---------- */
+        .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: clamp(40px, 6vw, 60px); }
+        @media (max-width: 920px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+        .step { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--white); }
+        .step .st-img { aspect-ratio: 4/3; overflow: hidden; background: var(--cream); }
+        .step .st-img img { width: 100%; height: 100%; object-fit: cover; }
+        .step .st-tx { padding: 16px 16px 18px; }
+        .step .si { font-family: var(--serif); font-size: 26px; color: var(--bronze); font-weight: 600; line-height: 1; }
+        .step .stt { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px; }
+        .step .sd { font-size: 12.5px; color: var(--grey); line-height: 1.5; margin-top: 9px; }
+
+        /* ---------- FLOW matriz con imágenes ---------- */
+        .matrix { display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 12px; align-items: stretch; margin: clamp(36px,5vw,56px) 0; }
+        @media (max-width: 980px) { .matrix { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .matrix { grid-template-columns: 1fr; } }
+        .mx { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 5/4; }
+        .mx img { width: 100%; height: 100%; object-fit: cover; }
+        .mx span { position: absolute; left: 0; bottom: 0; right: 0; padding: 12px 14px; color: #fff;
+            font-family: var(--serif); font-size: 22px; background: linear-gradient(transparent, rgba(15,13,12,.82)); }
+        .mx .op { position: absolute; top: 8px; right: 10px; bottom: auto; left: auto; padding: 0;
+            background: none; color: var(--red); font-size: 30px; }
+        .mx.sol { aspect-ratio: auto; background: var(--red); display: flex; align-items: center; justify-content: center; min-width: 150px; }
+        .mx.sol span { position: static; background: none; font-style: italic; text-align: center; padding: 20px; }
+        /* galería de 3 (Flow / Uniko) */
+        .gal3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        @media (max-width: 880px) { .gal3 { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 520px) { .gal3 { grid-template-columns: 1fr; } }
+        .ucard figcaption { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 10px; letter-spacing: .3px; line-height: 1.5; }
+
+        /* ---------- materiales ---------- */
+        .mat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: clamp(34px,5vw,52px); }
+        @media (max-width: 820px) { .mat-grid { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width: 520px) { .mat-grid { grid-template-columns: 1fr; } }
+        .mat { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: var(--white); transition: transform .3s ease, border-color .3s; }
+        .mat:hover { transform: translateY(-4px); border-color: #d8d2c8; }
+        .mat .swatch { height: 110px; }
+        .mat .mt { padding: 18px 20px 20px; }
+        .mat .mt b { font-family: var(--serif); font-size: 23px; font-weight: 600; display: block; }
+        .mat .mt span { font-size: 13px; color: var(--grey); }
+        .sw-steel { background: linear-gradient(135deg,#b9bdc2,#7c8186 45%,#d2d6da); }
+        .sw-alu { background: linear-gradient(135deg,#dee1e4,#b3b8bd 50%,#eef0f2); }
+        .sw-inox { background: linear-gradient(135deg,#d6dadd,#9ba0a5 40%,#f0f2f4 70%,#aeb3b7 100%); }
+        .sw-corten { background: linear-gradient(135deg,#a05a36,#7c3f25 45%,#b96f43); }
+        .sw-zinc { background: linear-gradient(135deg,#969ca1,#6b7176 50%,#aab0b5); }
+        .sw-copper { background: linear-gradient(135deg,#c08454,#8f5430 45%,#d39a66); }
+
+        /* ---------- acabados ---------- */
+        .fin-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: clamp(34px,5vw,48px); }
+        @media (max-width: 720px) { .fin-grid { grid-template-columns: 1fr; } }
+        .fin { border: 1px solid var(--line); border-radius: 6px; background: var(--white); padding: 24px 24px 22px;
+            transition: border-color .3s, box-shadow .3s; }
+        .fin:hover { border-color: #dcd6cc; box-shadow: 0 22px 44px -32px rgba(28,27,26,.45); }
+        .fin .fin-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+        .fin b { font-family: var(--serif); font-size: 23px; font-weight: 600; }
+        .fin b .tm { color: var(--bronze); }
+        .fin .fin-c { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--red); white-space: nowrap; }
+        .fin .fin-d { font-size: 13px; color: var(--grey); margin: 6px 0 16px; line-height: 1.55; }
+        .fin .sws { display: flex; flex-wrap: wrap; gap: 8px; }
+        .fin .sw { width: 30px; height: 30px; border-radius: 5px; border: 1px solid rgba(28,27,26,.14); cursor: default;
+            transition: transform .18s ease; }
+        .fin .sw:hover { transform: scale(1.16); box-shadow: 0 6px 14px -6px rgba(0,0,0,.45); z-index:2; }
+        .fin .sw.lt { border-color: rgba(28,27,26,.2); }
+        .strip-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: clamp(34px,5vw,48px); }
+        @media (max-width: 720px) { .strip-row { grid-template-columns: 1fr; } }
+        .strip { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+        .strip img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* ---------- perforación ---------- */
+        .perf-list { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-top: 30px; }
+        @media (max-width: 820px) { .perf-list { grid-template-columns: repeat(2,1fr); } }
+        .perf-list div { border-top: 2px solid var(--red); padding-top: 12px; font-size: 13px; color: #44403b; }
+        .perf-list b { font-family: var(--serif); font-size: 18px; color: var(--ink); display: block; }
+        .perf-patterns { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; margin-top: clamp(34px, 5vw, 52px); }
+        @media (max-width: 860px) { .perf-patterns { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 460px) { .perf-patterns { grid-template-columns: repeat(2, 1fr); } }
+        .ppat { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; transition: transform .25s ease; }
+        .ppat:hover { transform: translateY(-4px); }
+        .ppat .pv { aspect-ratio: 1/1; background-color: #2a2724; }
+        .ppat .pl { font-family: var(--sans); font-size: 10.5px; letter-spacing: .3px; text-align: center; padding: 9px 4px; color: var(--grey); }
+
+        /* ---------- aplicaciones ---------- */
+        .app-col h3 { font-family: var(--serif); font-size: 30px; font-weight: 600; margin-bottom: 12px; color: var(--bronze); }
+        .app-gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 10px; height: 360px; margin-bottom: 18px; }
+        .app-gallery .frame { height: 100%; }
+        .app-gallery .frame:first-child { grid-row: 1 / 3; }
+        .app-col ul { list-style: none; }
+        .app-col li { padding: 12px 0; border-top: 1px solid var(--line); color: #44403b; font-size: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .app-col li::after { content: "→"; color: var(--red); opacity: .5; }
+
+        /* ---------- servicios ---------- */
+        .svc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px); margin-top: clamp(40px, 5vw, 60px); }
+        @media (max-width: 760px) { .svc-row { grid-template-columns: 1fr; } }
+        .svc { border-top: 2px solid var(--red); padding-top: 16px; }
+        .svc h4 { font-family: var(--serif); font-size: 25px; font-weight: 600; margin-bottom: 8px; }
+        .svc p { font-size: 14px; color: var(--grey); line-height: 1.62; }
+
+        /* ---------- closing ---------- */
+        .closing { min-height: 70vh; display: flex; align-items: center; }
+        .closing h2 { font-size: clamp(38px, 6vw, 84px); color: #fff; max-width: 18ch; }
+        .closing h2 em { font-style: italic; color: #e0a3a6; }
+
+        /* ---------- footer ---------- */
+        footer { background: #0c0b0a; color: #d8d3cc; padding: clamp(56px,8vw,92px) 0 40px; }
+        footer .ft-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+        @media (max-width: 720px) { footer .ft-top { grid-template-columns: 1fr; } }
+        footer h2 { font-size: clamp(34px,5vw,56px); color: #fff; }
+        footer h2 em { font-style: italic; color: #e0a3a6; }
+        footer .ft-links { display: flex; flex-direction: column; gap: 10px; }
+        footer .ft-links a { color: #b3aca2; font-size: 14px; }
+        footer .ft-links a:hover { color: #fff; }
+        footer .ft-bottom { margin-top: clamp(46px,7vw,76px); padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12);
+            display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px; color: #8a8377; font-size: 12px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-size: 12px; font-weight: 600;
+            letter-spacing: 1.5px; text-transform: uppercase; color: #fff; background: var(--red); padding: 14px 26px; border-radius: 3px; margin-top: 24px; transition: transform .2s, box-shadow .2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 30px -16px rgba(122,28,40,.6); }
+        .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,.32); color: #ece7df; }
+        .btn.ghost:hover { background: rgba(255,255,255,.06); box-shadow: none; border-color: rgba(255,255,255,.6); }
+    </style>
+</head>
+<body>
+
+<a class="skip" href="#concepto">Saltar al contenido</a>
+
+<header class="site-header">
+    <a class="logo" href="#top" aria-label="Metalperfil"><img src="assets/Metalperfil_white_trim.png" alt="Metalperfil"></a>
+    <div class="hdr-right">
+        <a class="hide-sm" href="#nosotros">Quiénes somos</a>
+        <a class="hide-xs" href="#contacto">Contacto</a>
+        <a href="index.html">Visor 3D</a>
+        <button class="nav-toggle" aria-label="Menú" aria-expanded="false" onclick="this.setAttribute('aria-expanded', document.querySelector('nav.main').classList.toggle('open'))">☰</button>
+    </div>
+    <nav class="main">
+        <a href="#concepto">Concepto</a>
+        <a href="#origami">Origami</a>
+        <a href="#flow">Flow</a>
+        <a href="#uniko">Uniko</a>
+        <a href="#sistemas">Sistemas</a>
+        <a href="#materia">Materia</a>
+        <a href="#acabados">Acabados</a>
+        <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#nosotros">Quiénes somos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<!-- ===================== 01 · INTRODUCCIÓN DE MARCA ===================== -->
+<section class="hero" id="top">
+    <div class="hero-band"></div>
+    <div class="hero-text reveal">
+        <p class="eyebrow">Arquitectura de envolventes metálicas</p>
+        <h1>Transformamos metal.<br><em>Creamos arquitectura.</em></h1>
+        <p class="lead">«Desde hace generaciones, damos forma al metal para crear soluciones únicas donde la precisión industrial y la artesanía se encuentran, para crear envolventes que definen la arquitectura y perduran en el tiempo.»</p>
+    </div>
+    <div class="hero-img"><img src="img/propuesta/g_forest.jpg" alt="Edificio con envolvente metálica Pyramid junto al agua" fetchpriority="high"></div>
+</section>
+
+<!-- ===================== LA FACHADA COMO IDENTIDAD ===================== -->
+<section class="screen">
+    <div class="wrap reveal">
+        <p class="eyebrow">La fachada como identidad</p>
+        <h2 class="section-title" style="margin:16px 0 22px;">La arquitectura se expresa<br>a través de la fachada.</h2>
+        <p class="body-serif" style="max-width:62ch;">Es la primera expresión del edificio. Define su carácter, comunica su propósito y establece un diálogo permanente con el entorno urbano y el paisaje. Una envolvente no debería limitar la arquitectura: <em>debería impulsarla.</em></p>
+        <div class="frame reveal" style="aspect-ratio:21/8; margin-top:clamp(34px,5vw,54px);"><img src="img/propuesta/fam_pyramid.jpg" alt="Edificio con envolvente metálica Pyramid" style="object-position:center 35%;" loading="lazy"></div>
+    </div>
+</section>
+
+<!-- ===================== CADA FORMA NACE DE UNA INTENCIÓN ===================== -->
+<section class="screen cream" id="nosotros">
+    <div class="wrap reveal">
+        <div class="split">
+            <div class="frame ar43"><img src="img/propuesta/craft_copper.jpg" alt="La artesanía del metal" loading="lazy"></div>
+            <div>
+                <p class="eyebrow">La artesanía de dar forma</p>
+                <h2 class="section-title" style="margin:14px 0 22px;">Cada forma<br>nace de una<br>intención.</h2>
+                <p class="body-serif">Donde la precisión industrial y la artesanía se encuentran nacen envolventes con identidad propia. No fabricamos perfiles en serie: damos forma a la piel del edificio, pieza a pieza, con un control total sobre la geometría, el material y el acabado.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CONCEPTO: FORMA + MATERIAL + ACABADO ===================== -->
+<section class="screen" id="concepto">
+    <div class="wrap reveal">
+        <p class="eyebrow">Concepto general</p>
+        <h2 class="section-title" style="margin:14px 0 20px;">Un mismo lenguaje,<br>cuatro decisiones.</h2>
+        <p class="lead-serif" style="max-width:30ch; margin-bottom:18px;">Eligiendo una opción dentro de cada una de estas cuatro decisiones se configura la fachada.</p>
+        <p class="body">Forma, sistema, material y acabado: combinando una opción de cada bloque se obtiene una solución única. No fabricamos solo perfiles: ofrecemos un <strong style="font-weight:500;color:var(--ink)">lenguaje arquitectónico</strong> con el que el arquitecto compone la envolvente a su gusto. Y así se estructura este catálogo.</p>
+
+        <div class="grid g4">
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/forma_profile.jpg" alt="Formas" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">01 · Eliges la</div><h4>Forma</h4><p>La geometría del perfil: ondulada, trapezoidal, plana o volumétrica. Es la primera decisión y la que más marca el carácter de la fachada. Elígela del catálogo <em>Origami</em> o diséñala a medida con <em>Uniko</em>.</p></div></div>
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/ph_sistemas.svg" alt="Diagrama de fijación vista y oculta" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">02 · Decides el</div><h4>Sistema</h4><p>Cómo se ancla la piel: <strong style="font-weight:500;color:var(--ink)">fijación vista</strong> (el anclaje forma parte de la estética) u <strong style="font-weight:500;color:var(--ink)">oculta</strong> (superficie continua, sin tornillos a la vista). Condiciona el montaje y la lectura del paño.</p></div></div>
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/material_cubes.jpg" alt="Materiales" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">03 · Escoges el</div><h4>Material</h4><p>El metal base: acero, aluminio, inoxidable, corten, zinc o cobre. Cada uno responde distinto al clima, la exigencia estructural y el presupuesto del proyecto.</p></div></div>
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/finish_bronze.jpg" alt="Acabados" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">04 · Defines el</div><h4>Acabado</h4><p>La superficie: color (RAL/NCS), brillo, textura y perforación. Una misma forma cambia por completo según el acabado — aquí se afina la identidad final. <em>Y la suma de las cuatro es tu fachada.</em></p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== TRES PROPUESTAS DE VALOR ===================== -->
+<section class="screen panel-dark">
+    <div class="wrap reveal">
+        <p class="eyebrow">Tres propuestas de valor</p>
+        <h2 class="section-title" style="margin:14px 0 6px; color:#fff;">Diseñar la piel.</h2>
+        <div class="grid g3">
+            <a class="icard" href="#origami"><div class="ic-img"><img src="img/propuesta/g_metal.jpg" alt="Origami" loading="lazy"></div>
+                <div class="ic-tx"><h4>Origami<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La arquitectura comienza con una forma.</p><p>Colección de perfiles categorizados en series por geometría. Amplitud de formas para dar carácter a la envolvente.</p><div class="go">Ver colección →</div></div></a>
+            <a class="icard" href="#flow"><div class="ic-img"><img src="img/propuesta/g_bronze.jpg" alt="Flow" loading="lazy"></div>
+                <div class="ic-tx"><h4>Flow<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La belleza surge de la combinación.</p><p>Composiciones de perfiles, materiales y acabados que generan ritmo, textura y movimiento visual.</p><div class="go">Ver combinaciones →</div></div></a>
+            <a class="icard" href="#uniko"><div class="ic-img"><img src="img/propuesta/uniko_form.jpg" alt="Uniko" loading="lazy"></div>
+                <div class="ic-tx"><h4>Uniko<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La forma más singular se crea.</p><p>Servicio de diseño colaborativo para desarrollar perfiles exclusivos a medida de cada proyecto.</p><div class="go">Ver servicio →</div></div></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 02 · ORIGAMI — EL LENGUAJE DE LAS FORMAS ===================== -->
+<section class="screen" id="origami">
+    <div class="wrap">
+        <div class="reveal">
+            <p class="eyebrow">02 · El lenguaje de las formas</p>
+            <h2 class="section-title" style="margin:14px 0 22px;">Origami<span class="tm" style="color:var(--bronze)">™</span></h2>
+            <p class="lead-serif" style="max-width:28ch;">Cada pliegue tiene un propósito.</p>
+            <p class="body" style="margin-top:20px;">ORIGAMI™ reúne una colección de perfiles arquitectónicos concebidos a partir de geometrías estudiadas para aportar identidad, profundidad y expresión a la envolvente. Cada serie explora una relación única entre luz, sombra, escala y volumen: una biblioteca de formas para transformar superficies en elementos con personalidad propia.</p>
+            <p class="body" style="margin-top:14px;"><strong style="color:var(--ink);font-weight:500;">Cinco familias que cubren todo el espectro geométrico.</strong> No buscamos ampliar la lista sin fin: con estas cinco se resuelve cualquier fachada. El verdadero valor está en lo que viene después — <em>personalizar</em> cada perfil en material, acabado, perforación, dirección y combinación (FLOW), o diseñarlo a medida (UNIKO).</p>
+        </div>
+        <div class="frame reveal" style="aspect-ratio:21/8; margin-top:clamp(34px,5vw,52px);"><img src="img/propuesta/g_detail.jpg" alt="Proyecto con envolvente ORIGAMI" loading="lazy"></div>
+        <div id="famList"></div>
+        <p class="body" style="margin-top:46px;color:var(--grey);font-size:13px;">Datos técnicos completos (dimensiones, tipos y propiedades) en las fichas de producto por perfil — documentación a parte.</p>
+    </div>
+</section>
+
+<!-- ===================== 03 · FLOW — INFINITAS COMBINACIONES ===================== -->
+<section class="screen panel-dark" id="flow">
+    <div class="wrap reveal">
+        <p class="eyebrow">03 · Infinitas combinaciones</p>
+        <h2 class="section-title" style="margin:14px 0 14px; color:#fff;">Flow<span class="tm" style="color:var(--bronze)">™</span></h2>
+        <p class="lead-serif" style="max-width:30ch; color:#ece7df;">La armonía nace de la combinación.</p>
+        <p class="body grey" style="max-width:68ch; margin-top:18px;">FLOW™ es la <strong style="color:#ece7df;font-weight:500;">conjunción de diferentes perfiles de la colección ORIGAMI</strong> en un mismo paño. El arquitecto combina varias geometrías, materiales y acabados a su gusto para generar ritmo, textura y movimiento visual: cada fachada se convierte en una composición única, nunca repetida.</p>
+        <div class="matrix">
+            <div class="mx"><img src="img/types/type_pyramid_45.jpg" alt="Perfiles Origami"><span>Perfiles</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/propuesta/material_cubes.jpg" alt="Material"><span>Material</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/propuesta/finish_bronze.jpg" alt="Acabado"><span>Acabado</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/propuesta/perf_pattern.jpg" alt="Perforación"><span>Perforación</span><span class="op">=</span></div>
+            <div class="mx sol"><span>Composición<br>única</span></div>
+        </div>
+        <p class="body grey" style="max-width:68ch;">Mezclando anchos, alturas y direcciones —en horizontal o en vertical—, alternando fijación vista y oculta y jugando con materiales y acabados, FLOW™ convierte un catálogo de perfiles en infinitas envolventes posibles, siempre a medida del gusto del proyecto.</p>
+        <div class="strip-row">
+            <div class="strip" style="aspect-ratio:17/6"><img src="img/propuesta/finish_cool.jpg" alt="Combinación de acabados fríos" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:17/6"><img src="img/propuesta/flow_matrix.jpg" alt="Matriz de combinaciones" loading="lazy"></div>
+        </div>
+
+        <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px); color:#d99;">Mezcla de perfiles · un mismo paño</p>
+        <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">Varias geometrías, una sola fachada.</h3>
+        <p class="body grey" style="max-width:70ch; margin-bottom:22px;">Un ejemplo concreto: cuatro geometrías ORIGAMI —Pyramid, Symmetric, Escaler y Kaotico— alternadas en anchos y direcciones para construir un ritmo propio. Cada fachada nace de la suma de varias piezas.</p>
+        <div class="matrix">
+            <div class="mx"><img src="img/types/type_pyramid_45.jpg" alt="Perfil Pyramid"><span>Pyramid</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_symmetric_25.jpg" alt="Perfil Symmetric"><span>Symmetric</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_escaler_48.jpg" alt="Perfil Escaler"><span>Escaler</span><span class="op">+</span></div>
+            <div class="mx"><img src="img/types/type_kaotico_50.jpg" alt="Perfil Kaotico"><span>Kaotico</span><span class="op">=</span></div>
+            <div class="mx sol"><span>Un paño<br>en FLOW™</span></div>
+        </div>
+
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,56px); color:#d99;">Composiciones</p>
+        <div class="gal3" style="margin-top:14px;">
+            <div class="frame ar43"><img src="img/propuesta/app_wood.jpg" alt="Composición FLOW: fachada en latón" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/app_green.jpg" alt="Composición FLOW: ritmo cromático" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/curved_ribbed.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_earth.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_urban.jpg" alt="Composición FLOW" loading="lazy"></div>
+            <div class="frame ar43"><img src="img/propuesta/g_wood.jpg" alt="Composición FLOW" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 04 · UNIKO — CUSTOMIZAR ===================== -->
+<section class="screen" id="uniko">
+    <div class="wrap reveal">
+        <p class="eyebrow">04 · Customizar</p>
+        <h2 class="section-title" style="margin:14px 0 22px;">Uniko<span class="tm" style="color:var(--bronze)">™</span></h2>
+        <div class="split">
+            <div>
+                <p class="lead-serif" style="max-width:22ch;">Diseñado para proyectos irrepetibles.</p>
+                <p class="body" style="margin-top:20px;">UNIKO™ es nuestro servicio de diseño colaborativo para arquitectos que buscan desarrollar perfiles exclusivos adaptados a la identidad de cada proyecto. Desde la idea conceptual hasta la solución fabricable, transformamos la visión arquitectónica en sistemas metálicos únicos.</p>
+                <p class="body-serif" style="margin-top:18px;color:var(--ink);font-style:italic;">No solo fabricamos perfiles. Diseñamos arquitectura junto al arquitecto.</p>
+            </div>
+            <div class="frame ar43"><img src="img/propuesta/uniko_building.jpg" alt="Perfil UNIKO a medida" loading="lazy"></div>
+        </div>
+        <p class="eyebrow" style="margin-top:clamp(46px,6vw,72px);">El proceso · de la idea a la obra</p>
+        <div class="steps">
+            <div class="step"><div class="st-img"><img src="img/propuesta/uniko_sketch.jpg" alt="Idea" loading="lazy"></div><div class="st-tx"><div class="si">01</div><div class="stt">Idea</div><p class="sd">Recogemos el concepto, los bocetos y las referencias del arquitecto. Definimos juntos la intención de la envolvente.</p></div></div>
+            <div class="step"><div class="st-img"><img src="img/propuesta/uniko_form.jpg" alt="Diseño" loading="lazy"></div><div class="st-tx"><div class="si">02</div><div class="stt">Diseño</div><p class="sd">Traducimos la visión a una geometría de perfil: sección, profundidad y ritmo, con renders y muestras de la forma.</p></div></div>
+            <div class="step"><div class="st-img"><img src="img/desarrollo_pyramid.png" alt="Ingeniería" loading="lazy" style="object-fit:contain;background:#fff;padding:8px;"></div><div class="st-tx"><div class="si">03</div><div class="stt">Ingeniería</div><p class="sd">Validamos la fabricabilidad: espesores, plegados, tolerancias y comportamiento estructural del perfil.</p></div></div>
+            <div class="step"><div class="st-img"><img src="img/propuesta/product_pyramid.jpg" alt="Prototipo" loading="lazy"></div><div class="st-tx"><div class="si">04</div><div class="stt">Prototipo</div><p class="sd">Producimos una muestra física para validar acabado, luz y sombra in situ antes de la serie.</p></div></div>
+            <div class="step"><div class="st-img"><img src="img/propuesta/craft_copper.jpg" alt="Fabricación" loading="lazy"></div><div class="st-tx"><div class="si">05</div><div class="stt">Fabricación</div><p class="sd">Fabricación seriada a medida, control dimensional y entrega a obra con acompañamiento técnico.</p></div></div>
+        </div>
+
+        <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px);">Ejemplos · perfiles a medida</p>
+        <p class="body" style="max-width:64ch; margin:8px 0 20px;">Algunos desarrollos UNIKO™ creados para proyectos concretos: perfiles exclusivos diseñados a medida de cada arquitectura.</p>
+        <div class="gal3">
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/uniko_building.jpg" alt="Ejemplo UNIKO: envolvente a medida" loading="lazy"></div><figcaption>Envolvente perforada a medida · edificio de oficinas</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/g_stilts.jpg" alt="Ejemplo UNIKO: perfil volumétrico" loading="lazy"></div><figcaption>Perfil volumétrico exclusivo · equipamiento cultural</figcaption></figure>
+            <figure class="ucard"><div class="frame ar43"><img src="img/propuesta/rendimiento_balcony.jpg" alt="Ejemplo UNIKO: envolvente con balcones a medida" loading="lazy"></div><figcaption>Perfil exclusivo en residencial · balcones y antepechos</figcaption></figure>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 05 · DOS SISTEMAS DE FIJACIÓN ===================== -->
+<section class="screen panel-dark" id="sistemas">
+    <div class="wrap reveal">
+        <p class="eyebrow">05 · La gama, dos sistemas</p>
+        <h2 class="section-title" style="color:#fff; margin:14px 0 16px;">dos sistemas.</h2>
+        <p class="lead-serif" style="color:#ece7df; max-width:30ch;">Cada perfil genera una relación diferente entre la luz, el volumen y la superficie.</p>
+        <div class="dos">
+            <div class="dos-branch">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M50,0 V42 H25 V100 M50,42 H75 V100" vector-effect="non-scaling-stroke"/>
+                </svg>
+            </div>
+            <div class="dos-col">
+                <div class="dos-media"><img src="img/propuesta/ph_fix_vista.svg" alt="Diagrama de fijación vista: tornillo visto sobre el perfil" loading="lazy"></div>
+                <p class="eyebrow">Arquitectura expresiva</p>
+                <h3>Fijaciones vistas</h3>
+                <p class="txt">Soluciones donde la técnica forma parte de la estética. La modulación y los puntos de unión contribuyen a la identidad visual del proyecto. Es la gama ORIGAMI.</p>
+                <p class="eyebrow" style="margin-top:22px;">Perfiles vistos</p>
+                <div id="gamaRow" class="gama"></div>
+            </div>
+            <div class="dos-col">
+                <div class="dos-media"><img src="img/propuesta/ph_fix_oculta.svg" alt="Diagrama de fijación oculta: clip oculto, superficie continua" loading="lazy"></div>
+                <p class="eyebrow">Arquitectura continua</p>
+                <h3>Fijaciones ocultas</h3>
+                <p class="txt">Superficies limpias y homogéneas donde la geometría y la luz adquieren el máximo protagonismo. Piel continua, sin anclajes a la vista.</p>
+                <p class="eyebrow" style="margin-top:22px;">Sistemas ocultos</p>
+                <div class="gama">
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,25 L30,25 L31,20 L34,20 L35,25 L65,25 L66,20 L69,20 L70,25 L100,25" vector-effect="non-scaling-stroke"/></svg><div class="gl">Rollforming</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,24 L20,24 M28,24 L46,24 M54,24 L72,24 M80,24 L98,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Screen Panel</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,26 L12,20 M22,26 L32,20 M42,26 L52,20 M62,26 L72,20 M82,26 L92,20" vector-effect="non-scaling-stroke"/></svg><div class="gl">Lamas</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,24 Q12,21 24,24 T48,24 T72,24 T96,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Custom</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 06 · LA MATERIA ===================== -->
+<section class="screen" id="materia">
+    <div class="wrap reveal">
+        <p class="eyebrow">06 · La materia</p>
+        <h2 class="section-title" style="margin:14px 0 22px;">Materiales.</h2>
+        <div class="split">
+            <div class="frame ar32"><img src="img/propuesta/material_samples.jpg" alt="Muestras de material" loading="lazy"></div>
+            <div>
+                <p class="body-serif">La materia da carácter a la arquitectura. Cada material ofrece una respuesta técnica y estética distinta; la elección depende del contexto, la exigencia estructural y el entorno ambiental.</p>
+            </div>
+        </div>
+        <div class="mat-grid">
+            <div class="mat"><div class="swatch sw-steel"></div><div class="mt"><b>Steel</b><span>Acero prelacado. Resistencia y estabilidad dimensional.</span></div></div>
+            <div class="mat"><div class="swatch sw-alu"></div><div class="mt"><b>Aluminium</b><span>Ligereza, durabilidad y resistencia a la corrosión.</span></div></div>
+            <div class="mat"><div class="swatch sw-inox"></div><div class="mt"><b>Stainless Steel</b><span>Precisión, nobleza y elegancia.</span></div></div>
+            <div class="mat"><div class="swatch sw-corten"></div><div class="mt"><b>Corten</b><span>Carácter y evolución natural en el tiempo.</span></div></div>
+            <div class="mat"><div class="swatch sw-zinc"></div><div class="mt"><b>Zinc</b><span>Arquitectura atemporal.</span></div></div>
+            <div class="mat"><div class="swatch sw-copper"></div><div class="mt"><b>Copper</b><span>Nobleza y exclusividad.</span></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 07 · ACABADOS & COLOR ===================== -->
+<section class="screen cream" id="acabados">
+    <div class="wrap reveal">
+        <p class="eyebrow">07 · Acabados &amp; color</p>
+        <h2 class="section-title" style="margin:14px 0 18px;">Diseñar con<br>la superficie.</h2>
+        <p class="body">Una misma forma puede transformarse por completo mediante el acabado. Color, brillo y textura como lenguaje arquitectónico.</p>
+        <div class="strip-row">
+            <div class="strip" style="aspect-ratio:20/6"><img src="img/propuesta/finish_cool.jpg" alt="Acabados metálicos fríos" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:20/6"><img src="img/propuesta/finish_copper.jpg" alt="Acabados cálidos cobre" loading="lazy"></div>
+        </div>
+        <div id="finGrid" class="fin-grid"></div>
+        <p class="body" style="margin-top:28px;color:var(--grey);font-size:13px;">Muestra orientativa. Carta RAL completa, NCS y acabados especiales bajo demanda.</p>
+    </div>
+</section>
+
+<!-- ===================== 08 · PERFORACIÓN DESIGN ===================== -->
+<section class="screen" id="perforacion">
+    <div class="wrap reveal">
+        <p class="eyebrow">08 · Perforación design</p>
+        <h2 class="section-title" style="margin:14px 0 22px;">Diseñar con la luz.</h2>
+        <div class="split wide-img">
+            <div class="frame ar43"><img src="img/propuesta/perf_interior.jpg" alt="Perforación: interior tamizado" loading="lazy"></div>
+            <div>
+                <p class="body-serif">Las perforaciones amplían las posibilidades del metal más allá de su función constructiva. Patrones, densidades y geometrías que controlan la transparencia y modulan la luz natural. Superficies que cambian con la distancia, el ángulo de visión y el paso del tiempo.</p>
+                <p class="eyebrow" style="margin-top:18px;">Cobre · Zinc · Latón · Inox</p>
+            </div>
+        </div>
+        <div class="perf-list">
+            <div><b>Transparencia</b>Grado de visión a través del paño.</div>
+            <div><b>Privacidad</b>Control de la mirada desde el exterior.</div>
+            <div><b>Ventilación</b>Flujo de aire en fachada ventilada.</div>
+            <div><b>Control solar</b>Filtrado de la radiación directa.</div>
+            <div><b>Expresión</b>Identidad gráfica de la envolvente.</div>
+        </div>
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Patrones &amp; densidades</p>
+        <div class="perf-patterns">
+            <div class="ppat"><div class="pv" style="background-image:radial-gradient(circle,#f7f5f1 1px,transparent 1.4px);background-size:6px 6px;"></div><div class="pl">Micro Ø1,5</div></div>
+            <div class="ppat"><div class="pv" style="background-image:radial-gradient(circle,#f7f5f1 1.6px,transparent 2px);background-size:9px 9px;"></div><div class="pl">Round Ø3</div></div>
+            <div class="ppat"><div class="pv" style="background-image:radial-gradient(circle,#f7f5f1 2.6px,transparent 3px);background-size:13px 13px;"></div><div class="pl">Round Ø5</div></div>
+            <div class="ppat"><div class="pv" style="background-image:radial-gradient(circle,#f7f5f1 3.4px,transparent 3.9px);background-size:18px 18px;"></div><div class="pl">Open Ø8</div></div>
+            <div class="ppat"><div class="pv" style="background-image:radial-gradient(circle,#f7f5f1 2px,transparent 2.4px),radial-gradient(circle,#f7f5f1 2px,transparent 2.4px);background-size:14px 14px;background-position:0 0,7px 7px;"></div><div class="pl">Tresbolillo</div></div>
+            <div class="ppat"><div class="pv" style="background-image:repeating-linear-gradient(0deg,#2a2724 0 7px,transparent 7px 10px),repeating-linear-gradient(90deg,#2a2724 0 7px,transparent 7px 10px);"></div><div class="pl">Cuadrado</div></div>
+            <div class="ppat"><div class="pv" style="background-image:repeating-linear-gradient(90deg,#f7f5f1 0 3px,#2a2724 3px 11px);"></div><div class="pl">Lineal</div></div>
+            <div class="ppat"><div class="pv" style="background-image:repeating-linear-gradient(60deg,#f7f5f1 0 2px,#2a2724 2px 9px);"></div><div class="pl">Diagonal</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 09 · APLICACIONES ARQUITECTÓNICAS ===================== -->
+<section class="screen cream" id="aplicaciones">
+    <div class="wrap reveal">
+        <p class="eyebrow">09 · Aplicaciones</p>
+        <h2 class="section-title" style="margin:14px 0 18px;">Dónde vive la piel.</h2>
+        <div class="split" style="align-items:start;">
+            <div class="app-col">
+                <h3>Exterior</h3>
+                <div class="app-gallery">
+                    <div class="frame"><img src="img/propuesta/g_desert.jpg" alt="Fachada exterior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/escaler_entrada.jpg" alt="Fachada exterior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_stilts.jpg" alt="Protección solar exterior" loading="lazy"></div>
+                </div>
+                <ul>
+                    <li>Concealed Fastener Panels</li>
+                    <li>Exposed Fastener Panels</li>
+                    <li>Corrugated Profiles</li>
+                    <li>Screen &amp; Perforated Facades</li>
+                    <li>Sun Control Systems</li>
+                    <li>Architectural Pergolas</li>
+                </ul>
+            </div>
+            <div class="app-col">
+                <h3>Interior</h3>
+                <div class="app-gallery">
+                    <div class="frame"><img src="img/propuesta/perf_interior.jpg" alt="Interior metálico" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_city.jpg" alt="Revestimiento interior" loading="lazy"></div>
+                    <div class="frame"><img src="img/propuesta/g_sky.jpg" alt="Sistema lineal interior" loading="lazy"></div>
+                </div>
+                <ul>
+                    <li>Screen Panels</li>
+                    <li>Decorative Perforated Panels</li>
+                    <li>Acoustic Metal Panels</li>
+                    <li>Linear Metal Systems</li>
+                    <li>Feature Walls &amp; Ceilings</li>
+                    <li>Wall Systems</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== MÁS QUE PERFILES + BIM / A OBRA ===================== -->
+<section class="screen">
+    <div class="wrap reveal">
+        <div class="split">
+            <div>
+                <p class="eyebrow">No vendemos perfiles</p>
+                <h2 class="section-title" style="margin:14px 0 20px;">Construimos<br>soluciones.</h2>
+                <p class="body-serif">Acompañamos al arquitecto desde la idea hasta la obra: rendimiento verificado, soporte BIM y modelos paramétricos para integrar la envolvente en el proyecto desde el primer trazo.</p>
+            </div>
+            <div class="frame ar43"><img src="img/propuesta/soluciones_yellow.jpg" alt="Soluciones de envolvente" loading="lazy"></div>
+        </div>
+        <p class="eyebrow" style="margin-top:clamp(40px,5vw,60px);">Tecnología aplicada · BIM</p>
+        <p class="body" style="margin-bottom:22px;">Cada perfil del catálogo está disponible como <strong style="color:var(--ink);font-weight:500;">familia paramétrica de Revit (.rfa) e IFC</strong>, con sus dimensiones, materiales y acabados integrados. El arquitecto coloca la envolvente en su modelo desde la fase de diseño, con datos reales y medición automática.</p>
+        <div class="strip-row" style="grid-template-columns:repeat(3,1fr);">
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim1.jpg" alt="Modelo BIM en Revit" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim3.jpg" alt="Envolvente paramétrica" loading="lazy"></div>
+            <div class="strip" style="aspect-ratio:4/3"><img src="img/propuesta/bim2.jpg" alt="Datos integrados y medición" loading="lazy"></div>
+        </div>
+        <div class="svc-row">
+            <div class="svc"><h4>Prescripción</h4><p>Asesoramiento técnico, detalles constructivos, cálculo de despieces y muestras físicas para incorporar la envolvente al proyecto desde la fase de diseño.</p></div>
+            <div class="svc"><h4>BIM &amp; paramétrico</h4><p>Familias Revit (.rfa), modelos IFC y geometría paramétrica con datos integrados (LOD 200–350) listos para el modelo del edificio.</p></div>
+            <div class="svc"><h4>Fabricación &amp; obra</h4><p>Producción a medida, control dimensional y acompañamiento en obra para garantizar el resultado proyectado, junta a junta.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== CIERRE ===================== -->
+<section class="closing panel-dark">
+    <div class="wrap reveal">
+        <p class="eyebrow">Metalperfil</p>
+        <h2 style="margin-top:14px;">Diseñar una envolvente es diseñar la <em>identidad</em> del edificio.</h2>
+    </div>
+</section>
+
+<!-- ===================== FOOTER / CONTACTO ===================== -->
+<footer id="contacto">
+    <div class="wrap reveal">
+        <div class="ft-top">
+            <div>
+                <p class="eyebrow" style="color:#d99;">Hablemos de su proyecto</p>
+                <h2 style="margin-top:12px;">Transformamos metal.<br><em>Creamos arquitectura.</em></h2>
+                <p class="body" style="color:#b3aca2;max-width:48ch;margin-top:16px;">Asesoramiento de prescripción, muestras físicas, fichas técnicas y modelos BIM para integrar la envolvente en tu proyecto desde el primer trazo.</p>
+                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px;">
+                    <a class="btn" href="mailto:info@metalperfil.com?subject=Prescripción%20envolvente">Solicitar prescripción</a>
+                    <a class="btn ghost" href="index.html">Visor 3D interactivo</a>
+                    <a class="btn ghost" href="mailto:info@metalperfil.com?subject=Muestras">Pedir muestras</a>
+                    <a class="btn ghost" href="Catalogo_Metalperfil.pdf" download>Descargar catálogo (PDF)</a>
+                </div>
+            </div>
+            <div class="ft-links">
+                <p class="eyebrow" style="color:#d99; margin-bottom:8px;">Navegación</p>
+                <a href="#origami">Origami — Formas</a>
+                <a href="#uniko">Uniko — A medida</a>
+                <a href="#flow">Flow — Combinaciones</a>
+                <a href="#materia">Materiales</a>
+                <a href="#acabados">Acabados &amp; color</a>
+                <a href="#aplicaciones">Aplicaciones</a>
+                <a href="index.html">Visor 3D interactivo</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>© 2026 Metalperfil · Arquitectura de envolventes metálicas</span>
+            <span>Forma · Material · Acabado · Personalización</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+    /* ---- Familias 1–5 (ORIGAMI). Renders del borrador del cliente + producto + 3D ---- */
+    const FAMILIES = [
+        { num:'01', name:'Pyramid', anchor:'pyramid', tag:'La luz talla cada arista.', attrs:['Máxima expresividad','Sombra profunda','Identidad'],
+          desc:'Disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma. El patrón nítido transmite durabilidad e integridad estructural; sus ángulos pronunciados encarnan una estética minimalista y contemporánea que realza la profundidad visual de la fachada.',
+          render:'img/propuesta/fam_pyramid.jpg', product:'img/01_Pyramid_cut.png',
+          types:[
+            {lab:'Pyramid 39', ancho:'882 mm', altura:'39 mm', img:'img/types/type_pyramid_39.jpg'},
+            {lab:'Pyramid 45', ancho:'1021 mm', altura:'47 mm', img:'img/types/type_pyramid_45.jpg'},
+            {lab:'Pyramid 68', ancho:'880 mm', altura:'69 mm', img:'img/types/type_pyramid_68.jpg'},
+            {lab:'Pyramid 110', ancho:'827 mm', altura:'110 mm', img:'img/types/type_pyramid_110.jpg'} ],
+          model:{ prefix:'models/Pyramid_', types:['39','45','68','110'] } },
+        { num:'02', name:'Symmetric', anchor:'symmetric', tag:'Geometría precisa, presencia serena.', attrs:['Versatilidad','Imagen tecnológica','Equilibrio'],
+          desc:'Se fundamenta en la pureza de la proporción y el rigor geométrico. Una métrica de líneas limpias que articula la fachada con una sobriedad atemporal, capaz de integrarse en cualquier lenguaje arquitectónico contemporáneo.',
+          render:'img/propuesta/fam_symmetric.jpg', product:'img/02_Symmetric_cut.png',
+          types:[
+            {lab:'Symmetric 23', ancho:'927 mm', altura:'23 mm', angulo:'125°', img:'img/types/type_symmetric_23.jpg'},
+            {lab:'Symmetric 25', ancho:'1155 mm', altura:'25 mm', angulo:'128°', img:'img/types/type_symmetric_25.jpg'},
+            {lab:'Symmetric 29', ancho:'1005 mm', altura:'29 mm', angulo:'142°', img:'img/types/type_symmetric_29.jpg'},
+            {lab:'Symmetric 40', ancho:'1007 mm', altura:'40 mm', angulo:'113°', img:'img/types/type_symmetric_40.jpg'} ],
+          model:{ prefix:'models/Symetric_', types:['23','25','29','40'] } },
+        { num:'03', name:'Asymmetric', anchor:'asymmetric', tag:'Sombra y ritmo en movimiento.', attrs:['Dinamismo','Direccionalidad','Sutileza'],
+          desc:'Variación asimétrica del trapecio: faldones de distinta pendiente que rompen la repetición regular y generan un juego de luces cambiante a lo largo del día. Conserva el rigor técnico de Symmetric e introduce una direccionalidad sutil que aporta dinamismo sin renunciar a la sobriedad.',
+          render:'img/p14_1.jpeg', product:'img/03_Asymmetric_cut.png',
+          types:[
+            {lab:'Asymmetric 35', ancho:'740 mm', altura:'34 mm', img:'img/types/type_asymmetric_35.jpg'},
+            {lab:'Asymmetric 55', ancho:'718 mm', altura:'55 mm', img:'img/types/type_asymmetric_55.jpg'},
+            {lab:'Asymmetric 60', ancho:'926 mm', altura:'60 mm', img:'img/types/type_asymmetric_60.jpg'},
+            {lab:'Asymmetric 80', ancho:'684 mm', altura:'80 mm', img:'img/types/type_asymmetric_80.jpg'} ],
+          model:{ prefix:'models/Asymetric_', types:['35','55','60','80'] } },
+        { num:'04', name:'Escaler', anchor:'escaler', tag:'Profundidad que cambia con el sol.', attrs:['Relieve marcado','Ritmo','Carácter gráfico'],
+          desc:'Geometría escalonada, con peldaños ascendentes que dibujan una sucesión de planos y sombras nítidas. Su marcado relieve aporta un fuerte carácter gráfico, con una lectura rítmica y ordenada que funciona especialmente bien en grandes paños.',
+          render:'img/propuesta/escaler_front.jpg', product:'img/04_Escaler_cut.png',
+          types:[
+            {lab:'Escaler 22', ancho:'1053 mm', altura:'22 mm', img:'img/types/type_escaler_22.jpg'},
+            {lab:'Escaler 48', ancho:'1088 mm', altura:'48 mm', img:'img/types/type_escaler_48.jpg'},
+            {lab:'Escaler 55', ancho:'883 mm', altura:'56 mm', img:'img/types/type_escaler_55.jpg'},
+            {lab:'Escaler 70', ancho:'1018 mm', altura:'70 mm', img:'img/types/type_escaler_70.jpg'} ],
+          model:{ prefix:'models/Escaler_', types:['22','48','55','70'] } },
+        { num:'05', name:'Kaotico', anchor:'kaotico', tag:'Una piel que respira con la fachada.', attrs:['Textura orgánica','Reflejos cambiantes','Expresividad'],
+          desc:'Composición de pliegues deliberadamente irregular: un ritmo aparentemente aleatorio que rompe la monotonía y dota a la piel de una textura viva y orgánica. La irregularidad está controlada para generar reflejos cambiantes, ideal para fachadas con voluntad expresiva.',
+          render:'img/propuesta/fam_kaotico.jpg', product:'img/05_Kaotico_cut.png',
+          types:[
+            {lab:'Kaotico 24', ancho:'983 mm', altura:'24 mm', img:'img/types/type_kaotico_24.jpg'},
+            {lab:'Kaotico 28', ancho:'865 mm', altura:'30 mm', img:'img/types/type_kaotico_28.jpg'},
+            {lab:'Kaotico 50', ancho:'788 mm', altura:'51 mm', img:'img/types/type_kaotico_50.jpg'},
+            {lab:'Kaotico 73', ancho:'851 mm', altura:'73 mm', img:'img/types/type_kaotico_73.jpg'} ],
+          model:{ prefix:'models/Kaotiko_', types:['24','28','50','73'] } }
+    ];
+
+    /* Perfiles reales (FIBRA NEUTRA del DXF), tipo de menor altura, viewBox 0 17 100 10 */
+    const PROFILES = {
+        pyramid:    'M0.0,26.0 L4.0,26.0 L7.1,18.0 L10.3,26.0 L14.5,26.0 L17.7,18.0 L20.8,26.0 L25.0,26.0 L28.2,18.0 L31.4,26.0 L35.6,26.0 L38.8,18.0 L41.9,26.0 L46.1,26.0 L49.3,18.0 L52.5,26.0 L56.7,26.0 L59.8,18.0 L63.0,26.0 L67.2,26.0 L70.4,18.0 L73.5,26.0 L77.7,26.0 L80.9,18.0 L84.1,26.0 L88.3,26.0 L91.4,18.0 L94.6,26.0 L98.8,26.0 L100.0,23.0',
+        symmetric:  'M100.0,23.7 L99.6,25.5 L96.2,25.5 L95.2,20.9 L91.8,20.9 L90.8,25.5 L87.5,25.5 L86.4,20.9 L83.1,20.9 L82.0,25.5 L78.7,25.5 L77.7,20.9 L74.3,20.9 L73.3,25.5 L69.9,25.5 L68.9,20.9 L65.5,20.9 L64.5,25.5 L61.2,25.5 L60.1,20.9 L56.8,20.9 L55.7,25.5 L52.4,25.5 L51.4,20.9 L48.0,20.9 L47.0,25.5 L43.6,25.5 L42.6,20.9 L39.2,20.9 L38.2,25.5 L34.9,25.5 L33.8,20.9 L30.5,20.9 L29.4,25.5 L26.1,25.5 L25.1,20.9 L21.7,20.9 L20.7,25.5 L17.3,25.5 L16.3,20.9 L12.9,20.9 L11.9,25.5 L8.6,25.5 L7.5,20.9 L4.2,20.9 L3.1,25.5 L1.0,25.5 L0.0,26.0',
+        asymmetric: 'M100.0,26.0 L97.0,26.0 L98.1,19.0 L93.6,19.0 L89.2,26.0 L86.2,26.0 L87.2,19.0 L82.8,19.0 L78.4,26.0 L75.4,26.0 L76.4,19.0 L72.0,19.0 L67.6,26.0 L64.6,26.0 L65.6,19.0 L61.2,19.0 L56.8,26.0 L53.8,26.0 L54.8,19.0 L50.4,19.0 L45.9,26.0 L43.0,26.0 L44.0,19.0 L39.5,19.0 L35.1,26.0 L32.2,26.0 L33.2,19.0 L28.7,19.0 L24.3,26.0 L21.4,26.0 L22.4,19.0 L17.9,19.0 L13.5,26.0 L10.5,26.0 L11.6,19.0 L7.1,19.0 L2.7,26.0 L0.0,26.0',
+        escaler:    'M0.0,26.0 L2.0,26.0 L2.0,21.5 L12.2,26.0 L14.2,26.0 L14.2,21.5 L24.4,26.0 L26.5,26.0 L26.5,21.5 L36.7,26.0 L38.7,26.0 L38.7,21.5 L48.9,26.0 L51.0,26.0 L51.0,21.5 L61.2,26.0 L63.2,26.0 L63.2,21.5 L73.4,26.0 L75.5,26.0 L75.5,21.5 L85.7,26.0 L87.7,26.0 L87.7,21.5 L97.9,26.0 L100.0,26.0',
+        kaotico:    'M0.0,23.5 L0.6,26.0 L3.5,26.0 L4.7,21.1 L8.5,26.0 L11.6,26.0 L15.4,21.1 L16.6,26.0 L20.1,26.0 L23.9,21.1 L25.1,26.0 L26.2,26.0 L27.4,21.1 L31.3,26.0 L35.7,26.0 L39.6,21.1 L40.8,26.0 L43.8,26.0 L45.0,21.1 L48.9,26.0 L51.8,26.0 L53.0,21.1 L56.9,26.0 L59.9,26.0 L63.8,21.1 L65.0,26.0 L68.4,26.0 L72.2,21.1 L73.5,26.0 L74.6,26.0 L75.8,21.1 L79.6,26.0 L84.1,26.0 L87.9,21.1 L89.1,26.0 L92.2,26.0 L96.0,21.1 L97.3,26.0 L100.0,26.0'
+    };
+
+    const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const norm = t => (typeof t==='string') ? {label:t, file:t} : t;
+
+    document.getElementById('famList').innerHTML = FAMILIES.map(f => {
+        const types = f.model.types.map(norm);
+        const first = types[0];
+        const btns = types.map((t,i) =>
+            `<button data-fam="${f.anchor}" data-file="${esc(t.file)}" class="${i===0?'active':''}">${esc(t.label)}</button>`).join('');
+        const tcards = (f.types||[]).map(t => `
+                <div class="tcard">
+                    <div class="tc-media"><img class="${t.r3d?'render3d':''}" src="${esc(t.img)}" alt="${esc(t.lab)}" loading="lazy"></div>
+                    <div class="tc-body">
+                        <div class="tc-lab">${esc(t.lab)}</div>
+                        <div class="tc-dim">${t.ancho?'Ancho '+esc(t.ancho):''}${t.altura?'<br>Alto '+esc(t.altura):''}${t.angulo?'<br>Ángulo '+esc(t.angulo):''}</div>
+                    </div>
+                </div>`).join('');
+        const dims = (f.types||[]).map(t =>
+            `<div class="frow"><span>${esc(t.lab)}</span><b>${esc(t.ancho)}${t.altura?' · '+esc(t.altura):''}</b></div>`).join('');
+        return `
+        <article class="fam-block reveal" id="${f.anchor}">
+            <div class="fam">
+                <div class="fam-media">
+                    <div class="fam-render"><img src="${esc(f.render)}" alt="${esc(f.name)} en arquitectura" loading="lazy"></div>
+                    <div class="fam-product"><img src="${esc(f.product)}" alt="${esc(f.name)} perfil" loading="lazy"></div>
+                </div>
+                <div class="fam-body">
+                    <div class="fam-num">${esc(f.num)}</div>
+                    <h3>${esc(f.name)}<span class="tm">™</span></h3>
+                    <p class="fam-tag">${esc(f.tag)}</p>
+                    <p class="fam-desc">${esc(f.desc)}</p>
+                    <div class="fam-attrs">${(f.attrs||[]).map(a=>`<span>${esc(a)}</span>`).join('')}</div>
+                    <div class="fam-profile">
+                        <div class="lbl">Forma característica</div>
+                        <svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="${PROFILES[f.anchor]}" vector-effect="non-scaling-stroke"/></svg>
+                    </div>
+                    <div class="fam-viewer">
+                        <model-viewer id="mv-${f.anchor}" src="${encodeURI(f.model.prefix + first.file + '.glb')}"
+                            poster="img/types/type_${f.anchor}_${esc(first.file)}.jpg"
+                            camera-controls disable-pan interaction-prompt="none" ar ar-modes="webxr scene-viewer quick-look"
+                            min-camera-orbit="auto 0deg auto" max-camera-orbit="auto 180deg auto"
+                            shadow-intensity="0.6" exposure="1.1" loading="lazy" reveal="auto"></model-viewer>
+                        <div class="mv-types">${btns}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fam-types">
+                <div class="subhead"><h3>Tipos y dimensiones</h3><span class="ln"></span></div>
+                <div class="tcards">${tcards}</div>
+            </div>
+            <div class="fam-types">
+                <div class="subhead"><h3>Ficha técnica</h3><span class="ln"></span></div>
+                <div class="ficha">
+                    <div><h5>Dimensiones · ancho · alto</h5>${dims}</div>
+                    <div><h5>Material</h5>
+                        <div class="frow"><span>Acero galvanizado</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Acero prelacado</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Acero inoxidable</span><b>0,6–1,0 mm</b></div>
+                        <div class="frow"><span>Aluminio / zinc / cobre</span><b>bajo demanda</b></div>
+                    </div>
+                    <div><h5>Propiedades técnicas</h5>
+                        <div class="frow"><span>Longitud mínima</span><b>1250 mm</b></div>
+                        <div class="frow"><span>Longitud máxima</span><b>5000 mm</b></div>
+                        <div class="frow"><span>Configuración</span><b>Horiz. / Vert.</b></div>
+                        <div class="frow"><span>Fijación</span><b>Vista</b></div>
+                    </div>
+                    <div class="qr"><h5>Ficha &amp; 3D</h5><a href="index.html?family=${f.anchor}" aria-label="Visor 3D ${esc(f.name)}"><img src="assets/qr/qr_${f.anchor}.png" alt="QR para abrir ${esc(f.name)} en el visor 3D" loading="lazy"></a><span>Escanea para abrir ${esc(f.name)} directamente en el visor 3D interactivo.</span></div>
+                </div>
+            </div>
+        </article>`;
+    }).join('');
+
+    /* La gama de perfiles (fila de secciones) */
+    const gamaRow = document.getElementById('gamaRow');
+    if (gamaRow) gamaRow.innerHTML = FAMILIES.map(f => `
+        <a class="gama-i" href="#${f.anchor}">
+            <svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="${PROFILES[f.anchor]}" vector-effect="non-scaling-stroke"/></svg>
+            <div class="gl">${esc(f.name)}</div>
+        </a>`).join('');
+
+    /* selector de tipo del visor 3D por familia */
+    document.querySelectorAll('.mv-types button').forEach(b => {
+        b.addEventListener('click', () => {
+            const fam = b.dataset.fam, file = b.dataset.file;
+            const prefix = FAMILIES.find(f => f.anchor === fam).model.prefix;
+            document.getElementById('mv-' + fam).src = encodeURI(prefix + file + '.glb');
+            b.parentElement.querySelectorAll('button').forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+        });
+    });
+
+    /* ---- Acabados & color: muchas opciones por familia de acabado ---- */
+    const FINISHES = [
+        { name:'Solid Colors', count:'+200 RAL', desc:'Lacas de color liso, mate o satinado, que integran el edificio en su entorno.',
+          sw:['#f1f0ea','#e3d5b8','#c9c2b6','#9aa0a5','#6f6a64','#383E42','#0e0e10','#7A1C28','#5E2129','#45322E','#2F4538','#1E2A38','#3a4d6d','#8a3b2a'] },
+        { name:'Metallic', count:'Efecto metalizado', desc:'Pigmentos metálicos que reflejan la luz y cambian con el ángulo de visión.',
+          grad:['linear-gradient(135deg,#dfe2e5,#aab0b6 50%,#eef1f3)','linear-gradient(135deg,#cdd1d5,#9398 50%,#e6e9ec)','linear-gradient(135deg,#e7d6b6,#b89a64 50%,#f0e4c8)','linear-gradient(135deg,#d8a05a,#9c6a2f 50%,#e7b97a)','linear-gradient(135deg,#c08454,#8f5430 50%,#d39a66)','linear-gradient(135deg,#9aa0a6,#5c6166 50%,#b9bec4)','linear-gradient(135deg,#6c7176,#3c4146 50%,#868b90)','linear-gradient(135deg,#3a3d40,#202225 50%,#4c4f52)'] },
+        { name:'Anodic Effect', count:'Anodizado', desc:'Tonos anodizados de carácter técnico, profundos y uniformes.',
+          grad:['linear-gradient(135deg,#d4d7da,#a9aeb2 50%,#e0e3e6)','linear-gradient(135deg,#e3d2ad,#bda579 50%,#efe2c4)','linear-gradient(135deg,#c79a5e,#8f6531 50%,#d8b079)','linear-gradient(135deg,#9c6f3e,#6b4523 50%,#b08a55)','linear-gradient(135deg,#6e5435,#473320 50%,#85694a)','linear-gradient(135deg,#4a4b4d,#2a2b2d 50%,#5d5e60)'] },
+        { name:'Textured', count:'Texturas', desc:'Acabados con relieve táctil (martelé, fina arena, gofrado) que matizan la luz.',
+          sw:['#e6e3dd','#b6b0a6','#7c7770','#4a4641','#2a2724','#6a4a36','#3a4138','#2e3946'] },
+        { name:'Matt Collection', count:'Súper mate', desc:'Mate absoluto sin reflejos, sobrio y contemporáneo, de tacto sedoso.',
+          sw:['#f2f1ec','#c8c4bc','#8c877f','#55514b','#23211e','#0d0d0e','#33433a','#2b3340','#5b2a2f'] },
+        { name:'Wood Effect', count:'Símil madera', desc:'Reproducción de madera con las prestaciones y durabilidad del metal.',
+          grad:['linear-gradient(120deg,#caa477,#a87f4e 50%,#d6b486)','linear-gradient(120deg,#b07f4d,#82562c 50%,#c2925d)','linear-gradient(120deg,#8a5a34,#5e3a20 50%,#9c6c44)','linear-gradient(120deg,#6e4a30,#46301d 50%,#80593b)','linear-gradient(120deg,#3f2e22,#241912 50%,#4f3c2e)','linear-gradient(120deg,#c98b6a,#a05f3f 50%,#d59c7c)'] },
+        { name:'Corten', count:'Óxido natural', desc:'Acero patinable o efecto corten: pátina viva que evoluciona en el tiempo.',
+          grad:['linear-gradient(135deg,#b06a3e,#7c3f25 50%,#c07b4a)','linear-gradient(135deg,#9c5631,#6e3a23 50%,#aa6840)','linear-gradient(135deg,#8a4a2c,#5d3120 50%,#9c5a38)','linear-gradient(135deg,#73452f,#4a2c1e 50%,#86543b)'] },
+        { name:'Custom Finishes', count:'A medida', desc:'Desarrollos exclusivos: serigrafía, degradados, color por encargo y combinaciones especiales.',
+          sw:['#7A1C28','#1E2A38','#2F4538','#b89a64','#383E42','#e3d5b8'], custom:true }
+    ];
+    const finGrid = document.getElementById('finGrid');
+    if (finGrid) finGrid.innerHTML = FINISHES.map(F => {
+        const chips = (F.grad
+            ? F.grad.map(g => `<span class="sw" style="background:${g}"></span>`)
+            : F.sw.map(c => `<span class="sw${/^#(f|e)/i.test(c)?' lt':''}" style="background:${c}" title="${c}"></span>`)
+        ).join('');
+        return `<div class="fin">
+            <div class="fin-h"><b>${F.name}<span class="tm">™</span></b><span class="fin-c">${F.count}</span></div>
+            <p class="fin-d">${F.desc}</p>
+            <div class="sws">${chips}</div>
+        </div>`;
+    }).join('');
+
+    /* reveal on scroll */
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.querySelectorAll('nav.main a').forEach(a =>
+        a.addEventListener('click', () => document.querySelector('nav.main').classList.remove('open')));
+</script>
+</body>
+</html>
