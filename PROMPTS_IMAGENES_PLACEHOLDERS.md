@@ -4,9 +4,9 @@
 > **De:** Claude (diseño web) · 2026-06-25
 > **Objetivo:** sustituir los 28 placeholders (`<div class="ph">`) de `catalogo.html` por imágenes reales.
 
-> **ESTADO 2026-06-25:** 15/28 ya generadas y colocadas en el HTML (marcadas ✅ abajo).
-> **Faltan 13** (marcadas ⬜): #1 FLOW fachada, #19 UNIKO frontal, 5 de Aplicaciones, y los 6 de BIM
-> (de los cuales **4 son capturas reales**, no IA: #23, #24, #25, #28).
+> **ESTADO 2026-06-25:** 11/28 colocadas en el HTML (marcadas ✅ abajo).
+> **Faltan 17** (marcadas ⬜). Nota: 4 imágenes IA generadas se descartaron por calidad y se
+> revirtieron a placeholder (B1 latón, B3 combinación, C2 prototipo, E1 panorámica) — regenerar.
 
 ## Cómo usar este documento
 1. Genera cada imagen con el **prompt** indicado y el **aspect ratio** exacto (clave para que no haya *layout shift*).
@@ -46,13 +46,13 @@ Pega este bloque de estilo **al final de cada prompt** (los prompts de abajo asu
 # BLOQUE B · FLOW — "Composiciones" (6 imágenes)
 **Fotografía de obra real / render fotorrealista de fachadas terminadas.** Aspect ratio **4:3**.
 
-### ✅ B1 — `img/catalogo/flow_comp_01_laton.jpg` · `catalogo.html:557`
+### ⬜ B1 — `img/catalogo/flow_comp_01_laton.jpg` · `catalogo.html:557`
 > Fachada arquitectónica terminada revestida con perfiles metálicos en latón dorado, fotografiada al atardecer con luz cálida que hace brillar el metal. Composición FLOW de varios perfiles combinados. Edificio contemporáneo.
 
 ### ✅ B2 — `img/catalogo/flow_comp_02_cromatico.jpg` · `catalogo.html:558`
 > Fachada metálica donde un mismo perfil ondulado se repite en varios colores alternados (tonos tierra, bronce, antracita), creando un ritmo cromático vibrante pero elegante en la envolvente del edificio.
 
-### ✅ B3 — `img/catalogo/flow_comp_03_combinacion.jpg` · `catalogo.html:559`
+### ⬜ B3 — `img/catalogo/flow_comp_03_combinacion.jpg` · `catalogo.html:559`
 > Fachada que combina dos geometrías de perfil distintas en un mismo paño (zonas planas y zonas plegadas/onduladas), mostrando cómo conviven varias formas en una sola envolvente metálica.
 
 ### ✅ B4 — `img/catalogo/flow_comp_04_textura.jpg` · `catalogo.html:560`
@@ -72,7 +72,7 @@ Aspect ratio **4:3** (formato `st-img` de la lista de pasos).
 ### ✅ C1 — `img/catalogo/uniko_proc_03_ingenieria.jpg` · `catalogo.html:584`
 > Plano técnico / sección CAD de un perfil de chapa metálica plegada, con cotas, espesores, radios de plegado y líneas de construcción. Estética blueprint o vista de software BIM/CAD profesional. Líneas finas sobre fondo claro o azul técnico. Aspecto de ingeniería real.
 
-### ✅ C2 — `img/catalogo/uniko_proc_04_prototipo.jpg` · `catalogo.html:585`
+### ⬜ C2 — `img/catalogo/uniko_proc_04_prototipo.jpg` · `catalogo.html:585`
 > Foto de un prototipo físico de perfil de chapa metálica plegada a escala real, apoyado sobre una mesa de taller con fondo neutro. Luz rasante que revela cada pliegue y el acabado del metal. Muestra de validación previa a la fabricación en serie.
 
 ---
@@ -94,7 +94,7 @@ Aspect ratio **4:3**.
 # BLOQUE E · ACABADOS — Panorámica (1 imagen)
 Aspect ratio **21:9** (panorámica ancha, pieza destacada de la sección color).
 
-### ✅ E1 — `img/catalogo/acabados_panoramica.jpg` · `catalogo.html:671`
+### ⬜ E1 — `img/catalogo/acabados_panoramica.jpg` · `catalogo.html:671`
 > Vista frontal amplia y panorámica de un gran paño de fachada metálica combinando una enorme variedad de perfiles plegados en muchísimos colores RAL distintos (carta de color completa), creando un mosaico cromático espectacular pero arquitectónicamente refinado. Imagen "wow" de portada de sección.
 
 ---
