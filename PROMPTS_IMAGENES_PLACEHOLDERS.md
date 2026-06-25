@@ -4,6 +4,10 @@
 > **De:** Claude (diseño web) · 2026-06-25
 > **Objetivo:** sustituir los 28 placeholders (`<div class="ph">`) de `catalogo.html` por imágenes reales.
 
+> **ESTADO 2026-06-25:** 15/28 ya generadas y colocadas en el HTML (marcadas ✅ abajo).
+> **Faltan 13** (marcadas ⬜): #1 FLOW fachada, #19 UNIKO frontal, 5 de Aplicaciones, y los 6 de BIM
+> (de los cuales **4 son capturas reales**, no IA: #23, #24, #25, #28).
+
 ## Cómo usar este documento
 1. Genera cada imagen con el **prompt** indicado y el **aspect ratio** exacto (clave para que no haya *layout shift*).
 2. Guárdala con el **nombre de archivo destino** que se indica, dentro de `img/catalogo/`.
@@ -25,16 +29,16 @@ Pega este bloque de estilo **al final de cada prompt** (los prompts de abajo asu
 # BLOQUE A · FLOW — "El proceso" (4 imágenes)
 **Serie coherente: misma luz, mismo lenguaje visual.** Aspect ratio **1:1** (casi cuadrado, formato tarjeta).
 
-### A1 — `img/catalogo/flow_proc_01_fachada.jpg` · `catalogo.html:532`
+### ⬜ A1 — `img/catalogo/flow_proc_01_fachada.jpg` · `catalogo.html:532`
 > Render conceptual de un paño de fachada arquitectónica desnudo y neutro, superficie lisa de hormigón claro con líneas de replanteo y modulación marcadas, listo para ser revestido. Sin perfiles aún. Luz lateral suave. Sensación de "lienzo en blanco" antes del diseño.
 
-### A2 — `img/catalogo/flow_proc_02_opciones.jpg` · `catalogo.html:533`
+### ✅ A2 — `img/catalogo/flow_proc_02_opciones.jpg` · `catalogo.html:533`
 > Bodegón cenital de cinco perfiles metálicos arquitectónicos plegados distintos (geometrías variadas: piramidal, ondulado, escalonado, simétrico), alineados en paralelo sobre fondo antracita mate, mostrando la variedad de formas disponibles para combinar. Latón y acero cepillado.
 
-### A3 — `img/catalogo/flow_proc_03_acabado.jpg` · `catalogo.html:534`
+### ✅ A3 — `img/catalogo/flow_proc_03_acabado.jpg` · `catalogo.html:534`
 > Mismo perfil metálico plegado repetido seis veces en abanico, cada copia con un acabado distinto: latón pulido, cobre, acero cepillado, lacado negro mate, blanco, y perforado. Muestra la personalización de material, color y perforación. Fondo neutro.
 
-### A4 — `img/catalogo/flow_proc_04_fijacion.jpg` · `catalogo.html:535`
+### ✅ A4 — `img/catalogo/flow_proc_04_fijacion.jpg` · `catalogo.html:535`
 > Detalle macro de la junta entre dos paneles metálicos de fachada: a la izquierda fijación vista (tornillería metálica visible), a la derecha fijación oculta (junta limpia sin tornillos). Luz rasante que marca la sombra de la junta. Primer plano técnico y elegante.
 
 ---
@@ -42,22 +46,22 @@ Pega este bloque de estilo **al final de cada prompt** (los prompts de abajo asu
 # BLOQUE B · FLOW — "Composiciones" (6 imágenes)
 **Fotografía de obra real / render fotorrealista de fachadas terminadas.** Aspect ratio **4:3**.
 
-### B1 — `img/catalogo/flow_comp_01_laton.jpg` · `catalogo.html:557`
+### ✅ B1 — `img/catalogo/flow_comp_01_laton.jpg` · `catalogo.html:557`
 > Fachada arquitectónica terminada revestida con perfiles metálicos en latón dorado, fotografiada al atardecer con luz cálida que hace brillar el metal. Composición FLOW de varios perfiles combinados. Edificio contemporáneo.
 
-### B2 — `img/catalogo/flow_comp_02_cromatico.jpg` · `catalogo.html:558`
+### ✅ B2 — `img/catalogo/flow_comp_02_cromatico.jpg` · `catalogo.html:558`
 > Fachada metálica donde un mismo perfil ondulado se repite en varios colores alternados (tonos tierra, bronce, antracita), creando un ritmo cromático vibrante pero elegante en la envolvente del edificio.
 
-### B3 — `img/catalogo/flow_comp_03_combinacion.jpg` · `catalogo.html:559`
+### ✅ B3 — `img/catalogo/flow_comp_03_combinacion.jpg` · `catalogo.html:559`
 > Fachada que combina dos geometrías de perfil distintas en un mismo paño (zonas planas y zonas plegadas/onduladas), mostrando cómo conviven varias formas en una sola envolvente metálica.
 
-### B4 — `img/catalogo/flow_comp_04_textura.jpg` · `catalogo.html:560`
+### ✅ B4 — `img/catalogo/flow_comp_04_textura.jpg` · `catalogo.html:560`
 > Fachada metálica de textura mixta: franjas lisas, onduladas y perforadas combinadas. Juego rico de luces y sombras sobre la piel del edificio. Acero cepillado y cobre.
 
-### B5 — `img/catalogo/flow_comp_05_urbano.jpg` · `catalogo.html:561`
+### ✅ B5 — `img/catalogo/flow_comp_05_urbano.jpg` · `catalogo.html:561`
 > Edificio con fachada metálica de perfiles plegados en contexto urbano de calle: vista desde la acera, con el cielo reflejado en el metal. Arquitectura contemporánea integrada en la ciudad.
 
-### B6 — `img/catalogo/flow_comp_06_detalle.jpg` · `catalogo.html:562`
+### ✅ B6 — `img/catalogo/flow_comp_06_detalle.jpg` · `catalogo.html:562`
 > Primer plano de la transición entre dos perfiles metálicos distintos en una fachada, mostrando el encuentro preciso entre dos geometrías y dos acabados. Detalle constructivo cuidado, luz rasante.
 
 ---
@@ -65,10 +69,10 @@ Pega este bloque de estilo **al final de cada prompt** (los prompts de abajo asu
 # BLOQUE C · UNIKO — "El proceso" (2 imágenes)
 Aspect ratio **4:3** (formato `st-img` de la lista de pasos).
 
-### C1 — `img/catalogo/uniko_proc_03_ingenieria.jpg` · `catalogo.html:584`
+### ✅ C1 — `img/catalogo/uniko_proc_03_ingenieria.jpg` · `catalogo.html:584`
 > Plano técnico / sección CAD de un perfil de chapa metálica plegada, con cotas, espesores, radios de plegado y líneas de construcción. Estética blueprint o vista de software BIM/CAD profesional. Líneas finas sobre fondo claro o azul técnico. Aspecto de ingeniería real.
 
-### C2 — `img/catalogo/uniko_proc_04_prototipo.jpg` · `catalogo.html:585`
+### ✅ C2 — `img/catalogo/uniko_proc_04_prototipo.jpg` · `catalogo.html:585`
 > Foto de un prototipo físico de perfil de chapa metálica plegada a escala real, apoyado sobre una mesa de taller con fondo neutro. Luz rasante que revela cada pliegue y el acabado del metal. Muestra de validación previa a la fabricación en serie.
 
 ---
@@ -76,13 +80,13 @@ Aspect ratio **4:3** (formato `st-img` de la lista de pasos).
 # BLOQUE D · UNIKO — "Ejemplos" (3 imágenes)
 Aspect ratio **4:3**.
 
-### D1 — `img/catalogo/uniko_ej_01_frontal.jpg` · `catalogo.html:592`
+### ⬜ D1 — `img/catalogo/uniko_ej_01_frontal.jpg` · `catalogo.html:592`
 > Vista frontal plana de un gran paño de fachada con una composición compleja de muchos perfiles metálicos a medida distintos, ortogonal a cámara, mostrando la riqueza geométrica de un diseño UNIKO exclusivo. Acabados metálicos variados.
 
-### D2 — `img/catalogo/uniko_ej_02_cromatica.jpg` · `catalogo.html:593`
+### ✅ D2 — `img/catalogo/uniko_ej_02_cromatica.jpg` · `catalogo.html:593`
 > La MISMA composición frontal de la imagen anterior (mismos perfiles y disposición), pero explorando una paleta de color distinta para mostrar la customización cromática. Vista frontal plana ortogonal.
 
-### D3 — `img/catalogo/uniko_ej_03_esquina.jpg` · `catalogo.html:594`
+### ✅ D3 — `img/catalogo/uniko_ej_03_esquina.jpg` · `catalogo.html:594`
 > Detalle constructivo real de una esquina o punto singular de un edificio donde se encuentran varios sistemas de perfil metálico. Resolución elegante del quiebro de la fachada. Luz natural.
 
 ---
@@ -90,7 +94,7 @@ Aspect ratio **4:3**.
 # BLOQUE E · ACABADOS — Panorámica (1 imagen)
 Aspect ratio **21:9** (panorámica ancha, pieza destacada de la sección color).
 
-### E1 — `img/catalogo/acabados_panoramica.jpg` · `catalogo.html:671`
+### ✅ E1 — `img/catalogo/acabados_panoramica.jpg` · `catalogo.html:671`
 > Vista frontal amplia y panorámica de un gran paño de fachada metálica combinando una enorme variedad de perfiles plegados en muchísimos colores RAL distintos (carta de color completa), creando un mosaico cromático espectacular pero arquitectónicamente refinado. Imagen "wow" de portada de sección.
 
 ---
@@ -99,7 +103,7 @@ Aspect ratio **21:9** (panorámica ancha, pieza destacada de la sección color).
 Aspect ratio **4:3** (formato `app-gallery`).
 
 ### Exterior
-### F1 — `img/catalogo/app_ext_01_general.jpg` · `catalogo.html:718`
+### ✅ F1 — `img/catalogo/app_ext_01_general.jpg` · `catalogo.html:718`
 > Vista general de un edificio completo con fachada exterior de perfiles metálicos arquitectónicos. Envolvente metálica como protagonista. Luz natural de día, cielo despejado.
 
 ### F2 — `img/catalogo/app_ext_02_detalle.jpg` · `catalogo.html:719`
