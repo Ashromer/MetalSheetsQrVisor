@@ -238,6 +238,9 @@
         .gama-i svg { width: 100%; height: 50px; overflow: visible; }
         .gama-i svg path { fill: none; stroke: #ece7df; stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .gama-i .gl { font-family: var(--sans); font-size: 9.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8a8377; margin-top: 10px; }
+        .gama.gama-oc { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 520px) { .gama.gama-oc { grid-template-columns: 1fr; } }
+        .gama-i .gl-d { font-family: var(--sans); font-size: 11px; line-height: 1.45; color: #8a8377; margin-top: 7px; }
 
         /* ---------- sistemas ---------- */
         .sys-syn { font-family: var(--serif); font-size: clamp(40px, 5vw, 72px); color: var(--line); font-weight: 400; line-height: .8; }
@@ -420,10 +423,10 @@
     </div>
     <nav class="main">
         <a href="#concepto">Concepto</a>
+        <a href="#sistemas">Sistemas</a>
         <a href="#origami">Origami</a>
         <a href="#flow">Flow</a>
         <a href="#uniko">Uniko</a>
-        <a href="#sistemas">Sistemas</a>
         <a href="#materia">Materia</a>
         <a href="#acabados">Acabados</a>
         <a href="#aplicaciones">Aplicaciones</a>
@@ -473,13 +476,13 @@
         <p class="eyebrow">Concepto general</p>
         <h2 class="section-title" style="margin:14px 0 20px;">Un mismo lenguaje,<br>cuatro decisiones.</h2>
         <p class="lead-serif" style="max-width:30ch; margin-bottom:18px;">Eligiendo una opción dentro de cada una de estas cuatro decisiones se configura la fachada.</p>
-        <p class="body">Forma, sistema, material y acabado: combinando una opción de cada bloque se obtiene una solución única. No fabricamos solo perfiles: ofrecemos un <strong style="font-weight:500;color:var(--ink)">lenguaje arquitectónico</strong> con el que el arquitecto compone la envolvente a su gusto. Y así se estructura este catálogo.</p>
+        <p class="body">Sistema, forma, material y acabado: combinando una opción de cada bloque se obtiene una solución única. No fabricamos solo perfiles: ofrecemos un <strong style="font-weight:500;color:var(--ink)">lenguaje arquitectónico</strong> con el que el arquitecto compone la envolvente a su gusto. Y así se estructura este catálogo.</p>
 
         <div class="grid g4">
-            <div class="icard"><div class="ic-img"><img src="img/propuesta/forma_profile.jpg" alt="Formas" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">01 · Eliges la</div><h4>Forma</h4><p>La geometría del perfil: ondulada, trapezoidal, plana o volumétrica. Es la primera decisión y la que más marca el carácter de la fachada. Elígela del catálogo <em>Origami</em> o diséñala a medida con <em>Uniko</em>.</p></div></div>
             <div class="icard"><div class="ic-img"><img src="img/propuesta/ph_sistemas.svg" alt="Diagrama de fijación vista y oculta" loading="lazy"></div>
-                <div class="ic-tx"><div class="ic-n">02 · Decides el</div><h4>Sistema</h4><p>Cómo se ancla la piel: <strong style="font-weight:500;color:var(--ink)">fijación vista</strong> (el anclaje forma parte de la estética) u <strong style="font-weight:500;color:var(--ink)">oculta</strong> (superficie continua, sin tornillos a la vista). Condiciona el montaje y la lectura del paño.</p></div></div>
+                <div class="ic-tx"><div class="ic-n">01 · Decides el</div><h4>Sistema</h4><p>Cómo se ancla <strong style="font-weight:500;color:var(--ink)">y se modula</strong> la piel: fijación <strong style="font-weight:500;color:var(--ink)">vista</strong> (el anclaje forma parte de la estética) u <strong style="font-weight:500;color:var(--ink)">oculta</strong> (superficie continua, sin tornillos a la vista). El sistema define también la libertad de modulación —paneles más anchos, más estrechos o a medida— y condiciona el montaje y la lectura del paño.</p></div></div>
+            <div class="icard"><div class="ic-img"><img src="img/propuesta/forma_profile.jpg" alt="Formas" loading="lazy"></div>
+                <div class="ic-tx"><div class="ic-n">02 · Eliges la</div><h4>Forma</h4><p>La geometría del perfil: ondulada, trapezoidal, plana o volumétrica. Es la decisión que más marca el carácter de la fachada. Elígela del catálogo <em>Origami</em> o diséñala a medida con <em>Uniko</em>.</p></div></div>
             <div class="icard"><div class="ic-img"><img src="img/propuesta/material_cubes.jpg" alt="Materiales" loading="lazy"></div>
                 <div class="ic-tx"><div class="ic-n">03 · Escoges el</div><h4>Material</h4><p>El metal base: acero, aluminio, inoxidable, corten, zinc o cobre. Cada uno responde distinto al clima, la exigencia estructural y el presupuesto del proyecto.</p></div></div>
             <div class="icard"><div class="ic-img"><img src="img/propuesta/finish_bronze.jpg" alt="Acabados" loading="lazy"></div>
@@ -504,11 +507,49 @@
     </div>
 </section>
 
-<!-- ===================== 02 · ORIGAMI — EL LENGUAJE DE LAS FORMAS ===================== -->
+<!-- ===================== 02 · DOS SISTEMAS DE FIJACIÓN ===================== -->
+<section class="screen panel-dark" id="sistemas">
+    <div class="wrap reveal">
+        <p class="eyebrow">02 · La gama, dos sistemas</p>
+        <h2 class="section-title" style="color:#fff; margin:14px 0 16px;">dos sistemas.</h2>
+        <p class="lead-serif" style="color:#ece7df; max-width:34ch;">Antes de la forma, el sistema: cómo se ancla y se modula la piel define toda la libertad del proyecto.</p>
+        <div class="dos">
+            <div class="dos-branch">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M50,0 V42 H25 V100 M50,42 H75 V100" vector-effect="non-scaling-stroke"/>
+                </svg>
+            </div>
+            <div class="dos-col">
+                <div class="dos-media"><img src="img/propuesta/ph_fix_vista.svg" alt="Diagrama de fijación vista: tornillo visto sobre el perfil" loading="lazy"></div>
+                <p class="eyebrow">Arquitectura expresiva</p>
+                <h3>Fijaciones vistas</h3>
+                <p class="txt">Soluciones donde la técnica forma parte de la estética. La modulación y los puntos de unión contribuyen a la identidad visual del proyecto. Es la gama ORIGAMI.</p>
+                <p class="eyebrow" style="margin-top:22px;">Perfiles vistos</p>
+                <div id="gamaRow" class="gama"></div>
+            </div>
+            <div class="dos-col">
+                <div class="dos-media"><img src="img/propuesta/ph_fix_oculta.svg" alt="Diagrama de fijación oculta: clip oculto, superficie continua" loading="lazy"></div>
+                <p class="eyebrow">Arquitectura continua</p>
+                <h3>Fijaciones ocultas</h3>
+                <p class="txt">Superficies limpias y homogéneas donde la geometría y la luz adquieren el máximo protagonismo. Piel continua, sin anclajes a la vista.</p>
+                <p class="txt" style="margin-top:14px;">La pieza se ancla por sus <strong style="color:#ece7df;font-weight:500;">pliegues de retorno a clips o rastreles ocultos</strong> tras la piel, o engatillándose con la contigua: el tornillo nunca aparece en cara vista. Al no depender el anclaje de un módulo visible, <strong style="color:#ece7df;font-weight:500;">el ancho del panel queda libre —más ancho, más estrecho o a medida—</strong> y la fachada absorbe el movimiento térmico sin deformaciones aparentes.</p>
+                <p class="eyebrow" style="margin-top:22px;">Sistemas ocultos</p>
+                <div class="gama gama-oc">
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,25 L30,25 L31,20 L34,20 L35,25 L65,25 L66,20 L69,20 L70,25 L100,25" vector-effect="non-scaling-stroke"/></svg><div class="gl">Rollforming</div><div class="gl-d">Perfilado continuo engatillado (junta alzada), con clips ocultos. Piel continua de gran formato.</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,24 L20,24 M28,24 L46,24 M54,24 L72,24 M80,24 L98,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Screen Panel</div><div class="gl-d">Paneles perforados sobre bastidor oculto. Filtro solar y visual, ventilación del trasdós.</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,26 L12,20 M22,26 L32,20 M42,26 L52,20 M62,26 L72,20 M82,26 L92,20" vector-effect="non-scaling-stroke"/></svg><div class="gl">Lamas</div><div class="gl-d">Lamas lineales sobre rastrel oculto. Ritmo, control de luz y profundidad de fachada.</div></a>
+                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,24 Q12,21 24,24 T48,24 T72,24 T96,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Custom</div><div class="gl-d">Perfil a medida (vía UNIKO™) con anclaje oculto. Cualquier ancho y geometría.</div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== 03 · ORIGAMI — EL LENGUAJE DE LAS FORMAS ===================== -->
 <section class="screen" id="origami">
     <div class="wrap">
         <div class="reveal">
-            <p class="eyebrow">02 · El lenguaje de las formas</p>
+            <p class="eyebrow">03 · El lenguaje de las formas</p>
             <h2 class="section-title" style="margin:14px 0 22px;">Origami<span class="tm" style="color:var(--bronze)">™</span></h2>
             <p class="lead-serif" style="max-width:28ch;">Cada pliegue tiene un propósito.</p>
             <p class="body" style="margin-top:20px;">ORIGAMI™ reúne una colección de perfiles arquitectónicos concebidos a partir de geometrías estudiadas para aportar identidad, profundidad y expresión a la envolvente. Cada serie explora una relación única entre luz, sombra, escala y volumen: una biblioteca de formas para transformar superficies en elementos con personalidad propia.</p>
@@ -523,7 +564,7 @@
 <!-- ===================== 03 · FLOW — INFINITAS COMBINACIONES ===================== -->
 <section class="screen panel-dark" id="flow">
     <div class="wrap reveal">
-        <p class="eyebrow">03 · Infinitas combinaciones</p>
+        <p class="eyebrow">04 · Infinitas combinaciones</p>
         <h2 class="section-title" style="margin:14px 0 14px; color:#fff;">Flow<span class="tm" style="color:var(--bronze)">™</span></h2>
         <p class="lead-serif" style="max-width:30ch; color:#ece7df;">La armonía nace de la combinación.</p>
         <p class="body grey" style="max-width:68ch; margin-top:18px;">FLOW™ es la <strong style="color:#ece7df;font-weight:500;">conjunción de diferentes perfiles de la colección ORIGAMI</strong> en un mismo paño. El arquitecto combina varias geometrías, materiales y acabados a su gusto para generar ritmo, textura y movimiento visual: cada fachada se convierte en una composición única, nunca repetida.</p>
@@ -567,7 +608,7 @@
 <!-- ===================== 04 · UNIKO — CUSTOMIZAR ===================== -->
 <section class="screen" id="uniko">
     <div class="wrap reveal">
-        <p class="eyebrow">04 · Customizar</p>
+        <p class="eyebrow">05 · Customizar</p>
         <h2 class="section-title" style="margin:14px 0 22px;">Uniko<span class="tm" style="color:var(--bronze)">™</span></h2>
         <div class="split">
             <div>
@@ -592,43 +633,6 @@
             <figure class="ucard"><div class="frame ar43"><div class="ph"><span class="ph-t">PLACEHOLDER</span><span class="ph-d">Imagen frontal con composición compleja de perfiles a medida</span></div></div><figcaption>Composición frontal a medida · gran variedad de perfiles</figcaption></figure>
             <figure class="ucard"><div class="frame ar43"><img src="img/catalogo/uniko_ej_02_cromatica.jpg" alt="Misma composición UNIKO en variación cromática" loading="lazy"></div><figcaption>Misma composición · variación cromática</figcaption></figure>
             <figure class="ucard"><div class="frame ar43"><img src="img/catalogo/uniko_ej_03_esquina.jpg" alt="Detalle constructivo en esquina con varios sistemas" loading="lazy"></div><figcaption>Detalle constructivo en esquina · proyecto real</figcaption></figure>
-        </div>
-    </div>
-</section>
-
-<!-- ===================== 05 · DOS SISTEMAS DE FIJACIÓN ===================== -->
-<section class="screen panel-dark" id="sistemas">
-    <div class="wrap reveal">
-        <p class="eyebrow">05 · La gama, dos sistemas</p>
-        <h2 class="section-title" style="color:#fff; margin:14px 0 16px;">dos sistemas.</h2>
-        <p class="lead-serif" style="color:#ece7df; max-width:30ch;">Cada perfil genera una relación diferente entre la luz, el volumen y la superficie.</p>
-        <div class="dos">
-            <div class="dos-branch">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M50,0 V42 H25 V100 M50,42 H75 V100" vector-effect="non-scaling-stroke"/>
-                </svg>
-            </div>
-            <div class="dos-col">
-                <div class="dos-media"><img src="img/propuesta/ph_fix_vista.svg" alt="Diagrama de fijación vista: tornillo visto sobre el perfil" loading="lazy"></div>
-                <p class="eyebrow">Arquitectura expresiva</p>
-                <h3>Fijaciones vistas</h3>
-                <p class="txt">Soluciones donde la técnica forma parte de la estética. La modulación y los puntos de unión contribuyen a la identidad visual del proyecto. Es la gama ORIGAMI.</p>
-                <p class="eyebrow" style="margin-top:22px;">Perfiles vistos</p>
-                <div id="gamaRow" class="gama"></div>
-            </div>
-            <div class="dos-col">
-                <div class="dos-media"><img src="img/propuesta/ph_fix_oculta.svg" alt="Diagrama de fijación oculta: clip oculto, superficie continua" loading="lazy"></div>
-                <p class="eyebrow">Arquitectura continua</p>
-                <h3>Fijaciones ocultas</h3>
-                <p class="txt">Superficies limpias y homogéneas donde la geometría y la luz adquieren el máximo protagonismo. Piel continua, sin anclajes a la vista.</p>
-                <p class="eyebrow" style="margin-top:22px;">Sistemas ocultos</p>
-                <div class="gama">
-                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,25 L30,25 L31,20 L34,20 L35,25 L65,25 L66,20 L69,20 L70,25 L100,25" vector-effect="non-scaling-stroke"/></svg><div class="gl">Rollforming</div></a>
-                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,24 L20,24 M28,24 L46,24 M54,24 L72,24 M80,24 L98,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Screen Panel</div></a>
-                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M2,26 L12,20 M22,26 L32,20 M42,26 L52,20 M62,26 L72,20 M82,26 L92,20" vector-effect="non-scaling-stroke"/></svg><div class="gl">Lamas</div></a>
-                    <a class="gama-i"><svg viewBox="0 17 100 10" preserveAspectRatio="none"><path d="M0,24 Q12,21 24,24 T48,24 T72,24 T96,24" vector-effect="non-scaling-stroke"/></svg><div class="gl">Custom</div></a>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -812,6 +816,7 @@
             </div>
             <div class="ft-links">
                 <p class="eyebrow" style="color:#d99; margin-bottom:8px;">Navegación</p>
+                <a href="#sistemas">Sistemas — Vista y oculta</a>
                 <a href="#origami">Origami — Formas</a>
                 <a href="#uniko">Uniko — A medida</a>
                 <a href="#flow">Flow — Combinaciones</a>
@@ -823,7 +828,7 @@
         </div>
         <div class="ft-bottom">
             <span>© 2026 Metalperfil · Arquitectura de envolventes metálicas</span>
-            <span>Forma · Material · Acabado · Personalización</span>
+            <span>Sistema · Forma · Material · Acabado</span>
         </div>
     </div>
 </footer>
