@@ -36,3 +36,8 @@ source/*.pdf
 # Artefactos de desarrollo — no publicar en GitHub Pages (se quedan en local)
 Captura_correccion.JPG
 catalogo_clasico.html
+
+# Copias locales de la limpieza 2026-06-29 (imagenes huerfanas + backup HTML)
+# recuperables tambien del historial de git y re-extraibles con tools/extract_pdf.py
+source/_orphan_img_backup/
+source/_backup_html/
