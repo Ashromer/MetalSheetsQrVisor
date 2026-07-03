@@ -6,9 +6,11 @@ Repo `Ashromer/MetalSheetsQrVisor`, rama `main`.
 - **Visor 3D:** https://ashromer.github.io/MetalSheetsQrVisor/ (`index.html`)
 - **Catálogo:** https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html
 
-> Actualizado 2026-06-29. El catálogo se reescribió a una narrativa de marca
-> **Sistema · Forma · Material · Acabado** (Origami™ / Flow™ / Uniko™) con **5 familias**.
-> Esta doc refleja ese estado; descarta versiones anteriores que hablaban de 11 familias.
+> Actualizado 2026-07-03, sincronizado con el PDF **260701_Catalogo Metalperfil** (35 págs.).
+> Narrativa **Sistema · Forma · Material · Acabado** (Origami™ / Flow™ / Uniko™), **5 familias**.
+> El orden replica el catálogo: **Dos Sistemas va ANTES que las tres propuestas y las formas**.
+> Los datos técnicos (anchos/alturas/nombres) siguen la **tabla maestra** `02_PROYECTO/_PERFILES_MASTER`,
+> NO el PDF (el 260701 trae erratas: "Eskaler 54"/"Kaotico 72", medidas de Eskaler copiadas de Symmetric).
 
 ---
 
@@ -89,19 +91,22 @@ label o anchor (case-insensitive). Los QR del catálogo (`assets/qr/qr_<familia>
 
 ## 4. Catálogo (`catalogo.html`)
 
-Una sola página, narrativa **Sistema · Forma · Material · Acabado**. Orden de secciones:
+Una sola página, narrativa **Sistema · Forma · Material · Acabado**. Orden de secciones (= PDF 260701):
 
 1. **Hero** (1/3 banda roja + render a sangre, texto a caballo).
 2. **La fachada como identidad** / **Cada forma nace de una intención** (editorial de marca).
 3. **Concepto** — las cuatro decisiones (Sistema · Forma · Material · Acabado), grid de 4 tarjetas.
-4. **Tres propuestas de valor** — Origami™ / Flow™ / Uniko™ (panel oscuro).
-5. **02 · Dos sistemas** — fijación vista vs oculta (diagrama ramificado + gamas SVG).
-6. **03 · Origami™** — render dinámico de las 5 familias (`FAMILIES` → `famList`).
-7. **04 · Flow™** — combinación de perfiles (proceso 4 pasos, matriz de mezcla, composiciones).
-8. **05 · Uniko™** — servicio a medida (proceso 5 pasos, ejemplos).
-9. **06 · Materia** / **07 · Acabados & color** (`FINISHES` → `finGrid`) / **08 · Perforación**.
-10. **09 · Aplicaciones** (exterior / interior).
-11. **BIM / del diseño a la obra** — flujo, 3 plugins propios, herramientas.
+4. **02 · Dos sistemas** — fijación vista vs oculta (fotos reales + diagramas de sección + gamas SVG)
+   y banda **"La gama completa de Metalperfil"** (10 iconos SVG; en granate lo incluido en catálogo).
+5. **03 · Tres caminos** — Origami™ / Flow™ / Uniko™ (panel oscuro).
+6. **04 · Origami™** — render dinámico de las 5 familias (`FAMILIES` → `famList`),
+   con chips de **Aplicaciones recomendadas** por familia (datos del PDF pág. 17).
+7. **05 · Flow™** — estrategias A·Mezcla / B·Ritmo / C·Perforación (SVG), matriz, tira de 5 familias, composiciones.
+8. **06 · Uniko™** — servicio a medida (5 pasos con fotos reales del PDF, ejemplos).
+9. **07 · Materia** (8 texturas reales en 2 grupos) / **08 · Acabados & color** (`FINISHES` → `finGrid`) / **09 · Perforación** (beneficios con foto).
+10. **10 · Aplicaciones** (exterior / interior) — sección propia de la web; el PDF ya no la tiene.
+11. **BIM / del diseño a la obra** — flujo, 3 plugins propios, herramientas, **6 servicios de oficina técnica**
+    y tablas de **sostenibilidad / rendimiento verificable** (PDF pág. 33).
 12. **Cierre**, **footer / contacto**.
 
 ### 4.1 Esquema de una familia en `FAMILIES`
@@ -138,18 +143,19 @@ de práctica del sector — confirmar gama real con la empresa.
 
 | # | Familia | Catálogo | 3D (.glb) | Render de familia |
 |---|---|---|---|---|
-| 01 | Pyramid | real | sí | `img/propuesta/fam_pyramid.jpg` |
-| 02 | Symmetric | real | sí (`Symetric_`) | `img/propuesta/fam_symmetric.jpg` |
-| 03 | Asymmetric | real | sí (`Asymetric_`) | `img/p14_1.jpeg` (recorte crudo — pendiente render curado) |
-| 04 | Escaler | real | sí | `img/propuesta/escaler_front.jpg` |
-| 05 | Kaotico | real | sí (`Kaotiko_`) | `img/propuesta/fam_kaotico.jpg` |
+| 01 | Pyramid | real | sí | `img/propuesta/fam_pyramid.webp` |
+| 02 | Symmetric | real | sí (`Symetric_`) | `img/propuesta/fam_symmetric.webp` |
+| 03 | Asymmetric | real | sí (`Asymetric_`) | `img/catalogo/fam_asymmetric.webp` (foto real del PDF 260701) |
+| 04 | Escaler | real | sí | `img/propuesta/escaler_front.webp` |
+| 05 | Kaotico | real | sí (`Kaotiko_`) | `img/catalogo/fam_kaotico.webp` (foto real del PDF 260701) |
 
 Inconsistencias nombre archivo↔comercial: `Symetric/Asymetric/Kaotiko` (.glb) vs
 Symmetric/Asymmetric/Kaotico (web). Se resuelven en el mapeo `label`/`prefix`.
 
-**Bloques aún en PLACEHOLDER** (esperan foto real del cliente): composiciones de Flow,
-prototipo y frontal de Uniko, varias aplicaciones interiores. **Contacto** con datos genéricos
-(`info@metalperfil.com`, sin teléfono/dirección).
+**Bloques aún en PLACEHOLDER — 8** (también son placeholder en el propio PDF 260701):
+2 composiciones Flow (B1 latón, B3 combinación), 1 ejemplo frontal Uniko (D1), panorámica
+de Acabados (E1), protección solar exterior, 2 aplicaciones interiores y el esquema de
+cálculo de ancho (H1). **Contacto** con datos genéricos (el PDF también los trae ficticios).
 
 ---
 
@@ -173,17 +179,17 @@ Requiere Python 3 + `pip install PyMuPDF Pillow`. Desde la raíz del repo:
 
 ---
 
-## 8. Tareas pendientes (al 2026-06-29)
+## 8. Tareas pendientes (al 2026-07-03)
 
 1. **Decisión del líder:** las 5 familias con `.glb` pero sin sección (AcerOnda, Kubo, Nordik,
    Origami, Ritmiko) → exponer en el visor/catálogo o retirar sus `.glb`.
-2. **Render curado de Asymmetric** (hoy usa el recorte crudo `img/p14_1.jpeg`).
-3. **Fotos reales** para los bloques PLACEHOLDER (Flow, Uniko, Aplicaciones).
-4. **Datos de contacto reales** (footer y sección Contacto): email, teléfono, dirección.
-5. **Limpieza de assets huérfanos** (~40 MB de extracciones `pNN_*`, `desarrollo_*`, variantes
-   de `propuesta/` no enlazadas) → mover a `source/` o borrar.
-6. **Optimización de imágenes:** convertir los JPEG ~1 MB a WebP/AVIF (reduce ~50% el peso).
-7. **Limpieza de raíz:** `propuesta.html` y `run_extraction.bat` (vacíos), `Captura_correccion.JPG`,
-   backups `catalogo_backup_*.html` / `catalogo_clasico.html`.
-8. (Opcional) `sitemap.xml` + `robots.txt` para Pages.
-9. Confirmar con la empresa la **gama real de Acabados** (corten, perforados, efectos…).
+2. **Fotos reales** para los 8 bloques PLACEHOLDER restantes (ver §5) — también faltan en el PDF.
+3. **Datos de contacto reales** (footer y sección Contacto): email, teléfono, dirección.
+4. **Corregir el InDesign** (avisar a maquetación): "Eskaler/Eskala/Skala" (3 grafías), "Kaotico 72"
+   vs 73, dimensiones de Eskaler copiadas de Symmetric, Pyramid 68 con 893/793 contradictorios;
+   la referencia son los datos de `_PERFILES_MASTER`.
+5. **Limpieza de raíz:** `propuesta.html` y `run_extraction.bat` (vacíos), `catalogo_clasico.html`;
+   imágenes ya no enlazadas (`img/catalogo/flow_proc_0*.webp`, `img/propuesta/uniko_sketch/building`,
+   `perf_interior`, `material_samples`… verificar con grep antes de borrar).
+6. (Opcional) `sitemap.xml` + `robots.txt` para Pages.
+7. Confirmar con la empresa la **gama real de Acabados** (corten, perforados, efectos…).
