@@ -96,8 +96,9 @@ Una sola página, narrativa **Sistema · Forma · Material · Acabado**. Orden d
 1. **Hero** (1/3 banda roja + render a sangre, texto a caballo).
 2. **La fachada como identidad** / **Cada forma nace de una intención** (editorial de marca).
 3. **Concepto** — las cuatro decisiones (Sistema · Forma · Material · Acabado), grid de 4 tarjetas.
-4. **02 · Dos sistemas** — fijación vista vs oculta (fotos reales + diagramas de sección + gamas SVG)
-   y banda **"La gama completa de Metalperfil"** (10 iconos SVG; en granate lo incluido en catálogo).
+4. **02 · Dos sistemas** — primero la banda **"La gama completa de Metalperfil"** (10 iconos SVG;
+   en granate lo incluido en catálogo) y después el desglose vista/oculta (fotos reales +
+   esquemas de sección del PDF `esq_fix_*.webp` + gamas SVG).
 5. **03 · Tres caminos** — Origami™ / Flow™ / Uniko™ (panel oscuro).
 6. **04 · Origami™** — render dinámico de las 5 familias (`FAMILIES` → `famList`),
    con chips de **Aplicaciones recomendadas** por familia (datos del PDF pág. 17).
@@ -105,8 +106,9 @@ Una sola página, narrativa **Sistema · Forma · Material · Acabado**. Orden d
 8. **06 · Uniko™** — servicio a medida (5 pasos con fotos reales del PDF, ejemplos).
 9. **07 · Materia** (8 texturas reales en 2 grupos) / **08 · Acabados & color** (`FINISHES` → `finGrid`) / **09 · Perforación** (beneficios con foto).
 10. **10 · Aplicaciones** (exterior / interior) — sección propia de la web; el PDF ya no la tiene.
-11. **BIM / del diseño a la obra** — flujo, 3 plugins propios, herramientas, **6 servicios de oficina técnica**
-    y tablas de **sostenibilidad / rendimiento verificable** (PDF pág. 33).
+11. **Construimos soluciones** — intro, **6 servicios de oficina técnica** (tarjetas con icono SVG),
+    **panel oscuro de sostenibilidad / rendimiento verificable** (PDF pág. 33) y después el bloque
+    BIM: flujo, 3 plugins propios y herramientas.
 12. **Cierre**, **footer / contacto**.
 
 ### 4.1 Esquema de una familia en `FAMILIES`
@@ -144,7 +146,7 @@ de práctica del sector — confirmar gama real con la empresa.
 | # | Familia | Catálogo | 3D (.glb) | Render de familia |
 |---|---|---|---|---|
 | 01 | Pyramid | real | sí | `img/propuesta/fam_pyramid.webp` |
-| 02 | Symmetric | real | sí (`Symetric_`) | `img/propuesta/fam_symmetric.webp` |
+| 02 | Symmetric | real | sí (`Symetric_`) | `img/catalogo/fam_symmetric.webp` (foto real del PDF 260701) |
 | 03 | Asymmetric | real | sí (`Asymetric_`) | `img/catalogo/fam_asymmetric.webp` (foto real del PDF 260701) |
 | 04 | Escaler | real | sí | `img/propuesta/escaler_front.webp` |
 | 05 | Kaotico | real | sí (`Kaotiko_`) | `img/catalogo/fam_kaotico.webp` (foto real del PDF 260701) |
@@ -153,8 +155,8 @@ Inconsistencias nombre archivo↔comercial: `Symetric/Asymetric/Kaotiko` (.glb) 
 Symmetric/Asymmetric/Kaotico (web). Se resuelven en el mapeo `label`/`prefix`.
 
 **Bloques aún en PLACEHOLDER — 8** (también son placeholder en el propio PDF 260701):
-2 composiciones Flow (B1 latón, B3 combinación), 1 ejemplo frontal Uniko (D1), panorámica
-de Acabados (E1), protección solar exterior, 2 aplicaciones interiores y el esquema de
+3 composiciones Flow (B1 latón, B2 ritmo cromático, B3 combinación), 1 ejemplo frontal Uniko
+(D1), protección solar exterior (F3), 2 aplicaciones interiores (F5, F6) y el esquema de
 cálculo de ancho (H1). **Contacto** con datos genéricos (el PDF también los trae ficticios).
 
 ---

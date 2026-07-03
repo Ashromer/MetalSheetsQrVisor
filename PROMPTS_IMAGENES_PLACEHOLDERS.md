@@ -4,10 +4,12 @@
 > **De:** Claude (diseño web) · 2026-06-25
 > **Objetivo:** sustituir los 28 placeholders (`<div class="ph">`) de `catalogo.html` por imágenes reales.
 
-> **ESTADO 2026-07-03:** quedan **8 placeholders** en `catalogo.html`. La actualización con el
-> PDF 260701 cubrió con fotos reales del catálogo: C2 prototipo Uniko, F2 exterior detalle,
-> F4 interior revestimiento, y sustituyó el bloque A (proceso Flow) por las estrategias A/B/C
-> (los `flow_proc_*` ya no se usan). Quedan: B1, B3, D1, E1, F3, F5, F6 y H1.
+> **ESTADO 2026-07-03 (2ª pasada):** quedan **8 placeholders** en `catalogo.html`. La actualización
+> con el PDF 260701 cubrió con fotos reales: C2 prototipo Uniko, F2 exterior detalle, F4 interior
+> revestimiento y **E1 acabados** (imagen del líder, `acabados_panoramica.webp`). El bloque A
+> (proceso Flow) se sustituyó por las estrategias A/B/C (los `flow_proc_*` ya no se usan).
+> **B2 (ritmo cromático) volvió a placeholder**: su imagen pasó a E1 por decisión del líder.
+> Quedan: B1, B2, B3, D1, F3, F5, F6 y H1.
 >
 > **ESTADO 2026-06-25:** 16/28 colocadas en el HTML (marcadas ✅ abajo).
 > **Faltan 12** (marcadas ⬜). Notas:
