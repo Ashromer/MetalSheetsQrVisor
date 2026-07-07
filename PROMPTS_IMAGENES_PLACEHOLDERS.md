@@ -4,6 +4,12 @@
 > **De:** Claude (diseño web) · 2026-06-25
 > **Objetivo:** sustituir los 28 placeholders (`<div class="ph">`) de `catalogo.html` por imágenes reales.
 
+> **ESTADO 2026-07-07 (3ª pasada):** quedan **4 placeholders**: el ejemplo frontal de UNIKO (D) y
+> F3, F5, F6 (aplicaciones). El **bloque B entero desaparece**: la galería "Composiciones" de FLOW se
+> sustituyó por "Ejemplos de diseño" con 5 renders reales del pabellón FLOW (`flow_ej_01..05`, de
+> `03_Edificio/TM Renders/Building/FLOW`); los `flow_comp_*` se borraron. **H1, H2 y H3 resueltos con
+> ilustraciones SVG inline** (línea, estilo de marca); `bim_tools_02/03` borrados.
+>
 > **ESTADO 2026-07-03 (2ª pasada):** quedan **8 placeholders** en `catalogo.html`. La actualización
 > con el PDF 260701 cubrió con fotos reales: C2 prototipo Uniko, F2 exterior detalle, F4 interior
 > revestimiento y **E1 acabados** (imagen del líder, `acabados_panoramica.webp`). El bloque A
