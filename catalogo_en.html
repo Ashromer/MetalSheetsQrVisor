@@ -308,6 +308,28 @@
         .panel-dark .ucard figcaption { color: #a89f93; }
         .ucard figcaption { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 10px; letter-spacing: .3px; line-height: 1.5; }
 
+        /* ---------- UNIKO · proyectos a medida ---------- */
+        .uproj { margin-top: clamp(30px, 4vw, 44px); }
+        .uproj + .uproj { margin-top: clamp(40px, 6vw, 72px); border-top: 1px solid var(--line); padding-top: clamp(34px, 5vw, 56px); }
+        .uproj-head { display: flex; align-items: baseline; gap: 14px 18px; flex-wrap: wrap; }
+        .uproj-tag { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--red); border: 1px solid rgba(122,28,40,.34); border-radius: 100px; padding: 5px 13px; white-space: nowrap; }
+        .uproj-head h4 { font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); font-weight: 500; color: var(--ink); line-height: 1.15; }
+        .uproj-desc { max-width: 62ch; color: var(--grey); margin: 12px 0 22px; }
+        .uproj-media { display: grid; grid-template-columns: 1.7fr 1fr; gap: 12px; align-items: stretch; }
+        .uproj-media .u-left { display: grid; gap: 12px; align-content: start; }
+        .uproj-media .u-right { display: flex; flex-direction: column; }
+        .uproj-media .u-right .frame { flex: 1 1 auto; min-height: 220px; }
+        .uproj-media .u-right figcaption { font-family: var(--sans); font-size: 11.5px; color: var(--grey); margin-top: 8px; letter-spacing: .3px; }
+        .uproj.mirror .uproj-media { grid-template-columns: 1fr 1.7fr; }
+        .uproj.mirror .u-right { order: -1; }
+        .uproj-cap { font-family: var(--sans); font-size: 12px; color: var(--grey); margin-top: 8px; letter-spacing: .3px; }
+        @media (max-width: 720px) {
+            .uproj-media, .uproj.mirror .uproj-media { grid-template-columns: 1fr; }
+            .uproj-media .u-right .frame { height: auto; aspect-ratio: 4/5; }
+            .uproj.mirror .u-right { order: 0; }
+        }
+
         /* ---------- materiales ---------- */
         .mat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: clamp(34px,5vw,52px); }
         @media (max-width: 820px) { .mat-grid { grid-template-columns: repeat(2,1fr); } }
@@ -731,11 +753,43 @@
         </div>
 
         <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px);">Examples · made-to-measure projects</p>
-        <p class="body" style="max-width:64ch; margin:8px 0 20px;">Two UNIKO™ developments created for specific projects: exclusive profiles designed to fit each architecture, resolved with both of the range's fixing systems.</p>
-        <div class="gal2">
-            <figure class="ucard"><div class="frame ar43"><img src="img/catalogo/uniko_ej_oculta.webp" alt="UNIKO project with a made-to-measure profile and concealed fixing" loading="lazy"></div><figcaption>Made-to-measure project · concealed fixing</figcaption></figure>
-            <figure class="ucard"><div class="frame ar43"><img src="img/catalogo/uniko_ej_vista.webp" alt="UNIKO project with a made-to-measure profile and exposed fixing" loading="lazy"></div><figcaption>Made-to-measure project · exposed fixing</figcaption></figure>
-        </div>
+        <p class="body" style="max-width:70ch; margin:8px 0 4px;">Two UNIKO™ developments created for specific projects. A single made-to-measure vertical-fin profile, resolved with the range's <strong style="color:var(--ink);font-weight:500;">two fixing systems</strong>: the same language, two ways of building the skin.</p>
+
+        <article class="uproj">
+            <div class="uproj-head">
+                <span class="uproj-tag">Concealed fixing</span>
+                <h4>A continuous skin, no visible screws</h4>
+            </div>
+            <p class="uproj-desc">The made-to-measure profile is anchored with an interlocking overlap: all the fixings stay hidden and the envelope reads as a <em>continuous skin</em> of vertical fins, without interruptions. The result is a taut façade where only the metal and the light set the rhythm.</p>
+            <div class="uproj-media">
+                <div class="u-left">
+                    <div class="frame" style="aspect-ratio:16/9;"><img src="img/catalogo/uniko_ej_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
+                    <figure class="frame ar32"><img src="img/catalogo/uniko_ej_oculta_detalle.webp" alt="Detail of the vertical fins with concealed fixing and an interlocking overlap" loading="lazy"></figure>
+                </div>
+                <figure class="u-right">
+                    <div class="frame"><img src="img/catalogo/uniko_ej_oculta_corner.webp" alt="Corner of the building: stepped volumes clad in made-to-measure fins with concealed anchoring" loading="lazy"></div>
+                    <figcaption>Corner and cantilevers · the skin turns without a visible joint</figcaption>
+                </figure>
+            </div>
+        </article>
+
+        <article class="uproj mirror">
+            <div class="uproj-head">
+                <span class="uproj-tag">Exposed fixing</span>
+                <h4>The rhythm of the fixing, on show</h4>
+            </div>
+            <p class="uproj-desc">The same language of fins resolved with exposed fixing: the ordered screws draw a <em>regular rhythm</em> across the panel and bring a technical, honest texture. It shows how the façade is built, without hiding it, with a more graphic and direct reading.</p>
+            <div class="uproj-media">
+                <div class="u-left">
+                    <div class="frame" style="aspect-ratio:16/9;"><img src="img/catalogo/uniko_ej_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
+                    <figure class="frame ar32"><img src="img/catalogo/uniko_ej_vista_detalle.webp" alt="Detail of the vertical fins with the exposed fixing setting the rhythm" loading="lazy"></figure>
+                </div>
+                <figure class="u-right">
+                    <div class="frame"><img src="img/catalogo/uniko_ej_vista_corner.webp" alt="Corner of the building with exposed-fixing vertical fins and timber soffits" loading="lazy"></div>
+                    <figcaption>Upward view · the technical rhythm of the fixing</figcaption>
+                </figure>
+            </div>
+        </article>
     </div>
 </section>
 
