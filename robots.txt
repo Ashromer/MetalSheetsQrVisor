@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ashromer.github.io/MetalSheetsQrVisor/sitemap.xml
