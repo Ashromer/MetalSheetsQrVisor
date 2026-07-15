@@ -236,6 +236,11 @@
         .fam-profile { margin-top: 24px; border-top: 1px solid var(--line); padding-top: 18px; }
         .fam-profile .lbl { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); margin-bottom: 10px; }
         .fam-profile svg { width: 100%; height: 52px; overflow: visible; }
+        .perfil { margin-top: clamp(30px,4vw,46px); border-top: 1px solid var(--line); padding-top: 18px; }
+        .perfil .lbl { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); margin-bottom: 16px; }
+        .perfil img { width: 100%; height: auto; display: block; }
+        .perfil.on-dark { border-top-color: rgba(236,231,223,.16); }
+        .perfil.on-dark .lbl { color: #b3aa9d; }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -690,11 +695,11 @@
         <p class="eyebrow">03 · Tres caminos hacia la misma excelencia</p>
         <h2 class="section-title" style="margin:14px 0 6px; color:#fff;">Diseñar la piel.</h2>
         <div class="grid g3">
-            <a class="icard" href="#origami"><div class="ic-img"><img src="img/propuesta/g_metal.webp" alt="Origami" loading="lazy"></div>
+            <a class="icard" href="#origami"><div class="ic-img"><img src="img/catalogo/piel_origami.webp" alt="Origami" loading="lazy"></div>
                 <div class="ic-tx"><h4>Origami<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La arquitectura comienza con una forma.</p><p>Colección de perfiles categorizados en series por geometría. Amplitud de formas para dar carácter a la envolvente.</p><div class="go">Ver colección →</div></div></a>
-            <a class="icard" href="#flow"><div class="ic-img"><img src="img/propuesta/g_bronze.webp" alt="Flow" loading="lazy"></div>
+            <a class="icard" href="#flow"><div class="ic-img"><img src="img/catalogo/piel_flow.webp" alt="Flow" loading="lazy"></div>
                 <div class="ic-tx"><h4>Flow<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La belleza surge de la combinación.</p><p>Composiciones de perfiles, materiales y acabados que generan ritmo, textura y movimiento visual.</p><div class="go">Ver combinaciones →</div></div></a>
-            <a class="icard" href="#uniko"><div class="ic-img"><img src="img/propuesta/uniko_form.webp" alt="Uniko" loading="lazy"></div>
+            <a class="icard" href="#uniko"><div class="ic-img"><img src="img/catalogo/piel_uniko.webp" alt="Uniko" loading="lazy"></div>
                 <div class="ic-tx"><h4>Uniko<span class="tm">™</span></h4><p style="font-family:var(--serif);font-style:italic;font-size:17px;color:#cfc7bb;margin-bottom:8px;">La forma más singular se crea.</p><p>Servicio de diseño colaborativo para desarrollar perfiles exclusivos a medida de cada proyecto.</p><div class="go">Ver servicio →</div></div></a>
         </div>
     </div>
@@ -724,6 +729,7 @@
         <p class="lead-serif" style="max-width:30ch; color:#ece7df;">La armonía nace de la combinación.</p>
         <p class="body grey" style="max-width:68ch; margin-top:18px;">FLOW™ es la <strong style="color:#ece7df;font-weight:500;">conjunción de diferentes perfiles de la colección ORIGAMI</strong> en un mismo paño. El arquitecto combina varias geometrías, materiales y acabados a su gusto para generar ritmo, textura y movimiento visual: <strong style="color:#ece7df;font-weight:500;">componer la fachada como una partitura</strong>. Cada envolvente se convierte en una composición única, nunca repetida.</p>
         <div class="kw on-dark" style="margin-top:22px;"><span>Mezcla de perfiles</span><span>Ritmo variable</span><span>Transiciones</span></div>
+        <div class="perfil on-dark"><div class="lbl">Sección del perfil · fijación vista</div><img src="img/catalogo/flow_perfil.png" alt="Sección del perfil FLOW: lamas con detalle de fijación" loading="lazy" data-nozoom></div>
         <p class="eyebrow" style="margin-top:clamp(34px,4vw,48px); color:#d99;">Estrategias de combinación · tres métodos para una fachada singular</p>
         <div class="grid g3">
             <div class="icard"><div class="ic-img"><svg class="strat" viewBox="0 0 320 200" role="img" aria-label="Mezcla de familias: dos geometrías combinadas"><rect width="320" height="200" fill="#1d1a16"/><path d="M40,72 L60,72 L70,46 L90,46 L100,72 L120,72 L130,46 L150,46 L160,72 L180,72 L190,46 L210,46 L220,72 L240,72 L250,46 L270,46 L280,72" fill="none" stroke="#ece7df" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><text x="160" y="112" fill="#9a6b3a" font-size="26" font-family="Georgia,serif" text-anchor="middle">+</text><path d="M40,150 L70,128 L80,150 L110,128 L120,150 L150,128 L160,150 L190,128 L200,150 L230,128 L240,150 L270,128 L280,150" fill="none" stroke="#9a6b3a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div class="ic-tx"><div class="ic-n" style="color:var(--bronze)">A</div><h4>Mezcla de familias</h4><p>Dos geometrías pueden convivir en planos diferentes del edificio o en el mismo paño, jugando con la textura.</p></div></div>
@@ -788,6 +794,7 @@
                 <h4>Piel continua, sin tornillos a la vista</h4>
             </div>
             <p class="uproj-desc">El perfil a medida se ancla con solape machihembrado: toda la tornillería queda escondida y la envolvente se lee como una <em>piel continua</em> de lamas verticales, sin interrupciones. El resultado es una fachada tersa donde el ritmo lo marcan solo el metal y la luz.</p>
+            <div class="perfil"><div class="lbl">Sección del perfil · fijación oculta</div><img src="img/catalogo/uniko_perfil_oculta.png" alt="Sección del perfil UNIKO con fijación oculta: lamas y solape machihembrado" loading="lazy" data-nozoom></div>
             <div class="uproj-media">
                 <div class="u-left">
                     <div class="frame" style="aspect-ratio:16/9;"><img src="img/catalogo/uniko_ej_oculta.webp" alt="Edificio con perfil UNIKO a medida y fijación oculta, piel continua de lamas verticales" loading="lazy"></div>
@@ -806,6 +813,7 @@
                 <h4>El ritmo de la fijación, a la vista</h4>
             </div>
             <p class="uproj-desc">El mismo lenguaje de lamas resuelto con fijación vista: la tornillería ordenada dibuja un <em>ritmo regular</em> sobre el paño y aporta una textura técnica y honesta. Se muestra cómo se construye la fachada, sin ocultarlo, con una lectura más gráfica y directa.</p>
+            <div class="perfil"><div class="lbl">Sección del perfil · fijación vista</div><img src="img/catalogo/uniko_perfil_vista.png" alt="Sección del perfil UNIKO con fijación vista: lamas y tornillería a la vista" loading="lazy" data-nozoom></div>
             <div class="uproj-media">
                 <div class="u-left">
                     <div class="frame" style="aspect-ratio:16/9;"><img src="img/catalogo/uniko_ej_vista.webp" alt="Edificio con perfil UNIKO a medida y fijación vista, lamas verticales en verde" loading="lazy"></div>
@@ -907,7 +915,7 @@
         <div class="split" style="align-items:start;">
             <div class="app-col">
                 <h3>Exterior</h3>
-                <div class="frame ar43" style="margin-bottom:18px;"><img src="img/catalogo/app_ext_02_detalle.webp" alt="Fachada exterior perforada al atardecer, detalle" loading="lazy"></div>
+                <div class="frame ar43" style="margin-bottom:18px;"><img src="img/catalogo/flow_ej_01_composicion.webp" alt="Fachada FLOW: perfiles corten y paño central perforado a medida" loading="lazy"></div>
                 <ul>
                     <li>Paneles de fijación oculta</li>
                     <li>Paneles de fijación vista</li>
@@ -1203,7 +1211,7 @@
         { num:'01', name:'Pyramid', anchor:'pyramid', tag:'La luz talla cada arista.', attrs:['Máxima expresividad','Sombra profunda','Identidad'],
           apps:['Edificios emblemáticos','Sedes corporativas','Centros culturales','Industria premium'],
           desc:'Disposición armoniosa de prismas triangulares uniformes, separados por segmentos planos que definen con precisión cada forma. El patrón nítido transmite durabilidad e integridad estructural; sus ángulos pronunciados encarnan una estética minimalista y contemporánea que realza la profundidad visual de la fachada.',
-          renders:['img/catalogo/fam_pyramid_r2.webp','img/catalogo/fam_pyramid_r3.webp','img/catalogo/fam_pyramid_r4.webp','img/propuesta/fam_pyramid.webp'], product:'img/01_Pyramid_cut.png',
+          renders:['img/catalogo/fam_pyramid_1.webp','img/catalogo/fam_pyramid_2.webp','img/catalogo/fam_pyramid_3.webp'], product:'img/01_Pyramid_cut.png',
           types:[
             {lab:'Pyramid 39', ancho:'882 mm', altura:'39 mm', img:'img/types/type_pyramid_39.webp'},
             {lab:'Pyramid 45', ancho:'1021 mm', altura:'47 mm', img:'img/types/type_pyramid_45.webp'},
@@ -1213,7 +1221,7 @@
         { num:'02', name:'Symmetric', anchor:'symmetric', tag:'Geometría precisa, presencia serena.', attrs:['Versatilidad','Imagen tecnológica','Equilibrio'],
           apps:['Oficinas','Edificios administrativos','Centros logísticos','Equipamientos deportivos'],
           desc:'Se fundamenta en la pureza de la proporción y el rigor geométrico. Una métrica de líneas limpias que articula la fachada con una sobriedad atemporal, capaz de integrarse en cualquier lenguaje arquitectónico contemporáneo.',
-          renders:['img/catalogo/fam_symmetric_r2.webp','img/catalogo/fam_symmetric_r3.webp','img/catalogo/fam_symmetric_r4.webp','img/catalogo/fam_symmetric.webp'], product:'img/02_Symmetric_cut.png',
+          renders:['img/catalogo/fam_symmetric_1.webp','img/catalogo/fam_symmetric_2.webp','img/catalogo/fam_symmetric_3.webp'], product:'img/02_Symmetric_cut.png',
           types:[
             {lab:'Symmetric 23', ancho:'925 mm', altura:'25 mm', angulo:'125°', img:'img/types/type_symmetric_23.webp'},
             {lab:'Symmetric 25', ancho:'1155 mm', altura:'25 mm', angulo:'128°', img:'img/types/type_symmetric_25.webp'},
@@ -1233,7 +1241,7 @@
         { num:'04', name:'Escaler', anchor:'escaler', tag:'Profundidad que cambia con el sol.', attrs:['Relieve marcado','Ritmo','Carácter gráfico'],
           apps:['Centros comerciales','Infraestructura','Equipamientos deportivos','Naves representativas'],
           desc:'Geometría escalonada, con peldaños ascendentes que dibujan una sucesión de planos y sombras nítidas. Su marcado relieve aporta un fuerte carácter gráfico, con una lectura rítmica y ordenada que funciona especialmente bien en grandes paños.',
-          renders:['img/catalogo/fam_eskaler_r2.webp','img/catalogo/fam_eskaler_r3.webp','img/propuesta/escaler_front.webp'], product:'img/04_Escaler_cut.png',
+          renders:['img/catalogo/fam_eskaler_1.webp','img/catalogo/fam_eskaler_2.webp','img/catalogo/fam_eskaler_3.webp'], product:'img/04_Escaler_cut.png',
           types:[
             {lab:'Escaler 22', ancho:'1053 mm', altura:'22 mm', img:'img/types/type_escaler_22.webp'},
             {lab:'Escaler 48', ancho:'1088 mm', altura:'48 mm', img:'img/types/type_escaler_48.webp'},
@@ -1243,7 +1251,7 @@
         { num:'05', name:'Kaotico', anchor:'kaotico', tag:'Una piel que respira con la fachada.', attrs:['Textura orgánica','Reflejos cambiantes','Expresividad'],
           apps:['Arquitectura icónica','Centros culturales','Infraestructura singular','Equipamientos'],
           desc:'Composición de pliegues deliberadamente irregular: un ritmo aparentemente aleatorio que rompe la monotonía y dota a la piel de una textura viva y orgánica. La irregularidad está controlada para generar reflejos cambiantes, ideal para fachadas con voluntad expresiva.',
-          renders:['img/catalogo/fam_kaotico.webp','img/catalogo/fam_kaotico_r2.webp','img/catalogo/fam_kaotico_r3.webp','img/catalogo/fam_kaotico_r4.webp'], product:'img/05_Kaotico_cut.png',
+          renders:['img/catalogo/fam_kaotico_1.webp','img/catalogo/fam_kaotico_2.webp','img/catalogo/fam_kaotico_3.webp'], product:'img/05_Kaotico_cut.png',
           types:[
             {lab:'Kaotico 24', ancho:'983 mm', altura:'24 mm', img:'img/types/type_kaotico_24.webp'},
             {lab:'Kaotico 28', ancho:'865 mm', altura:'30 mm', img:'img/types/type_kaotico_28.webp'},

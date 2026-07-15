@@ -33,6 +33,8 @@ Thumbs.db
 source/paginas/
 source/*.pdf
 img/A*adidas Miguel/
+# Volcado por pagina de las imagenes del catalogo (regenerable con run_png_extraction.bat)
+img_png/
 
 # Artefactos de desarrollo — no publicar en GitHub Pages (se quedan en local)
 Captura_correccion.JPG
