@@ -35,6 +35,8 @@ source/*.pdf
 img/A*adidas Miguel/
 # Volcado por pagina de las imagenes del catalogo (regenerable con run_png_extraction.bat)
 img_png/
+# Imagenes sin usar reunidas para revisar/borrar (fuera del repo servido)
+BORRAR/
 
 # Artefactos de desarrollo — no publicar en GitHub Pages (se quedan en local)
 Captura_correccion.JPG
