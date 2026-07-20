@@ -254,6 +254,17 @@
         .tramos span:not(.gap)::before { content: ""; position: absolute; top: 0; left: 4px; right: 4px; height: 6px;
             border: 1px solid var(--red); border-bottom: none; opacity: .85; }
         @media (max-width: 640px) { .tramos span { font-size: 9px; } }
+        /* UNIKO · bandas alternas imagen + texto (perspectiva conceptual / detalle técnico) */
+        .uband { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px,4vw,58px); align-items: center; margin-top: clamp(28px,4vw,52px); }
+        .uband.tech { grid-template-columns: 1.1fr .9fr; margin-top: clamp(22px,3vw,38px); }
+        .uband.tech .uband-media { order: 2; }
+        .uband-media img { width: 100%; height: auto; display: block; border-radius: 4px; }
+        .uband.tech .uband-media img { max-width: 88%; margin-left: auto; }
+        .uband-media figcaption { font-family: var(--sans); font-size: 11.5px; color: var(--grey); margin-top: 8px; letter-spacing: .3px; }
+        .uband-txt .uband-tag { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+        .uband-txt h5 { font-family: var(--serif); font-weight: 500; font-size: clamp(19px,2.2vw,27px); color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+        .uband-txt p { color: var(--grey); max-width: 48ch; }
+        @media (max-width: 820px) { .uband, .uband.tech { grid-template-columns: 1fr; gap: 16px; } .uband.tech .uband-media { order: 0; } .uband.tech .uband-media img { max-width: 100%; } }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -771,11 +782,11 @@
                 <img src="Imagenes_Usadas/seccion_flow.png" alt="Sección en planta del paño FLOW con las planchas por tramo" loading="lazy" data-nozoom>
                 <div class="tramos" aria-hidden="true">
                     <span style="flex:15">Eskaler 22</span>
-                    <span style="flex:16.5">Eskaler 48</span>
-                    <span style="flex:16">Asimmetric 60</span>
-                    <span class="gap" style="flex:5"></span>
-                    <span style="flex:16">Asimmetric 60</span>
-                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:15.2">Eskaler 48</span>
+                    <span style="flex:15.8">Asimmetric 60</span>
+                    <span class="gap" style="flex:7.9"></span>
+                    <span style="flex:15.8">Asimmetric 60</span>
+                    <span style="flex:15.2">Eskaler 48</span>
                     <span style="flex:15">Eskaler 22</span>
                 </div>
             </div>
@@ -820,19 +831,32 @@
                 <span class="uproj-tag">Fijación oculta</span>
                 <h4>Piel continua, sin tornillos a la vista</h4>
             </div>
-            <p class="uproj-desc">El perfil a medida se ancla con solape machihembrado: toda la tornillería queda escondida y la envolvente se lee como una <em>piel continua</em> de lamas verticales, sin interrupciones. El resultado es una fachada tersa donde el ritmo lo marcan solo el metal y la luz.</p>
+            <p class="uproj-desc">El anclaje desaparece y la envolvente se resuelve como una sola <em>superficie continua</em>: sin juntas ni tornillos que interrumpan el plano, la piel de lamas verticales se lee tersa y silenciosa.</p>
             <figure class="perfil-fig">
                 <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Edificio con perfil UNIKO a medida y fijación oculta, piel continua de lamas verticales" loading="lazy"></div>
                 <div class="perfil-plate"><span class="lbl">Detalle en planta · fijación oculta</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="Sección en planta del perfil UNIKO con fijación oculta: lamas y solape machihembrado" loading="lazy" data-nozoom></div>
             </figure>
-            <div class="uproj-media">
-                <div class="u-left">
-                    <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Detalle de las lamas verticales con fijación oculta y solape machihembrado" loading="lazy"></figure>
-                </div>
-                <figure class="u-right">
-                    <div class="frame"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_esquina.webp" alt="Esquina del edificio: volúmenes escalonados revestidos de lama a medida con anclaje oculto" loading="lazy"></div>
+            <div class="uband">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_oculta_esquina.webp" alt="Esquina del edificio con la piel continua de lamas verticales y anclaje oculto" loading="lazy">
                     <figcaption>Esquina y voladizos · la piel gira sin junta visible</figcaption>
                 </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">El mismo edificio, otra piel</span>
+                    <h5>El sistema define el carácter</h5>
+                    <p>Es el mismo proyecto de lamas verticales que en la fijación vista, resuelto con otra piel. Al ocultar el anclaje, el volumen se percibe monolítico y sereno: el ritmo lo marcan solo el metal y la luz, y la fachada gira esquinas y voladizos sin una junta que la interrumpa.</p>
+                </div>
+            </div>
+            <div class="uband tech">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Contrapicado de las lamas verticales con fijación oculta y solape machihembrado" loading="lazy">
+                    <figcaption>Contrapicado · junta alzada y solape, sin fijación aparente</figcaption>
+                </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">Detalle constructivo</span>
+                    <h5>Solape machihembrado</h5>
+                    <p>Cada lama encaja sobre la siguiente con un plegado que aloja el anclaje por dentro. El ancho del panel queda libre —más ancho o más estrecho según el proyecto— y la tornillería no aparece nunca sobre el paño.</p>
+                </div>
             </div>
         </article>
 
@@ -841,19 +865,32 @@
                 <span class="uproj-tag">Fijación vista</span>
                 <h4>El ritmo de la fijación, a la vista</h4>
             </div>
-            <p class="uproj-desc">El mismo lenguaje de lamas resuelto con fijación vista: la tornillería ordenada dibuja un <em>ritmo regular</em> sobre el paño y aporta una textura técnica y honesta. Se muestra cómo se construye la fachada, sin ocultarlo, con una lectura más gráfica y directa.</p>
+            <p class="uproj-desc">La construcción se muestra: la tornillería ordenada y alineada dibuja un <em>ritmo regular</em> sobre el paño y aporta a la piel de lamas una textura técnica y honesta.</p>
             <figure class="perfil-fig">
                 <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Edificio con perfil UNIKO a medida y fijación vista, lamas verticales en verde" loading="lazy"></div>
                 <div class="perfil-plate"><span class="lbl">Detalle en planta · fijación vista</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="Sección en planta del perfil UNIKO con fijación vista: lamas y tornillería a la vista" loading="lazy" data-nozoom></div>
             </figure>
-            <div class="uproj-media">
-                <div class="u-left">
-                    <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Detalle de las lamas verticales con la fijación vista marcando el ritmo" loading="lazy"></figure>
-                </div>
-                <figure class="u-right">
-                    <div class="frame"><img src="Imagenes_Usadas/uniko_ejemplo_vista_esquina.webp" alt="Esquina del edificio con lamas verticales de fijación vista y soffits de madera" loading="lazy"></div>
-                    <figcaption>Vista contrapicada · el ritmo técnico de la fijación</figcaption>
+            <div class="uband">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_vista_esquina.webp" alt="Esquina del edificio con lamas verticales de fijación vista girando el volumen" loading="lazy">
+                    <figcaption>Esquina · la piel de lamas gira el volumen del edificio</figcaption>
                 </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">El mismo edificio, otra piel</span>
+                    <h5>El sistema define el carácter</h5>
+                    <p>El mismo proyecto de lamas verticales, resuelto con otra piel. Aquí el sistema no se esconde: la retícula de la fijación se convierte en parte del lenguaje de la fachada y le da un carácter más gráfico y directo, donde se lee cómo está construida.</p>
+                </div>
+            </div>
+            <div class="uband tech">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Contrapicado de las lamas verticales con la fijación vista marcando el ritmo" loading="lazy">
+                    <figcaption>Contrapicado · la fijación marca el ritmo de las lamas</figcaption>
+                </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">Detalle constructivo</span>
+                    <h5>Fijación a la vista</h5>
+                    <p>Los tornillos, alineados con precisión, marcan la modulación de las lamas y resuelven el encuentro de forma directa y legible. El montaje y el mantenimiento se simplifican, sin renunciar al orden del conjunto.</p>
+                </div>
             </div>
         </article>
     </div>

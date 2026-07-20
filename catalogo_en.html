@@ -254,6 +254,17 @@
         .tramos span:not(.gap)::before { content: ""; position: absolute; top: 0; left: 4px; right: 4px; height: 6px;
             border: 1px solid var(--red); border-bottom: none; opacity: .85; }
         @media (max-width: 640px) { .tramos span { font-size: 9px; } }
+        /* UNIKO · bandas alternas imagen + texto (perspectiva conceptual / detalle técnico) */
+        .uband { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px,4vw,58px); align-items: center; margin-top: clamp(28px,4vw,52px); }
+        .uband.tech { grid-template-columns: 1.1fr .9fr; margin-top: clamp(22px,3vw,38px); }
+        .uband.tech .uband-media { order: 2; }
+        .uband-media img { width: 100%; height: auto; display: block; border-radius: 4px; }
+        .uband.tech .uband-media img { max-width: 88%; margin-left: auto; }
+        .uband-media figcaption { font-family: var(--sans); font-size: 11.5px; color: var(--grey); margin-top: 8px; letter-spacing: .3px; }
+        .uband-txt .uband-tag { display: inline-block; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+        .uband-txt h5 { font-family: var(--serif); font-weight: 500; font-size: clamp(19px,2.2vw,27px); color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+        .uband-txt p { color: var(--grey); max-width: 48ch; }
+        @media (max-width: 820px) { .uband, .uband.tech { grid-template-columns: 1fr; gap: 16px; } .uband.tech .uband-media { order: 0; } .uband.tech .uband-media img { max-width: 100%; } }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -771,11 +782,11 @@
                 <img src="Imagenes_Usadas/seccion_flow.png" alt="Plan section of the FLOW panel with the sheet type per bay" loading="lazy" data-nozoom>
                 <div class="tramos" aria-hidden="true">
                     <span style="flex:15">Eskaler 22</span>
-                    <span style="flex:16.5">Eskaler 48</span>
-                    <span style="flex:16">Asimmetric 60</span>
-                    <span class="gap" style="flex:5"></span>
-                    <span style="flex:16">Asimmetric 60</span>
-                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:15.2">Eskaler 48</span>
+                    <span style="flex:15.8">Asimmetric 60</span>
+                    <span class="gap" style="flex:7.9"></span>
+                    <span style="flex:15.8">Asimmetric 60</span>
+                    <span style="flex:15.2">Eskaler 48</span>
                     <span style="flex:15">Eskaler 22</span>
                 </div>
             </div>
@@ -820,19 +831,32 @@
                 <span class="uproj-tag">Concealed fixing</span>
                 <h4>A continuous skin, no visible screws</h4>
             </div>
-            <p class="uproj-desc">The made-to-measure profile is anchored with an interlocking overlap: all the fixings stay hidden and the envelope reads as a <em>continuous skin</em> of vertical fins, without interruptions. The result is a taut façade where only the metal and the light set the rhythm.</p>
+            <p class="uproj-desc">The anchoring disappears and the envelope is resolved as a single <em>continuous surface</em>: with no joints or screws breaking the plane, the skin of vertical fins reads taut and silent.</p>
             <figure class="perfil-fig">
                 <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
                 <div class="perfil-plate"><span class="lbl">Plan detail · concealed fixing</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="Plan section of the UNIKO profile with concealed fixing: fins and interlocking overlap" loading="lazy" data-nozoom></div>
             </figure>
-            <div class="uproj-media">
-                <div class="u-left">
-                    <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Detail of the vertical fins with concealed fixing and an interlocking overlap" loading="lazy"></figure>
-                </div>
-                <figure class="u-right">
-                    <div class="frame"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_esquina.webp" alt="Corner of the building: stepped volumes clad in made-to-measure fins with concealed anchoring" loading="lazy"></div>
+            <div class="uband">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_oculta_esquina.webp" alt="Corner of the building with the continuous skin of vertical fins and concealed anchoring" loading="lazy">
                     <figcaption>Corner and cantilevers · the skin turns without a visible joint</figcaption>
                 </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">The same building, a different skin</span>
+                    <h5>The system sets the character</h5>
+                    <p>It's the same vertical-fin project as the exposed-fixing version, resolved with a different skin. By hiding the anchoring, the volume reads monolithic and serene: only the metal and the light set the rhythm, and the façade turns corners and cantilevers without a single interrupting joint.</p>
+                </div>
+            </div>
+            <div class="uband tech">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Upward view of the vertical fins with concealed fixing and an interlocking overlap" loading="lazy">
+                    <figcaption>Upward view · standing seam and overlap, no visible fixing</figcaption>
+                </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">Construction detail</span>
+                    <h5>Interlocking overlap</h5>
+                    <p>Each fin locks over the next with a fold that houses the anchoring inside. The panel width stays free —wider or narrower depending on the project— and the fixings never show on the face.</p>
+                </div>
             </div>
         </article>
 
@@ -841,19 +865,32 @@
                 <span class="uproj-tag">Exposed fixing</span>
                 <h4>The rhythm of the fixing, on show</h4>
             </div>
-            <p class="uproj-desc">The same language of fins resolved with exposed fixing: the ordered screws draw a <em>regular rhythm</em> across the panel and bring a technical, honest texture. It shows how the façade is built, without hiding it, with a more graphic and direct reading.</p>
+            <p class="uproj-desc">The construction is shown openly: the ordered, aligned screws draw a <em>regular rhythm</em> across the panel and give the skin of fins a technical, honest texture.</p>
             <figure class="perfil-fig">
                 <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
                 <div class="perfil-plate"><span class="lbl">Plan detail · exposed fixing</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="Plan section of the UNIKO profile with exposed fixing: fins and visible screws" loading="lazy" data-nozoom></div>
             </figure>
-            <div class="uproj-media">
-                <div class="u-left">
-                    <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Detail of the vertical fins with the exposed fixing setting the rhythm" loading="lazy"></figure>
-                </div>
-                <figure class="u-right">
-                    <div class="frame"><img src="Imagenes_Usadas/uniko_ejemplo_vista_esquina.webp" alt="Corner of the building with exposed-fixing vertical fins and timber soffits" loading="lazy"></div>
-                    <figcaption>Upward view · the technical rhythm of the fixing</figcaption>
+            <div class="uband">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_vista_esquina.webp" alt="Corner of the building with exposed-fixing vertical fins turning the volume" loading="lazy">
+                    <figcaption>Corner · the fin skin turns the volume of the building</figcaption>
                 </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">The same building, a different skin</span>
+                    <h5>The system sets the character</h5>
+                    <p>The same vertical-fin project, resolved with a different skin. Here the system doesn't hide: the grid of fixings becomes part of the façade's language and gives it a more graphic, direct character, where you can read how it's built.</p>
+                </div>
+            </div>
+            <div class="uband tech">
+                <figure class="uband-media">
+                    <img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Upward view of the vertical fins with the exposed fixing setting the rhythm" loading="lazy">
+                    <figcaption>Upward view · the fixing sets the rhythm of the fins</figcaption>
+                </figure>
+                <div class="uband-txt">
+                    <span class="uband-tag">Construction detail</span>
+                    <h5>Exposed fixing</h5>
+                    <p>The precisely aligned screws mark the modulation of the fins and resolve the junction in a direct, legible way. Assembly and maintenance are simplified, without giving up the order of the whole.</p>
+                </div>
             </div>
         </article>
     </div>
