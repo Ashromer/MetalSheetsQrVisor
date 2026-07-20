@@ -241,13 +241,19 @@
         .perfil img { width: 100%; height: auto; display: block; }
         .perfil.on-dark { border-top-color: rgba(236,231,223,.16); }
         .perfil.on-dark .lbl { color: #b3aa9d; }
-        /* Sección de perfil enfrentada a su alzado frontal (una sola figura) */
-        .perfil-fig { margin-top: 12px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
-        .u-left .perfil-fig { margin-top: 0; }
-        .perfil-fig .perfil-plate { padding: 14px clamp(14px,2.4vw,26px) 12px; background: #fff; border-bottom: 1px solid var(--line); }
+        /* Figura de sistema: imagen frontal arriba + detalle en planta debajo (como el catálogo PDF) */
+        .perfil-fig { margin-top: 6px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
+        .perfil-fig .frame { border-radius: 0; }
+        .perfil-fig .perfil-plate { padding: 14px clamp(14px,2.4vw,26px) 14px; background: #fff; border-top: 1px solid var(--line); }
         .perfil-fig .perfil-plate .lbl { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8a8175; margin-bottom: 10px; }
         .perfil-fig .perfil-plate img { width: 100%; height: auto; display: block; }
-        .perfil-fig .frame { border-radius: 0; }
+        /* Etiquetas de plancha por tramo (FLOW) — corchete granate bajo cada tramo, como el PDF */
+        .tramos { display: flex; margin-top: 7px; }
+        .tramos span { position: relative; padding-top: 11px; text-align: center; font-family: var(--serif); font-style: italic;
+            font-size: clamp(9.5px,1.05vw,14px); line-height: 1.12; color: var(--red); }
+        .tramos span:not(.gap)::before { content: ""; position: absolute; top: 0; left: 4px; right: 4px; height: 6px;
+            border: 1px solid var(--red); border-bottom: none; opacity: .85; }
+        @media (max-width: 640px) { .tramos span { font-size: 9px; } }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -759,8 +765,20 @@
         <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">One building, all the strategies.</h3>
         <p class="body grey" style="max-width:70ch; margin-bottom:22px;">The FLOW pavilion brings the three strategies together in a single envelope: louvres and ORIGAMI profiles in different widths and materials, a made-to-measure perforated central surface and a skin that changes with the light. From day to night, the same façade never reads the same.</p>
         <figure class="perfil-fig">
-            <div class="perfil-plate"><span class="lbl">Profile section · exposed fixing</span><img src="Imagenes_Usadas/seccion_flow.png" alt="FLOW profile section: fins with fixing detail" loading="lazy" data-nozoom></div>
             <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_01_composicion.webp" alt="FLOW composition: louvres, corten profiles and a made-to-measure perforated central surface on the same façade" loading="lazy"></div>
+            <div class="perfil-plate">
+                <span class="lbl">Plan detail · sheet per bay</span>
+                <img src="Imagenes_Usadas/seccion_flow.png" alt="Plan section of the FLOW panel with the sheet type per bay" loading="lazy" data-nozoom>
+                <div class="tramos" aria-hidden="true">
+                    <span style="flex:15">Eskaler 22</span>
+                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:16">Asimmetric 60</span>
+                    <span class="gap" style="flex:5"></span>
+                    <span style="flex:16">Asimmetric 60</span>
+                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:15">Eskaler 22</span>
+                </div>
+            </div>
         </figure>
         <div class="gal2" style="margin-top:16px;">
             <figure class="ucard"><div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_02_atardecer.webp" alt="FLOW pavilion at sunset with the skyline behind" loading="lazy"></div><figcaption>Sunset · warm finishes respond to low light</figcaption></figure>
@@ -803,12 +821,12 @@
                 <h4>A continuous skin, no visible screws</h4>
             </div>
             <p class="uproj-desc">The made-to-measure profile is anchored with an interlocking overlap: all the fixings stay hidden and the envelope reads as a <em>continuous skin</em> of vertical fins, without interruptions. The result is a taut façade where only the metal and the light set the rhythm.</p>
+            <figure class="perfil-fig">
+                <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
+                <div class="perfil-plate"><span class="lbl">Plan detail · concealed fixing</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="Plan section of the UNIKO profile with concealed fixing: fins and interlocking overlap" loading="lazy" data-nozoom></div>
+            </figure>
             <div class="uproj-media">
                 <div class="u-left">
-                    <figure class="perfil-fig">
-                        <div class="perfil-plate"><span class="lbl">Profile section · concealed fixing</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="UNIKO profile section with concealed fixing: fins and interlocking overlap" loading="lazy" data-nozoom></div>
-                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
-                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Detail of the vertical fins with concealed fixing and an interlocking overlap" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">
@@ -824,12 +842,12 @@
                 <h4>The rhythm of the fixing, on show</h4>
             </div>
             <p class="uproj-desc">The same language of fins resolved with exposed fixing: the ordered screws draw a <em>regular rhythm</em> across the panel and bring a technical, honest texture. It shows how the façade is built, without hiding it, with a more graphic and direct reading.</p>
+            <figure class="perfil-fig">
+                <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
+                <div class="perfil-plate"><span class="lbl">Plan detail · exposed fixing</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="Plan section of the UNIKO profile with exposed fixing: fins and visible screws" loading="lazy" data-nozoom></div>
+            </figure>
             <div class="uproj-media">
                 <div class="u-left">
-                    <figure class="perfil-fig">
-                        <div class="perfil-plate"><span class="lbl">Profile section · exposed fixing</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="UNIKO profile section with exposed fixing: fins and visible screws" loading="lazy" data-nozoom></div>
-                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
-                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Detail of the vertical fins with the exposed fixing setting the rhythm" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">

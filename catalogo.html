@@ -241,13 +241,19 @@
         .perfil img { width: 100%; height: auto; display: block; }
         .perfil.on-dark { border-top-color: rgba(236,231,223,.16); }
         .perfil.on-dark .lbl { color: #b3aa9d; }
-        /* Sección de perfil enfrentada a su alzado frontal (una sola figura) */
-        .perfil-fig { margin-top: 12px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
-        .u-left .perfil-fig { margin-top: 0; }
-        .perfil-fig .perfil-plate { padding: 14px clamp(14px,2.4vw,26px) 12px; background: #fff; border-bottom: 1px solid var(--line); }
+        /* Figura de sistema: imagen frontal arriba + detalle en planta debajo (como el catálogo PDF) */
+        .perfil-fig { margin-top: 6px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
+        .perfil-fig .frame { border-radius: 0; }
+        .perfil-fig .perfil-plate { padding: 14px clamp(14px,2.4vw,26px) 14px; background: #fff; border-top: 1px solid var(--line); }
         .perfil-fig .perfil-plate .lbl { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8a8175; margin-bottom: 10px; }
         .perfil-fig .perfil-plate img { width: 100%; height: auto; display: block; }
-        .perfil-fig .frame { border-radius: 0; }
+        /* Etiquetas de plancha por tramo (FLOW) — corchete granate bajo cada tramo, como el PDF */
+        .tramos { display: flex; margin-top: 7px; }
+        .tramos span { position: relative; padding-top: 11px; text-align: center; font-family: var(--serif); font-style: italic;
+            font-size: clamp(9.5px,1.05vw,14px); line-height: 1.12; color: var(--red); }
+        .tramos span:not(.gap)::before { content: ""; position: absolute; top: 0; left: 4px; right: 4px; height: 6px;
+            border: 1px solid var(--red); border-bottom: none; opacity: .85; }
+        @media (max-width: 640px) { .tramos span { font-size: 9px; } }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -759,8 +765,20 @@
         <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">Un edificio, todas las estrategias.</h3>
         <p class="body grey" style="max-width:70ch; margin-bottom:22px;">El pabellón FLOW reúne las tres estrategias en una sola envolvente: lamas y perfiles ORIGAMI en distintos anchos y materiales, un paño central perforado a medida y una piel que cambia con la luz. Del día a la noche, la misma fachada nunca se lee igual.</p>
         <figure class="perfil-fig">
-            <div class="perfil-plate"><span class="lbl">Sección del perfil · fijación vista</span><img src="Imagenes_Usadas/seccion_flow.png" alt="Sección del perfil FLOW: lamas con detalle de fijación" loading="lazy" data-nozoom></div>
             <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_01_composicion.webp" alt="Composición FLOW: lamas, perfiles corten y paño central perforado a medida en una misma fachada" loading="lazy"></div>
+            <div class="perfil-plate">
+                <span class="lbl">Detalle en planta · planchas por tramo</span>
+                <img src="Imagenes_Usadas/seccion_flow.png" alt="Sección en planta del paño FLOW con las planchas por tramo" loading="lazy" data-nozoom>
+                <div class="tramos" aria-hidden="true">
+                    <span style="flex:15">Eskaler 22</span>
+                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:16">Asimmetric 60</span>
+                    <span class="gap" style="flex:5"></span>
+                    <span style="flex:16">Asimmetric 60</span>
+                    <span style="flex:16.5">Eskaler 48</span>
+                    <span style="flex:15">Eskaler 22</span>
+                </div>
+            </div>
         </figure>
         <div class="gal2" style="margin-top:16px;">
             <figure class="ucard"><div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_02_atardecer.webp" alt="Pabellón FLOW al atardecer con el skyline al fondo" loading="lazy"></div><figcaption>Atardecer · los acabados cálidos responden a la luz baja</figcaption></figure>
@@ -803,12 +821,12 @@
                 <h4>Piel continua, sin tornillos a la vista</h4>
             </div>
             <p class="uproj-desc">El perfil a medida se ancla con solape machihembrado: toda la tornillería queda escondida y la envolvente se lee como una <em>piel continua</em> de lamas verticales, sin interrupciones. El resultado es una fachada tersa donde el ritmo lo marcan solo el metal y la luz.</p>
+            <figure class="perfil-fig">
+                <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Edificio con perfil UNIKO a medida y fijación oculta, piel continua de lamas verticales" loading="lazy"></div>
+                <div class="perfil-plate"><span class="lbl">Detalle en planta · fijación oculta</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="Sección en planta del perfil UNIKO con fijación oculta: lamas y solape machihembrado" loading="lazy" data-nozoom></div>
+            </figure>
             <div class="uproj-media">
                 <div class="u-left">
-                    <figure class="perfil-fig">
-                        <div class="perfil-plate"><span class="lbl">Sección del perfil · fijación oculta</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="Sección del perfil UNIKO con fijación oculta: lamas y solape machihembrado" loading="lazy" data-nozoom></div>
-                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Edificio con perfil UNIKO a medida y fijación oculta, piel continua de lamas verticales" loading="lazy"></div>
-                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Detalle de las lamas verticales con fijación oculta y solape machihembrado" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">
@@ -824,12 +842,12 @@
                 <h4>El ritmo de la fijación, a la vista</h4>
             </div>
             <p class="uproj-desc">El mismo lenguaje de lamas resuelto con fijación vista: la tornillería ordenada dibuja un <em>ritmo regular</em> sobre el paño y aporta una textura técnica y honesta. Se muestra cómo se construye la fachada, sin ocultarlo, con una lectura más gráfica y directa.</p>
+            <figure class="perfil-fig">
+                <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Edificio con perfil UNIKO a medida y fijación vista, lamas verticales en verde" loading="lazy"></div>
+                <div class="perfil-plate"><span class="lbl">Detalle en planta · fijación vista</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="Sección en planta del perfil UNIKO con fijación vista: lamas y tornillería a la vista" loading="lazy" data-nozoom></div>
+            </figure>
             <div class="uproj-media">
                 <div class="u-left">
-                    <figure class="perfil-fig">
-                        <div class="perfil-plate"><span class="lbl">Sección del perfil · fijación vista</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="Sección del perfil UNIKO con fijación vista: lamas y tornillería a la vista" loading="lazy" data-nozoom></div>
-                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Edificio con perfil UNIKO a medida y fijación vista, lamas verticales en verde" loading="lazy"></div>
-                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Detalle de las lamas verticales con la fijación vista marcando el ritmo" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">
