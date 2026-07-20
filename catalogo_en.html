@@ -10,7 +10,7 @@
     <meta property="og:site_name" content="Metalperfil">
     <meta property="og:title" content="Metalperfil — Architectural metal envelopes">
     <meta property="og:description" content="Form + material + finish. A specification catalogue: architectural profiles, customisation and combinations for the building envelope.">
-    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.webp">
+    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.png">
     <meta property="og:url" content="https://ashromer.github.io/MetalSheetsQrVisor/catalogo_en.html">
     <link rel="canonical" href="https://ashromer.github.io/MetalSheetsQrVisor/catalogo_en.html">
     <link rel="alternate" hreflang="es" href="https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html">
@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Metalperfil — Architectural metal envelopes">
     <meta name="twitter:description" content="A specification catalogue of metal envelopes: form, material, finish and made-to-measure customisation.">
-    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.webp">
+    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -241,6 +241,13 @@
         .perfil img { width: 100%; height: auto; display: block; }
         .perfil.on-dark { border-top-color: rgba(236,231,223,.16); }
         .perfil.on-dark .lbl { color: #b3aa9d; }
+        /* Sección de perfil enfrentada a su alzado frontal (una sola figura) */
+        .perfil-fig { margin-top: 12px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #fff; }
+        .u-left .perfil-fig { margin-top: 0; }
+        .perfil-fig .perfil-plate { padding: 14px clamp(14px,2.4vw,26px) 12px; background: #fff; border-bottom: 1px solid var(--line); }
+        .perfil-fig .perfil-plate .lbl { display: block; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #8a8175; margin-bottom: 10px; }
+        .perfil-fig .perfil-plate img { width: 100%; height: auto; display: block; }
+        .perfil-fig .frame { border-radius: 0; }
         .fam-profile path { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
         .fam-viewer { margin-top: 22px; }
         model-viewer { width: 100%; height: 300px; background: radial-gradient(circle at 50% 36%, #ffffff 0%, #ece7df 82%);
@@ -590,7 +597,7 @@
         <p class="eyebrow">The façade as identity</p>
         <h2 class="section-title" style="margin:16px 0 22px;">Architecture expresses itself<br>through the façade.</h2>
         <p class="body-serif" style="max-width:62ch;">It is the building's first expression. It defines its character, communicates its purpose and holds a permanent dialogue with the urban context and the landscape. An envelope should never constrain architecture: <em>it should drive it.</em></p>
-        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,54px);"><img src="Imagenes_Usadas/fachada_identidad.webp" alt="Corten façade of vertical fins at sunset" loading="lazy"></div>
+        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,54px);"><img src="Imagenes_Usadas/fachada_identidad.png" alt="Corten façade of vertical fins at sunset" loading="lazy"></div>
     </div>
 </section>
 
@@ -715,7 +722,7 @@
             <p class="body" style="margin-top:20px;">ORIGAMI™ brings together a collection of architectural profiles conceived from carefully studied geometries to give the envelope identity, depth and expression. Each series explores a unique relationship between light, shadow, scale and volume: a library of forms to turn surfaces into elements with a personality of their own.</p>
             <p class="body" style="margin-top:14px;"><strong style="color:var(--ink);font-weight:500;">Five families that cover the whole geometric spectrum.</strong> We don't aim to extend the list endlessly: these five resolve any façade. The real value lies in what comes next — <em>customising</em> each profile in material, finish, perforation, direction and combination (FLOW), or designing it to measure (UNIKO).</p>
         </div>
-        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,52px);"><img src="Imagenes_Usadas/origami_pliegue.webp" alt="Urban building with an ORIGAMI envelope in three tones" loading="lazy"></div>
+        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,52px);"><img src="Imagenes_Usadas/origami_pliegue.png" alt="Urban building with an ORIGAMI envelope in three tones" loading="lazy"></div>
         <div id="famList"></div>
         <p class="body" style="margin-top:46px;color:var(--grey);font-size:13px;">Full technical data (dimensions, types and properties) in the per-profile product sheets — separate documentation.</p>
     </div>
@@ -751,8 +758,10 @@
         <p class="eyebrow" style="margin-top:clamp(48px,6vw,76px); color:#d99;">Combination strategies · design examples</p>
         <h3 style="font-family:var(--serif); color:#fff; font-weight:500; font-size:clamp(26px,3.4vw,40px); margin:10px 0 12px;">One building, all the strategies.</h3>
         <p class="body grey" style="max-width:70ch; margin-bottom:22px;">The FLOW pavilion brings the three strategies together in a single envelope: louvres and ORIGAMI profiles in different widths and materials, a made-to-measure perforated central surface and a skin that changes with the light. From day to night, the same façade never reads the same.</p>
-        <div class="perfil on-dark"><div class="lbl">Profile section · exposed fixing</div><img src="Imagenes_Usadas/seccion_flow.png" alt="FLOW profile section: fins with fixing detail" loading="lazy" data-nozoom></div>
-        <div class="frame" style="aspect-ratio:16/9; margin-top:22px;"><img src="Imagenes_Usadas/flow_ejemplo_01_composicion.webp" alt="FLOW composition: louvres, corten profiles and a made-to-measure perforated central surface on the same façade" loading="lazy"></div>
+        <figure class="perfil-fig">
+            <div class="perfil-plate"><span class="lbl">Profile section · exposed fixing</span><img src="Imagenes_Usadas/seccion_flow.png" alt="FLOW profile section: fins with fixing detail" loading="lazy" data-nozoom></div>
+            <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_01_composicion.webp" alt="FLOW composition: louvres, corten profiles and a made-to-measure perforated central surface on the same façade" loading="lazy"></div>
+        </figure>
         <div class="gal2" style="margin-top:16px;">
             <figure class="ucard"><div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_02_atardecer.webp" alt="FLOW pavilion at sunset with the skyline behind" loading="lazy"></div><figcaption>Sunset · warm finishes respond to low light</figcaption></figure>
             <figure class="ucard"><div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/flow_ejemplo_03_nocturno.webp" alt="FLOW pavilion at night: the perforated skin lit from inside" loading="lazy"></div><figcaption>Night · the perforated skin becomes an urban lantern</figcaption></figure>
@@ -794,10 +803,12 @@
                 <h4>A continuous skin, no visible screws</h4>
             </div>
             <p class="uproj-desc">The made-to-measure profile is anchored with an interlocking overlap: all the fixings stay hidden and the envelope reads as a <em>continuous skin</em> of vertical fins, without interruptions. The result is a taut façade where only the metal and the light set the rhythm.</p>
-            <div class="perfil"><div class="lbl">Profile section · concealed fixing</div><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="UNIKO profile section with concealed fixing: fins and interlocking overlap" loading="lazy" data-nozoom></div>
             <div class="uproj-media">
                 <div class="u-left">
-                    <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
+                    <figure class="perfil-fig">
+                        <div class="perfil-plate"><span class="lbl">Profile section · concealed fixing</span><img src="Imagenes_Usadas/seccion_uniko_oculta.png" alt="UNIKO profile section with concealed fixing: fins and interlocking overlap" loading="lazy" data-nozoom></div>
+                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_oculta.webp" alt="Building with a made-to-measure UNIKO profile and concealed fixing, a continuous skin of vertical fins" loading="lazy"></div>
+                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_oculta_detalle.webp" alt="Detail of the vertical fins with concealed fixing and an interlocking overlap" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">
@@ -813,10 +824,12 @@
                 <h4>The rhythm of the fixing, on show</h4>
             </div>
             <p class="uproj-desc">The same language of fins resolved with exposed fixing: the ordered screws draw a <em>regular rhythm</em> across the panel and bring a technical, honest texture. It shows how the façade is built, without hiding it, with a more graphic and direct reading.</p>
-            <div class="perfil"><div class="lbl">Profile section · exposed fixing</div><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="UNIKO profile section with exposed fixing: fins and visible screws" loading="lazy" data-nozoom></div>
             <div class="uproj-media">
                 <div class="u-left">
-                    <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
+                    <figure class="perfil-fig">
+                        <div class="perfil-plate"><span class="lbl">Profile section · exposed fixing</span><img src="Imagenes_Usadas/seccion_uniko_vista.png" alt="UNIKO profile section with exposed fixing: fins and visible screws" loading="lazy" data-nozoom></div>
+                        <div class="frame" style="aspect-ratio:16/9;"><img src="Imagenes_Usadas/uniko_ejemplo_vista.webp" alt="Building with a made-to-measure UNIKO profile and exposed fixing, vertical fins in green" loading="lazy"></div>
+                    </figure>
                     <figure class="frame ar32"><img src="Imagenes_Usadas/uniko_ejemplo_vista_detalle.webp" alt="Detail of the vertical fins with the exposed fixing setting the rhythm" loading="lazy"></figure>
                 </div>
                 <figure class="u-right">
@@ -1211,7 +1224,7 @@
         { num:'01', name:'Pyramid', anchor:'pyramid', tag:'Light carves every edge.', attrs:['Maximum expressiveness','Deep shadow','Identity'],
           apps:['Landmark buildings','Corporate headquarters','Cultural centres','Premium industry'],
           desc:'A harmonious arrangement of uniform triangular prisms, separated by flat segments that define each form with precision. The crisp pattern conveys durability and structural integrity; its pronounced angles embody a minimalist, contemporary aesthetic that enhances the visual depth of the façade.',
-          renders:['Imagenes_Usadas/render_pyramid_01.webp','Imagenes_Usadas/render_pyramid_02.webp','Imagenes_Usadas/render_pyramid_03.webp'], product:'Imagenes_Usadas/perfil_pyramid.png',
+          renders:['Imagenes_Usadas/render_pyramid_01.webp','Imagenes_Usadas/render_pyramid_02.png','Imagenes_Usadas/render_pyramid_03.webp'], product:'Imagenes_Usadas/perfil_pyramid.png',
           types:[
             {lab:'Pyramid 39', ancho:'882 mm', altura:'39 mm', img:'Imagenes_Usadas/tipo_pyramid_39.webp'},
             {lab:'Pyramid 45', ancho:'1021 mm', altura:'47 mm', img:'Imagenes_Usadas/tipo_pyramid_45.webp'},
