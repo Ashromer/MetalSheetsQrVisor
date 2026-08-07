@@ -291,11 +291,11 @@
             auto-rotate
             interaction-prompt="none"
             camera-orbit="35deg 75deg auto"
-            min-camera-orbit="auto 0deg auto"
-            max-camera-orbit="auto 180deg auto"
+            min-camera-orbit="auto 25deg auto"
+            max-camera-orbit="auto 115deg auto"
             shadow-intensity="1"
-            environment-image="neutral"
-            exposure="1.2"
+            environment-image="assets/studio.hdr"
+            exposure="1.0"
             loading="eager"
             reveal="auto"
             ar
@@ -375,7 +375,11 @@
             overlay.classList.add('visible');
         }
         function hideStatus() { overlay.classList.remove('visible', 'error'); }
-        function setSource(src) { showStatus('Cargando modelo…', false); visor.src = encodeURI(src); }
+        function setSource(src) {
+            showStatus('Cargando modelo…', false);
+            visor.src = encodeURI(src);
+            asegurarAcabado();
+        }
 
         function populateFamilies() {
             familySelect.innerHTML = '';
@@ -425,13 +429,38 @@
             const h = hex.replace('#', '');
             return [parseInt(h.substring(0,2),16)/255, parseInt(h.substring(2,4),16)/255, parseInt(h.substring(4,6),16)/255, 1];
         }
-        function applyColor(hex) {
+        // Los GLB vienen con el material por defecto del exportador (metallic .2 / roughness .8),
+        // que se ve como plastico mate. Son chapas lacadas RAL: algo de metalicidad y brillo
+        // semimate para que el entorno se refleje y la pieza lea como metal.
+        const METALICIDAD = 0.55;
+        const RUGOSIDAD = 0.35;
+
+        let reaplicarTimer = null;
+
+        function applyColor(hex, reaplicarHasta = 0) {
             currentColor = hex;
-            if (!visor.model) return;
-            visor.model.materials.forEach(mat => {
-                if (mat.pbrMetallicRoughness) mat.pbrMetallicRoughness.setBaseColorFactor(hexToRgba(hex));
-            });
+            const materiales = visor.model && visor.model.materials;
+            if (materiales) {
+                materiales.forEach(mat => {
+                    if (!mat.pbrMetallicRoughness) return;
+                    mat.pbrMetallicRoughness.setBaseColorFactor(hexToRgba(hex));
+                    mat.pbrMetallicRoughness.setMetallicFactor(METALICIDAD);
+                    mat.pbrMetallicRoughness.setRoughnessFactor(RUGOSIDAD);
+                });
+            }
+            // Cada modelo nuevo trae su propio grafo de escena con el material por defecto del
+            // exportador, y llega despues del evento 'load'. Comprobar si "ya esta puesto" no
+            // vale: al pedir el modelo nuevo el que sigue cargado es el viejo, que ya lo tiene.
+            // Por eso se reaplica durante una ventana de tiempo tras cada cambio de modelo.
+            clearTimeout(reaplicarTimer);
+            if (Date.now() < reaplicarHasta) {
+                // setTimeout y no requestAnimationFrame: rAF se congela en pestanas de fondo.
+                reaplicarTimer = setTimeout(() => applyColor(hex, reaplicarHasta), 50);
+            }
         }
+
+        // Tras pedir un modelo nuevo, insistir 3 s: cubre carga en frio, cache y cambio de familia.
+        function asegurarAcabado() { applyColor(currentColor, Date.now() + 3000); }
         function renderColors() {
             colorContainer.innerHTML = '';
             colors.forEach((c, index) => {
@@ -449,11 +478,12 @@
             });
         }
 
-        visor.addEventListener('load', () => {
+        function onModelReady() {
             hideStatus();
-            applyColor(currentColor);
+            asegurarAcabado();
             console.log('GLB OK:', visor.src);
-        });
+        }
+        visor.addEventListener('load', onModelReady);
         visor.addEventListener('error', (e) => {
             console.error('Error model-viewer:', e.detail, visor.src);
             showStatus('No se pudo cargar este modelo', true);
@@ -464,6 +494,7 @@
         renderButtons();
         renderColors();
         updateCatalogLink();
+        asegurarAcabado();
 
         // Carga inicial respetando el deep-link (familia + tipo opcional)
         const initTypes = catalog[currentFamily].types;

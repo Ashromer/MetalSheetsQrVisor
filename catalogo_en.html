@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>document.documentElement.className += ' js';</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metalperfil — Architectural metal envelopes</title>
@@ -10,7 +11,10 @@
     <meta property="og:site_name" content="Metalperfil">
     <meta property="og:title" content="Metalperfil — Architectural metal envelopes">
     <meta property="og:description" content="Form + material + finish. A specification catalogue: architectural profiles, customisation and combinations for the building envelope.">
-    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.png">
+    <meta property="og:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://ashromer.github.io/MetalSheetsQrVisor/catalogo_en.html">
     <link rel="canonical" href="https://ashromer.github.io/MetalSheetsQrVisor/catalogo_en.html">
     <link rel="alternate" hreflang="es" href="https://ashromer.github.io/MetalSheetsQrVisor/catalogo.html">
@@ -19,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Metalperfil — Architectural metal envelopes">
     <meta name="twitter:description" content="A specification catalogue of metal envelopes: form, material, finish and made-to-measure customisation.">
-    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.png">
+    <meta name="twitter:image" content="https://ashromer.github.io/MetalSheetsQrVisor/Imagenes_Usadas/og_metalperfil.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -39,6 +43,8 @@
             --panel: #141210;          /* break oscuro de marca */
             --cream: #f7f5f1;
             --bronze: #9a6b3a;
+            --red-on-dark: #c96a75;    /* rojo de marca aclarado: AA sobre fondos oscuros */
+            --bronze-on-dark: #b8874c; /* idem bronce */
             --serif: 'Cormorant Garamond', serif;
             --sans: 'Montserrat', sans-serif;
             --maxw: 1280px;
@@ -47,7 +53,7 @@
         html { scroll-behavior: smooth; }
         body { background: var(--white); color: var(--ink); font-family: var(--sans);
             font-weight: 300; line-height: 1.75; font-size: 16px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        img { max-width: 100%; display: block; }
+        img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
         ::selection { background: var(--red); color: #fff; }
         .skip { position: absolute; left: -9999px; top: 0; z-index: 200; background: var(--red); color: #fff;
@@ -91,9 +97,10 @@
         .panel-dark .eyebrow { color: #d99; }
         .panel-dark .grey { color: #9c958b; }
 
-        .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
-        .reveal.in { opacity: 1; transform: none; }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } }
+        /* El contenido solo se oculta si el JS ha marcado la pagina: sin JS o si falla, todo queda visible */
+        html.js .reveal { opacity: 0; transform: translateY(26px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+        html.js .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } html.js .reveal { opacity: 1; transform: none; transition: none; } }
 
         /* ---------- HERO (1/3 rojo + texto a caballo sobre la imagen) ---------- */
         .hero { position: relative; display: grid; grid-template-columns: minmax(220px, 22%) 1fr; min-height: calc(100vh - 70px); }
@@ -165,6 +172,9 @@
         .panel-dark .icard { background: #1d1a16; border-color: rgba(236,231,223,.12); }
         .panel-dark .icard h4 { color: #fff; }
         .panel-dark .icard p { color: #a89f93; }
+        .panel-dark .icard .go { color: var(--red-on-dark); }
+        .panel-dark .icard .ic-n { color: var(--red-on-dark); }
+        .panel-dark .icard h4 .tm { color: var(--bronze-on-dark); }
 
         /* ---------- ORIGAMI familias ---------- */
         .fam-block { border-top: 1px solid var(--line); padding: clamp(48px, 7vw, 96px) 0; }
@@ -615,7 +625,7 @@
         <p class="eyebrow">The façade as identity</p>
         <h2 class="section-title" style="margin:16px 0 22px;">Architecture expresses itself<br>through the façade.</h2>
         <p class="body-serif" style="max-width:62ch;">It is the building's first expression. It defines its character, communicates its purpose and holds a permanent dialogue with the urban context and the landscape. An envelope should never constrain architecture: <em>it should drive it.</em></p>
-        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,54px);"><img src="Imagenes_Usadas/fachada_identidad.png" alt="Corten façade of vertical fins at sunset" loading="lazy"></div>
+        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,54px);"><img src="Imagenes_Usadas/fachada_identidad.webp" alt="Corten façade of vertical fins at sunset" loading="lazy"></div>
     </div>
 </section>
 
@@ -686,7 +696,7 @@
             </div>
             <div class="dos-col">
                 <div class="dos-media"><img src="Imagenes_Usadas/sistema_vista.webp" alt="Building with corrugated exposed-fix cladding" loading="lazy"></div>
-                <div class="dos-media esq" style="margin-top:12px;"><img src="Imagenes_Usadas/esquina_vista.webp" alt="Exposed fixing section: visible screw on the profile" loading="lazy"></div>
+                <div class="dos-media esq" style="margin-top:12px;"><img src="Imagenes_Usadas/esquina_vista.webp" alt="Exposed fixing section: visible screw on the profile" width="922" height="323" loading="lazy"></div>
                 <p class="dos-cap">Exposed screw · fixing rhythm on the façade</p>
                 <p class="eyebrow">Expressive architecture</p>
                 <h3>Exposed fixings</h3>
@@ -696,7 +706,7 @@
             </div>
             <div class="dos-col">
                 <div class="dos-media"><img src="Imagenes_Usadas/sistema_oculta.webp" alt="Standing-seam building with concealed fixing, continuous skin" loading="lazy"></div>
-                <div class="dos-media esq" style="margin-top:12px;"><img src="Imagenes_Usadas/esquina_oculta.webp" alt="Concealed fixing section: interlocking overlap, no visible screws" loading="lazy"></div>
+                <div class="dos-media esq" style="margin-top:12px;"><img src="Imagenes_Usadas/esquina_oculta.webp" alt="Concealed fixing section: interlocking overlap, no visible screws" width="922" height="323" loading="lazy"></div>
                 <p class="dos-cap">Interlocking overlap · no visible fixing</p>
                 <p class="eyebrow">Continuous architecture</p>
                 <h3>Concealed fixings</h3>
@@ -740,7 +750,7 @@
             <p class="body" style="margin-top:20px;">ORIGAMI™ brings together a collection of architectural profiles conceived from carefully studied geometries to give the envelope identity, depth and expression. Each series explores a unique relationship between light, shadow, scale and volume: a library of forms to turn surfaces into elements with a personality of their own.</p>
             <p class="body" style="margin-top:14px;"><strong style="color:var(--ink);font-weight:500;">Five families that cover the whole geometric spectrum.</strong> We don't aim to extend the list endlessly: these five resolve any façade. The real value lies in what comes next — <em>customising</em> each profile in material, finish, perforation, direction and combination (FLOW), or designing it to measure (UNIKO).</p>
         </div>
-        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,52px);"><img src="Imagenes_Usadas/origami_pliegue.png" alt="Urban building with an ORIGAMI envelope in three tones" loading="lazy"></div>
+        <div class="frame reveal" style="aspect-ratio:2/1; margin-top:clamp(34px,5vw,52px);"><img src="Imagenes_Usadas/origami_pliegue.webp" alt="Urban building with an ORIGAMI envelope in three tones" loading="lazy"></div>
         <div id="famList"></div>
         <p class="body" style="margin-top:46px;color:var(--grey);font-size:13px;">Full technical data (dimensions, types and properties) in the per-profile product sheets — separate documentation.</p>
     </div>
@@ -1280,7 +1290,7 @@
         { num:'01', name:'Pyramid', anchor:'pyramid', tag:'Light carves every edge.', attrs:['Maximum expressiveness','Deep shadow','Identity'],
           apps:['Landmark buildings','Corporate headquarters','Cultural centres','Premium industry'],
           desc:'A harmonious arrangement of uniform triangular prisms, separated by flat segments that define each form with precision. The crisp pattern conveys durability and structural integrity; its pronounced angles embody a minimalist, contemporary aesthetic that enhances the visual depth of the façade.',
-          renders:['Imagenes_Usadas/render_pyramid_01.webp','Imagenes_Usadas/render_pyramid_02.png','Imagenes_Usadas/render_pyramid_03.webp'], product:'Imagenes_Usadas/perfil_pyramid.png',
+          renders:['Imagenes_Usadas/render_pyramid_01.webp','Imagenes_Usadas/render_pyramid_02.webp','Imagenes_Usadas/render_pyramid_03.webp'], product:'Imagenes_Usadas/perfil_pyramid.webp',
           types:[
             {lab:'Pyramid 39', ancho:'882 mm', altura:'39 mm', img:'Imagenes_Usadas/tipo_pyramid_39.webp'},
             {lab:'Pyramid 45', ancho:'1021 mm', altura:'47 mm', img:'Imagenes_Usadas/tipo_pyramid_45.webp'},
@@ -1290,7 +1300,7 @@
         { num:'02', name:'Symmetric', anchor:'symmetric', tag:'Precise geometry, serene presence.', attrs:['Versatility','Technological image','Balance'],
           apps:['Offices','Administrative buildings','Logistics centres','Sports facilities'],
           desc:'Founded on the purity of proportion and geometric rigour. A metric of clean lines that articulates the façade with timeless sobriety, able to integrate into any contemporary architectural language.',
-          renders:['Imagenes_Usadas/render_symmetric_01.webp','Imagenes_Usadas/render_symmetric_02.webp','Imagenes_Usadas/render_symmetric_03.webp'], product:'Imagenes_Usadas/perfil_symmetric.png',
+          renders:['Imagenes_Usadas/render_symmetric_01.webp','Imagenes_Usadas/render_symmetric_02.webp','Imagenes_Usadas/render_symmetric_03.webp'], product:'Imagenes_Usadas/perfil_symmetric.webp',
           types:[
             {lab:'Symmetric 23', ancho:'925 mm', altura:'25 mm', angulo:'125°', img:'Imagenes_Usadas/tipo_symmetric_23.webp'},
             {lab:'Symmetric 25', ancho:'1155 mm', altura:'25 mm', angulo:'128°', img:'Imagenes_Usadas/tipo_symmetric_25.webp'},
@@ -1300,7 +1310,7 @@
         { num:'03', name:'Asymmetric', anchor:'asymmetric', tag:'Shadow and rhythm in motion.', attrs:['Dynamism','Directionality','Subtlety'],
           apps:['Flagship retail','Singular headquarters','Cultural spaces','Sculptural façades'],
           desc:'An asymmetric variation of the trapezoid: flanks of different slopes that break regular repetition and create a play of light that changes throughout the day. It keeps the technical rigour of Symmetric while introducing a subtle directionality that adds dynamism without giving up sobriety.',
-          renders:['Imagenes_Usadas/render_asymmetric_01.webp','Imagenes_Usadas/render_asymmetric_02.webp','Imagenes_Usadas/render_asymmetric_03.webp','Imagenes_Usadas/render_asymmetric_04.webp'], product:'Imagenes_Usadas/perfil_asymmetric.png',
+          renders:['Imagenes_Usadas/render_asymmetric_01.webp','Imagenes_Usadas/render_asymmetric_02.webp','Imagenes_Usadas/render_asymmetric_03.webp','Imagenes_Usadas/render_asymmetric_04.webp'], product:'Imagenes_Usadas/perfil_asymmetric.webp',
           types:[
             {lab:'Asymmetric 35', ancho:'740 mm', altura:'34 mm', img:'Imagenes_Usadas/tipo_asymmetric_35.webp'},
             {lab:'Asymmetric 55', ancho:'718 mm', altura:'55 mm', img:'Imagenes_Usadas/tipo_asymmetric_55.webp'},
@@ -1310,7 +1320,7 @@
         { num:'04', name:'Escaler', anchor:'escaler', tag:'Depth that changes with the sun.', attrs:['Bold relief','Rhythm','Graphic character'],
           apps:['Shopping centres','Infrastructure','Sports facilities','Representative industrial buildings'],
           desc:'A stepped geometry, with ascending treads that draw a succession of crisp planes and shadows. Its bold relief brings a strong graphic character, with a rhythmic, ordered reading that works especially well on large surfaces.',
-          renders:['Imagenes_Usadas/render_escaler_01.webp','Imagenes_Usadas/render_escaler_02.webp','Imagenes_Usadas/render_escaler_03.webp'], product:'Imagenes_Usadas/perfil_escaler.png',
+          renders:['Imagenes_Usadas/render_escaler_01.webp','Imagenes_Usadas/render_escaler_02.webp','Imagenes_Usadas/render_escaler_03.webp'], product:'Imagenes_Usadas/perfil_escaler.webp',
           types:[
             {lab:'Escaler 22', ancho:'1053 mm', altura:'22 mm', img:'Imagenes_Usadas/tipo_escaler_22.webp'},
             {lab:'Escaler 48', ancho:'1088 mm', altura:'48 mm', img:'Imagenes_Usadas/tipo_escaler_48.webp'},
@@ -1320,7 +1330,7 @@
         { num:'05', name:'Kaotico', anchor:'kaotico', tag:'A skin that breathes with the façade.', attrs:['Organic texture','Shifting reflections','Expressiveness'],
           apps:['Iconic architecture','Cultural centres','Singular infrastructure','Public facilities'],
           desc:'A deliberately irregular composition of folds: a seemingly random rhythm that breaks monotony and gives the skin a living, organic texture. The irregularity is controlled to generate shifting reflections — ideal for façades with expressive ambition.',
-          renders:['Imagenes_Usadas/render_kaotico_01.webp','Imagenes_Usadas/render_kaotico_02.webp','Imagenes_Usadas/render_kaotico_03.webp'], product:'Imagenes_Usadas/perfil_kaotico.png',
+          renders:['Imagenes_Usadas/render_kaotico_01.webp','Imagenes_Usadas/render_kaotico_02.webp','Imagenes_Usadas/render_kaotico_03.webp'], product:'Imagenes_Usadas/perfil_kaotico.webp',
           types:[
             {lab:'Kaotico 24', ancho:'983 mm', altura:'24 mm', img:'Imagenes_Usadas/tipo_kaotico_24.webp'},
             {lab:'Kaotico 28', ancho:'865 mm', altura:'30 mm', img:'Imagenes_Usadas/tipo_kaotico_28.webp'},
